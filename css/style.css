@@ -179,9 +179,15 @@ template {
   display: none;
 }
 
+:root {
+  --background: rgba(27,28,29,1);
+  --foreground: rgba(224,220,207,1);
+  --transparent: rgba(224,220,207,0.3);
+}
+
 @font-face {
   font-family: Futura;
-  src: local(Futura), url(fonts/FuturaLT-Bold.woff2) format("woff2"), url(fonts/FuturaLT-Bold.woff) format("woff");
+  src: local(Futura), url(../fonts/futuralt-bold-subset.woff2) format("woff2"), url(../fonts/futuralt-bold-subset.woff) format("woff");
   font-weight: 700;
   font-size: normal;
   font-optical-sizing: auto;
@@ -197,15 +203,15 @@ body {
   padding: 0;
   margin: 0;
   font-family: Futura, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
-  color: #e0dccf;
-  background: #1b1c1d;
+  color: var(--foreground);
+  background: var(--background);
   font-weight: 700;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 #site-main {
-  margin: 3.125rem;
+  padding: 3.125rem;
 }
 
 p {
@@ -246,15 +252,23 @@ h1 {
 }
 
 .logo {
+  position: relative;
   padding-left: 0px;
   padding-right: 0px;
 }
 
 .circle {
   width: 100%;
-  background: rgba(255, 255, 255, 0.3);
+  background: var(--transparent);
   border-radius: 50%;
   position: relative;
+}
+
+.knapp-image {
+  position: absolute;
+  width: 100%;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .circle::after {
@@ -263,10 +277,9 @@ h1 {
   padding-bottom: 100%;
 }
 
-.knapp-image {
+.knapp-image img {
   width: 100%;
-  background-image: url("../images/knapp-painting-1000.jpg");
-  background-size: cover;
+  height: auto;
   border-radius: 50%;
 }
 
@@ -314,6 +327,23 @@ h1 {
   margin: 0;
 }
 
+.static {
+  position: relative;
+}
+
+.static::after {
+  background: url(../img/noise.jpg);
+  content: "";
+  height: 100%;
+  left: 0px;
+  opacity: 0.05;
+  pointer-events: none;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  z-index: 201;
+}
+
 @media (min-width: 992px) {
   .col-lg-8 {
     -ms-flex: 0 0 66.666667%;
@@ -324,6 +354,10 @@ h1 {
   }
 }
 @media (max-width: 991px) {
+  .knapp-image {
+    width: 96%;
+  }
+
   .footer-text {
     font-size: 1.9vw;
   }
@@ -345,7 +379,7 @@ h1 {
   }
 
   #site-main {
-    margin: 0;
+    padding: 0;
   }
 
   .container-fluid {
