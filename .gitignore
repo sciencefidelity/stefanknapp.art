@@ -3,8 +3,8 @@
 .nova/
 
 # Unformatted system generated files
-# *.css
-# *.css.map
+*.css
+*.css.map
 
 # Backups
 *.bak
