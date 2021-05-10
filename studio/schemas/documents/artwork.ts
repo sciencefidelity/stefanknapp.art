@@ -42,6 +42,7 @@ export default {
   preview: {
     select: {
       title: 'title.en',
+      subtitle: 'date',
       media: 'mainImage',
     },
   },
