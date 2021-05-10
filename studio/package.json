@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "Website about the artist Stefan Knapp",
   "main": "package.json",
-  "author": "Matt Cook <sciencefidelity@hotmail.com>",
+  "author": "Matt Cook <matt@sciencefidelity.co.uk>",
   "license": "UNLICENSED",
   "scripts": {
     "start": "sanity start",
