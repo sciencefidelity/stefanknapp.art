@@ -1,11 +1,33 @@
 <template>
-  <div class="container">
-    <div>
-      <h1 class="title">
-        KNAPP
-      </h1>
+  <section id="site-main">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-8 logo">
+          <div class="knapp-image">
+            <!-- <picture>
+              <source srcset="./img/sknapparchive-02-square-55.webp" type="image/webp">
+              <source srcset="./img/sknapparchive-02-square-55.jpg" type="image/jpeg">
+              <img src="./img/sknapparchive-02-square-55.jpg" alt="Stefan Knapp in the studio" width="1000" height="1000" />
+            </picture> -->
+          </div>
+          <div class="circle">
+            <div class="title"><h1>Knapp</h1></div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="spacer"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-8 footer">
+          <p class="footer-text"><span class="top-row">Galerie Günther Franke München &bull; Maximilianstraße 22, Telefon 226420</span><br />
+          <span class="bottom-row">2. Februar bis Ende Februar 1968, geöffnet Montag mit Samstag 9 bis 17 Uhr</span></p>
+        </div>
+      </div>
     </div>
-  </div>
+  </section><!-- .site-main -->
 </template>
 
 <script lang="ts">
@@ -15,28 +37,5 @@ export default Vue.extend({})
 </script>
 
 <style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family:
-    Futura,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    "Helvetica Neue",
-    Arial,
-    "Noto Sans",
-    sans-serif;
-  font-weight: 700;
-  font-size: 100px;
-}
 
 </style>
