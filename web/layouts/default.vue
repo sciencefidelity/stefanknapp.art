@@ -6,6 +6,16 @@
 
 <style>
 
+@font-face {
+  font-family: Futura;
+  src:  url('~assets/fonts/futuralt-bold-subset.woff2') format('woff2'),
+        url('~assets/fonts/futuralt-bold-subset.woff') format('woff');
+  font-weight: 700;
+  font-size: normal;
+  font-optical-sizing: auto;
+  font-display: swap;
+}
+
 :root {
   --background: rgba(27,28,29,1);
   --foreground: rgba(224,220,207,1);
