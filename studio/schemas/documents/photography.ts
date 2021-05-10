@@ -1,6 +1,6 @@
 export default {
-  name: 'artwork',
-  title: 'Artwork',
+  name: 'photography',
+  title: 'Photography',
   type: 'document',
   fields: [
     {
@@ -14,25 +14,9 @@ export default {
       type: 'string',
     },
     {
-      name: 'dimensions',
-      title: 'Dimensions',
-      type: 'string',
-    },
-    {
-      name: 'location',
-      title: 'Location',
-      type: 'localeString',
-    },
-    {
-      name: 'medium',
-      title: 'Medium',
-      type: 'array',
-      of: [{type: 'reference', to: {type: 'medium'}}],
-    },
-    {
       name: 'mainImage',
       title: 'Main image',
-      type: 'image',
+      type: 'captionImage',
       options: {
         hotspot: true,
       },

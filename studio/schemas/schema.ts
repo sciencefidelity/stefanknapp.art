@@ -14,6 +14,7 @@ import localeString from './objects/localeString'
 // documents
 import artwork from './documents/artwork'
 import bio from './documents/bio'
+import photography from './documents/photography'
 import meta from './documents/meta'
 import page from './documents/page'
 import video from './documents/video'
@@ -37,6 +38,7 @@ export default createSchema({
     bio,
     meta,
     page,
+    photography,
     video,
 
     // taxonomy
