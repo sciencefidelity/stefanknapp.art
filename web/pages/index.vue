@@ -1,7 +1,6 @@
 <template>
   <div class="container">
     <div>
-      <Logo />
       <h1 class="title">
         stefanknapp.art
       </h1>
@@ -27,14 +26,14 @@ export default Vue.extend({})
 
 .title {
   font-family:
-    'Quicksand',
-    'Source Sans Pro',
+    Futura,
     -apple-system,
     BlinkMacSystemFont,
-    'Segoe UI',
+    "Segoe UI",
     Roboto,
-    'Helvetica Neue',
+    "Helvetica Neue",
     Arial,
+    "Noto Sans",
     sans-serif;
   display: block;
   font-weight: 300;
