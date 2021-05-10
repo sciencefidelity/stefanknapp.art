@@ -5,7 +5,7 @@ export default {
   fields: [
     {
       name: 'caption',
-      type: 'string',
+      type: 'localeString',
       title: 'Caption',
       options: {
         isHighlighted: true

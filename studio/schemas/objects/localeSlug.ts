@@ -11,7 +11,7 @@ export default {
       options: { collapsible: true }
     }
   ],
-  
+
   fields: [
     {
       title: 'English',
@@ -22,8 +22,8 @@ export default {
       },
     },
     {
-      title: 'Welsh',
-      name: 'cy',
+      title: 'Polish',
+      name: 'pl',
       type: 'slug',
       fieldset: 'translations',
       options: {
