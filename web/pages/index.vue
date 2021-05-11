@@ -11,6 +11,7 @@
               h=1000
               fit="crop"
               crop="top,left"
+              :alt="photography.title.en"
             />
           </div>
           <div class="circle">
@@ -37,8 +38,11 @@
 import Vue from 'vue'
 import { groq } from '@nuxtjs/sanity'
 
-const query = groq`{ "photography": *[_type == "photography"][0].title.en }`
-console.log()
+const query = `
+  {
+    "photography": *[_type == "photography"]{title, en}[0]
+  }
+`
 
 export default {
   asyncData({ $sanity }) {
