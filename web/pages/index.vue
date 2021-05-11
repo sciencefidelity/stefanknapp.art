@@ -7,10 +7,11 @@
             <SanityImage
               asset-id="image-4de47b5ccfc29bd8cca028380b854bb40a48828d-2000x2534-jpg"
               auto="format"
-              w=1000
-              h=1000
+              w=950
+              h=950
               fit="crop"
               crop="top,left"
+              q="80"
               :alt="photography.title.en"
             />
           </div>
@@ -35,23 +36,19 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import { groq } from '@nuxtjs/sanity'
+  import Vue from 'vue'
+  import { groq } from '@nuxtjs/sanity'
 
-const query = `
-  {
-    "photography": *[_type == "photography"]{title, en}[0]
+  const query = `
+    {
+      "photography": *[_type == "photography"]{title, en}[0]
+    }
+  `
+
+  export default {
+    asyncData({ $sanity }) {
+      return $sanity.fetch(query)
+    },
   }
-`
 
-export default {
-  asyncData({ $sanity }) {
-    return $sanity.fetch(query)
-  },
-}
-
-</script>
-
-<style>
-
-</style>
+  </script>
