@@ -1,0 +1,11 @@
+// typography
+
+@font-face {
+  font-family: Futura;
+  src:  url(../fonts/futuralt-bold-subset.woff2) format('woff2'),
+        url(../fonts/futuralt-bold-subset.woff) format('woff');
+  font-weight: 700;
+  font-size: normal;
+  font-optical-sizing: auto;
+  font-display: swap;
+}
