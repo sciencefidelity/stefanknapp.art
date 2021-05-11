@@ -4,11 +4,14 @@
       <div class="row">
         <div class="col-lg-8 logo">
           <div class="knapp-image">
-            <!-- <picture>
-              <source srcset="./img/sknapparchive-02-square-55.webp" type="image/webp">
-              <source srcset="./img/sknapparchive-02-square-55.jpg" type="image/jpeg">
-              <img src="./img/sknapparchive-02-square-55.jpg" alt="Stefan Knapp in the studio" width="1000" height="1000" />
-            </picture> -->
+            <SanityImage
+              asset-id="image-4de47b5ccfc29bd8cca028380b854bb40a48828d-2000x2534-jpg"
+              auto="format"
+              w=1000
+              h=1000
+              fit="crop"
+              crop="top,left"
+            />
           </div>
           <div class="circle">
             <div class="title"><h1>Knapp</h1></div>
@@ -32,8 +35,17 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { groq } from '@nuxtjs/sanity'
 
-export default Vue.extend({})
+const query = groq`{ "photography": *[_type == "photography"][0].title.en }`
+console.log()
+
+export default {
+  asyncData({ $sanity }) {
+    return $sanity.fetch(query)
+  },
+}
+
 </script>
 
 <style>
