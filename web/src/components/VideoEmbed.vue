@@ -1,5 +1,9 @@
 <template>
-  <video autoplay loop width="250">
+  <video
+    autoplay
+    loop
+    :class="classname"
+  >
     <source src="../../static/06-hc-sq.mp4"
             type="video/mp4">
     Sorry, your browser doesn't support embedded videos.
@@ -8,15 +12,13 @@
 
 <script lang="ts">
   export default {
-    name: 'VideoEmbed'
+    name: 'VideoEmbed',
+    props: {
+      classname: {
+        type: String,
+        default: 'video-embed',
+      },
+    }
   }
 
 </script>
-
-<style scoped>
-  video {
-    border-radius: 50%;
-    width: 100%;
-    height: auto;
-  }
-</style>

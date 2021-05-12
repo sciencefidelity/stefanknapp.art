@@ -90,7 +90,7 @@
     width: 100%;
     border-radius: 50%;
     object-fit: cover;
-    img {
+    video {
       width: 100%;
       height: auto;
       border-radius: 50%;
