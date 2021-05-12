@@ -6,20 +6,12 @@
         <div class="row">
           <div class="col-lg-8 logo">
             <div class="knapp-image">
-              <g-image
-                :alt="$static.sanityPhotography.title.en"
-                :src="$urlForImage($static.sanityPhotography.mainImage, $static.metadata.sanityOptions)
-                  .format('webp')
-                  .auto('format')
-                  .quality(80)
-                  .fit('crop')
-                  .crop('top')
-                  .width(450)
-                  .height(450)
-                  .url()"
-                width="900"
-                height="900"
-                blur="40"
+              <SanityImage
+                :title="$static.sanityPhotography.title.en"
+                :link="$static.sanityPhotography.mainImage"
+                width=450
+                height=450
+                crop="top"
               />
             </div>
             <div class="circle">
@@ -34,8 +26,14 @@
         </div>
         <div class="row">
           <div class="col-lg-8 footer">
-            <p class="footer-text"><span class="top-row">Galerie Günther Franke München &bull; Maximilianstraße 22, Telefon 226420</span><br />
-            <span class="bottom-row">2. Februar bis Ende Februar 1968, geöffnet Montag mit Samstag 9 bis 17 Uhr</span></p>
+            <p class="footer-text">
+              <span class="top-row">
+                Galerie Günther Franke München &bull; Maximilianstraße 22, Telefon 226420
+              </span><br />
+              <span class="bottom-row">
+                2. Februar bis Ende Februar 1968, geöffnet Montag mit Samstag 9 bis 17 Uhr
+              </span>
+            </p>
           </div>
         </div>
       </div>
@@ -46,15 +44,10 @@
 
 <static-query>
   query {
-    metadata {
-      sanityOptions {
-        projectId
-        dataset
-      }
-    }
     sanityPhotography(id: "de115ee8-e847-45f1-a4b9-e1d0fc69dffe") {
       title {
         en
+        pl
       }
       mainImage {
         asset {
@@ -65,6 +58,17 @@
     }
   }
 </static-query>
+
+<script>
+  import SanityImage from '../components/SanityImage'
+
+  export default {
+    name: 'Index',
+    components: {
+      SanityImage,
+    }
+  }
+</script>
 
 <style lang="scss" scoped>
   .logo {
