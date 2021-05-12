@@ -10,6 +10,7 @@
     "@sanity/image-url": "^0.140.22",
     "dotenv": "^9.0.2",
     "gridsome": "^0.7.0",
+    "gridsome-plugin-i18n": "^1.6.0",
     "gridsome-source-sanity": "^1.0.5"
   },
   "devDependencies": {
