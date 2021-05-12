@@ -1,10 +1,12 @@
 <template>
-  <div>
-    This is the art page
-  </div>
+  <Layout>
+    <div>
+      This is the art page
+    </div>
+  </Layout>
 </template>
 
-<script lang="ts">
+<script>
 
 export default {
   name: 'Art'

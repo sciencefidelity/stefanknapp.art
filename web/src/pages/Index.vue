@@ -1,6 +1,5 @@
 <template>
   <Layout>
-
     <section id="site-main">
       <div class="container-fluid">
         <div class="row">
@@ -32,7 +31,6 @@
         </div>
       </div>
     </section>
-
   </Layout>
 </template>
 
@@ -54,13 +52,13 @@
 </static-query>
 
 <script>
-  import SanityImage from '../components/SanityImage'
+  import FrontPage from '../layouts/FrontPage'
   import VideoEmbed from '../components/VideoEmbed'
 
   export default {
     name: 'Index',
     components: {
-      SanityImage,
+      FrontPage,
       VideoEmbed,
     }
   }

@@ -1,7 +1,9 @@
 <template>
-  <div>
-    This is the estate page
-  </div>
+  <Layout>
+    <div>
+      This is the estate page
+    </div>
+  </Layout>
 </template>
 
 <script lang="ts">
