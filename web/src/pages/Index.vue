@@ -6,13 +6,7 @@
         <div class="row">
           <div class="col-lg-8 logo">
             <div class="knapp-image">
-              <SanityImage
-                :title="$static.sanityPhotography.title.en"
-                :link="$static.sanityPhotography.mainImage"
-                width=450
-                height=450
-                crop="top"
-              />
+              <VideoEmbed />
             </div>
             <div class="circle">
               <div class="title"><h1>Knapp</h1></div>
@@ -61,11 +55,13 @@
 
 <script>
   import SanityImage from '../components/SanityImage'
+  import VideoEmbed from '../components/VideoEmbed'
 
   export default {
     name: 'Index',
     components: {
       SanityImage,
+      VideoEmbed,
     }
   }
 </script>
