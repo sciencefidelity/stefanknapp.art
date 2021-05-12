@@ -1,0 +1,73 @@
+@import 'scss/normalize';
+@import 'scss/typography';
+
+:root {
+  --background: rgba(27,28,29,1);
+  --foreground: rgba(224,220,207,1);
+  --transparent: rgba(224,220,207,0.3);
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: Futura,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+  color: var(--foreground);
+  background: var(--background);
+  font-weight: 700;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#site-main {
+  padding: 3.125rem;
+  @media (max-width: 991px) {
+    padding: 0;
+  }
+}
+
+p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 4rem;
+  color: black;
+  font-weight: 700;
+}
+
+.container-fluid {
+  padding-left: 0.325rem;
+  padding-right: 0.325rem;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.row {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.col-lg-8 {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  @media (min-width: 992px) {
+    -ms-flex: 0 0 66.666667%;
+    flex: 0 0 66.666667%;
+    max-width: 66.666667%;
+    position: relative;
+    width: 100%;
+  }
+}

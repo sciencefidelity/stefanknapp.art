@@ -1,0 +1,19 @@
+{
+  "name": "knapp-stage",
+  "private": true,
+  "scripts": {
+    "develop": "gridsome develop",
+    "explore": "gridsome explore",
+    "build": "gridsome build"
+  },
+  "dependencies": {
+    "@sanity/image-url": "^0.140.22",
+    "dotenv": "^9.0.2",
+    "gridsome": "^0.7.0",
+    "gridsome-source-sanity": "^1.0.5"
+  },
+  "devDependencies": {
+    "sass": "^1.32.12",
+    "sass-loader": "10"
+  }
+}
