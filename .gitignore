@@ -75,8 +75,9 @@ typings/
 # nuxt.js build output
 .nuxt
 
-# Nuxt generate
+# Gridsome generate
 dist
+.temp
 
 # vuepress build output
 .vuepress/dist
