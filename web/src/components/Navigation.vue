@@ -1,7 +1,7 @@
 <template>
   <nav>
     <div class="container">
-      <div>Some content</div>
+      <div>Logo goes here</div>
       <div>
         <ul>
           <g-link to="/art/"><li>Art</li></g-link>

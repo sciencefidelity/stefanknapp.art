@@ -12,6 +12,7 @@
       .url()"
     :width=width
     :height=height
+    loading="lazy"
   />
 </template>
 
