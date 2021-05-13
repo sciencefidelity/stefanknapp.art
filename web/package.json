@@ -11,7 +11,8 @@
     "dotenv": "^9.0.2",
     "gridsome": "^0.7.0",
     "gridsome-plugin-i18n": "^1.6.0",
-    "gridsome-source-sanity": "^1.0.5"
+    "gridsome-source-sanity": "^1.0.5",
+    "v-lazy-image": "^1.4.0"
   },
   "devDependencies": {
     "sass": "^1.32.12",
