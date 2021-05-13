@@ -1,7 +1,7 @@
 <template>
   <nav>
     <div class="container">
-      <div>Logo goes here</div>
+      <g-link to="/"><div>Logo goes here</div></g-link>
       <div>
         <ul>
           <g-link to="/art/"><li>Art</li></g-link>
@@ -31,31 +31,35 @@
 </script>
 
 <style lang="scss" scoped>
-  nav {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 13rem;
-    background: rgba(black, 0.5);
-  }
-  .container {
-    width: 1000px;
-    height: 100%;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  ul {
-    list-style: none;
-    padding: 0;
-    text-align: right;
-    text-transform: uppercase;
-    font-size: 2rem;
-    a {
-      color: white;
-      text-decoration: none;
-    }
-  }
+@use '../assets/scss/colors' as c;
+
+nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 13rem;
+  background: rgba(black, 0.5);
+}
+
+.container {
+  width: 1000px;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+a {
+  color: c.$grey-050;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  text-align: right;
+  text-transform: uppercase;
+  font-size: 2rem;
+}
 </style>

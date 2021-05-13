@@ -27,9 +27,9 @@
 </script>
 
 <style lang="scss" scoped>
-  header {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-  }
+header {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
 </style>

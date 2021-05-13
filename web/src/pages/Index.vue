@@ -48,103 +48,106 @@
 </script>
 
 <style lang="scss" scoped>
-  .logo {
-    position: relative;
-    padding-left: 0px;
-    padding-right: 0px;
-  }
+@use '../assets/scss/colors' as c;
+@use '../assets/scss/breakpoints' as b;
 
-  .circle {
+body {
+  background: c.$grey-950;
+  color: c.$sepia-150;
+}
+
+h1 {
+  margin-bottom: 0px;
+  font-size: 7.5vw;
+  color: c.$grey-950;
+  @include b.mq(lg) {
+    font-size: 11vw;
+  }
+}
+
+.logo {
+  position: relative;
+  padding-left: 0px;
+  padding-right: 0px;
+  @include b.mq(lg) {
+    padding-top: 4%;
+    padding-right: 2%;
+    padding-left: 2%;
+    padding-bottom: 0;
+  }
+}
+
+.circle {
+  width: 100%;
+  background: rgba(c.$sepia-650, 0.3);
+  border-radius: 50%;
+  position: relative;
+  &::after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+  }
+}
+
+.knapp-image {
+  position: absolute;
+  width: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  @include b.mq(lg) {
+    width: 96%;
+  }
+  video {
     width: 100%;
-    background: var(--transparent);
+    height: auto;
     border-radius: 50%;
-    position: relative;
-    &::after {
-      content: "";
-      display: block;
-      padding-bottom: 100%;
-    }
   }
+}
 
-  .knapp-image {
-    position: absolute;
-    width: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-    video {
-      width: 100%;
-      height: auto;
-      border-radius: 50%;
-    }
+.spacer {
+  position: relative;
+  width: 100%;
+  &::after {
+    content: "";
+    display: block;
+    padding-bottom: 40%;
   }
+}
 
-  .spacer {
-    position: relative;
-    width: 100%;
-    &::after {
-      content: "";
-      display: block;
-      padding-bottom: 40%;
-    }
+.title {
+  text-transform: uppercase;
+  text-align: right;
+  position: absolute;
+  right: 0.6em;
+  bottom: 50%;
+  line-height: 0;
+  @include b.mq(lg) {
+    right: 0.5em;
   }
+}
 
-  .title {
-    text-transform: uppercase;
-    text-align: right;
-    position: absolute;
-    right: 0;
-    bottom: 50%;
-    line-height: 0;
-    h1 {
-       margin-bottom: 0px;
-       font-size: 3.65vw;
-       font-family: Futura;
-       font-weight: 700;
-      }
+.footer-text {
+  color: c.$sepia-150;
+  font-size: 1.35vw;
+  font-weight: 700;
+  line-height: 1.5;
+  @include b.mq(lg) {
+    font-size: 1.9vw;
   }
+}
 
-  .footer-text {
-    font-size: 1.35vw;
-    line-height: 1.5;
-  }
+.top-row {
+  letter-spacing: 0.029em;
+}
 
-  .top-row {
-    letter-spacing: 0.029em;
+.footer {
+  text-align: center;
+  @include b.mq(lg) {
+    padding-bottom: 1%;
   }
+  p {
+    margin: 0;
+  }
+}
 
-  .footer {
-    text-align: center;
-    p {
-      margin: 0;
-    }
-  }
-
-  @media (max-width: 991px) {
-    .knapp-image {
-      width: 96%;
-    }
-    .footer-text {
-      font-size: 1.9vw;
-    }
-    .title h1 {
-      font-size: 5.5vw;
-    }
-    .row {
-      margin-right: 0px;
-      margin-left: 0px;
-    }
-    .logo {
-      padding-top: 4%;
-      padding-right: 2%;
-      padding-left: 2%;
-      padding-bottom: 0;
-    }
-    .container-fluid {
-      padding-left: 0;
-      padding-right: 0;
-    }
-    .footer {
-      padding-bottom: 1%;
-    }
-  }
 </style>

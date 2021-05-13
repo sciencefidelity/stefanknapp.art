@@ -1,11 +1,7 @@
-@import 'scss/normalize';
-@import 'scss/typography';
-
-:root {
-  --background: rgba(27,28,29,1);
-  --foreground: rgba(224,220,207,1);
-  --transparent: rgba(224,220,207,0.3);
-}
+@use 'scss/normalize';
+@use 'scss/typography' as t;
+@use 'scss/colors' as c;
+@use 'scss/breakpoints' as b;
 
 *,
 *::after,
@@ -14,13 +10,16 @@
   margin: 0;
 }
 
-body {
-  font-family: Futura,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
-  color: var(--foreground);
-  background: var(--background);
-  font-weight: 700;
+html {
+  font-size: 62.5%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: t.$stack;
+  color: c.$grey-000;
+  background: c.$grey-950;
 }
 
 #site-main {
@@ -30,16 +29,36 @@ body {
   }
 }
 
-p {
-  font-size: 1.1rem;
+p,
+div {
+  font-size: 2rem;
   line-height: 1.6;
-  font-weight: 700;
+  font-weight: 400;
 }
 
 h1 {
   font-size: 4rem;
-  color: black;
   font-weight: 700;
+}
+
+h2 {
+  font-size: 3.5rem;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+h4 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+a {
+  color: c.$grey-950;
+  text-decoration: none;
 }
 
 .container-fluid {
@@ -48,15 +67,22 @@ h1 {
   width: 100%;
   margin-right: auto;
   margin-left: auto;
+  @include b.mq(lg) {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 .row {
-  display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   margin-right: -15px;
   margin-left: -15px;
+  @include b.mq(lg) {
+    margin-right: 0px;
+    margin-left: 0px;
+  }
 }
 
 .col-lg-8 {
@@ -64,7 +90,6 @@ h1 {
   padding-right: 15px;
   padding-left: 15px;
   @media (min-width: 992px) {
-    -ms-flex: 0 0 66.666667%;
     flex: 0 0 66.666667%;
     max-width: 66.666667%;
     position: relative;
