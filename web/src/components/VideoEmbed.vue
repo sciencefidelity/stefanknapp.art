@@ -11,14 +11,14 @@
 </template>
 
 <script>
-  export default {
-    name: 'VideoEmbed',
-    props: {
-      classname: {
-        type: String,
-        default: 'video-embed',
-      },
-    }
+export default {
+  name: 'VideoEmbed',
+  props: {
+    classname: {
+      type: String,
+      default: 'video-embed',
+    },
   }
+}
 
 </script>

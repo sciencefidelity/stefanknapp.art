@@ -37,16 +37,16 @@
 </template>
 
 <script>
-  import Layout from '../layouts/FrontPage'
-  import VideoEmbed from '../components/VideoEmbed'
+import Layout from '../layouts/FrontPage'
+import VideoEmbed from '../components/VideoEmbed'
 
-  export default {
-    name: 'Index',
-    components: {
-      Layout,
-      VideoEmbed,
-    }
+export default {
+  name: 'Index',
+  components: {
+    Layout,
+    VideoEmbed,
   }
+}
 </script>
 
 <style lang="scss" scoped>
