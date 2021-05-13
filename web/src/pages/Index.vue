@@ -8,7 +8,9 @@
               <VideoEmbed />
             </div>
             <div class="circle">
-              <div class="title"><h1>Knapp</h1></div>
+              <g-link to="/art/">
+                <div class="title"><h1>Knapp</h1></div>
+              </g-link>
             </div>
           </div>
         </div>
@@ -35,13 +37,13 @@
 </template>
 
 <script>
-  import FrontPage from '../layouts/FrontPage'
+  import Layout from '../layouts/FrontPage'
   import VideoEmbed from '../components/VideoEmbed'
 
   export default {
     name: 'Index',
     components: {
-      FrontPage,
+      Layout,
       VideoEmbed,
     }
   }
@@ -51,7 +53,7 @@
 @use '../assets/scss/colors' as c;
 @use '../assets/scss/breakpoints' as b;
 
-body {
+#site-main {
   background: c.$grey-950;
   color: c.$sepia-150;
 }

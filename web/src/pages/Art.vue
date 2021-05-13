@@ -35,9 +35,9 @@
 </static-query>
 
 <script>
-  export default {
-    name: 'Art',
-  }
+export default {
+  name: 'Art',
+}
 </script>
 
 <style scoped>
