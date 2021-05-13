@@ -16,6 +16,10 @@
         en
         pl
       }
+      body {
+        _rawEn
+        _rawPl
+      }
       mainImage {
         caption {
           en

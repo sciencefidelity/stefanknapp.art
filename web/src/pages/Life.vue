@@ -1,5 +1,8 @@
 <template>
-  <Layout>
+  <Layout
+    :title="$static.sanityPage.mainImage.caption.en"
+    :link="$static.sanityPage.mainImage"
+  >
     <main>
 
     </main>
@@ -18,7 +21,12 @@
         _rawPl
       }
       mainImage {
+        caption {
+          en
+          pl
+        }
         asset {
+          _id
           url
         }
       }
