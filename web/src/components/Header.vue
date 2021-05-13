@@ -9,20 +9,20 @@
 </template>
 
 <script>
-  import SanityImage from './SanityImage'
-  import Navigation from './Navigation'
+import SanityImage from './SanityImage'
+import Navigation from './Navigation'
 
-  export default {
-    name: 'Header',
-    components: {
-      SanityImage,
-      Navigation
-    },
-    props: {
-      title: String,
-      link: String,
-    }
+export default {
+  name: 'Header',
+  components: {
+    SanityImage,
+    Navigation
+  },
+  props: {
+    title: String,
+    link: String,
   }
+}
 
 </script>
 
