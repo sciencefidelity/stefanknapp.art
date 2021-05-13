@@ -34,23 +34,6 @@
   </Layout>
 </template>
 
-<static-query>
-  query {
-    sanityPhotography(id: "de115ee8-e847-45f1-a4b9-e1d0fc69dffe") {
-      title {
-        en
-        pl
-      }
-      mainImage {
-        asset {
-          _id
-          url
-        }
-      }
-    }
-  }
-</static-query>
-
 <script>
   import FrontPage from '../layouts/FrontPage'
   import VideoEmbed from '../components/VideoEmbed'

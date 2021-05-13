@@ -1,6 +1,9 @@
 <template>
   <div class="layout">
-    <Header />
+    <Header
+      :title=title
+      :link=link
+    />
     <slot/>
     <Footer />
   </div>
@@ -23,12 +26,14 @@ query {
     components: {
       Header,
       Footer,
+    },
+    props: {
+      title: String,
+      link: String,
     }
   }
 </script>
 
 <style scoped>
-  body {
-    color: red;
-  }
+
 </style>

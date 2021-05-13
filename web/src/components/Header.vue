@@ -1,6 +1,9 @@
 <template>
   <header>
-    <SanityImage />
+    <SanityImage
+      :title=title
+      :link=link
+    />
   </header>
 </template>
 
@@ -9,6 +12,13 @@
 
   export default {
     name: 'Header',
+    components: {
+      SanityImage
+    },
+    props: {
+      title: String,
+      link: String,
+    }
   }
 
 </script>

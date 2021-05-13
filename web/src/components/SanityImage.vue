@@ -32,11 +32,11 @@
     props: {
       title: String,
       link: String,
-      width: Number,
-      height: Number,
+      width: String,
+      height: String,
       fit: {
         type: String,
-        default: 'crop',
+        default: 'clip',
       },
       crop: {
         type: String,
@@ -45,3 +45,11 @@
     }
   }
 </script>
+
+<style lang="scss" scoped>
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100vh;
+  }
+</style>
