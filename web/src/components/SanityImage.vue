@@ -1,19 +1,34 @@
 <template>
-  <img
-    :alt=title
-    :src="$urlForImage(link, $static.metadata.sanityOptions)
-      .format('webp')
-      .auto('format')
-      .quality(75)
-      .fit(fit)
-      .crop(crop)
-      .width(width)
-      .height(height)
-      .url()"
-    :width=width
-    :height=height
-    loading="lazy"
-  />
+  <div class="sanity-image">
+    <v-lazy-image
+      :alt=title
+      :src="$urlForImage(link, $static.metadata.sanityOptions)
+        .auto('format')
+        .quality(80)
+        .fit(fit)
+        .crop(crop)
+        .width(width)
+        .height(height)
+        .url()"
+      :width=width
+      :height=height
+    />
+    <img
+      :src="$urlForImage(link, $static.metadata.sanityOptions)
+        .auto('format')
+        .quality(10)
+        .fit(fit)
+        .crop(crop)
+        .width(2)
+        .height(2)
+        .url()"
+      decoding="async"
+      loading="lazy"
+      class="placeholder"
+      :width=width
+      :height=height
+    />
+  </div>
 </template>
 
 <static-query>
@@ -28,29 +43,60 @@
 </static-query>
 
 <script>
-  export default {
-    name: 'SanityImage',
-    props: {
-      title: String,
-      link: String,
-      width: String,
-      height: String,
-      fit: {
-        type: String,
-        default: 'clip',
-      },
-      crop: {
-        type: String,
-        default: 'center',
-      },
-    }
+import VLazyImage from "v-lazy-image";
+
+export default {
+  name: 'SanityImage',
+  components: {
+    VLazyImage
+  },
+  props: {
+    title: String,
+    link: String,
+    width: Number,
+    height: Number,
+    fit: {
+      type: String,
+      default: 'crop',
+    },
+    crop: {
+      type: String,
+      default: 'center',
+    },
   }
+}
 </script>
 
 <style lang="scss" scoped>
-  img {
-    object-fit: cover;
-    width: 100%;
-    height: 100vh;
-  }
+.sanity-image {
+  display: inline-block;
+  position: relative;
+  width: 500px;
+  margin: 1rem;
+}
+
+img {
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.v-lazy-image {
+  position: relative;
+  opacity: 0;
+  transition: opacity 1s;
+  z-index: 2;
+}
+
+.v-lazy-image-loaded {
+  opacity: 1;
+}
 </style>
