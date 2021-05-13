@@ -4,16 +4,19 @@
       :title=title
       :link=link
     />
+    <Navigation />
   </header>
 </template>
 
 <script>
   import SanityImage from './SanityImage'
+  import Navigation from './Navigation'
 
   export default {
     name: 'Header',
     components: {
-      SanityImage
+      SanityImage,
+      Navigation
     },
     props: {
       title: String,
@@ -23,8 +26,9 @@
 
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
   header {
+    position: relative;
     width: 100vw;
     height: 100vh;
   }
