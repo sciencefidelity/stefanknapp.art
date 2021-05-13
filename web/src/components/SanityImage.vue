@@ -72,7 +72,6 @@ export default {
   display: inline-block;
   position: relative;
   width: 500px;
-  margin: 1rem;
 }
 
 img {
