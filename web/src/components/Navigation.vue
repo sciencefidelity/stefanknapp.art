@@ -39,7 +39,7 @@ nav {
   top: 0;
   left: 0;
   width: 100%;
-  height: 13rem;
+  height: 18rem;
   background: rgba(black, 0.5);
 }
 
@@ -53,14 +53,19 @@ nav {
 }
 
 a {
-  color: c.$grey-050;
+  color: c.$grey-350;
+  &:hover{
+    color: c.$grey-050;
+  }
 }
 
 ul {
   list-style: none;
   padding: 0;
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 1.2;
   text-align: right;
   text-transform: uppercase;
-  font-size: 2rem;
 }
 </style>

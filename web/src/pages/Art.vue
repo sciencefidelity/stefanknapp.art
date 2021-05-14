@@ -6,7 +6,6 @@
     :height="$static.sanityPage.mainImage.asset.metadata.dimensions.height"
   >
     <main>
-      {{$static.sanityPage.mainImage.asset.metadata.dimensions.width}}
     </main>
   </Layout>
 </template>

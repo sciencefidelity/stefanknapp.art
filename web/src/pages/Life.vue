@@ -2,6 +2,8 @@
   <Layout
     :title="$static.sanityPage.mainImage.caption.en"
     :link="$static.sanityPage.mainImage"
+    crop="top"
+    pos="top"
   >
     <main>
 

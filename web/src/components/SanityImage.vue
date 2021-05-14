@@ -5,15 +5,16 @@
       :src="$urlForImage(link, $static.metadata.sanityOptions)
         .auto('format')
         .quality(80)
+        .width(w)
+        .height(h)
         .fit(fit)
         .crop(crop)
-        .width(width)
-        .height(height)
         .url()"
       decoding="async"
       loading="lazy"
       :width=width
       :height=height
+      :style="{ 'object-position': pos }"
     />
     <img
       :src="$urlForImage(link, $static.metadata.sanityOptions)
@@ -59,6 +60,7 @@ export default {
     h: Number,
     width: Number,
     height: Number,
+    pos: String,
     fit: {
       type: String,
       default: 'crop',

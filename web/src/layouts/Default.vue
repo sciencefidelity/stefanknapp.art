@@ -5,6 +5,8 @@
       :link=link
       :width=width
       :height=height
+      :crop=crop
+      :pos=pos
     />
     <slot/>
     <Footer />
@@ -34,6 +36,8 @@ export default {
     link: String,
     width: Number,
     height: Number,
+    crop: String,
+    pos: String,
   }
 }
 </script>
