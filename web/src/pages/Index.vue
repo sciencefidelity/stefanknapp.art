@@ -5,7 +5,7 @@
         <div class="row">
           <div class="col-lg-8 logo">
             <div class="knapp-image">
-              <VideoEmbed />
+              <VideoEmbed video="../../static/06-hc-sq.mp4"/>
             </div>
             <div class="circle">
               <g-link to="/art/">
@@ -13,6 +13,7 @@
               </g-link>
             </div>
           </div>
+          <FrontNav />
         </div>
         <div class="row">
           <div class="col-lg-8">
@@ -42,16 +43,18 @@
 <script>
 import Layout from '../layouts/FrontPage'
 import VideoEmbed from '../components/VideoEmbed'
+import FrontNav from '../components/FrontNav'
 
 export default {
   name: 'Index',
   components: {
     Layout,
     VideoEmbed,
+    FrontNav
   },
   data() {
     return {
-      copyright: new Date().getFullYear() + ' The Estate of Stefan Knapp'
+      copyright: new Date().getFullYear() + ' The Estate of Stefan Knapp',
     }
   }
 }
@@ -60,6 +63,10 @@ export default {
 <style lang="scss" scoped>
 @use '../assets/scss/colors' as c;
 @use '../assets/scss/breakpoints' as b;
+
+::selection {
+  background: rgba(c.$sepia-150, 0.3);
+}
 
 #site-main {
   background: c.$grey-950;

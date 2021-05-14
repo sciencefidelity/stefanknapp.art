@@ -9,7 +9,6 @@
           <g-link to="/en/art"><li>Art</li></g-link>
           <g-link to="/en/life"><li>Life</li></g-link>
           <g-link to="/en/estate"><li>Estate</li></g-link>
-          <g-link to="/pl"><li class="language">Polski</li></g-link>
         </ul>
       </div>
     </div>
@@ -31,7 +30,9 @@ export default {
 @use '../assets/scss/colors' as c;
 
 nav {
-  position: relative;
+  opacity: 1;
+  // position: relative;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;

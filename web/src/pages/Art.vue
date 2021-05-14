@@ -27,7 +27,12 @@
         </div>
       </section>
       <section class="gallery-section">
-        <Gallery />
+        <Gallery captions:caption />
+      </section>
+      <section class="video-section">
+        <div class="video-wrapper">
+          <VideoEmbedArt video="../../static/03-hc.mp4"/>
+        </div>
       </section>
     </main>
   </Layout>
@@ -86,6 +91,7 @@ import SanityImage from '../components/SanityImage'
 import InnerNav from '../components/InnerNav'
 import BlockContent from '../components/BlockContent'
 import Gallery from '../components/Gallery'
+import VideoEmbedArt from '../components/VideoEmbedArt'
 
 export default {
   name: 'Art',
@@ -93,8 +99,9 @@ export default {
     SanityImage,
     InnerNav,
     BlockContent,
-    Gallery
-  }
+    Gallery,
+    VideoEmbedArt
+  },
 }
 </script>
 
@@ -103,10 +110,45 @@ export default {
 
 .art-section {
   position: relative;
+  top: 11.3rem;
+  // position: sticky;
   height: calc(100vh - 11.3rem);
   padding-top: 13rem;
   background: c.$slate-150;
   z-index: 0;
+}
+
+.gallery-section {
+  position: relative;
+  display: grid;
+  place-content: center;
+  top: 11.3rem;
+  // position: sticky;
+  // padding: 5rem 0;
+  background: hsl(0,0%,99%);
+  height: calc(130vh - 11.3rem);
+  overflow: hidden;
+}
+
+.video-section {
+  position: relative;
+  top: 11.3rem;
+  // position: sticky;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.video-wrapper {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-embed {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
 }
 
 .container {

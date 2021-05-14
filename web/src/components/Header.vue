@@ -38,12 +38,15 @@ export default {
 
 <style lang="scss" scoped>
 header {
-  position: relative;
+  position: sticky;
+  top: 0;
   width: 100vw;
   height: 100vh;
 }
 
 .hero-wrapper {
+  top: -1px;
+  position: sticky;
   width: 100vw;
   height: 100vh;
 }

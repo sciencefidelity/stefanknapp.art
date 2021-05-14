@@ -6,10 +6,10 @@
         :link="$static.first.mainImage"
         :width="$static.first.mainImage.asset.metadata.dimensions.width"
         :height="$static.first.mainImage.asset.metadata.dimensions.height"
-        w=400
+        w=442
         h=400
       />
-      <!-- <p class="caption">1921-46 Beginnings</p> -->
+      <p class="caption">{{ caption[0] }}</p>
     </div>
     <div>
       <SanityImage
@@ -17,10 +17,10 @@
         :link="$static.second.mainImage"
         :width="$static.second.mainImage.asset.metadata.dimensions.width"
         :height="$static.second.mainImage.asset.metadata.dimensions.height"
-        w=400
+        w=442
         h=400
       />
-      <p class="caption"></p>
+      <p class="caption">{{ caption[1] }}</p>
     </div>
     <div>
       <SanityImage
@@ -28,10 +28,10 @@
         :link="$static.third.mainImage"
         :width="$static.third.mainImage.asset.metadata.dimensions.width"
         :height="$static.third.mainImage.asset.metadata.dimensions.height"
-        w=400
+        w=442
         h=400
       />
-      <p class="caption"></p>
+      <p class="caption">{{ caption[2] }}</p>
     </div>
     <div>
       <SanityImage
@@ -39,10 +39,10 @@
         :link="$static.forth.mainImage"
         :width="$static.forth.mainImage.asset.metadata.dimensions.width"
         :height="$static.forth.mainImage.asset.metadata.dimensions.height"
-        w=400
+        w=442
         h=400
       />
-      <p class="caption"></p>
+      <p class="caption">{{ caption[3] }}</p>
     </div>
     <div>
       <SanityImage
@@ -50,10 +50,10 @@
         :link="$static.fifth.mainImage"
         :width="$static.fifth.mainImage.asset.metadata.dimensions.width"
         :height="$static.fifth.mainImage.asset.metadata.dimensions.height"
-        w=400
+        w=442
         h=400
       />
-      <p class="caption"></p>
+      <p class="caption">{{ caption[4] }}</p>
     </div>
     <div>
       <SanityImage
@@ -61,17 +61,17 @@
         :link="$static.sixth.mainImage"
         :width="$static.sixth.mainImage.asset.metadata.dimensions.width"
         :height="$static.sixth.mainImage.asset.metadata.dimensions.height"
-        w=400
+        w=442
         h=400
       />
-      <p class="caption"></p>
+      <p class="caption">{{ caption[5] }}</p>
     </div>
   </div>
 </template>
 
 <static-query>
   query {
-    first: sanityArtwork(id: "a689ab42-e69c-409e-bcf6-e9bb0a12032c") {
+    first: sanityArtwork(id: "53c23fd3-8d48-48ed-9915-e282a1699dcc") {
       title {
         en
       }
@@ -107,7 +107,7 @@
         }
       }
     }
-    third: sanityArtwork(id: "1f403a9c-0bfc-4df1-93cf-54cfaf45683e") {
+    third: sanityArtwork(id: "b8554a67-22dc-44de-8ce6-710d4581aca2") {
       title {
         en
       }
@@ -143,7 +143,7 @@
         }
       }
     }
-    fifth: sanityArtwork(id: "a689ab42-e69c-409e-bcf6-e9bb0a12032c") {
+    fifth: sanityArtwork(id: "0cfd2c7f-f267-4759-beec-7e66dba09ed4") {
       title {
         en
       }
@@ -190,6 +190,18 @@ export default {
   name: 'Gallery',
   components: {
     SanityImage,
+  },
+  data() {
+    return {
+      caption: [
+        '1921-46 Beginnings',
+        '1947-53 Early Phase',
+        '1953-58 Success',
+        '1958-72 A New Scale',
+        '1973-82 Building on Success',
+        '1982-96 Mature Years'
+      ]
+    }
   }
 }
 
@@ -199,12 +211,25 @@ export default {
 @use '../assets/scss/colors' as c;
 
 .gallery-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: min(100rem, 88%);
-  margin: 7rem auto;
+  margin: auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 5rem;
+  gap: 3rem;
+  div {
+    margin-bottom: 3rem;
+  }
 }
 
+.caption {
+  margin-top: -3.2rem;
+  text-align: right;
+  font-size: 1.9rem;
+  // font-weight: 300;
+}
 
 </style>
