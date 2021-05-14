@@ -10,6 +10,8 @@
         .width(width)
         .height(height)
         .url()"
+      decoding="async"
+      loading="lazy"
       :width=width
       :height=height
     />
@@ -53,6 +55,8 @@ export default {
   props: {
     title: String,
     link: String,
+    w: Number,
+    h: Number,
     width: Number,
     height: Number,
     fit: {
@@ -71,7 +75,8 @@ export default {
 .sanity-image {
   display: inline-block;
   position: relative;
-  width: 500px;
+  height: 100%;
+  width: 100%;
 }
 
 img {

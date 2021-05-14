@@ -3,6 +3,8 @@
     <Header
       :title=title
       :link=link
+      :width=width
+      :height=height
     />
     <slot/>
     <Footer />
@@ -30,6 +32,8 @@ export default {
   props: {
     title: String,
     link: String,
+    width: Number,
+    height: Number,
   }
 }
 </script>

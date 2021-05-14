@@ -2,9 +2,11 @@
   <Layout
     :title="$static.sanityPage.mainImage.caption.en"
     :link="$static.sanityPage.mainImage"
+    :width="$static.sanityPage.mainImage.asset.metadata.dimensions.width"
+    :height="$static.sanityPage.mainImage.asset.metadata.dimensions.height"
   >
     <main>
-
+      {{$static.sanityPage.mainImage.asset.metadata.dimensions.width}}
     </main>
   </Layout>
 </template>
@@ -28,6 +30,12 @@
         asset {
           _id
           url
+          metadata {
+            dimensions {
+              height
+              width
+            }
+          }
         }
       }
     }

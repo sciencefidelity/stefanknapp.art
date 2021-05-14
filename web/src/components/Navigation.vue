@@ -34,6 +34,7 @@ export default {
 @use '../assets/scss/colors' as c;
 
 nav {
+  z-index: 3;
   position: absolute;
   top: 0;
   left: 0;
@@ -43,7 +44,7 @@ nav {
 }
 
 .container {
-  width: 1000px;
+  width: min(100rem, 88%);
   height: 100%;
   margin: auto;
   display: flex;

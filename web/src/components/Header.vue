@@ -1,10 +1,14 @@
 <template>
   <header>
-    <SanityImage
-      :title=title
-      :link=link
-    />
     <Navigation />
+    <div class="hero-wrapper">
+      <SanityImage
+        :title=title
+        :link=link
+        :width=width
+        :height=height
+      />
+    </div>
   </header>
 </template>
 
@@ -21,6 +25,8 @@ export default {
   props: {
     title: String,
     link: String,
+    width: Number,
+    height: Number,
   }
 }
 
@@ -29,6 +35,10 @@ export default {
 <style lang="scss" scoped>
 header {
   position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+.hero-wrapper {
   width: 100vw;
   height: 100vh;
 }
