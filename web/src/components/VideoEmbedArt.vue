@@ -4,7 +4,7 @@
     loop
     :class="classname"
   >
-    <source type="video/mp4" src="../../static/06-hc-sq.mp4" />
+    <source type="video/mp4" src="../../static/03-hc.mp4" />
     Sorry, your browser doesn't support embedded videos.
   </video>
 </template>
