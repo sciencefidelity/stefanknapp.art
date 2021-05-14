@@ -64,7 +64,6 @@ a {
   color: transparent;
   transition: color 0.3s ease;
   &:hover{
-    // color: c.$sepia-150;
     transition: color 0.3s ease;
   }
 }

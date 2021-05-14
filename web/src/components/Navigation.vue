@@ -1,15 +1,33 @@
 <template>
-  <nav>
+  <nav :class="[ resizeNav ? 'nav--big' : 'nav--small' ]">
     <div class="container">
-      <g-link to="/en"><div><Logo /></div></g-link>
+      <g-link to="/en"><div>
+        <Logo :resizeLogo="resizeNav"/>
+      </div></g-link>
       <div>
-        <ul>
-          <g-link to="/en/art"><li>Art</li></g-link>
-          <g-link to="/en/life"><li>Life</li></g-link>
-          <g-link to="/en/estate"><li>Estate</li></g-link>
+        <ul :class="[ resizeNav ? 'menu--big' : 'menu--small' ]">
+          <g-link
+            to="/en/art"
+            :class="[ resizeNav ? 'link--big' : 'link--small' ]"
+          >
+            <li class="art">Art</li>
+          </g-link>
+          <g-link
+            to="/en/life"
+            :class="[ resizeNav ? 'link--big' : 'link--small' ]"
+          >
+            <li class="life">Life</li>
+          </g-link>
+          <g-link
+            to="/en/estate"
+            :class="[ resizeNav ? 'link--big' : 'link--small' ]"
+          >
+            <li class="estate">Estate</li>
+          </g-link>
         </ul>
       </div>
     </div>
+    <button @click="toggleNavbar()">click me</button>
   </nav>
 </template>
 
@@ -20,6 +38,16 @@ export default {
   name: 'Navigation',
   components: {
     Logo,
+  },
+  data() {
+    return {
+      resizeNav: true
+    }
+  },
+  methods: {
+    toggleNavbar() {
+      this.resizeNav = !this.resizeNav
+    }
   }
 }
 </script>
@@ -27,14 +55,27 @@ export default {
 <style lang="scss" scoped>
 @use '../assets/scss/colors' as c;
 
-nav {
-  z-index: 3;
+$transition: 1s ease-in-out;
+
+.nav--big,
+.nav--small {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
+  box-shadow: 0 5px 10px rgba(black, 0.1);
+  z-index: 5;
+  transition: height $transition, background-color $transition;
+}
+
+.nav--big {
   height: 18rem;
-  background: rgba(black, 0.5);
+  background-color: rgba(c.$grey-950, 0.5);
+}
+
+.nav--small {
+  height: 8rem;
+  background-color: rgba(c.$grey-050, 1);
 }
 
 .container {
@@ -46,20 +87,42 @@ nav {
   align-items: center;
 }
 
-a {
-  color: c.$grey-350;
-  transition: color 0.3s ease;
+.link--big,
+.link--small {
+  position: relative;
+  z-index: 2;
+  transition: color $transition;
   &:hover{
-    color: c.$grey-050;
-    transition: color 0.3s ease;
+    transition: color $transition;
   }
 }
 
-.active--exact {
+.link--big {
+  color: c.$grey-350;
+  &:hover{
+    color: c.$grey-050;
+  }
+}
+
+.link--small {
+  color: c.$grey-500;
+  &:hover{
+    color: c.$grey-950;
+  }
+}
+
+.link--big.active--exact {
   color: c.$grey-050;
 }
 
-ul {
+.link--small.active--exact {
+  color: c.$grey-950;
+}
+
+.menu--big,
+.menu--small {
+  display: flex;
+  flex-direction: column;
   list-style: none;
   padding: 0;
   font-size: 3rem;
@@ -67,5 +130,25 @@ ul {
   line-height: 1.2;
   text-align: right;
   text-transform: uppercase;
+  li {
+    transition: transform $transition;
+    padding: 0;
+  }
 }
+
+.menu--small {
+  .art {
+    // transform: translate(-23rem, -1.4rem);
+    transform: translate(-21.2rem, 3.3rem);
+  }
+  .life {
+    // transform: translate(-14.4rem, -5rem);
+    transform: translate(-12.6rem, -0.3rem);
+  }
+  .estate {
+    // transform: translate(-1.8rem, -8.6rem);
+    transform: translate(0rem, -3.9rem);
+  }
+}
+
 </style>

@@ -5,27 +5,13 @@
 </template>
 
 <script>
-import SanityImage from './SanityImage'
 import Navigation from './Navigation'
 
 export default {
   name: 'Header',
   components: {
-    SanityImage,
     Navigation
-  },
-  props: {
-    title: String,
-    link: Object,
-    width: Number,
-    height: Number,
-    crop: String,
-    pos: String,
   }
 }
 
 </script>
-
-<style lang="scss" scoped>
-
-</style>

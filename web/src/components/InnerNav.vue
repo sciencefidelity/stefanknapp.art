@@ -30,14 +30,12 @@ export default {
 @use '../assets/scss/colors' as c;
 
 nav {
-  opacity: 1;
-  // position: relative;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 8rem;
-  background: rgba(c.$grey-050, 0.9);
+  height: 8rem; //****
+  background: rgba(c.$grey-050, 0.9); //****
   box-shadow: 0 5px 10px rgba(black, 0.1);
   z-index: 5;
 }
@@ -53,22 +51,18 @@ nav {
 
 a {
   position: relative;
-  color: c.$grey-500;
+  color: c.$grey-500; //****
   z-index: 2;
   transition: color 0.3s ease;
   &:hover{
-    color: c.$grey-950;
+    color: c.$grey-950; //****
     transition: color 0.3s ease;
   }
 }
 
-.active--exact {
-  color: c.$grey-950;
-}
-
 ul {
   display: flex;
-  flex-direction: row;
+  flex-direction: row; //****
   list-style: none;
   padding: 0;
   font-size: 3rem;
@@ -77,14 +71,11 @@ ul {
   text-align: right;
   text-transform: uppercase;
   li {
-    padding: 0 1.8rem;
+    padding: 0 1.8rem; //****
   }
 }
 
-.language {
-  text-transform: capitalize;
-  font-weight: 400;
-  color: c.$grey-750;
+.active--exact {
+  color: c.$grey-950; //****
 }
-
 </style>

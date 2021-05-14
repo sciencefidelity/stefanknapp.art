@@ -9,7 +9,7 @@
       :crop=crop
       :pos=pos
     />
-    <slot/>
+    <slot />
     <Footer />
   </div>
 </template>
@@ -44,7 +44,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-
-</style>
