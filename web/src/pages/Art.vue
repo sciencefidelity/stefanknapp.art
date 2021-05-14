@@ -6,13 +6,24 @@
     :height="$static.sanityPage.mainImage.asset.metadata.dimensions.height"
   >
     <main>
+      <InnerNav />
       <section class="art-section">
         <div class="container">
-          <block-content
-            class="post__content"
-            :blocks="$static.sanityPage.body._rawEn"
-            v-if="$static.sanityPage.body._rawEn"
-          />
+          <div class="art-image">
+            <SanityImage
+              :title="$static.sanityPhotography.mainImage.caption.en"
+              :link="$static.sanityPhotography.mainImage"
+              :width="$static.sanityPhotography.mainImage.asset.metadata.dimensions.width"
+              :height="$static.sanityPhotography.mainImage.asset.metadata.dimensions.height"
+            />
+          </div>
+          <div>
+            <block-content
+              class="post__content"
+              :blocks="$static.sanityPage.body._rawEn"
+              v-if="$static.sanityPage.body._rawEn"
+            />
+          </div>
         </div>
       </section>
     </main>
@@ -47,27 +58,69 @@
         }
       }
     }
+    sanityPhotography(id: "de115ee8-e847-45f1-a4b9-e1d0fc69dffe") {
+      mainImage {
+        caption {
+          en
+          pl
+        }
+        asset {
+          url
+          metadata {
+            dimensions {
+              height
+              width
+            }
+          }
+        }
+      }
+    }
   }
 </static-query>
 
 <script>
+import SanityImage from '../components/SanityImage'
+import InnerNav from '../components/InnerNav'
 import BlockContent from '../components/BlockContent'
 
 export default {
   name: 'Art',
   components: {
+    SanityImage,
+    InnerNav,
     BlockContent
   }
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@use '../assets/scss/colors' as c;
+
 .art-section {
-  height: 100vh;
+  position: relative;
+  height: calc(100vh - 11.3rem);
+  padding-top: 13rem;
+  background: c.$slate-150;
+  z-index: 0;
 }
 
 .container {
   width: min(100rem, 88%);
   margin: auto;
+  display: flex;
+  div {
+    padding-left: 6.5rem;
+    &:first-child {
+      padding-left: 0rem;
+    }
+  }
 }
+
+.art-image {
+  border: 0.6rem solid c.$grey-050;
+  width: 370rem;
+  box-shadow: 3px 5px 15px rgba(black, 0.2);
+  filter: grayscale(100%);
+}
+
 </style>
