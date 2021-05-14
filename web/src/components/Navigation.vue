@@ -1,12 +1,12 @@
 <template>
   <nav>
     <div class="container">
-      <g-link to="/"><div><Logo /></div></g-link>
+      <g-link to="/en"><div><Logo /></div></g-link>
       <div>
         <ul>
-          <g-link to="/art/"><li>Art</li></g-link>
-          <g-link to="/life/"><li>Life</li></g-link>
-          <g-link to="/estate/"><li>Estate</li></g-link>
+          <g-link to="/en/art"><li>Art</li></g-link>
+          <g-link to="/en/life"><li>Life</li></g-link>
+          <g-link to="/en/estate"><li>Estate</li></g-link>
         </ul>
       </div>
     </div>
@@ -62,6 +62,10 @@ a {
   &:hover{
     color: c.$grey-050;
   }
+}
+
+.active--exact {
+  color: c.$grey-050;
 }
 
 ul {

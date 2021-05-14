@@ -6,6 +6,16 @@
     :height="$static.sanityPage.mainImage.asset.metadata.dimensions.height"
   >
     <main>
+      <section class="art-section">
+        <div class="container">
+          <block-content
+            class="post__content"
+            :blocks="$static.sanityPage.body._rawEn"
+            v-if="$static.sanityPage.body._rawEn"
+          />
+          <p>{{ $static.sanityPage.body._rawEn }}</p>
+        </div>
+      </section>
     </main>
   </Layout>
 </template>
@@ -18,8 +28,8 @@
         pl
       }
       body {
-        _rawEn
-        _rawPl
+        _rawEn(resolveReferences: {maxDepth: 5})
+        _rawPl(resolveReferences: {maxDepth: 5})
       }
       mainImage {
         caption {
@@ -42,11 +52,23 @@
 </static-query>
 
 <script>
+import BlockContent from '../components/BlockContent'
+
 export default {
   name: 'Art',
+  components: {
+    BlockContent
+  }
 }
 </script>
 
 <style scoped>
+.art-section {
+  height: 100vh;
+}
 
+.container {
+  width: min(100rem, 88%);
+  margin: auto;
+}
 </style>
