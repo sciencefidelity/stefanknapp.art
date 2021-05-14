@@ -12,7 +12,7 @@
     "gridsome": "^0.7.0",
     "gridsome-plugin-i18n": "^1.6.0",
     "gridsome-source-sanity": "^1.0.5",
-    "sanity-blocks-vue-component": "^1.0.0",
+    "sanity-blocks-vue-component": "^0.1.0",
     "v-lazy-image": "^1.4.0"
   },
   "devDependencies": {

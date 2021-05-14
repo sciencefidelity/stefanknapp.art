@@ -13,7 +13,6 @@
             :blocks="$static.sanityPage.body._rawEn"
             v-if="$static.sanityPage.body._rawEn"
           />
-          <p>{{ $static.sanityPage.body._rawEn }}</p>
         </div>
       </section>
     </main>
