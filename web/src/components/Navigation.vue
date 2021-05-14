@@ -1,7 +1,7 @@
 <template>
   <nav>
     <div class="container">
-      <g-link to="/"><div>Logo goes here</div></g-link>
+      <g-link to="/"><div><Logo /></div></g-link>
       <div>
         <ul>
           <g-link to="/art/"><li>Art</li></g-link>
@@ -25,8 +25,13 @@
 </static-query>
 
 <script>
+import Logo from './Logo'
+
 export default {
   name: 'Navigation',
+  components: {
+    Logo,
+  }
 }
 </script>
 
