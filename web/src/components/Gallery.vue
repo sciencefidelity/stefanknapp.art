@@ -211,10 +211,6 @@ export default {
 @use '../assets/scss/colors' as c;
 
 .gallery-container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   width: min(100rem, 88%);
   margin: auto;
   display: grid;

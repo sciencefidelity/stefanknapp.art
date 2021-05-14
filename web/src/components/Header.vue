@@ -38,7 +38,7 @@ export default {
 
 <style lang="scss" scoped>
 header {
-  position: sticky;
+  // position: sticky;
   top: 0;
   width: 100vw;
   height: 100vh;

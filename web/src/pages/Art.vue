@@ -110,10 +110,7 @@ export default {
 
 .art-section {
   position: relative;
-  top: 11.3rem;
-  // position: sticky;
-  height: calc(100vh - 11.3rem);
-  padding-top: 13rem;
+  padding: 15rem 0 18rem;
   background: c.$slate-150;
   z-index: 0;
 }
@@ -122,18 +119,13 @@ export default {
   position: relative;
   display: grid;
   place-content: center;
-  top: 11.3rem;
-  // position: sticky;
-  // padding: 5rem 0;
   background: hsl(0,0%,99%);
-  height: calc(130vh - 11.3rem);
+  padding: 15rem 0 18rem;
   overflow: hidden;
 }
 
 .video-section {
   position: relative;
-  top: 11.3rem;
-  // position: sticky;
   height: 100vh;
   width: 100vw;
   overflow: hidden;

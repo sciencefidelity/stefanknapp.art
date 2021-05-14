@@ -23,13 +23,10 @@ export default {
 @use '../assets/scss/colors' as c;
 
 footer {
-  position: fixed;
-  bottom: 0;
-  width: 100vw;
+  position: relative;
   height: 4.4rem;
   background: c.$slate-100;
   display: flex;
-  z-index: 5;
 }
 
 .container-footer {

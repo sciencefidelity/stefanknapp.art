@@ -2,7 +2,7 @@
   <nav>
     <div class="container">
       <g-link to="/en" class="logo-link"><div>
-        <Logo logoSize="24rem" fill="hsl(0,0%, 05%)" />
+        <Logo logoSize="17rem" fill="hsl(0,0%, 05%)" />
       </div></g-link>
       <div>
         <ul>
@@ -36,8 +36,8 @@ nav {
   top: 0;
   left: 0;
   width: 100%;
-  height: 11.3rem;
-  background: c.$grey-050;
+  height: 8rem;
+  background: rgba(c.$grey-050, 0.9);
   box-shadow: 0 5px 10px rgba(black, 0.1);
   z-index: 5;
 }
@@ -53,24 +53,24 @@ nav {
 
 a {
   position: relative;
-  color: c.$grey-600;
+  color: c.$grey-500;
   z-index: 2;
   transition: color 0.3s ease;
-  &::before {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    content: '';
-    width: 6.2rem;
-    height: 6.2rem;
-    border-radius: 50%;
-    border: 0.08em solid c.$grey-950;;
-    filter: blur(0.3em);
-    display: block;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
+  // &::before {
+  //   position: absolute;
+  //   top: 50%;
+  //   left: 50%;
+  //   transform: translate(-50%, -50%);
+  //   content: '';
+  //   width: 6.2rem;
+  //   height: 6.2rem;
+  //   border-radius: 50%;
+  //   border: 0.08em solid c.$grey-950;;
+  //   filter: blur(0.3em);
+  //   display: block;
+  //   opacity: 0;
+  //   transition: opacity 0.3s ease;
+  // }
   &:hover{
     color: c.$grey-950;
     transition: color 0.3s ease;
@@ -79,10 +79,10 @@ a {
 
 .active--exact {
   color: c.$grey-950;
-  &::before {
-    opacity: 1;
-    transition: opacity 0.3s ease;
-  }
+  // &::before {
+  //   opacity: 1;
+  //   transition: opacity 0.3s ease;
+  // }
 }
 
 ul {
