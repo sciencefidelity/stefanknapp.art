@@ -56,21 +56,6 @@ a {
   color: c.$grey-500;
   z-index: 2;
   transition: color 0.3s ease;
-  // &::before {
-  //   position: absolute;
-  //   top: 50%;
-  //   left: 50%;
-  //   transform: translate(-50%, -50%);
-  //   content: '';
-  //   width: 6.2rem;
-  //   height: 6.2rem;
-  //   border-radius: 50%;
-  //   border: 0.08em solid c.$grey-950;;
-  //   filter: blur(0.3em);
-  //   display: block;
-  //   opacity: 0;
-  //   transition: opacity 0.3s ease;
-  // }
   &:hover{
     color: c.$grey-950;
     transition: color 0.3s ease;
@@ -79,10 +64,6 @@ a {
 
 .active--exact {
   color: c.$grey-950;
-  // &::before {
-  //   opacity: 1;
-  //   transition: opacity 0.3s ease;
-  // }
 }
 
 ul {
@@ -105,4 +86,5 @@ ul {
   font-weight: 400;
   color: c.$grey-750;
 }
+
 </style>

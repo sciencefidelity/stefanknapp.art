@@ -1,6 +1,7 @@
 <template>
   <div class="layout">
-    <Header
+    <Header />
+    <Hero
       :title=title
       :link=link
       :width=width
@@ -24,12 +25,14 @@ query {
 
 <script>
 import Header from '../components/Header'
+import Hero from '../components/Hero'
 import Footer from '../components/Footer'
 
 export default {
   components: {
     Header,
-    Footer,
+    Hero,
+    Footer
   },
   props: {
     title: String,

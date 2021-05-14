@@ -1,18 +1,23 @@
 <template>
-  <header>
-    <Navigation />
-  </header>
+  <section class="hero-image">
+    <SanityImage
+      :title=title
+      :link=link
+      :width=width
+      :height=height
+      :crop=crop
+      :pos=pos
+    />
+  </section>
 </template>
 
 <script>
 import SanityImage from './SanityImage'
-import Navigation from './Navigation'
 
 export default {
-  name: 'Header',
+  name: 'Hero',
   components: {
     SanityImage,
-    Navigation
   },
   props: {
     title: String,
@@ -27,5 +32,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.hero-image {
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+}
 </style>

@@ -6,7 +6,6 @@
     :height="$static.sanityPage.mainImage.asset.metadata.dimensions.height"
   >
     <main>
-      <InnerNav />
       <section class="art-section">
         <div class="container">
           <div class="art-image">
@@ -90,7 +89,6 @@
 <script>
 import Observer from "../components/Observer";
 import SanityImage from '../components/SanityImage'
-import InnerNav from '../components/InnerNav'
 import BlockContent from '../components/BlockContent'
 import Gallery from '../components/Gallery'
 import VideoEmbedArt from '../components/VideoEmbedArt'
@@ -100,7 +98,6 @@ export default {
   components: {
     Observer,
     SanityImage,
-    InnerNav,
     BlockContent,
     Gallery,
     VideoEmbedArt
