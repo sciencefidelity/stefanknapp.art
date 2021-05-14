@@ -9,22 +9,12 @@
           <g-link to="/en/art"><li>Art</li></g-link>
           <g-link to="/en/life"><li>Life</li></g-link>
           <g-link to="/en/estate"><li>Estate</li></g-link>
+          <g-link to="/pl"><li class="language">Polski</li></g-link>
         </ul>
       </div>
     </div>
   </nav>
 </template>
-
-<static-query>
-  query {
-    metadata {
-      sanityOptions {
-        projectId
-        dataset
-      }
-    }
-  }
-</static-query>
 
 <script>
 import Logo from './Logo'
@@ -107,5 +97,11 @@ ul {
   li {
     padding: 0 1.8rem;
   }
+}
+
+.language {
+  text-transform: capitalize;
+  font-weight: 400;
+  color: c.$grey-750;
 }
 </style>

@@ -26,6 +26,9 @@
           </div>
         </div>
       </section>
+      <section class="gallery-section">
+        <Gallery />
+      </section>
     </main>
   </Layout>
 </template>
@@ -82,13 +85,15 @@
 import SanityImage from '../components/SanityImage'
 import InnerNav from '../components/InnerNav'
 import BlockContent from '../components/BlockContent'
+import Gallery from '../components/Gallery'
 
 export default {
   name: 'Art',
   components: {
     SanityImage,
     InnerNav,
-    BlockContent
+    BlockContent,
+    Gallery
   }
 }
 </script>

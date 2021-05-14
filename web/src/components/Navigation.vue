@@ -13,17 +13,6 @@
   </nav>
 </template>
 
-<static-query>
-  query {
-    metadata {
-      sanityOptions {
-        projectId
-        dataset
-      }
-    }
-  }
-</static-query>
-
 <script>
 import Logo from './Logo'
 
