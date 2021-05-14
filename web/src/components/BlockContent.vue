@@ -1,7 +1,6 @@
 <template>
   <PortableText
     :blocks="blocks"
-    :serializers="serializers"
     :projectId="$static.metadata.sanityOptions.projectId"
     :dataset="$static.metadata.sanityOptions.dataset"
   />

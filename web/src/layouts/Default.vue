@@ -33,7 +33,7 @@ export default {
   },
   props: {
     title: String,
-    link: String,
+    link: Object,
     width: Number,
     height: Number,
     crop: String,

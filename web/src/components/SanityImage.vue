@@ -55,9 +55,9 @@ export default {
   },
   props: {
     title: String,
-    link: String,
-    w: Number,
-    h: Number,
+    link: Object,
+    w: String,
+    h: String,
     width: Number,
     height: Number,
     pos: String,
