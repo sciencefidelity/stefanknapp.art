@@ -1,7 +1,7 @@
 <template>
   <footer>
     <div class="container">
-      <p>&copy; 2021 The Estate of <b>Stefan Knapp</b></p>
+      <p>&copy; {{ year }} The Estate of <b>Stefan Knapp</b></p>
     </div>
   </footer>
 </template>
@@ -9,6 +9,11 @@
 <script>
 export default {
   name: 'Footer',
+  data() {
+    return {
+      year: new Date().getFullYear()
+    }
+  }
 }
 
 </script>

@@ -30,6 +30,9 @@
               </span>
             </p>
           </div>
+          <div class="front-copy">
+            <p>&copy; {{ copyright }}</p>
+          </div>
         </div>
       </div>
     </section>
@@ -45,6 +48,11 @@ export default {
   components: {
     Layout,
     VideoEmbed,
+  },
+  data() {
+    return {
+      copyright: new Date().getFullYear() + ' The Estate of Stefan Knapp'
+    }
   }
 }
 </script>
@@ -140,6 +148,15 @@ h1 {
 
 .top-row {
   letter-spacing: 0.029em;
+}
+
+.front-copy {
+  margin: 0 auto;
+  text-align: right;
+  align-self: flex-end;
+  p {
+    font-size: 1.9rem;
+  }
 }
 
 .footer {
