@@ -1,12 +1,18 @@
 <template>
   <nav>
     <div class="front-nav">
-      <ul>
-        <g-link to="/en/art"><li data-fill="Art">Art</li></g-link>
-        <g-link to="/en/life"><li data-fill="Life">Life</li></g-link>
-        <g-link to="/en/estate"><li data-fill="Estate">Estate</li></g-link>
-      </ul>
-      <p class="front-title">The Estate of Stefan Knapp</p>
+      <div id="hamburger-container" @click="toggleMenu()">
+        <span class="screen-reader-text">Main Menu</span>
+        <div :class="[ showMenu ? 'hamburger x-active' : 'hamburger' ]"></div>
+      </div>
+      <div :class="[ showMenu ? 'active' : 'inactive' ]">
+        <ul>
+          <g-link to="/en/art"><li data-fill="Art">Art</li></g-link>
+          <g-link to="/en/life"><li data-fill="Life">Life</li></g-link>
+          <g-link to="/en/estate"><li data-fill="Estate">Estate</li></g-link>
+        </ul>
+        <p class="front-title">The Estate of Stefan Knapp</p>
+      </div>
     </div>
   </nav>
 </template>
@@ -16,6 +22,17 @@ import Logo from './Logo'
 
 export default {
   name: 'FrontNav',
+  el:"#hamburger-container",
+  data() {
+    return {
+      showMenu: false,
+    }
+  },
+  methods: {
+    toggleMenu() {
+      this.showMenu = !this.showMenu
+    }
+  }
 }
 </script>
 
@@ -58,7 +75,7 @@ ul {
   list-style: none;
   padding: 0 5rem 0 0;
   -webkit-text-stroke: 0.08rem c.$sepia-150;
-  font-size: 6.5rem;
+  font-size: 6.4rem;
   font-weight: 600;
   line-height: 1.2;
   text-transform: uppercase;
@@ -93,10 +110,88 @@ ul {
   }
 }
 
+#hamburger-container {
+  display: grid;
+  cursor: pointer;
+  height: 5.8rem;
+  width: 8rem;
+  margin: 3.7rem 5rem 6.5rem auto;
+  cursor: pointer;
+}
+
+.hamburger,
+.x-active {
+  position: relative;
+  z-index: 1;
+  width: 8rem;
+  height: 0.4rem;
+  margin: 2.6rem 0 3rem;
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    background: c.$sepia-150;
+    width: 8rem;
+    height: 0.4rem;
+  }
+}
+
+.hamburger {
+  background-color: rgba(c.$sepia-150, 1);
+  transition: background-color 0s;
+  transition-delay: 0.5s;
+  &::before {
+    transform: translateY(-2.6rem);
+  }
+  &::after {
+    transform: translateY(2.2rem);
+  }
+  &::before,
+  &::after {
+    transition: rotate 0.5s, transform 0.5s;
+    transition-property: rotate, transform;
+    transition-delay: 0s, 0.5s;
+  }
+}
+
+.x-active {
+  background-color: rgba(c.$sepia-150, 0);
+  transition: background-color 0s;
+  transition-delay: 0.5s;
+  &::before {
+    transform: translateY(0);
+    rotate: 45deg;
+  }
+  &::after {
+    transform: translateY(-0.4rem);
+    rotate: -45deg;
+  }
+  &::before,
+  &::after {
+    transition: transform 0.5s, rotate 0.5s;
+    transition-property: transform, rotate;
+    transition-delay: 0s, 0.5s;
+  }
+}
+
+.active,
+.inactive {
+  height: 90rem;
+  transition: clip-path 1s ease-in-out;
+}
+
+.inactive {
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+}
+
+.active {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
 .front-title {
   position: absolute;
   right: -21rem;
-  top: 67rem;
+  top: 73.8rem;
   transform: rotate(90deg);
   text-transform: uppercase;
   font-size: 4.7rem;
