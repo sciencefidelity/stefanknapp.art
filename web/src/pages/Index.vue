@@ -128,6 +128,7 @@ h1 {
     content: "";
     display: block;
     padding-bottom: 40%;
+    padding-bottom: max(40%, (calc(100vh - (4vh + 96vw + 6rem))));
   }
 }
 
@@ -144,15 +145,14 @@ h1 {
 }
 
 .footer-text {
-  display: flex;
-  flex-direction: column;
   justify-content: flex-end;
   color: c.$sepia-150;
   font-size: 1.35vw;
   font-weight: 700;
   line-height: 1.5;
   @include b.mq(lg) {
-    font-size: 1.9vw;
+    // font-size: 1.9vw;
+    font-size: max(1.9vw, 0.79rem);
   }
 }
 
@@ -165,7 +165,7 @@ h1 {
   text-align: right;
   align-self: flex-end;
   p {
-    font-size: 1.9rem;
+    font-size: clamp(1.4rem, 1.8vw, 1.9rem);
     margin: 0;
   }
   @include b.mq(lg) {
