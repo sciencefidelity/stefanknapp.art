@@ -27,7 +27,6 @@
         </ul>
       </div>
     </div>
-    <button @click="toggleNavbar()">click me</button>
   </nav>
 </template>
 
@@ -39,15 +38,8 @@ export default {
   components: {
     Logo,
   },
-  data() {
-    return {
-      resizeNav: true
-    }
-  },
-  methods: {
-    toggleNavbar() {
-      this.resizeNav = !this.resizeNav
-    }
+  props: {
+    resizeNav: Boolean
   }
 }
 </script>
@@ -138,15 +130,12 @@ $transition: 1s ease-in-out;
 
 .menu--small {
   .art {
-    // transform: translate(-23rem, -1.4rem);
     transform: translate(-21.2rem, 3.3rem);
   }
   .life {
-    // transform: translate(-14.4rem, -5rem);
     transform: translate(-12.6rem, -0.3rem);
   }
   .estate {
-    // transform: translate(-1.8rem, -8.6rem);
     transform: translate(0rem, -3.9rem);
   }
 }

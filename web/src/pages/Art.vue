@@ -25,7 +25,6 @@
           </div>
         </div>
       </section>
-      <Observer @intersect="intersected"/>
       <section class="gallery-section">
         <Gallery captions:caption />
       </section>
@@ -87,7 +86,6 @@
 </static-query>
 
 <script>
-import Observer from "../components/Observer";
 import SanityImage from '../components/SanityImage'
 import BlockContent from '../components/BlockContent'
 import Gallery from '../components/Gallery'
@@ -96,16 +94,10 @@ import VideoEmbedArt from '../components/VideoEmbedArt'
 export default {
   name: 'Art',
   components: {
-    Observer,
     SanityImage,
     BlockContent,
     Gallery,
     VideoEmbedArt
-  },
-  methods: {
-    intersected() {
-      console.log('Intersected!')
-    }
   }
 }
 </script>

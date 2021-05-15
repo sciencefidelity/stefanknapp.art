@@ -1,6 +1,8 @@
 <template>
   <div class="layout">
-    <Header />
+    <Header
+      :resizeNav="resizeNav"
+    />
     <Hero
       :title=title
       :link=link
@@ -9,6 +11,10 @@
       :crop=crop
       :pos=pos
     />
+    <div class="down-intersect"><Observer @intersect="downIntersect"/>
+    </div>
+    <div class="up-intersect"><Observer @intersect="upIntersect"/>
+    </div>
     <slot />
     <Footer />
   </div>
@@ -24,12 +30,14 @@ query {
 </static-query>
 
 <script>
+import Observer from "../components/Observer"
 import Header from '../components/Header'
 import Hero from '../components/Hero'
 import Footer from '../components/Footer'
 
 export default {
   components: {
+    Observer,
     Header,
     Hero,
     Footer
@@ -40,7 +48,35 @@ export default {
     width: Number,
     height: Number,
     crop: String,
-    pos: String,
+    pos: String
+  },
+  data() {
+    return {
+      resizeNav: true
+    }
+  },
+  methods: {
+    downIntersect() {
+      this.resizeNav = false
+    },
+    upIntersect() {
+      this.resizeNav = true
+    }
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.down-intersect {
+  position: absolute;
+  left:50%;
+  top: 162vh;
+  z-index: 20;
+}
+.up-intersect {
+  position: absolute;
+  left:50%;
+  top: 50vh;
+  z-index: 20;
+}
+</style>

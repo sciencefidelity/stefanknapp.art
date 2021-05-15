@@ -1,6 +1,8 @@
 <template>
   <header>
-    <Navigation />
+    <Navigation
+      :resizeNav="resizeNav"
+    />
   </header>
 </template>
 
@@ -11,6 +13,9 @@ export default {
   name: 'Header',
   components: {
     Navigation
+  },
+  props: {
+    resizeNav: Boolean
   }
 }
 
