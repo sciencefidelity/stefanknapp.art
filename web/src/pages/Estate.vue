@@ -78,16 +78,12 @@
 <script>
   import SanityImage from '../components/SanityImage'
   import BlockContent from '../components/BlockContent'
-  import Photography from '../components/Photography'
-  import VideoEmbedLife from '../components/VideoEmbedLife'
 
   export default {
     name: 'Estate',
     components: {
       SanityImage,
-      BlockContent,
-      Photography,
-      VideoEmbedLife
+      BlockContent
     }
   }
   </script>
@@ -100,28 +96,6 @@
   padding: 15rem 0 18rem;
   background: c.$slate-150;
   z-index: 0;
-}
-
-.gallery-section {
-  position: relative;
-  display: grid;
-  place-content: center;
-  background: hsl(0,0%,99%);
-  padding: 15rem 0 18rem;
-  overflow: hidden;
-}
-
-.video-section {
-  position: relative;
-  height: 100vh;
-  width: 100vw;
-  overflow: hidden;
-}
-
-.video-wrapper {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 .video-embed {
