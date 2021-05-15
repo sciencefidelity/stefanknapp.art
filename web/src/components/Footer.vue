@@ -35,8 +35,10 @@ footer {
   text-align: right;
   display: flex;
   justify-content: space-between;
+  align-content: center;
   p {
     font-size: 1.9rem;
+    margin: 0;
   }
 }
 
