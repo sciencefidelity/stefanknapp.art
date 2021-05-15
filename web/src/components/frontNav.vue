@@ -73,7 +73,8 @@ ul {
   // padding: 0 5rem 0 0;
   padding: 0 1.3rem 0 0;
   -webkit-text-stroke: 0.08rem c.$sepia-150;
-  font-size: 6.4rem;
+  font-size: 4.45vw;
+  // font-size: 6.4rem;
   font-weight: 600;
   line-height: 1.2;
   text-transform: uppercase;
@@ -97,7 +98,7 @@ ul {
       transition-duration: 0.7s;
       transition-timing-function: cubic-bezier(0.19, 1, 0.4, 1);
       transition-delay: initial;
-      transition-property: all;
+      transition-property: width;
       -webkit-text-fill-color: transparent;
       -webkit-background-clip: text;
       background-clip: text;
@@ -180,7 +181,7 @@ ul {
 
 .active,
 .inactive {
-  height: 90rem;
+  // height: 90rem;
   transition: clip-path 1s ease-in-out;
   padding: 0 3.5rem 0 0;
 }
@@ -202,7 +203,8 @@ ul {
 }
 
 .front-title {
-  font-size: 4.7rem;
+  font-size: 3.25vw;
+  // font-size: 4.7rem;
   text-transform: uppercase;
   white-space: nowrap;
   writing-mode: vertical-lr;

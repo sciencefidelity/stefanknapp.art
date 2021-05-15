@@ -144,6 +144,9 @@ h1 {
 }
 
 .footer-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   color: c.$sepia-150;
   font-size: 1.35vw;
   font-weight: 700;
@@ -163,6 +166,7 @@ h1 {
   align-self: flex-end;
   p {
     font-size: 1.9rem;
+    margin: 0;
   }
 }
 
