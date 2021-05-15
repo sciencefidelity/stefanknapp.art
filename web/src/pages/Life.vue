@@ -30,7 +30,7 @@
       </section>
       <section class="video-section">
         <div class="video-wrapper">
-          <VideoEmbedArt video="../../static/03-hc.mp4"/>
+          <VideoEmbedLife video="../../static/09-hc.mp4"/>
         </div>
       </section>
     </main>
@@ -89,7 +89,7 @@
 import SanityImage from '../components/SanityImage'
 import BlockContent from '../components/BlockContent'
 import Gallery from '../components/Gallery'
-import VideoEmbedArt from '../components/VideoEmbedArt'
+import VideoEmbedLife from '../components/VideoEmbedLife'
 
 export default {
   name: 'Life',
@@ -97,7 +97,7 @@ export default {
     SanityImage,
     BlockContent,
     Gallery,
-    VideoEmbedArt
+    VideoEmbedLife
   }
 }
 </script>
