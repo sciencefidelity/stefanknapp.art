@@ -211,7 +211,7 @@ export default {
 @use '../assets/scss/colors' as c;
 
 .gallery-container {
-  width: min(100rem, 88%);
+  width: min(130rem, 88%);
   margin: auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;

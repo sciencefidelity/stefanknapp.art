@@ -114,6 +114,12 @@ ul {
   width: 8rem;
   margin: 3.7rem 5rem 6.5rem auto;
   cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+  &:hover {
+    opacity: 1;
+    transition: opacity 0.3s;
+  }
 }
 
 .hamburger,

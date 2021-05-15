@@ -37,6 +37,10 @@ div {
   font-weight: 400;
 }
 
+p {
+  margin-bottom: 2rem;
+}
+
 h1 {
   font-size: 4rem;
   font-weight: 700;
@@ -68,6 +72,14 @@ b {
 
 strong {
   font-weight: 700;
+}
+
+blockquote {
+  font-weight: 300;
+  font-size: 2.1rem;
+  font-style: italic;
+  padding-left: 1.5em;
+  border-left: 0.2em solid c.$grey-350;
 }
 
 .container-fluid {
