@@ -168,6 +168,9 @@ h1 {
     font-size: 1.9rem;
     margin: 0;
   }
+  @include b.mq(lg) {
+    padding: 0.8rem;
+  }
 }
 
 .footer {

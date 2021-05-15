@@ -38,6 +38,7 @@ export default {
 
 <style lang="scss" scoped>
 @use '../assets/scss/colors' as c;
+@use '../assets/scss/breakpoints' as b;
 
 ::selection {
   background: rgba(c.$sepia-150, 0.3);
@@ -51,13 +52,11 @@ nav {
   margin-left: auto;
 }
 
-.container {
-  width: min(100rem, 88%);
-  height: 100%;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.front-nav {
+  padding: 0 3.5rem 0 0;
+  @include b.mq(lg) {
+    display: none;
+  }
 }
 
 a {
@@ -110,11 +109,13 @@ ul {
 }
 
 #hamburger-container {
+  // font-size: 1rem;
+  font-size: 0.7vw;
   display: grid;
   cursor: pointer;
-  height: 5.8rem;
-  width: 8rem;
-  margin: 3.7rem 5rem 6.5rem auto;
+  height: 5.8em;
+  width: 8em;
+  margin: 3.7em 1.5em 6.5em auto;
   cursor: pointer;
   opacity: 0.5;
   transition: opacity 0.3s;
@@ -126,18 +127,20 @@ ul {
 
 .hamburger,
 .x-active {
+  // font-size: 1rem;
+  font-size: 0.7vw;
   position: relative;
   z-index: 1;
-  width: 8rem;
-  height: 0.4rem;
-  margin: 2.6rem 0 3rem;
+  width: 8em;
+  height: 0.4em;
+  margin: 2.6em 0 3em;
   &::before,
   &::after {
     content: "";
     display: block;
     background: c.$sepia-150;
-    width: 8rem;
-    height: 0.4rem;
+    width: 8em;
+    height: 0.4em;
   }
 }
 
@@ -146,10 +149,10 @@ ul {
   transition: background-color 0s;
   transition-delay: 0.5s;
   &::before {
-    transform: translateY(-2.6rem);
+    transform: translateY(-2.6em);
   }
   &::after {
-    transform: translateY(2.2rem);
+    transform: translateY(2.2em);
   }
   &::before,
   &::after {
@@ -183,7 +186,7 @@ ul {
 .inactive {
   // height: 90rem;
   transition: clip-path 1s ease-in-out;
-  padding: 0 3.5rem 0 0;
+  // padding: 0 3.5rem 0 0;
 }
 
 .inactive {
