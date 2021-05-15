@@ -26,7 +26,7 @@
         </div>
       </section>
       <section class="gallery-section">
-        <Gallery captions:caption />
+        <Photography captions:caption />
       </section>
       <section class="video-section">
         <div class="video-wrapper">
@@ -88,7 +88,7 @@
 <script>
 import SanityImage from '../components/SanityImage'
 import BlockContent from '../components/BlockContent'
-import Gallery from '../components/Gallery'
+import Photography from '../components/Photography'
 import VideoEmbedLife from '../components/VideoEmbedLife'
 
 export default {
@@ -96,7 +96,7 @@ export default {
   components: {
     SanityImage,
     BlockContent,
-    Gallery,
+    Photography,
     VideoEmbedLife
   }
 }
