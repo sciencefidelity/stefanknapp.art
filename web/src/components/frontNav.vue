@@ -11,7 +11,7 @@
           <g-link to="/en/life"><li data-fill="Life">Life</li></g-link>
           <g-link to="/en/estate"><li data-fill="Estate">Estate</li></g-link>
         </ul>
-        <p class="front-title">The Estate of Stefan Knapp</p>
+        <div class="front-title--container"><p class="front-title">The Estate of Stefan Knapp</p></div>
       </div>
     </div>
   </nav>
@@ -70,7 +70,8 @@ a {
 
 ul {
   list-style: none;
-  padding: 0 5rem 0 0;
+  // padding: 0 5rem 0 0;
+  padding: 0 1.3rem 0 0;
   -webkit-text-stroke: 0.08rem c.$sepia-150;
   font-size: 6.4rem;
   font-weight: 600;
@@ -181,6 +182,7 @@ ul {
 .inactive {
   height: 90rem;
   transition: clip-path 1s ease-in-out;
+  padding: 0 3.5rem 0 0;
 }
 
 .inactive {
@@ -191,13 +193,19 @@ ul {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
 
-.front-title {
-  position: absolute;
-  right: -21rem;
-  top: 73.8rem;
-  transform: rotate(90deg);
-  text-transform: uppercase;
-  font-size: 4.7rem;
-  white-space: nowrap;
+.front-title--container {
+  display: flex;
+  width: 100%;
+  justify-content: end;
+  // padding: 5rem 3.5rem 0 0;
+  padding-top: 5rem;
 }
+
+.front-title {
+  font-size: 4.7rem;
+  text-transform: uppercase;
+  white-space: nowrap;
+  writing-mode: vertical-lr;
+}
+
 </style>
