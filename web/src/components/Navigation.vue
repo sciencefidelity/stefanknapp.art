@@ -35,7 +35,7 @@
           </g-link>
           <g-link
             v-else
-            to="/pl/zycie"
+            to="/pl/life"
             :class="[ resizeNav ? 'link--big' : 'link--small' ]"
           >
             <li class="life-pl">
@@ -53,7 +53,7 @@
           </g-link>
           <g-link
             v-else
-            to="/pl/posiadlosc"
+            to="/pl/estate"
             :class="[ resizeNav ? 'link--big' : 'link--small' ]"
           >
             <li class="estate">

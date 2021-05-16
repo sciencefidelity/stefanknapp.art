@@ -5,33 +5,33 @@ module.exports = {
       component: './src/pages/Index.vue'
     },
     {
-      path: '/en/art',
+      path: '/en/art/',
       component: './src/pages/Art.vue'
     },
     {
-      path: '/en/life',
+      path: '/en/life/',
       component: './src/pages/Life.vue'
     },
     {
-      path: '/en/estate',
+      path: '/en/estate/',
       component: './src/pages/Estate.vue'
     }
   ],
   pl: [
     {
-      path: '/pl',
+      path: '/pl/',
       component: './src/pages/Index.vue'
     },
     {
-      path: '/pl/sztuka',
+      path: '/pl/sztuka/',
       component: './src/pages/Art.vue'
     },
     {
-      path: '/pl/zycie',
+      path: '/pl/zycie/',
       component: './src/pages/Life.vue'
     },
     {
-      path: '/pl/posiadlosc',
+      path: '/pl/posiadlosc/',
       component: './src/pages/Estate.vue'
     }
   ]

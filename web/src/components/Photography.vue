@@ -9,7 +9,12 @@
         w=442
         h=400
       />
-      <p class="caption">{{ edge.node.title.en }}, {{ edge.node.date }}</p>
+      <p v-if="$context.locale === 'en-gb'" class="caption">
+        {{ edge.node.title.en }}, {{ edge.node.date }}
+      </p>
+      <p v-else class="caption">
+        {{ edge.node.title.pl }}, {{ edge.node.date }}
+      </p>
     </div>
   </div>
 </template>
@@ -22,6 +27,7 @@
           id
           title {
             en
+            pl
           }
           date
           mainImage {
