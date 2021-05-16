@@ -40,7 +40,7 @@
   </Layout>
 </template>
 
-<script>
+<script lang="ts">
 import Layout from '../layouts/FrontPage'
 import VideoEmbed from '../components/VideoEmbed'
 import FrontNav from '../components/FrontNav'

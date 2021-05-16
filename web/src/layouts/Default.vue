@@ -29,7 +29,7 @@ query {
 }
 </static-query>
 
-<script>
+<script lang="ts">
 import Observer from "../components/Observer"
 import Header from '../components/Header'
 import Hero from '../components/Hero'

@@ -6,7 +6,7 @@
   </header>
 </template>
 
-<script>
+<script lang="ts">
 import Navigation from './Navigation'
 
 export default {

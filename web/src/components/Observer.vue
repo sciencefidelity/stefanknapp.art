@@ -2,7 +2,7 @@
   <div class="observer"/>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   props: ['options'],
   data: () => ({

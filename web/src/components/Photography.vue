@@ -42,7 +42,7 @@
   }
 </static-query>
 
-<script>
+<script lang="ts">
 
 import SanityImage from './SanityImage'
 

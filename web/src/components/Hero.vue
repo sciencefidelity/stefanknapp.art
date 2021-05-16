@@ -11,7 +11,7 @@
   </section>
 </template>
 
-<script>
+<script lang="ts">
 import SanityImage from './SanityImage'
 
 export default {

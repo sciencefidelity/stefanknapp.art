@@ -75,21 +75,21 @@
   }
 </static-query>
 
-<script>
-  import SanityImage from '../components/SanityImage'
-  import BlockContent from '../components/BlockContent'
+<script lang="ts">
+import SanityImage from '../components/SanityImage'
+import BlockContent from '../components/BlockContent'
 
-  export default {
-    name: 'Estate',
-    components: {
-      SanityImage,
-      BlockContent
-    }
+export default {
+  name: 'Estate',
+  components: {
+    SanityImage,
+    BlockContent
   }
-  </script>
+}
+</script>
 
 <style lang="scss" scoped>
-  @use '../assets/scss/colors' as c;
+@use '../assets/scss/colors' as c;
 
 .art-section {
   position: relative;

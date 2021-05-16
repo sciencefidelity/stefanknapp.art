@@ -15,7 +15,7 @@
   </nav>
 </template>
 
-<script>
+<script lang="ts">
 import Logo from './Logo'
 
 export default {

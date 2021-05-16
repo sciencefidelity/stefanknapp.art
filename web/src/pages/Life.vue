@@ -85,7 +85,7 @@
   }
 </static-query>
 
-<script>
+<script lang="ts">
 import SanityImage from '../components/SanityImage'
 import BlockContent from '../components/BlockContent'
 import Photography from '../components/Photography'

@@ -182,8 +182,7 @@
   }
 </static-query>
 
-<script>
-
+<script lang="ts">
 import SanityImage from './SanityImage'
 
 export default {
@@ -204,7 +203,6 @@ export default {
     }
   }
 }
-
 </script>
 
 <style lang="scss" scoped>
@@ -225,7 +223,5 @@ export default {
   margin-top: -3.2rem;
   text-align: right;
   font-size: 1.9rem;
-  // font-weight: 300;
 }
-
 </style>

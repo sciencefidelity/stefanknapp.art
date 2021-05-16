@@ -11,7 +11,7 @@
   </video>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   name: 'VideoEmbed',
   props: {
