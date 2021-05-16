@@ -32,7 +32,11 @@
             </p>
           </div>
           <div class="front-copy">
-            <p>&copy; {{ copyright }}</p>
+            <p>&copy; {{ copyright }}
+              {{ $context.locale === "en-gb" ?
+               'The Estate of Stefan Knapp' :
+               'Posiadłość Stefana Knappa' }}
+            </p>
           </div>
         </div>
       </div>
@@ -54,7 +58,7 @@ export default {
   },
   data() {
     return {
-      copyright: new Date().getFullYear() + ' The Estate of Stefan Knapp',
+      copyright: new Date().getFullYear()
     }
   }
 }

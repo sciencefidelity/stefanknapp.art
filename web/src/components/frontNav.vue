@@ -7,11 +7,44 @@
       </div>
       <div :class="[ showMenu ? 'active' : 'inactive' ]">
         <ul>
-          <g-link to="/en/art"><li data-fill="Art">Art</li></g-link>
-          <g-link to="/en/life"><li data-fill="Life">Life</li></g-link>
-          <g-link to="/en/estate"><li data-fill="Estate">Estate</li></g-link>
+          <g-link v-if="$context.locale === 'en-gb'" to="/en/art">
+            <li data-fill="Art">
+              Art
+            </li>
+          </g-link>
+          <g-link v-else to="/pl/art">
+            <li data-fill="Sztuka">
+              Sztuka
+            </li>
+          </g-link>
+          <g-link v-if="$context.locale === 'en-gb'" to="/en/life">
+            <li data-fill="Life">
+              Life
+            </li>
+          </g-link>
+          <g-link v-else to="/pl/life">
+            <li data-fill="Życie">
+              Życie
+            </li>
+          </g-link>
+          <g-link v-if="$context.locale === 'en-gb'" to="/en/estate">
+            <li data-fill="Estate">
+              Estate
+            </li>
+          </g-link>
+          <g-link v-else to="/pl/estate">
+            <li data-fill="Posiadłość">
+              Posiadłość
+            </li>
+          </g-link>
         </ul>
-        <div class="front-title--container"><p class="front-title">The Estate of Stefan Knapp</p></div>
+        <div class="front-title--container">
+          <p class="front-title">
+            {{ $context.locale === "en-gb" ?
+             'The Estate of Stefan Knapp' :
+             'Posiadłość Stefana Knappa' }}
+          </p>
+        </div>
       </div>
     </div>
   </nav>
