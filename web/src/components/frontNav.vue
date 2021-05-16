@@ -125,6 +125,30 @@ ul {
   }
 }
 
+@keyframes beforeto {
+  from { transform: translateY(-2.6em) rotate(0); }
+  50% { transform: translateY(0) rotate(0); }
+  to { transform: translateY(0) rotate(0.125turn); }
+}
+
+@keyframes afterto {
+  from { transform: translateY(2.2em) rotate(0); }
+  50% { transform: translateY(-0.4rem) rotate(0); }
+  to { transform: translateY(-0.4rem) rotate(-0.125turn); }
+}
+
+@keyframes beforeback {
+  from { transform: translateY(0) rotate(0.125turn); }
+  50% { transform: translateY(0) rotate(0); }
+  to { transform: translateY(-2.6em) rotate(0); }
+}
+
+@keyframes afterback {
+  from { transform: translateY(-0.4rem) rotate(-0.125turn); }
+  50% { transform: translateY(-0.4rem) rotate(0); }
+  to { transform: translateY(2.2em) rotate(0); }
+}
+
 .hamburger,
 .x-active {
   // font-size: 1rem;
@@ -149,17 +173,21 @@ ul {
   transition: background-color 0s;
   transition-delay: 0.5s;
   &::before {
-    transform: translateY(-2.6em);
+    transform: translateY(-2.6em) rotate(0);
+    animation-duration: 1s;
+    animation-name: beforeback;
   }
   &::after {
-    transform: translateY(2.2em);
+    transform: translateY(2.2em) rotate(0);
+    animation-duration: 1s;
+    animation-name: afterback;
   }
-  &::before,
-  &::after {
-    transition: rotate 0.5s, transform 0.5s;
-    transition-property: rotate, transform;
-    transition-delay: 0s, 0.5s;
-  }
+  // &::before,
+  // &::after {
+    // transition: rotate 0.5s, transform 0.5s;
+    // transition-property: rotate, transform;
+    // transition-delay: 0s, 0.5s;
+  // }
 }
 
 .x-active {
@@ -167,19 +195,23 @@ ul {
   transition: background-color 0s;
   transition-delay: 0.5s;
   &::before {
-    transform: translateY(0);
-    rotate: 45deg;
+    transform: translateY(0) rotate(0.125turn);
+    // rotate: 45deg;
+    animation-duration: 1s;
+    animation-name: beforeto;
   }
   &::after {
-    transform: translateY(-0.4rem);
-    rotate: -45deg;
+    transform: translateY(-0.4rem)  rotate(-0.125turn);
+    // rotate: -45deg;
+    animation-duration: 1s;
+    animation-name: afterto;
   }
-  &::before,
-  &::after {
-    transition: transform 0.5s, rotate 0.5s;
-    transition-property: transform, rotate;
-    transition-delay: 0s, 0.5s;
-  }
+  // &::before,
+  // &::after {
+    // transition: transform 0.5s, rotate 0.5s;
+    // transition-property: transform, rotate;
+    // transition-delay: 0s, 0.5s;
+  // }
 }
 
 .active,
