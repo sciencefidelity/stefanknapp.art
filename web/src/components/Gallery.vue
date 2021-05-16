@@ -221,6 +221,7 @@ export default {
 
 <style lang="scss" scoped>
 @use '../assets/scss/colors' as c;
+@use '../assets/scss/breakpoints' as b;
 
 .gallery-container {
   width: min(130rem, 88%);
@@ -230,6 +231,12 @@ export default {
   gap: 3rem;
   div {
     margin-bottom: 3rem;
+  }
+  @include b.mq(md) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @include b.mq(sm) {
+    grid-template-columns: 1fr;
   }
 }
 

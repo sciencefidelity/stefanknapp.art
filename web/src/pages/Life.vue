@@ -108,7 +108,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @use '../assets/scss/colors' as c;
+@use '../assets/scss/colors' as c;
+@use '../assets/scss/breakpoints' as b;
 
 .art-section {
   position: relative;
@@ -154,6 +155,12 @@ export default {
     &:first-child {
       padding-left: 0rem;
     }
+    @include b.mq(md) {
+      padding-left: 0;
+    }
+  }
+  @include b.mq(md) {
+    flex-direction: column;
   }
 }
 
@@ -162,6 +169,10 @@ export default {
   width: 370rem;
   box-shadow: 3px 5px 15px rgba(black, 0.2);
   filter: grayscale(100%);
+  @include b.mq(md) {
+    width: 75%;
+    margin: 0 auto 6rem;
+  }
 }
 
 </style>

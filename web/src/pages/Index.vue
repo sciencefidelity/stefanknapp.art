@@ -153,6 +153,7 @@ h1 {
   font-size: 1.35vw;
   font-weight: 700;
   line-height: 1.5;
+  white-space: nowrap;
   @include b.mq(lg) {
     font-size: max(1.9vw, 0.79rem);
   }
@@ -169,6 +170,9 @@ h1 {
   p {
     font-size: clamp(1.4rem, 1.8vw, 1.9rem);
     margin: 0;
+    @include b.mq(sm) {
+      font-size: 1.2rem;
+    }
   }
   @include b.mq(lg) {
     padding: 0.8rem;
