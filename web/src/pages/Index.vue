@@ -151,7 +151,6 @@ h1 {
   font-weight: 700;
   line-height: 1.5;
   @include b.mq(lg) {
-    // font-size: 1.9vw;
     font-size: max(1.9vw, 0.79rem);
   }
 }

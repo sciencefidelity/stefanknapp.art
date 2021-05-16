@@ -69,11 +69,9 @@ a {
 
 ul {
   list-style: none;
-  // padding: 0 5rem 0 0;
   padding: 0 1.3rem 0 0;
   -webkit-text-stroke: 0.08rem c.$sepia-150;
   font-size: 4.45vw;
-  // font-size: 6.4rem;
   font-weight: 600;
   line-height: 1.2;
   text-transform: uppercase;
@@ -109,7 +107,6 @@ ul {
 }
 
 #hamburger-container {
-  // font-size: 1rem;
   font-size: 0.7vw;
   display: grid;
   cursor: pointer;
@@ -124,6 +121,8 @@ ul {
     transition: opacity 0.3s;
   }
 }
+
+// ******** animated hamburger ***********
 
 @keyframes beforeto {
   from { transform: translateY(-2.6em) rotate(0); }
@@ -151,7 +150,6 @@ ul {
 
 .hamburger,
 .x-active {
-  // font-size: 1rem;
   font-size: 0.7vw;
   position: relative;
   z-index: 1;
@@ -182,12 +180,6 @@ ul {
     animation-duration: 1s;
     animation-name: afterback;
   }
-  // &::before,
-  // &::after {
-    // transition: rotate 0.5s, transform 0.5s;
-    // transition-property: rotate, transform;
-    // transition-delay: 0s, 0.5s;
-  // }
 }
 
 .x-active {
@@ -196,29 +188,19 @@ ul {
   transition-delay: 0.5s;
   &::before {
     transform: translateY(0) rotate(0.125turn);
-    // rotate: 45deg;
     animation-duration: 1s;
     animation-name: beforeto;
   }
   &::after {
     transform: translateY(-0.4rem)  rotate(-0.125turn);
-    // rotate: -45deg;
     animation-duration: 1s;
     animation-name: afterto;
   }
-  // &::before,
-  // &::after {
-    // transition: transform 0.5s, rotate 0.5s;
-    // transition-property: transform, rotate;
-    // transition-delay: 0s, 0.5s;
-  // }
 }
 
 .active,
 .inactive {
-  // height: 90rem;
   transition: clip-path 1s ease-in-out;
-  // padding: 0 3.5rem 0 0;
 }
 
 .inactive {
@@ -232,14 +214,12 @@ ul {
 .front-title--container {
   display: flex;
   width: 100%;
-  justify-content: end;
-  // padding: 5rem 3.5rem 0 0;
+  justify-content: flex-end;
   padding-top: 5rem;
 }
 
 .front-title {
   font-size: 3.25vw;
-  // font-size: 4.7rem;
   text-transform: uppercase;
   white-space: nowrap;
   writing-mode: vertical-lr;
