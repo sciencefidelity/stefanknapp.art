@@ -1,8 +1,14 @@
 <template>
   <footer>
     <div class="container-footer">
-      <g-link to="/pl"><p class="language">PL</p></g-link>
-      <p>&copy; {{ year }} The Estate of <b>Stefan Knapp</b></p>
+      <g-link v-if="$context.locale === 'en-gb'" to="/pl"><p class="language">PL</p></g-link>
+      <g-link e-else to="/en"><p class="language">EN</p></g-link>
+      <p v-if="$context.locale === 'en-gb'">
+        &copy; {{ year }} The Estate of <b>Stefan Knapp</b>
+      </p>
+      <p v-else>
+        &copy; {{ year }} Posiadłość <b>Stefana Knappa</b>
+      </p>
     </div>
   </footer>
 </template>

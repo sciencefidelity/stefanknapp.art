@@ -7,22 +7,58 @@
       <div>
         <ul :class="[ resizeNav ? 'menu--big' : 'menu--small' ]">
           <g-link
+            v-if="$context.locale === 'en-gb'"
             to="/en/art"
             :class="[ resizeNav ? 'link--big' : 'link--small' ]"
           >
-            <li class="art">Art</li>
+            <li class="art">
+              Art
+            </li>
           </g-link>
           <g-link
+            v-else
+            to="/pl/art"
+            :class="[ resizeNav ? 'link--big' : 'link--small' ]"
+          >
+            <li class="art-pl">
+              Sztuka
+            </li>
+          </g-link>
+          <g-link
+            v-if="$context.locale === 'en-gb'"
             to="/en/life"
             :class="[ resizeNav ? 'link--big' : 'link--small' ]"
           >
-            <li class="life">Life</li>
+            <li class="life">
+              Life
+            </li>
           </g-link>
           <g-link
+            v-else
+            to="/pl/life"
+            :class="[ resizeNav ? 'link--big' : 'link--small' ]"
+          >
+            <li class="life-pl">
+              Życie
+            </li>
+          </g-link>
+          <g-link
+            v-if="$context.locale === 'en-gb'"
             to="/en/estate"
             :class="[ resizeNav ? 'link--big' : 'link--small' ]"
           >
-            <li class="estate">Estate</li>
+            <li class="estate">
+              Estate
+            </li>
+          </g-link>
+          <g-link
+            v-else
+            to="/pl/estate"
+            :class="[ resizeNav ? 'link--big' : 'link--small' ]"
+          >
+            <li class="estate">
+              Posiadłość
+            </li>
           </g-link>
         </ul>
       </div>
@@ -136,6 +172,15 @@ $transition: 1s ease-in-out;
     transform: translate(-12.6rem, -0.3rem);
   }
   .estate {
+    transform: translate(0rem, -3.9rem);
+  }
+  .art-pl {
+    transform: translate(-32rem, 3.3rem);
+  }
+  .life-pl {
+    transform: translate(-21rem, -0.3rem);
+  }
+  .estate-pl {
     transform: translate(0rem, -3.9rem);
   }
 }

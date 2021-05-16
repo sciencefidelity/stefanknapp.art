@@ -7,7 +7,10 @@
       </div>
       <div :class="[ showMenu ? 'active' : 'inactive' ]">
         <ul>
-          <g-link v-if="$context.locale === 'en-gb'" to="/en/art">
+          <g-link
+            v-if="$context.locale === 'en-gb'"
+            to="/en/art"
+          >
             <li data-fill="Art">
               Art
             </li>
@@ -17,7 +20,10 @@
               Sztuka
             </li>
           </g-link>
-          <g-link v-if="$context.locale === 'en-gb'" to="/en/life">
+          <g-link
+            v-if="$context.locale === 'en-gb'"
+            to="/en/life"
+          >
             <li data-fill="Life">
               Life
             </li>
@@ -27,7 +33,10 @@
               Życie
             </li>
           </g-link>
-          <g-link v-if="$context.locale === 'en-gb'" to="/en/estate">
+          <g-link
+            v-if="$context.locale === 'en-gb'"
+            to="/en/estate"
+          >
             <li data-fill="Estate">
               Estate
             </li>

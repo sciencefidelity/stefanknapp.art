@@ -16,9 +16,14 @@
           </div>
           <div>
             <block-content
+              v-if="$context.locale === 'en-gb'"
               class="post__content"
               :blocks="$static.sanityPage.body._rawEn"
-              v-if="$static.sanityPage.body._rawEn"
+            />
+            <block-content
+              v-else
+              class="post__content"
+              :blocks="$static.sanityPage.body._rawPl"
             />
           </div>
         </div>

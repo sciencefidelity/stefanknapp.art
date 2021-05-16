@@ -9,7 +9,8 @@
         w=442
         h=400
       />
-      <p class="caption">{{ caption[0] }}</p>
+      <p v-if="$context.locale === 'en-gb'" class="caption">{{ captionEn[0] }}</p>
+      <p v-else class="caption">{{ captionPl[0] }}</p>
     </div>
     <div>
       <SanityImage
@@ -20,7 +21,8 @@
         w=442
         h=400
       />
-      <p class="caption">{{ caption[1] }}</p>
+      <p v-if="$context.locale === 'en-gb'" class="caption">{{ captionEn[1] }}</p>
+      <p v-else class="caption">{{ captionPl[1] }}</p>
     </div>
     <div>
       <SanityImage
@@ -31,7 +33,8 @@
         w=442
         h=400
       />
-      <p class="caption">{{ caption[2] }}</p>
+      <p v-if="$context.locale === 'en-gb'" class="caption">{{ captionEn[2] }}</p>
+      <p v-else class="caption">{{ captionPl[2] }}</p>
     </div>
     <div>
       <SanityImage
@@ -42,7 +45,8 @@
         w=442
         h=400
       />
-      <p class="caption">{{ caption[3] }}</p>
+      <p v-if="$context.locale === 'en-gb'" class="caption">{{ captionEn[3] }}</p>
+      <p v-else class="caption">{{ captionPl[3] }}</p>
     </div>
     <div>
       <SanityImage
@@ -53,7 +57,8 @@
         w=442
         h=400
       />
-      <p class="caption">{{ caption[4] }}</p>
+      <p v-if="$context.locale === 'en-gb'" class="caption">{{ captionEn[4] }}</p>
+      <p v-else class="caption">{{ captionPl[4] }}</p>
     </div>
     <div>
       <SanityImage
@@ -64,7 +69,8 @@
         w=442
         h=400
       />
-      <p class="caption">{{ caption[5] }}</p>
+      <p v-if="$context.locale === 'en-gb'" class="caption">{{ captionEn[5] }}</p>
+      <p v-else class="caption">{{ captionPl[5] }}</p>
     </div>
   </div>
 </template>
@@ -192,13 +198,21 @@ export default {
   },
   data() {
     return {
-      caption: [
+      captionEn: [
         '1921-46 Beginnings',
         '1947-53 Early Phase',
         '1953-58 Success',
         '1958-72 A New Scale',
         '1973-82 Building on Success',
         '1982-96 Mature Years'
+      ],
+      captionPl: [
+        '1921-46 Początki',
+        '1947-53 Faza wczesna',
+        '1953-58 Sukces',
+        '1958-72 Nowa skala',
+        '1973-82 Bazując na sukcesie',
+        '1982-96 Dojrzałe lata'
       ]
     }
   }
