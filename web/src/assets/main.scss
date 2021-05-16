@@ -10,6 +10,10 @@
   margin: 0;
 }
 
+::selection {
+  background: rgba(c.$grey-300, 1);
+}
+
 html {
   font-size: 62.5%;
   -webkit-font-smoothing: antialiased;

@@ -17,7 +17,7 @@
   }
 </static-query>
 
-<script>
+<script lang="ts">
 import PortableText from 'sanity-blocks-vue-component'
 export default {
   props: {
