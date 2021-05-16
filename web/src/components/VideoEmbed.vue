@@ -2,6 +2,8 @@
   <video
     autoplay
     loop
+    muted
+    playsinline
     :class="classname"
   >
     <source type="video/mp4" src="../../static/06-hc-sq.mp4" />

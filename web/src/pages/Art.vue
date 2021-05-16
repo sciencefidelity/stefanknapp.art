@@ -30,7 +30,7 @@
       </section>
       <section class="video-section">
         <div class="video-wrapper">
-          <VideoEmbedArt video="../../static/03-hc.mp4"/>
+          <VideoEmbedArt />
         </div>
       </section>
     </main>
