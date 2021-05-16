@@ -33,6 +33,8 @@ module.exports = {
         defaultLocale: 'en-gb', // default language
         enablePathRewrite: true, // rewrite path with locale prefix, default: true
         rewriteDefaultLanguage: true, // rewrite default locale, default: true
+        // enablePathGeneration: false,
+        // routes: require('./routes.js') // load path translation declaration from external file
         // messages: {
         //   'pl-pl': require('./src/locales/it-it.json'), // Messages files
         //   'en-gb': require('./src/locales/en-gb.json'),

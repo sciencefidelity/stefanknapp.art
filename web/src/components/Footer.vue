@@ -1,8 +1,7 @@
 <template>
   <footer>
     <div class="container-footer">
-      <g-link v-if="$context.locale === 'en-gb'" to="/pl"><p class="language">PL</p></g-link>
-      <g-link e-else to="/en"><p class="language">EN</p></g-link>
+      <LocaleChanger />
       <p v-if="$context.locale === 'en-gb'">
         &copy; {{ year }} The Estate of <b>Stefan Knapp</b>
       </p>
@@ -14,11 +13,15 @@
 </template>
 
 <script lang="ts">
+import LocaleChanger from './LocaleChanger'
 export default {
   name: 'Footer',
+  components: {
+    LocaleChanger
+  },
   data() {
     return {
-      year: new Date().getFullYear()
+      year: new Date().getFullYear(),
     }
   }
 }
