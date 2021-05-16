@@ -45,7 +45,7 @@ export default {
 }
 
 nav {
-  z-index: 3;
+  z-index: 1;
   top: 0;
   left: 0;
   height: 18rem;
@@ -54,8 +54,13 @@ nav {
 
 .front-nav {
   padding: 0 3.5rem 0 0;
+  z-index: 1;
   @include b.mq(lg) {
-    display: none;
+    font: 1rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0;
   }
 }
 
@@ -78,6 +83,12 @@ ul {
   text-align: right;
   display: flex;
   flex-direction: column;
+  z-index: 10;
+  @include b.mq(lg) {
+    font-size: 10.5vw;
+    line-height: 10.5vw;
+    padding: 1.4em 0.3em 0 0;
+  }
   li {
     display: inline-block;
     position: relative;
@@ -116,9 +127,14 @@ ul {
   cursor: pointer;
   opacity: 0.5;
   transition: opacity 0.3s;
+  z-index: 0;
   &:hover {
     opacity: 1;
     transition: opacity 0.3s;
+  }
+  @include b.mq(lg) {
+    font-size: 1.2vw;
+    margin: 3.5em 2.5em 2em auto;
   }
 }
 
@@ -132,8 +148,8 @@ ul {
 
 @keyframes afterto {
   from { transform: translateY(2.2em) rotate(0); }
-  50% { transform: translateY(-0.4rem) rotate(0); }
-  to { transform: translateY(-0.4rem) rotate(-0.125turn); }
+  50% { transform: translateY(-0.4em) rotate(0); }
+  to { transform: translateY(-0.4em) rotate(-0.125turn); }
 }
 
 @keyframes beforeback {
@@ -143,8 +159,8 @@ ul {
 }
 
 @keyframes afterback {
-  from { transform: translateY(-0.4rem) rotate(-0.125turn); }
-  50% { transform: translateY(-0.4rem) rotate(0); }
+  from { transform: translateY(-0.4em) rotate(-0.125turn); }
+  50% { transform: translateY(-0.4em) rotate(0); }
   to { transform: translateY(2.2em) rotate(0); }
 }
 
@@ -163,6 +179,10 @@ ul {
     background: c.$sepia-150;
     width: 8em;
     height: 0.4em;
+  }
+  @include b.mq(lg) {
+    font-size: 1.2vw;
+
   }
 }
 
@@ -192,7 +212,7 @@ ul {
     animation-name: beforeto;
   }
   &::after {
-    transform: translateY(-0.4rem)  rotate(-0.125turn);
+    transform: translateY(-0.4em)  rotate(-0.125turn);
     animation-duration: 1s;
     animation-name: afterto;
   }
@@ -201,6 +221,15 @@ ul {
 .active,
 .inactive {
   transition: clip-path 1s ease-in-out;
+  z-index: -1;
+  @include b.mq(lg) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: rgba(c.$grey-950, 0.8);
+    width: 100vw;
+    height: 100vw;
+  }
 }
 
 .inactive {
@@ -216,6 +245,9 @@ ul {
   width: 100%;
   justify-content: flex-end;
   padding-top: 5rem;
+  @include b.mq(lg) {
+    padding-top: 0;
+  }
 }
 
 .front-title {
@@ -223,6 +255,12 @@ ul {
   text-transform: uppercase;
   white-space: nowrap;
   writing-mode: vertical-lr;
+  @include b.mq(lg) {
+    // display: none;
+    font-size: 5vw;
+    padding: 2.3em 0.8em;
+    writing-mode: lr;
+  }
 }
 
 </style>

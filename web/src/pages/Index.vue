@@ -5,7 +5,7 @@
         <div class="row">
           <div class="col-lg-8 logo">
             <div class="knapp-image">
-              <VideoEmbed video="../../static/06-hc-sq.mp4"/>
+              <VideoEmbed />
             </div>
             <div class="circle">
               <g-link to="/art/">
@@ -87,10 +87,8 @@ h1 {
   padding-left: 0px;
   padding-right: 0px;
   @include b.mq(lg) {
-    padding-top: 4%;
-    padding-right: 2%;
-    padding-left: 2%;
-    padding-bottom: 0;
+    font-size: 1vw;
+    padding: 4em 2em 0 2em;
   }
 }
 
@@ -140,6 +138,7 @@ h1 {
   bottom: 50%;
   line-height: 0;
   @include b.mq(lg) {
+    font-size: 1vw;
     right: 0.5em;
   }
 }
@@ -169,6 +168,8 @@ h1 {
   }
   @include b.mq(lg) {
     padding: 0.8rem;
+    text-align: left;
+    align-self: inherit;
   }
 }
 
