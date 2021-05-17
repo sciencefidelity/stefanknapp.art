@@ -1,7 +1,7 @@
 <template>
   <footer>
     <div class="container-footer">
-      <LocaleChanger />
+      <LocaleSwitcher />
       <p v-if="$context.locale === 'en-gb'">
         &copy; {{ year }} The Estate of <b>Stefan Knapp</b>
       </p>
@@ -13,11 +13,11 @@
 </template>
 
 <script lang="ts">
-import LocaleChanger from './LocaleChanger'
+import LocaleSwitcher from './LocaleSwitcher'
 export default {
   name: 'Footer',
   components: {
-    LocaleChanger
+    LocaleSwitcher
   },
   data() {
     return {

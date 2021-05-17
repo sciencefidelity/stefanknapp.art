@@ -1,7 +1,5 @@
 ### To do list
 
-- Gridsome i18n plugin, $i18n.availableLocales returns an empty array
-- Language switcher links to the front page and not the current path
 - TypeScript support not working in Gridsome
 - Front page nav, move the il tags outside of the g-link tags
 - Make the responsivity better for the navbar on small screens
