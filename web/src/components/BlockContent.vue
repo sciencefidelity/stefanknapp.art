@@ -1,5 +1,5 @@
 <template>
-  <PortableText
+  <portable-text
     :blocks="blocks"
     :projectId="$static.metadata.sanityOptions.projectId"
     :dataset="$static.metadata.sanityOptions.dataset"

@@ -30,10 +30,10 @@ query {
 </static-query>
 
 <script lang="ts">
-import Observer from "../components/Observer"
-import Header from '../components/Header'
-import Hero from '../components/Hero'
-import Footer from '../components/Footer'
+import Observer from "@/components/Observer.vue"
+import Header from '@/components/Header.vue'
+import Hero from '@/components/Hero.vue'
+import Footer from '@/components/Footer.vue'
 
 export default {
   components: {

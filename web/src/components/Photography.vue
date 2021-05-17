@@ -1,7 +1,7 @@
 <template>
   <div class="gallery-container">
     <div v-for="edge in $static.photo.edges" :key="edge.node.id">
-      <SanityImage
+      <sanity-image
         :title="edge.node.title.en"
         :link="edge.node.mainImage"
         :width="edge.node.mainImage.asset.metadata.dimensions.width"
@@ -50,7 +50,7 @@
 
 <script lang="ts">
 
-import SanityImage from './SanityImage'
+import SanityImage from '@/components/SanityImage.vue'
 
 export default {
   name: 'Gallery',

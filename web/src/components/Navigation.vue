@@ -3,11 +3,11 @@
     <div class="container">
       <g-link v-if="$context.locale === 'en-gb'" to="/en"><div>
         <span class="screen-reader-text">Estate of Stefan Knapp - home</span>
-        <Logo :resizeLogo="resizeNav"/>
+        <logo :resizeLogo="resizeNav"/>
       </div></g-link>
       <g-link  v-else to="/pl"><div>
         <span class="screen-reader-text">Posiadłość Stefana Knappa - dom</span>
-        <Logo :resizeLogo="resizeNav"/>
+        <logo :resizeLogo="resizeNav"/>
       </div></g-link>
       <div>
         <ul :class="[ resizeNav ? 'menu--big' : 'menu--small' ]">
@@ -66,7 +66,7 @@
 </template>
 
 <script lang="ts">
-import Logo from './Logo'
+import Logo from '@/components/Logo.vue'
 
 export default {
   name: 'Navigation',

@@ -60,11 +60,9 @@
 </template>
 
 <script lang="ts">
-import Logo from './Logo'
-
 export default {
   name: 'FrontNav',
-  el:"#hamburger-container",
+  el: '#hamburger-container',
   data() {
     return {
       showMenu: false,

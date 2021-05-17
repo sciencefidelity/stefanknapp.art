@@ -1,7 +1,7 @@
 <template>
   <div class="gallery-container">
     <div>
-      <SanityImage
+      <sanity-image
         :title="$static.first.title.en"
         :link="$static.first.mainImage"
         :width="$static.first.mainImage.asset.metadata.dimensions.width"
@@ -13,7 +13,7 @@
       <p v-else class="caption">{{ captionPl[0] }}</p>
     </div>
     <div>
-      <SanityImage
+      <sanity-image
         :title="$static.second.title.en"
         :link="$static.second.mainImage"
         :width="$static.second.mainImage.asset.metadata.dimensions.width"
@@ -25,7 +25,7 @@
       <p v-else class="caption">{{ captionPl[1] }}</p>
     </div>
     <div>
-      <SanityImage
+      <sanity-image
         :title="$static.third.title.en"
         :link="$static.third.mainImage"
         :width="$static.third.mainImage.asset.metadata.dimensions.width"
@@ -37,7 +37,7 @@
       <p v-else class="caption">{{ captionPl[2] }}</p>
     </div>
     <div>
-      <SanityImage
+      <sanity-image
         :title="$static.forth.title.en"
         :link="$static.forth.mainImage"
         :width="$static.forth.mainImage.asset.metadata.dimensions.width"
@@ -49,7 +49,7 @@
       <p v-else class="caption">{{ captionPl[3] }}</p>
     </div>
     <div>
-      <SanityImage
+      <sanity-image
         :title="$static.fifth.title.en"
         :link="$static.fifth.mainImage"
         :width="$static.fifth.mainImage.asset.metadata.dimensions.width"
@@ -61,7 +61,7 @@
       <p v-else class="caption">{{ captionPl[4] }}</p>
     </div>
     <div>
-      <SanityImage
+      <sanity-image
         :title="$static.sixth.title.en"
         :link="$static.sixth.mainImage"
         :width="$static.sixth.mainImage.asset.metadata.dimensions.width"
@@ -189,7 +189,7 @@
 </static-query>
 
 <script lang="ts">
-import SanityImage from './SanityImage'
+import SanityImage from './SanityImage.vue'
 
 export default {
   name: 'Gallery',
@@ -199,20 +199,20 @@ export default {
   data() {
     return {
       captionEn: [
-        '1921-46 Beginnings',
-        '1947-53 Early Phase',
-        '1953-58 Success',
-        '1958-72 A New Scale',
-        '1973-82 Building on Success',
-        '1982-96 Mature Years'
+        'Beginnings (1921-1946)',
+        'Early Phase (1947-1953)',
+        'Success (1953-1958)',
+        'A New Scale (1958-1972)',
+        'Building on Success (1973-1982)',
+        'Mature Years (1982-1996)'
       ],
       captionPl: [
-        '1921-46 Początki',
-        '1947-53 Faza wczesna',
-        '1953-58 Sukces',
-        '1958-72 Nowa skala',
-        '1973-82 Bazując na sukcesie',
-        '1982-96 Dojrzałe lata'
+        'Początki (1921-1946)',
+        'Faza wczesna (1947-1953)',
+        'Sukces (1953-1958)',
+        'Nowa skala (1958-1972)',
+        'Bazując na sukcesie (1973-1982)',
+        'Dojrzałe lata (1982-1996)'
       ]
     }
   }

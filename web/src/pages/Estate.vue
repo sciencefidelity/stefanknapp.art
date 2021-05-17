@@ -1,5 +1,5 @@
 <template>
-  <Layout
+  <layout
     :title="$static.sanityPage.mainImage.caption.en"
     :link="$static.sanityPage.mainImage"
   >
@@ -7,7 +7,7 @@
       <section class="art-section">
         <div class="container">
           <div class="art-image">
-            <SanityImage
+            <sanity-image
               :title="$static.sanityPhotography.mainImage.caption.en"
               :link="$static.sanityPhotography.mainImage"
               :width="$static.sanityPhotography.mainImage.asset.metadata.dimensions.width"
@@ -29,7 +29,7 @@
         </div>
       </section>
     </main>
-  </Layout>
+  </layout>
 </template>
 
 <static-query>
@@ -81,8 +81,8 @@
 </static-query>
 
 <script lang="ts">
-import SanityImage from '../components/SanityImage'
-import BlockContent from '../components/BlockContent'
+import SanityImage from '@/components/SanityImage.vue'
+import BlockContent from '@/components/BlockContent.vue'
 
 export default {
   name: 'Estate',
@@ -136,6 +136,9 @@ export default {
   @include b.mq(md) {
     width: 75%;
     margin: 0 auto 6rem;
+  }
+  @include b.mq(sm) {
+    width: 100%;
   }
 }
 

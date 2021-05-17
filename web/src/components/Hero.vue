@@ -1,6 +1,6 @@
 <template>
   <section class="hero-image">
-    <SanityImage
+    <sanity-image
       :title=title
       :link=link
       :width=width
@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts">
-import SanityImage from './SanityImage'
+import SanityImage from '@/components/SanityImage.vue'
 
 export default {
   name: 'Hero',

@@ -61,7 +61,10 @@ export default {
     h: String,
     width: Number,
     height: Number,
-    pos: String,
+    pos: {
+      type: String,
+      default: '50% 50%',
+    },
     fit: {
       type: String,
       default: 'crop',

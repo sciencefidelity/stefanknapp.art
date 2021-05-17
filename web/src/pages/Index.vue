@@ -1,11 +1,11 @@
 <template>
-  <Layout>
+  <layout>
     <section id="site-main">
       <div class="container-fluid">
         <div class="row">
           <div class="col-lg-8 logo">
             <div class="knapp-image">
-              <VideoEmbed />
+              <video-embed />
             </div>
             <div class="circle">
               <g-link v-if="$context.locale === 'en-gb'" to="/en/art/">
@@ -16,7 +16,7 @@
               </g-link>
             </div>
           </div>
-          <FrontNav />
+          <front-nav />
         </div>
         <div class="row">
           <div class="col-lg-8">
@@ -44,13 +44,13 @@
         </div>
       </div>
     </section>
-  </Layout>
+  </layout>
 </template>
 
 <script lang="ts">
-import Layout from '../layouts/FrontPage'
-import VideoEmbed from '../components/VideoEmbed'
-import FrontNav from '../components/FrontNav'
+import Layout from '@/layouts/FrontPage.vue'
+import VideoEmbed from '@/components/VideoEmbed.vue'
+import FrontNav from '@/components/FrontNav.vue'
 
 export default {
   name: 'Index',

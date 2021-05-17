@@ -1,7 +1,7 @@
 <template>
   <footer>
     <div class="container-footer">
-      <locale-switcher></locale-switcher>
+      <locale-switcher />
       <p v-if="$context.locale === 'en-gb'">
         &copy; {{ year }} The Estate of <b>Stefan Knapp</b>
       </p>

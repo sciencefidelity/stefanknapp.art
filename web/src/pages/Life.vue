@@ -1,5 +1,5 @@
 <template>
-  <Layout
+  <layout
     :title="$static.sanityPage.mainImage.caption.en"
     :link="$static.sanityPage.mainImage"
     crop="top"
@@ -9,7 +9,7 @@
       <section class="art-section">
         <div class="container">
           <div class="art-image">
-            <SanityImage
+            <sanity-image
               :title="$static.sanityPhotography.mainImage.caption.en"
               :link="$static.sanityPhotography.mainImage"
               :width="$static.sanityPhotography.mainImage.asset.metadata.dimensions.width"
@@ -31,15 +31,15 @@
         </div>
       </section>
       <section class="gallery-section">
-        <Photography captions:caption />
+        <photography captions:caption />
       </section>
       <section class="video-section">
         <div class="video-wrapper">
-          <VideoEmbedLife />
+          <video-embed-life />
         </div>
       </section>
     </main>
-  </Layout>
+  </layout>
 </template>
 
 <static-query>
@@ -91,10 +91,10 @@
 </static-query>
 
 <script lang="ts">
-import SanityImage from '../components/SanityImage'
-import BlockContent from '../components/BlockContent'
-import Photography from '../components/Photography'
-import VideoEmbedLife from '../components/VideoEmbedLife'
+import SanityImage from '@/components/SanityImage.vue'
+import BlockContent from '@/components/BlockContent.vue'
+import Photography from '@/components/Photography.vue'
+import VideoEmbedLife from '@/components/VideoEmbedLife.vue'
 
 export default {
   name: 'Life',
@@ -172,6 +172,9 @@ export default {
   @include b.mq(md) {
     width: 75%;
     margin: 0 auto 6rem;
+  }
+  @include b.mq(sm) {
+    width: 100%;
   }
 }
 

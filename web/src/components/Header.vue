@@ -1,13 +1,13 @@
 <template>
   <header>
-    <Navigation
+    <navigation
       :resizeNav="resizeNav"
     />
   </header>
 </template>
 
 <script lang="ts">
-import Navigation from './Navigation'
+import Navigation from '@/components/Navigation.vue'
 
 export default {
   name: 'Header',
@@ -18,5 +18,4 @@ export default {
     resizeNav: Boolean
   }
 }
-
 </script>
