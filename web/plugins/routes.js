@@ -1,5 +1,5 @@
 module.exports = {
-  en: [
+  'en-gb': [
     {
       path: '/',
       component: './src/pages/Index.vue'
@@ -17,7 +17,7 @@ module.exports = {
       component: './src/pages/Estate.vue'
     }
   ],
-  pl: [
+  'pl-pl': [
     {
       path: '/pl/',
       component: './src/pages/Index.vue'

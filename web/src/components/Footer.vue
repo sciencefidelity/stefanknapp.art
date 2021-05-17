@@ -1,7 +1,7 @@
 <template>
   <footer>
     <div class="container-footer">
-      <LocaleSwitcher />
+      <locale-switcher></locale-switcher>
       <p v-if="$context.locale === 'en-gb'">
         &copy; {{ year }} The Estate of <b>Stefan Knapp</b>
       </p>
@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts">
-import LocaleSwitcher from './LocaleSwitcher'
+import LocaleSwitcher from '@/components/LocaleSwitcher.vue'
 export default {
   name: 'Footer',
   components: {

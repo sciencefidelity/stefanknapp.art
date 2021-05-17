@@ -1,8 +1,12 @@
 <template>
   <nav :class="[ resizeNav ? 'nav--big' : 'nav--small' ]">
     <div class="container">
-      <g-link to="/en"><div>
+      <g-link v-if="$context.locale === 'en-gb'" to="/en"><div>
         <span class="screen-reader-text">Estate of Stefan Knapp - home</span>
+        <Logo :resizeLogo="resizeNav"/>
+      </div></g-link>
+      <g-link  v-else to="/pl"><div>
+        <span class="screen-reader-text">Posiadłość Stefana Knappa - dom</span>
         <Logo :resizeLogo="resizeNav"/>
       </div></g-link>
       <div>

@@ -8,7 +8,10 @@
               <VideoEmbed />
             </div>
             <div class="circle">
-              <g-link to="/art/">
+              <g-link v-if="$context.locale === 'en-gb'" to="/en/art/">
+                <div class="title"><h1>Knapp</h1></div>
+              </g-link>
+              <g-link v-else to="/pl/art/">
                 <div class="title"><h1>Knapp</h1></div>
               </g-link>
             </div>
