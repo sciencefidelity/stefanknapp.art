@@ -8,32 +8,32 @@
       <div :class="[ showMenu ? 'active' : 'inactive' ]">
         <ul>
           <li v-if="$context.locale === 'en-gb'">
-            <g-link data-fill="Art" to="/en/art">
+            <g-link  to="/en/art/" data-fill="Art">
               Art
             </g-link>
           </li>
           <li v-else>
-            <g-link to="/pl/art" data-fill="Sztuka">
+            <g-link to="/pl/art/" data-fill="Sztuka">
               Sztuka
             </g-link>
           </li>
           <li v-if="$context.locale === 'en-gb'">
-            <g-link to="/en/life" data-fill="Life">
+            <g-link to="/en/life/" data-fill="Life">
               Life
             </g-link>
           </li>
           <li v-else>
-            <g-link to="/pl/life" data-fill="Życie">
+            <g-link to="/pl/life/" data-fill="Życie">
               Życie
             </g-link>
           </li>
           <li v-if="$context.locale === 'en-gb'">
-            <g-link to="/en/estate" data-fill="Estate">
+            <g-link to="/en/estate/" data-fill="Estate">
               Estate
             </g-link>
           </li>
           <li v-else>
-            <g-link to="/pl/estate" data-fill="Posiadłość">
+            <g-link to="/pl/estate/" data-fill="Posiadłość">
               Posiadłość
             </g-link>
           </li>

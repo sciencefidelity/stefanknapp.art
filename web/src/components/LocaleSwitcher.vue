@@ -8,7 +8,7 @@
     </g-link>
     <g-link
       v-else
-      :to="$tp(this.$route.path, this.availableLocales[0], true)"
+      :to="$tp(this.$route.path, this.availableLocales[0], true) + '/'"
     >
       <p class="language">EN</p>
     </g-link>

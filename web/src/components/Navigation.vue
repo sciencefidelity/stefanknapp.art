@@ -1,11 +1,11 @@
-<template>
+/<template>
   <nav :class="[ resizeNav ? 'nav--big' : 'nav--small' ]">
     <div class="container">
-      <g-link v-if="$context.locale === 'en-gb'" to="/en"><div>
+      <g-link v-if="$context.locale === 'en-gb'" to="/en/"><div>
         <span class="screen-reader-text">Estate of Stefan Knapp - home</span>
         <logo :resizeLogo="resizeNav"/>
       </div></g-link>
-      <g-link  v-else to="/pl"><div>
+      <g-link  v-else to="/pl/"><div>
         <span class="screen-reader-text">Posiadłość Stefana Knappa - dom</span>
         <logo :resizeLogo="resizeNav"/>
       </div></g-link>
@@ -13,7 +13,7 @@
         <ul :class="[ resizeNav ? 'menu--big' : 'menu--small' ]">
           <li v-if="$context.locale === 'en-gb'" class="art">
             <g-link
-              to="/en/art"
+              to="/en/art/"
               :class="[ resizeNav ? 'link--big' : 'link--small' ]"
             >
               Art
@@ -21,7 +21,7 @@
           </li>
           <li v-else class="art-pl">
             <g-link
-              to="/pl/art"
+              to="/pl/art/"
               :class="[ resizeNav ? 'link--big' : 'link--small' ]"
             >
               Sztuka
@@ -29,7 +29,7 @@
           </li>
           <li v-if="$context.locale === 'en-gb'" class="life">
             <g-link
-              to="/en/life"
+              to="/en/life/"
               :class="[ resizeNav ? 'link--big' : 'link--small' ]"
             >
               Life
@@ -37,7 +37,7 @@
           </li>
           <li v-else class="life-pl">
             <g-link
-              to="/pl/life"
+              to="/pl/life/"
               :class="[ resizeNav ? 'link--big' : 'link--small' ]"
             >
               Życie
@@ -45,7 +45,7 @@
           </li>
           <li v-if="$context.locale === 'en-gb'" class="estate">
             <g-link
-              to="/en/estate"
+              to="/en/estate/"
               :class="[ resizeNav ? 'link--big' : 'link--small' ]"
             >
               Estate
@@ -53,7 +53,7 @@
           </li>
           <li v-else class="estate-pl">
             <g-link
-              to="/pl/estate"
+              to="/pl/estate/"
               :class="[ resizeNav ? 'link--big' : 'link--small' ]"
             >
               Posiadłość
