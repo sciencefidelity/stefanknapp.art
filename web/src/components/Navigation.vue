@@ -2,64 +2,59 @@
   <nav :class="[ resizeNav ? 'nav--big' : 'nav--small' ]">
     <div class="container">
       <g-link to="/en"><div>
+        <span class="screen-reader-text">Estate of Stefan Knapp - home</span>
         <Logo :resizeLogo="resizeNav"/>
       </div></g-link>
       <div>
         <ul :class="[ resizeNav ? 'menu--big' : 'menu--small' ]">
-          <g-link
-            v-if="$context.locale === 'en-gb'"
-            to="/en/art"
-            :class="[ resizeNav ? 'link--big' : 'link--small' ]"
-          >
-            <li class="art">
+          <li v-if="$context.locale === 'en-gb'" class="art">
+            <g-link
+              to="/en/art"
+              :class="[ resizeNav ? 'link--big' : 'link--small' ]"
+            >
               Art
-            </li>
-          </g-link>
-          <g-link
-            v-else
-            to="/pl/art"
-            :class="[ resizeNav ? 'link--big' : 'link--small' ]"
-          >
-            <li class="art-pl">
+            </g-link>
+          </li>
+          <li v-else class="art-pl">
+            <g-link
+              to="/pl/art"
+              :class="[ resizeNav ? 'link--big' : 'link--small' ]"
+            >
               Sztuka
-            </li>
-          </g-link>
-          <g-link
-            v-if="$context.locale === 'en-gb'"
-            to="/en/life"
-            :class="[ resizeNav ? 'link--big' : 'link--small' ]"
-          >
-            <li class="life">
+            </g-link>
+          </li>
+          <li v-if="$context.locale === 'en-gb'" class="life">
+            <g-link
+              to="/en/life"
+              :class="[ resizeNav ? 'link--big' : 'link--small' ]"
+            >
               Life
-            </li>
-          </g-link>
-          <g-link
-            v-else
-            to="/pl/life"
-            :class="[ resizeNav ? 'link--big' : 'link--small' ]"
-          >
-            <li class="life-pl">
+            </g-link>
+          </li>
+          <li v-else class="life-pl">
+            <g-link
+              to="/pl/life"
+              :class="[ resizeNav ? 'link--big' : 'link--small' ]"
+            >
               Życie
-            </li>
-          </g-link>
-          <g-link
-            v-if="$context.locale === 'en-gb'"
-            to="/en/estate"
-            :class="[ resizeNav ? 'link--big' : 'link--small' ]"
-          >
-            <li class="estate">
+            </g-link>
+          </li>
+          <li v-if="$context.locale === 'en-gb'" class="estate">
+            <g-link
+              to="/en/estate"
+              :class="[ resizeNav ? 'link--big' : 'link--small' ]"
+            >
               Estate
-            </li>
-          </g-link>
-          <g-link
-            v-else
-            to="/pl/estate"
-            :class="[ resizeNav ? 'link--big' : 'link--small' ]"
-          >
-            <li class="estate-pl">
+            </g-link>
+          </li>
+          <li v-else class="estate-pl">
+            <g-link
+              to="/pl/estate"
+              :class="[ resizeNav ? 'link--big' : 'link--small' ]"
+            >
               Posiadłość
-            </li>
-          </g-link>
+            </g-link>
+          </li>
         </ul>
       </div>
     </div>

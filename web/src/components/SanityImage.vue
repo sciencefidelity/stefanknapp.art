@@ -17,6 +17,7 @@
       :style="{ 'object-position': pos }"
     />
     <img
+      :alt=title
       :src="$urlForImage(link, $static.metadata.sanityOptions)
         .auto('format')
         .quality(10)
