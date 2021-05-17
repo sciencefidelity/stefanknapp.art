@@ -7,7 +7,7 @@ import '~/assets/main.scss'
 // Import image url builder
 import urlForImage from './utils/urlForImage'
 
-export default function (Vue) {
+export default function (Vue, { router, head, isClient }) {
   // Set default layout as a global component
   Vue.component('Layout', DefaultLayout)
 

@@ -7,45 +7,36 @@
       </div>
       <div :class="[ showMenu ? 'active' : 'inactive' ]">
         <ul>
-          <g-link
-            v-if="$context.locale === 'en-gb'"
-            to="/en/art"
-          >
-            <li data-fill="Art">
+          <li v-if="$context.locale === 'en-gb'">
+            <g-link data-fill="Art" to="/en/art">
               Art
-            </li>
-          </g-link>
-          <g-link v-else to="/pl/art">
-            <li data-fill="Sztuka">
+            </g-link>
+          </li>
+          <li v-else>
+            <g-link to="/pl/art" data-fill="Sztuka">
               Sztuka
-            </li>
-          </g-link>
-          <g-link
-            v-if="$context.locale === 'en-gb'"
-            to="/en/life"
-          >
-            <li data-fill="Life">
+            </g-link>
+          </li>
+          <li v-if="$context.locale === 'en-gb'">
+            <g-link to="/en/life" data-fill="Life">
               Life
-            </li>
-          </g-link>
-          <g-link v-else to="/pl/life">
-            <li data-fill="Życie">
+            </g-link>
+          </li>
+          <li v-else>
+            <g-link to="/pl/life" data-fill="Życie">
               Życie
-            </li>
-          </g-link>
-          <g-link
-            v-if="$context.locale === 'en-gb'"
-            to="/en/estate"
-          >
-            <li data-fill="Estate">
+            </g-link>
+          </li>
+          <li v-if="$context.locale === 'en-gb'">
+            <g-link to="/en/estate" data-fill="Estate">
               Estate
-            </li>
-          </g-link>
-          <g-link v-else to="/pl/estate">
-            <li data-fill="Posiadłość">
+            </g-link>
+          </li>
+          <li v-else>
+            <g-link to="/pl/estate" data-fill="Posiadłość">
               Posiadłość
-            </li>
-          </g-link>
+            </g-link>
+          </li>
         </ul>
         <div class="front-title--container">
           <p class="front-title">
@@ -105,14 +96,13 @@ nav {
 }
 
 a {
+  display: inline;
   color: transparent;
-  transition: color 0.3s ease;
-  &:hover{
-    transition: color 0.3s ease;
-  }
+  margin: auto;
 }
 
 ul {
+  display: inline;
   list-style: none;
   padding: 0 1.3rem 0 0;
   -webkit-text-stroke: 0.08rem c.$sepia-150;
@@ -120,39 +110,39 @@ ul {
   font-weight: 600;
   line-height: 1.2;
   text-transform: uppercase;
-  text-align: right;
   display: flex;
   flex-direction: column;
-  z-index: 10;
+  justify-content: right;
   @include b.mq(lg) {
     font-size: 10.5vw;
     line-height: 10.5vw;
     padding: 1.4em 0.3em 0 0;
   }
   li {
-    display: inline-block;
+    margin-left: auto;
     position: relative;
-    text-align: right;
-    &:hover::before {
-      width: 100%;
-    }
-    &::before {
-      content: attr(data-fill);
-      position: absolute;
-      display: inline;
-      top: 0;
-      left: 0;
-      width: 0%;
-      transition-duration: 0.7s;
-      transition-timing-function: cubic-bezier(0.19, 1, 0.4, 1);
-      transition-delay: initial;
-      transition-property: width;
-      -webkit-text-fill-color: transparent;
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-stroke-width: 0.015em;
-      -webkit-text-stroke-color: c.$sepia-150;
-      background-color: c.$sepia-150;
+    a {
+      &:hover::before {
+        width: 100%;
+      }
+      &::before {
+        content: attr(data-fill);
+        position: absolute;
+        display: inline;
+        top: 0;
+        left: 0;
+        width: 0%;
+        transition-duration: 0.7s;
+        transition-timing-function: cubic-bezier(0.19, 1, 0.4, 1);
+        transition-delay: initial;
+        transition-property: width;
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-stroke-width: 0.015em;
+        -webkit-text-stroke-color: c.$sepia-150;
+        background-color: c.$sepia-150;
+      }
     }
   }
 }
@@ -296,7 +286,6 @@ ul {
   white-space: nowrap;
   writing-mode: vertical-lr;
   @include b.mq(lg) {
-    // display: none;
     font-size: 5vw;
     padding: 2.3em 0.8em;
     writing-mode: lr;
