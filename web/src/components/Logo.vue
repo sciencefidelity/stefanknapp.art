@@ -19,6 +19,7 @@ export default {
 
 <style lang="scss" scoped>
 @use '../assets/scss/colors' as c;
+@use '../assets/scss/breakpoints' as b;
 
 $transition: 1s ease-in-out;
 
@@ -26,11 +27,23 @@ $transition: 1s ease-in-out;
   width: 40rem;
   fill: c.$grey-050;
   transition: width $transition, fill $transition;
+  @include b.mq(lg) {
+    width: 35rem;
+  }
+  @include b.mq(md) {
+    width: 30rem;
+  }
+  @include b.mq(sm) {
+    width: 50vw;
+  }
 }
 
 .logo--small {
   width: 17rem;
   fill: c.$grey-950;
   transition: width $transition, fill $transition;
+  @include b.mq(sm) {
+    width: 43vw;
+  }
 }
 </style>

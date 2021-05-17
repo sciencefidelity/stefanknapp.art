@@ -56,7 +56,7 @@
             to="/pl/estate"
             :class="[ resizeNav ? 'link--big' : 'link--small' ]"
           >
-            <li class="estate">
+            <li class="estate-pl">
               Posiadłość
             </li>
           </g-link>
@@ -82,6 +82,7 @@ export default {
 
 <style lang="scss" scoped>
 @use '../assets/scss/colors' as c;
+@use '../assets/scss/breakpoints' as b;
 
 $transition: 1s ease-in-out;
 
@@ -99,11 +100,17 @@ $transition: 1s ease-in-out;
 .nav--big {
   height: 18rem;
   background-color: rgba(c.$grey-950, 0.5);
+  @include b.mq(sm) {
+    height: 30vw;
+  }
 }
 
 .nav--small {
   height: 8rem;
   background-color: rgba(c.$grey-050, 1);
+  @include b.mq(sm) {
+    height:30vw;
+  }
 }
 
 .container {
@@ -113,6 +120,10 @@ $transition: 1s ease-in-out;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @include b.mq(sm) {
+    padding-top: 1em;
+    align-items: flex-start;
+  }
 }
 
 .link--big,
@@ -162,26 +173,49 @@ $transition: 1s ease-in-out;
     transition: transform $transition;
     padding: 0;
   }
+  @include b.mq(sm) {
+    font-size: 6vw;
+  }
 }
 
 .menu--small {
   .art {
     transform: translate(-21.2rem, 3.3rem);
+    @include b.mq(sm) {
+      font-size: 100%;
+      transform: translate(-12.9em, 2.2em);
+    }
   }
   .life {
     transform: translate(-12.6rem, -0.3rem);
+    @include b.mq(sm) {
+      transform: translate(-7.1em, 1em);
+    }
   }
   .estate {
     transform: translate(0rem, -3.9rem);
+    @include b.mq(sm) {
+      transform: translate(0em, -0.2em);
+    }
   }
   .art-pl {
     transform: translate(-32rem, 3.3rem);
+    @include b.mq(sm) {
+      transform: translate(-11.2em, 2.2em);
+    }
   }
   .life-pl {
     transform: translate(-21rem, -0.3rem);
+    @include b.mq(sm) {
+      transform: translate(-7.1em, 1em);
+    }
   }
   .estate-pl {
     transform: translate(0rem, -3.9rem);
+    @include b.mq(sm) {
+      font-size: 100%;
+      transform: translate(0em, -0.2em);
+    }
   }
 }
 

@@ -12,11 +12,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@use '../assets/scss/breakpoints' as b;
 
 .language {
   font-size: 1.9rem;
   text-align: left;
   font-weight: 600;
+  padding: 0.51em 0;
   margin: 0;
+  @include b.mq(sm) {
+    font-size: 1.5rem;
+  }
 }
+
 </style>

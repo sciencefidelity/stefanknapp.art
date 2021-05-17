@@ -30,10 +30,10 @@ export default {
 
 <style lang="scss" scoped>
 @use '../assets/scss/colors' as c;
+@use '../assets/scss/breakpoints' as b;
 
 footer {
   position: relative;
-  height: 4.4rem;
   background: c.$slate-100;
   display: flex;
 }
@@ -48,6 +48,10 @@ footer {
   p {
     font-size: 1.9rem;
     margin: 0;
+    padding: 0.51em 0;
+    @include b.mq(sm) {
+      font-size: 1.5rem;
+    }
   }
 }
 
