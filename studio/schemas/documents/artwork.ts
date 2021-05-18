@@ -11,7 +11,7 @@ export default {
     {
       name: 'date',
       title: 'Date',
-      type: 'string',
+      type: 'number',
     },
     {
       name: 'dimensions',
@@ -22,6 +22,11 @@ export default {
       name: 'location',
       title: 'Location',
       type: 'localeString',
+    },
+    {
+      name: 'display',
+      title: 'Display on website',
+      type: 'boolean',
     },
     {
       name: 'medium',
