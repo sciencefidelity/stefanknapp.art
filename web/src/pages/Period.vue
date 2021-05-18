@@ -54,11 +54,11 @@ query {
             _id
             url
             metadata {
-            dimensions {
-              height
-              width
+              dimensions {
+                height
+                width
+              }
             }
-          }
           }
         }
       }
