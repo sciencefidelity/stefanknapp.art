@@ -1,9 +1,9 @@
 <template>
   <layout
-    :title="$static.artwork.edges[0].node.title.en"
-    :link="$static.artwork.edges[0].node.mainImage"
-    :width="$static.artwork.edges[0].node.mainImage.asset.metadata.dimensions.width"
-    :height="$static.artwork.edges[0].node.mainImage.asset.metadata.dimensions.height"
+    :title="$static.page.mainImage.caption.en"
+    :link="$static.page.mainImage"
+    :width="$static.page.mainImage.asset.metadata.dimensions.width"
+    :height="$static.page.mainImage.asset.metadata.dimensions.height"
   >
     <main>
       <div class="gallery-container">
@@ -28,13 +28,54 @@
           </p>
         </div>
       </div>
+      <section class="art-section">
+        <div class="container">
+        <h2>{{ $static.page.title.en }}</h2>
+          <div>
+            <block-content
+              v-if="$context.locale === 'en-gb'"
+              class="post__content"
+              :blocks="$static.page.body._rawEn"
+            />
+            <block-content
+              v-else
+              class="post__content"
+              :blocks="$static.page.body._rawPl"
+            />
+          </div>
+        </div>
+      </section>
     </main>
   </layout>
 </template>
 
 <static-query>
 query {
-  artwork: allSanityArtwork(sortBy: "date", order: DESC, filter: { date: { lte: 1946 }}) {
+  page: sanityPeriod(id: "87c31a8d-be84-4519-951d-488798e2955e") {
+    id
+    title {
+      en
+    }
+    body {
+      _rawEn(resolveReferences: {maxDepth: 5})
+      _rawPl(resolveReferences: {maxDepth: 5})
+    }
+    mainImage {
+      caption {
+      en}
+      asset {
+        _id
+        url
+        metadata {
+          dimensions {
+            height
+            width
+          }
+        }
+      }
+    }
+  }
+  artwork: allSanityArtwork(sortBy: "date", order: ASC, filter: { date: { lte: 1946 }}) {
     edges {
       node {
         id
@@ -42,13 +83,13 @@ query {
           en
           pl
         }
-        date
         medium {
           title {
             en
             pl
           }
         }
+        date
         mainImage {
           asset {
             _id
@@ -66,15 +107,18 @@ query {
   }
 }
 
+
 </static-query>
 
 <script lang="ts">
 import SanityImage from '@/components/SanityImage.vue'
+import BlockContent from '@/components/BlockContent.vue'
 
 export default {
   name: 'Period',
   components: {
     SanityImage,
+    BlockContent
   }
 }
 </script>
@@ -85,6 +129,10 @@ export default {
 
 main {
   background: c.$grey-000;
+}
+
+h2 {
+  margin-bottom: 3rem;
 }
 
 .gallery-container {
@@ -109,6 +157,30 @@ main {
   margin-top: -3.2rem;
   text-align: right;
   font-size: 1.9rem;
+}
+
+.art-section {
+  position: relative;
+  padding: 15rem 0 18rem;
+  background: c.$slate-100;
+  z-index: 0;
+
+}
+
+.container {
+  column-count: 2;
+  column-gap: 4rem;
+  column-width: min(53ch, 100%);
+  width: min(130rem, 88%);
+  margin: auto;
+  p:first-child {
+    margin-top: 0;
+  }
+  @include b.mq(lg) {
+    column-count: 1;
+
+    width: min(53ch, 88%);
+  }
 }
 
 </style>
