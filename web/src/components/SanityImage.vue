@@ -79,14 +79,12 @@ export default {
 
 <style lang="scss" scoped>
 .sanity-image {
-  display: inline-block;
   position: relative;
   height: 100%;
   width: 100%;
 }
 
 img {
-  display: block;
   height: 100%;
   width: 100%;
   object-fit: cover;
