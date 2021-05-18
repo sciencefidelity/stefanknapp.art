@@ -129,9 +129,9 @@ $transition: 1s ease-in-out;
 .link--small {
   position: relative;
   z-index: 2;
-  transition: color $transition;
+  transition: color 0.4s;
   &:hover{
-    transition: color $transition;
+    transition: color 0.3s;
   }
 }
 
