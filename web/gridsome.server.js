@@ -22,10 +22,14 @@ module.exports = function (api) {
 
   api.createPages(async ({ graphql, createPage }) => {
     const { data } = await graphql(`{
-      allSanityPeriod {
+      allSanityPeriod(sortBy: "yearFrom", order: ASC) {
         edges {
           node {
             id
+            title {
+              en
+              pl
+            }
             slug {
               current
             }
@@ -35,8 +39,8 @@ module.exports = function (api) {
         }
       }
     }`)
-
-    data.allSanityPeriod.edges.forEach(({ node }) => {
+    const period = data.allSanityPeriod.edges
+    period.forEach(({ node }, index) => {
       createPage({
         path: `/${node.slug.current}/`,
         component: './src/templates/SanityPeriod.vue',
@@ -44,6 +48,8 @@ module.exports = function (api) {
           id: node.id,
           yearFrom: node.yearFrom,
           yearTo: node.yearTo,
+          prev: index === 0 ? null : period[index - 1].node,
+          next: index === period.length - 1 ? null : period[index + 1].node,
         }
       })
     })

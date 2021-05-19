@@ -45,8 +45,11 @@
           </div>
         </div>
         <div class="text__links">
-          <g-link to="/art/">&lt; Back to Art</g-link>
-          <g-link to="/early-phase/">Next: Early Phase (1947-1953) &gt;</g-link>
+          <g-link to="/art/">Back to Art</g-link>
+          <g-link v-if="$context.next" :to="$context.next.slug.current">
+            Next: {{ $context.next.title.en }}
+            ({{ $context.next.yearFrom }}-{{ $context.next.yearTo }})
+          </g-link>
         </div>
       </section>
     </main>
@@ -208,8 +211,12 @@ h2 {
     justify-content: space-between;
     a {
       display: block;
+      padding: 0 0.5rem;
+      background-color: c.$slate-100;
+      transition: background-color 0.4s;
       &:hover {
-        text-decoration: underline;
+        background-color: c.$grey-000;
+        transition: background-color 0.4s;
       }
     }
   }
