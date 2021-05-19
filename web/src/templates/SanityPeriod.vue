@@ -1,14 +1,14 @@
 <template>
   <layout
-    :title="$static.page.mainImage.caption.en"
-    :link="$static.page.mainImage"
-    :width="$static.page.mainImage.asset.metadata.dimensions.width"
-    :height="$static.page.mainImage.asset.metadata.dimensions.height"
+    :title="$page.page.mainImage.caption.en"
+    :link="$page.page.mainImage"
+    :width="$page.page.mainImage.asset.metadata.dimensions.width"
+    :height="$page.page.mainImage.asset.metadata.dimensions.height"
   >
     <main>
       <section>
         <div class="container gallery">
-          <div v-for="edge in $static.artwork.edges" :key="edge.node.id">
+          <div v-for="edge in $page.artwork.edges" :key="edge.node.id">
             <div class="gallery__image">
               <sanity-image
                 :title="edge.node.title.en"
@@ -31,31 +31,37 @@
         </div>
       </section>
       <section class="section--text">
-        <div class="container text" v-if="$static.page.body">
-          <h2>{{ $static.page.title.en }}</h2>
+        <div class="container text" v-if="$page.page.body">
+          <h2>{{ $page.page.title.en }}</h2>
           <div>
             <block-content
               v-if="$context.locale === 'en-gb'"
-              :blocks="$static.page.body._rawEn"
+              :blocks="$page.page.body._rawEn"
             />
             <block-content
               v-else
-              :blocks="$static.page.body._rawPl"
+              :blocks="$page.page.body._rawPl"
             />
           </div>
         </div>
         <div class="text__links">
           <g-link to="/art/">&lt; Back to Art</g-link>
-          <g-link to="/success/">Next: Success (1953-1958) &gt;</g-link>
+          <g-link to="/early-phase/">Next: Early Phase (1947-1953) &gt;</g-link>
         </div>
       </section>
     </main>
   </layout>
 </template>
 
-<static-query>
-query {
-  page: sanityPeriod(id: "3440c11f-3469-4fc7-a695-e9c56b2f7834") {
+<page-query>
+query Period ($id: ID!) {
+  metadata {
+    sanityOptions {
+      projectId
+      dataset
+    }
+  }
+  page: sanityPeriod(id: $id) {
     id
     title {
       en
@@ -66,7 +72,8 @@ query {
     }
     mainImage {
       caption {
-      en}
+        en
+      }
       asset {
         _id
         url
@@ -79,7 +86,7 @@ query {
       }
     }
   }
-  artwork: allSanityArtwork(sortBy: "date", order: ASC, filter: { date: { between: [1947, 1953] }}) {
+  artwork: allSanityArtwork(sortBy: "date", order: ASC, filter: { date: { lte: 1946 }}) {
     edges {
       node {
         id
@@ -111,15 +118,13 @@ query {
   }
 }
 
-
-</static-query>
+</page-query>
 
 <script lang="ts">
 import SanityImage from '@/components/SanityImage.vue'
 import BlockContent from '@/components/BlockContent.vue'
 
 export default {
-  name: 'EarlyPhase',
   components: {
     SanityImage,
     BlockContent
@@ -166,6 +171,7 @@ h2 {
   &__image {
     margin-bottom: 0.5em !important;
     aspect-ratio: 1 / 1;
+    cursor: pointer;
     transition: 0.4s opacity;
     &:hover {
       opacity: 90%;

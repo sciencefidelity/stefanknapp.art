@@ -20,5 +20,8 @@ module.exports = {
       }
     },
     i18n
-  ]
+  ],
+  templates: {
+    SanityPeriod: '/:slug__current'
+  }
 }
