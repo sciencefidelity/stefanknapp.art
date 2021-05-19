@@ -11,6 +11,16 @@ export default {
       type: 'localeString',
     },
     {
+      name: 'yearFrom',
+      title: 'Year from',
+      type: 'number',
+    },
+    {
+      name: 'yearTo',
+      title: 'Year to',
+      type: 'number',
+    },
+    {
       name: 'body',
       title: 'Body',
       type: 'localeRichText',
