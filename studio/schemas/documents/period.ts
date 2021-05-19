@@ -16,7 +16,7 @@ export default {
     {
       name: 'slug',
       title: 'Slug',
-      type: 'localeSlug',
+      type: 'slug',
     },
     {
       name: 'mainImage',
