@@ -27,6 +27,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@use '../assets/scss/colors' as c;
 @use '../assets/scss/breakpoints' as b;
 
 .language {
@@ -35,6 +36,13 @@ export default {
   font-weight: 600;
   padding: 0.51em 0;
   margin: 0;
+  padding: 0 0.5rem;
+  background-color: c.$slate-100;
+  transition: background-color 0.4s;
+  &:hover {
+    background-color: c.$grey-000;
+    transition: background-color 0.4s;
+  }
   @include b.mq(sm) {
     font-size: 1.5rem;
   }
