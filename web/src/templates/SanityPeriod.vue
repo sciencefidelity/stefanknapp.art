@@ -23,7 +23,7 @@
               {{ edge.node.title.en }} ({{ edge.node.date }})<br />
               {{ edge.node.medium[0].title.en }}
             </p>
-            <p v-else class="caption">
+            <p v-else class="gallery__caption">
               {{ edge.node.title.en }},<br />
               {{ edge.node.medium[0].title.pl }}, {{ edge.node.date }}
             </p>
