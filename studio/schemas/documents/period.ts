@@ -1,3 +1,5 @@
+import { supportedLanguages } from '../languages'
+
 export default {
   name: 'period',
   title: 'Period',
@@ -17,6 +19,9 @@ export default {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
+      options: {
+        source: `title.${supportedLanguages[0].name}`,
+      },
     },
     {
       name: 'mainImage',

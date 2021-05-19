@@ -1,3 +1,5 @@
+import { supportedLanguages } from '../languages'
+
 export default {
   name: 'video',
   title: 'Video',
@@ -21,7 +23,10 @@ export default {
     {
       name: 'slug',
       title: 'Slug',
-      type: 'localeSlug',
+      type: 'slug',
+      options: {
+        source: `title.${supportedLanguages[0].name}`,
+      },
     },
     {
       name: 'mainImage',
