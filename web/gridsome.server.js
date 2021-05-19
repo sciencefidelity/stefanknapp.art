@@ -19,4 +19,33 @@ module.exports = function (api) {
       }
     `)
   })
+
+  api.createPages(async ({ graphql, createPage }) => {
+    const { data } = await graphql(`{
+      allSanityPeriod {
+        edges {
+          node {
+            id
+            slug {
+              current
+            }
+            yearFrom
+            yearTo
+          }
+        }
+      }
+    }`)
+
+    data.allSanityPeriod.edges.forEach(({ node }) => {
+      createPage({
+        path: `/${node.slug.current}/`,
+        component: './src/templates/SanityPeriod.vue',
+        context: {
+          id: node.id,
+          yearFrom: node.yearFrom,
+          yearTo: node.yearTo,
+        }
+      })
+    })
+  })
 }

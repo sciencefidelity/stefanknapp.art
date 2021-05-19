@@ -21,7 +21,7 @@ module.exports = {
     },
     i18n
   ],
-  templates: {
-    SanityPeriod: '/:slug__current'
-  }
+  // templates: {
+  //   SanityPeriod: '/:slug__current',
+  // },
 }

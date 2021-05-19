@@ -54,7 +54,7 @@
 </template>
 
 <page-query>
-query Period ($id: ID!) {
+query Period ($id: ID!, $yearFrom: Float, $yearTo: Float) {
   metadata {
     sanityOptions {
       projectId
@@ -86,7 +86,7 @@ query Period ($id: ID!) {
       }
     }
   }
-  artwork: allSanityArtwork(sortBy: "date", order: ASC, filter: { date: { lte: 1946 }}) {
+  artwork: allSanityArtwork(sortBy: "date", order: ASC, filter: { date: { between: [$yearFrom, $yearTo] }}) {
     edges {
       node {
         id
