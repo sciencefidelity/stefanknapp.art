@@ -1,7 +1,7 @@
 <template>
   <div class="gallery-container">
     <div class="gallery-image">
-      <g-link to="/period/" class="image-link">
+      <g-link to="/beginnings/" class="image-link">
         <sanity-image
           :title="$static.first.title.en"
           :link="$static.first.mainImage"
@@ -15,14 +15,16 @@
       <p v-else class="caption">{{ captionPl[0] }}</p>
     </div>
     <div class="gallery-image">
-      <sanity-image
-        :title="$static.second.title.en"
-        :link="$static.second.mainImage"
-        :width="$static.second.mainImage.asset.metadata.dimensions.width"
-        :height="$static.second.mainImage.asset.metadata.dimensions.height"
-        w=442
-        h=400
-      />
+      <g-link to="/early-phase/" class="image-link">
+        <sanity-image
+          :title="$static.second.title.en"
+          :link="$static.second.mainImage"
+          :width="$static.second.mainImage.asset.metadata.dimensions.width"
+          :height="$static.second.mainImage.asset.metadata.dimensions.height"
+          w=442
+          h=400
+        />
+      </g-link>
       <p v-if="$context.locale === 'en-gb'" class="caption">{{ captionEn[1] }}</p>
       <p v-else class="caption">{{ captionPl[1] }}</p>
     </div>

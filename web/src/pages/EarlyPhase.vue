@@ -6,46 +6,47 @@
     :height="$static.page.mainImage.asset.metadata.dimensions.height"
   >
     <main>
-      <div class="gallery-container">
-        <div v-for="edge in $static.artwork.edges" :key="edge.node.id" class="gallery-image">
-          <sanity-image
-            :title="edge.node.title.en"
-            :link="edge.node.mainImage"
-            :width="edge.node.mainImage.asset.metadata.dimensions.width"
-            :height="edge.node.mainImage.asset.metadata.dimensions.height"
-            w=400
-            h=400
-          />
-          <p v-if="$context.locale === 'en-gb'" class="caption">
-            {{ edge.node.title.en }} ({{ edge.node.date }})<br />
-            {{ edge.node.medium[0].title.en }}
-          </p>
-          <p v-else class="caption">
-            <span class="caption__line">{{ edge.node.title.en }},</span><br />
-            <span class="caption__line">{{ edge.node.medium[0].title.pl }},</span>
-            <span class="caption__line">{{ edge.node.date }}</span>
-          </p>
+      <section>
+        <div class="container gallery">
+          <div v-for="edge in $static.artwork.edges" :key="edge.node.id">
+            <div class="gallery__image">
+              <sanity-image
+                :title="edge.node.title.en"
+                :link="edge.node.mainImage"
+                :width="edge.node.mainImage.asset.metadata.dimensions.width"
+                :height="edge.node.mainImage.asset.metadata.dimensions.height"
+                w=400
+                h=400
+              />
+            </div>
+            <p v-if="$context.locale === 'en-gb'" class="gallery__caption">
+              {{ edge.node.title.en }} ({{ edge.node.date }})<br />
+              {{ edge.node.medium[0].title.en }}
+            </p>
+            <p v-else class="caption">
+              {{ edge.node.title.en }},<br />
+              {{ edge.node.medium[0].title.pl }}, {{ edge.node.date }}
+            </p>
+          </div>
         </div>
-      </div>
-      <section class="art-section">
-        <div class="container">
-        <h2>{{ $static.page.title.en }}</h2>
+      </section>
+      <section class="section--text">
+        <div class="container text" v-if="$static.page.body">
+          <h2>{{ $static.page.title.en }}</h2>
           <div>
             <block-content
               v-if="$context.locale === 'en-gb'"
-              class="post__content"
               :blocks="$static.page.body._rawEn"
             />
             <block-content
               v-else
-              class="post__content"
               :blocks="$static.page.body._rawPl"
             />
           </div>
         </div>
-        <div class="page-links">
+        <div class="text__links">
           <g-link to="/art/">&lt; Back to Art</g-link>
-          <g-link to="/period/">Next: Early Phase (1947-1953) &gt;</g-link>
+          <g-link to="/success/">Next: Success (1953-1958) &gt;</g-link>
         </div>
       </section>
     </main>
@@ -54,7 +55,7 @@
 
 <static-query>
 query {
-  page: sanityPeriod(id: "87c31a8d-be84-4519-951d-488798e2955e") {
+  page: sanityPeriod(id: "3440c11f-3469-4fc7-a695-e9c56b2f7834") {
     id
     title {
       en
@@ -78,7 +79,7 @@ query {
       }
     }
   }
-  artwork: allSanityArtwork(sortBy: "date", order: ASC, filter: { date: { lte: 1946 }}) {
+  artwork: allSanityArtwork(sortBy: "date", order: ASC, filter: { date: { between: [1947, 1953] }}) {
     edges {
       node {
         id
@@ -118,7 +119,7 @@ import SanityImage from '@/components/SanityImage.vue'
 import BlockContent from '@/components/BlockContent.vue'
 
 export default {
-  name: 'Period',
+  name: 'EarlyPhase',
   components: {
     SanityImage,
     BlockContent
@@ -138,72 +139,72 @@ h2 {
   margin-bottom: 3rem;
 }
 
-.gallery-container {
+.container {
   width: min(100rem, 88%);
   margin: auto;
+}
+
+// ***** gallery section *****
+
+.gallery {
   padding: 14rem 0;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 1em;
-  div {
-    margin-bottom: 1em;
-  }
-  p {
-    margin-bottom: 0;
-  }
   @include b.mq(md) {
     grid-template-columns: 1fr 1fr;
   }
   @include b.mq(sm) {
     grid-template-columns: 1fr;
   }
-}
-
-.gallery-image {
-  aspect-ratio: 1 / 1;
-  margin-bottom: 0.5em !important;
-}
-
-.caption {
-  text-align: right;
-  font-size: 1.8rem;
-  &__line {
-    white-space: nowrap;
+  div {
+    margin-bottom: 1em;
+  }
+  p {
+    margin-bottom: 0;
+  }
+  &__image {
+    margin-bottom: 0.5em !important;
+    aspect-ratio: 1 / 1;
+    transition: 0.4s opacity;
+    &:hover {
+      opacity: 90%;
+      transition: 0.4s opacity;
+    }
+  }
+  &__caption {
+    text-align: right;
+    font-size: 1.8rem;
   }
 }
 
-.art-section {
+// ***** text section *****
+
+.section--text {
   position: relative;
   padding: 15rem 0 18rem;
   background: c.$slate-100;
   z-index: 0;
-
 }
 
-.container {
+.text {
   column-count: 2;
   column-gap: 4rem;
   column-width: min(53ch, 100%);
-  width: min(100rem, 88%);
-  margin: auto;
-  p:first-child {
-    margin-top: 0;
-  }
   @include b.mq(lg) {
     column-count: 1;
     width: min(53ch, 88%);
   }
-}
-
-.page-links {
-  width: min(100rem, 88%);
-  margin: 2em auto;
-  display: flex;
-  justify-content: space-between;
-  a {
-    display: block;
-    &:hover {
-      text-decoration: underline;
+  &__links {
+    width: min(100rem, 88%);
+    margin: 2em auto;
+    display: flex;
+    justify-content: space-between;
+    a {
+      display: block;
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 }

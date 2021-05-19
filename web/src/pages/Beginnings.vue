@@ -166,6 +166,7 @@ h2 {
   &__image {
     margin-bottom: 0.5em !important;
     aspect-ratio: 1 / 1;
+    cursor: pointer;
     transition: 0.4s opacity;
     &:hover {
       opacity: 90%;
