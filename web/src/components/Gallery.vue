@@ -1,18 +1,20 @@
 <template>
   <div class="gallery-container">
-    <div>
-      <sanity-image
-        :title="$static.first.title.en"
-        :link="$static.first.mainImage"
-        :width="$static.first.mainImage.asset.metadata.dimensions.width"
-        :height="$static.first.mainImage.asset.metadata.dimensions.height"
-        w=442
-        h=400
-      />
+    <div class="gallery-image">
+      <g-link to="/period/" class="image-link">
+        <sanity-image
+          :title="$static.first.title.en"
+          :link="$static.first.mainImage"
+          :width="$static.first.mainImage.asset.metadata.dimensions.width"
+          :height="$static.first.mainImage.asset.metadata.dimensions.height"
+          w=442
+          h=400
+        />
+      </g-link>
       <p v-if="$context.locale === 'en-gb'" class="caption">{{ captionEn[0] }}</p>
       <p v-else class="caption">{{ captionPl[0] }}</p>
     </div>
-    <div>
+    <div class="gallery-image">
       <sanity-image
         :title="$static.second.title.en"
         :link="$static.second.mainImage"
@@ -24,7 +26,7 @@
       <p v-if="$context.locale === 'en-gb'" class="caption">{{ captionEn[1] }}</p>
       <p v-else class="caption">{{ captionPl[1] }}</p>
     </div>
-    <div>
+    <div class="gallery-image">
       <sanity-image
         :title="$static.third.title.en"
         :link="$static.third.mainImage"
@@ -36,7 +38,7 @@
       <p v-if="$context.locale === 'en-gb'" class="caption">{{ captionEn[2] }}</p>
       <p v-else class="caption">{{ captionPl[2] }}</p>
     </div>
-    <div>
+    <div class="gallery-image">
       <sanity-image
         :title="$static.forth.title.en"
         :link="$static.forth.mainImage"
@@ -48,7 +50,7 @@
       <p v-if="$context.locale === 'en-gb'" class="caption">{{ captionEn[3] }}</p>
       <p v-else class="caption">{{ captionPl[3] }}</p>
     </div>
-    <div>
+    <div class="gallery-image">
       <sanity-image
         :title="$static.fifth.title.en"
         :link="$static.fifth.mainImage"
@@ -60,7 +62,7 @@
       <p v-if="$context.locale === 'en-gb'" class="caption">{{ captionEn[4] }}</p>
       <p v-else class="caption">{{ captionPl[4] }}</p>
     </div>
-    <div>
+    <div class="gallery-image">
       <sanity-image
         :title="$static.sixth.title.en"
         :link="$static.sixth.mainImage"
@@ -224,13 +226,17 @@ export default {
 @use '../assets/scss/breakpoints' as b;
 
 .gallery-container {
-  width: min(130rem, 88%);
+  width: min(100rem, 88%);
   margin: auto;
+  padding: 14rem 0;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 3rem;
+  gap: 1em;
   div {
-    margin-bottom: 3rem;
+    margin-bottom: 1em;
+  }
+  p {
+    margin-bottom: 1em;
   }
   @include b.mq(md) {
     grid-template-columns: 1fr 1fr;
@@ -240,9 +246,25 @@ export default {
   }
 }
 
-.caption {
-  margin-top: -3.2rem;
-  text-align: right;
-  font-size: 1.9rem;
+.image-link {
+  transition: opacity 0.4s;
+  &:hover {
+    opacity: 90%;
+    transition: opacity 0.4s;
+  }
 }
+
+.gallery-image {
+  aspect-ratio: 1 / 1;
+  margin-bottom: 0.5em !important;
+}
+
+.caption {
+  text-align: right;
+  font-size: 1.8rem;
+  &__line {
+    white-space: nowrap;
+  }
+}
+
 </style>

@@ -43,6 +43,10 @@
             />
           </div>
         </div>
+        <div class="page-links">
+          <g-link to="/art/">&lt; Back to Art</g-link>
+          <g-link to="/period/">Next: Early Phase (1947-1953) &gt;</g-link>
+        </div>
       </section>
     </main>
   </layout>
@@ -188,6 +192,19 @@ h2 {
   @include b.mq(lg) {
     column-count: 1;
     width: min(53ch, 88%);
+  }
+}
+
+.page-links {
+  width: min(100rem, 88%);
+  margin: 2em auto;
+  display: flex;
+  justify-content: space-between;
+  a {
+    display: block;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
 
