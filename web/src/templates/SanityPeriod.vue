@@ -45,8 +45,8 @@
           </div>
         </div>
         <div class="text__links">
-          <g-link v-if="$context.locale === 'en-gb'" to="/en/art/">Back to Art</g-link>
-          <g-link v-else to="/pl/art/">Powrót do Sztuka</g-link>
+          <g-link v-if="$context.locale === 'en-gb'" to="/en/art/">Back to art</g-link>
+          <g-link v-else to="/pl/art/">Powrót do sztuka</g-link>
           <g-link v-if="$context.next" :to="$context.next.slug.current">
             <div v-if="$context.locale === 'en-gb'">
               Next: {{ $context.next.title.en }} ({{ $context.next.yearFrom }}-{{ $context.next.yearTo }})
@@ -196,8 +196,8 @@ h2 {
 
 .section--text {
   position: relative;
-  padding: 15rem 0 18rem;
-  background: c.$slate-100;
+  padding: 15rem 0 15rem;
+  background: c.$slate-050;
   z-index: 0;
 }
 
@@ -217,7 +217,7 @@ h2 {
     a {
       display: block;
       padding: 0 0.5rem;
-      background-color: c.$slate-100;
+      background-color: c.$slate-050;
       transition: background-color 0.4s;
       &:hover {
         background-color: c.$grey-000;

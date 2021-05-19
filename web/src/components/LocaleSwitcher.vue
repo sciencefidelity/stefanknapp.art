@@ -34,9 +34,8 @@ export default {
   font-size: 1.9rem;
   text-align: left;
   font-weight: 600;
-  padding: 0.51em 0;
+  padding: 0.51em 0.7em;
   margin: 0;
-  padding: 0 0.5rem;
   background-color: c.$slate-100;
   transition: background-color 0.4s;
   &:hover {

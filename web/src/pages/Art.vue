@@ -114,7 +114,7 @@ export default {
 .art-section {
   position: relative;
   padding: 15rem 0 18rem;
-  background: c.$slate-150;
+  background: c.$slate-100;
   z-index: 0;
 }
 

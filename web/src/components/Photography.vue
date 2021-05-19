@@ -55,19 +55,7 @@ import SanityImage from '@/components/SanityImage.vue'
 export default {
   name: 'Gallery',
   components: {
-    SanityImage,
-  },
-  data() {
-    return {
-      caption: [
-        '1921-46 Beginnings',
-        '1947-53 Early Phase',
-        '1953-58 Success',
-        '1958-72 A New Scale',
-        '1973-82 Building on Success',
-        '1982-96 Mature Years'
-      ]
-    }
+    SanityImage
   }
 }
 
@@ -78,7 +66,7 @@ export default {
 @use '../assets/scss/breakpoints' as b;
 
 .gallery-container {
-  width: min(130rem, 88%);
+  width: min(100rem, 88%);
   margin: auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
