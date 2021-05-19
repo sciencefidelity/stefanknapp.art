@@ -45,10 +45,15 @@
           </div>
         </div>
         <div class="text__links">
-          <g-link to="/art/">Back to Art</g-link>
+          <g-link v-if="$context.locale === 'en-gb'" to="/en/art/">Back to Art</g-link>
+          <g-link v-else to="/pl/art/">Powrót do Sztuka</g-link>
           <g-link v-if="$context.next" :to="$context.next.slug.current">
-            Next: {{ $context.next.title.en }}
-            ({{ $context.next.yearFrom }}-{{ $context.next.yearTo }})
+            <div v-if="$context.locale === 'en-gb'">
+              Next: {{ $context.next.title.en }} ({{ $context.next.yearFrom }}-{{ $context.next.yearTo }})
+            </div>
+            <div v-else>
+              Kolejny: {{ $context.next.title.pl }} ({{ $context.next.yearFrom }}-{{ $context.next.yearTo }})
+            </div>
           </g-link>
         </div>
       </section>
