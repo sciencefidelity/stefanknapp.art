@@ -1,20 +1,37 @@
 <template>
-  <div class="gallery-container">
-    <div v-for="edge in $static.photo.edges" :key="edge.node.id">
-      <sanity-image
-        :title="edge.node.title.en"
-        :link="edge.node.mainImage"
-        :width="edge.node.mainImage.asset.metadata.dimensions.width"
-        :height="edge.node.mainImage.asset.metadata.dimensions.height"
-        w=442
-        h=400
+  <div>
+    <div class="gallery-container">
+      <div v-for="(edge, index) in $static.photo.edges" :key="edge.node.id">
+        <div @click="showModal(index)" >
+          <sanity-image
+            :title="edge.node.title.en"
+            :link="edge.node.mainImage"
+            :width="edge.node.mainImage.asset.metadata.dimensions.width"
+            :height="edge.node.mainImage.asset.metadata.dimensions.height"
+            w=442
+            h=400
+          />
+        <div>
+        <p v-if="$context.locale === 'en-gb'" class="caption">
+          {{ edge.node.title.en }}, {{ edge.node.date }}
+        </p>
+        <p v-else class="caption">
+          {{ edge.node.title.pl }}, {{ edge.node.date }}
+        </p>
+      </div>
+    </div>
+    <div v-show="showModal">
+      <modal
+        @closeModal="closeModal"
+        @nextIndex="nextIndex"
+        @prevIndex="prevIndex"
+        :title="$page.photo.edges[currentIndex].node.title.en"
+        :date="$page.photo.edges[currentIndex].node.date"
+        :medium="$page.photo.edges[currentIndex].node.medium[0].title.en"
+        :link="$page.photo.edges[currentIndex].node.mainImage"
+        :width="$page.photo.edges[currentIndex].node.mainImage.asset.metadata.dimensions.width"
+        :height="$page.photo.edges[currentIndex].node.mainImage.asset.metadata.dimensions.height"
       />
-      <p v-if="$context.locale === 'en-gb'" class="caption">
-        {{ edge.node.title.en }}, {{ edge.node.date }}
-      </p>
-      <p v-else class="caption">
-        {{ edge.node.title.pl }}, {{ edge.node.date }}
-      </p>
     </div>
   </div>
 </template>
