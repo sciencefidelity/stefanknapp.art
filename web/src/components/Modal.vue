@@ -1,20 +1,20 @@
 <template>
-<div :class="[showModal ? 'modal modal--hide' : 'modal']">
-    <div class="btn--prev" @click="prevIndex()">
+<div v-show="showModal" class="modal">
+    <div class="btn btn--prev" @click="prevIndex()">
       <img
         alt="Previous image"
         src="data:image/svg+xml,%3Csvg viewBox='0 0 54 104' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.15 52.05l48.1 48.1c.8.8.8 2.1 0 2.9-.8.8-2.1.8-2.9 0L.75 53.45c-.8-.8-.8-2.1 0-2.9L50.35.95c.8-.8 2.1-.8 2.9 0 .8.8.8 2.1 0 2.9l-48.1 48.1v.1z' fill='%234C4C4C'/%3E%3C/svg%3E"
         loading="lazy"
       />
     </div>
-    <div class="btn--next" @click="nextIndex()">
+    <div class="btn btn--next" @click="nextIndex()">
       <img
         alt="Next image"
         src="data:image/svg+xml,%3Csvg viewBox='0 0 54 104' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M48.85 52.05l-48.1 48.1c-.8.8-.8 2.1 0 2.9.8.8 2.1.8 2.9 0l49.6-49.6c.8-.8.8-2.1 0-2.9L3.65.95c-.8-.8-2.1-.8-2.9 0-.8.8-.8 2.1 0 2.9l48.1 48.1v.1z' fill='%234C4C4C'/%3E%3C/svg%3E"
       />
     </div>
     <div class="close" @click="closeModal()"></div>
-    <div class="btn--close" @click="closeModal()">
+    <div class="btn btn--close" @click="closeModal()">
       <img
         alt="Close lightbox"
         src="data:image/svg+xml,%3Csvg viewBox='0 0 104 104' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M49.104 51.877L.949 3.722c-.8-.8-.8-2.1 0-2.9.8-.8 2.1-.8 2.9 0l48.1 48.1h.1l48.1-48.1c.8-.8 2.1-.8 2.9 0 .8.8.8 2.1 0 2.9L54.928 51.843l48.155 48.155c.8.8.8 2.1 0 2.9-.8.8-2.1.8-2.9 0l-48.1-48.1h-.1l-48.1 48.1c-.8.8-2.1.8-2.9 0-.8-.8-.8-2.1 0-2.9l48.121-48.121z' fill='%234C4C4C'/%3E%3C/svg%3E"
@@ -38,6 +38,11 @@
 <script lang="ts">
 export default {
   name: 'Modal',
+  data() {
+    return {
+      showModal: true,
+    }
+  }
 }
 </script>
 
@@ -59,9 +64,6 @@ export default {
   overflow: auto;
   display: flex;
   font-size: 1rem;
-  &--hide {
-    display: none;
-  }
   &__image {
     background: white;
     padding: 2rem;
@@ -96,9 +98,7 @@ export default {
   height: 100vh;
 }
 
-.btn--close,
-.btn--next,
-.btn--prev {
+.btn {
   width: 4rem;
   position: absolute;
   z-index: 9;
@@ -112,26 +112,22 @@ export default {
     opacity: 1;
     transition: opacity 0.3s ease;
   }
-}
-
-.btn--next,
-.btn--prev {
-  top: 50%;
-  transform: translateY(-50%);
-  width: 2.5rem;
-}
-
-.btn--close {
-  right: 3em;
-  top: 2em;
-}
-
-.btn--next {
-  right: 3em;
-}
-
-.btn--prev {
-  left: 3em;
+  &--next,
+  &--prev {
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2.5rem;
+  }
+  &--close {
+    right: 3em;
+    top: 2em;
+  }
+  &--next {
+    right: 3em;
+  }
+  &--prev {
+    left: 3em;
+  }
 }
 
 </style>
