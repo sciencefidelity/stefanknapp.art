@@ -2,7 +2,7 @@
   <div>
     <div class="gallery-container">
       <div v-for="(edge, index) in $static.photo.edges" :key="edge.node.id">
-        <div @click="showModal(index)" >
+        <div @click="toggleModal(index)" >
           <sanity-image
             :title="edge.node.title.en"
             :link="edge.node.mainImage"
@@ -11,7 +11,7 @@
             w=442
             h=400
           />
-        <div>
+        </div>
         <p v-if="$context.locale === 'en-gb'" class="caption">
           {{ edge.node.title.en }}, {{ edge.node.date }}
         </p>
@@ -27,7 +27,6 @@
         @prevIndex="prevIndex"
         :title="$page.photo.edges[currentIndex].node.title.en"
         :date="$page.photo.edges[currentIndex].node.date"
-        :medium="$page.photo.edges[currentIndex].node.medium[0].title.en"
         :link="$page.photo.edges[currentIndex].node.mainImage"
         :width="$page.photo.edges[currentIndex].node.mainImage.asset.metadata.dimensions.width"
         :height="$page.photo.edges[currentIndex].node.mainImage.asset.metadata.dimensions.height"
@@ -66,13 +65,41 @@
 </static-query>
 
 <script lang="ts">
-
 import SanityImage from '@/components/SanityImage.vue'
 
 export default {
   name: 'Gallery',
   components: {
     SanityImage
+  },
+  data() {
+    return {
+      showModal: false,
+      currentIndex: 0
+    }
+  },
+  methods: {
+    toggleModal(index) {
+      this.currentIndex = index
+      this.showModal = true
+    },
+    closeModal() {
+      this.showModal = false
+    },
+    nextIndex() {
+      if (this.currentIndex + 1 >= this.$page.artwork.edges.length) {
+        this.showModal = false
+      } else {
+        this.currentIndex += 1
+      }
+    },
+    prevIndex() {
+      if (this.currentIndex - 1 < 0) {
+        this.showModal = false
+      } else {
+        this.currentIndex -= 1
+      }
+    }
   }
 }
 
