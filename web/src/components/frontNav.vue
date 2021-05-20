@@ -3,7 +3,9 @@
     <div class="front-nav">
       <div id="hamburger-container" @click="toggleMenu()">
         <span class="screen-reader-text">Main Menu</span>
-        <div :class="[ showMenu ? 'hamburger x-active' : 'hamburger' ]"></div>
+        <transition appear>
+          <div :class="[ showMenu ? 'hamburger x-active' : 'hamburger' ]"></div>
+        </transition>
       </div>
       <div :class="[ showMenu ? 'active' : 'inactive' ]">
         <ul>
@@ -53,7 +55,7 @@
 <script lang="ts">
 export default {
   name: 'FrontNav',
-  el: '#hamburger-container',
+  // el: '#hamburger-container',
   data() {
     return {
       showMenu: false,
@@ -170,30 +172,6 @@ ul {
 
 // ******** animated hamburger ***********
 
-@keyframes beforeto {
-  from { transform: translateY(-2.6em) rotate(0); }
-  50% { transform: translateY(0) rotate(0); }
-  to { transform: translateY(0) rotate(0.125turn); }
-}
-
-@keyframes afterto {
-  from { transform: translateY(2.2em) rotate(0); }
-  50% { transform: translateY(-0.4em) rotate(0); }
-  to { transform: translateY(-0.4em) rotate(-0.125turn); }
-}
-
-@keyframes beforeback {
-  from { transform: translateY(0) rotate(0.125turn); }
-  50% { transform: translateY(0) rotate(0); }
-  to { transform: translateY(-2.6em) rotate(0); }
-}
-
-@keyframes afterback {
-  from { transform: translateY(-0.4em) rotate(-0.125turn); }
-  50% { transform: translateY(-0.4em) rotate(0); }
-  to { transform: translateY(2.2em) rotate(0); }
-}
-
 .hamburger,
 .x-active {
   font-size: 0.7vw;
@@ -204,6 +182,7 @@ ul {
   margin: 2.6em 0 3em;
   &::before,
   &::after {
+    position: absolute;
     content: "";
     display: block;
     background: c.$sepia-150;
@@ -220,15 +199,18 @@ ul {
   background-color: rgba(c.$sepia-150, 1);
   transition: background-color 0s;
   transition-delay: 0.5s;
+  &::before,
+  &::after {
+    transform: rotate(0);
+    transition: transform 0.5s, top 0.5s;
+    transition-delay: 0s, 0.5s;
+    transition-property: transform, top;
+  }
   &::before {
-    transform: translateY(-2.6em) rotate(0);
-    animation-duration: 1s;
-    animation-name: beforeback;
+    top: -2.6em;
   }
   &::after {
-    transform: translateY(2.2em) rotate(0);
-    animation-duration: 1s;
-    animation-name: afterback;
+    top: 2.6em;
   }
 }
 
@@ -236,15 +218,18 @@ ul {
   background-color: rgba(c.$sepia-150, 0);
   transition: background-color 0s;
   transition-delay: 0.5s;
+  &::before,
+  &::after {
+    top: 0;
+    transition: top 0.5s, transform 0.5s;
+    transition-delay: 0s, 0.5s;
+    transition-property: top, transform;
+  }
   &::before {
-    transform: translateY(0) rotate(0.125turn);
-    animation-duration: 1s;
-    animation-name: beforeto;
+    transform: rotate(0.125turn);
   }
   &::after {
-    transform: translateY(-0.4em)  rotate(-0.125turn);
-    animation-duration: 1s;
-    animation-name: afterto;
+    transform: rotate(-0.125turn);
   }
 }
 
