@@ -170,10 +170,18 @@ export default {
       this.showModal = false
     },
     nextIndex() {
-      this.currentIndex = this.currentIndex + 1
+      if (this.currentIndex + 1 >= this.$page.artwork.edges.length) {
+        this.showModal = false
+      } else {
+        this.currentIndex += 1
+      }
     },
     prevIndex() {
-      this.currentIndex = this.currentIndex - 1
+      if (this.currentIndex - 1 < 0) {
+        this.showModal = false
+      } else {
+        this.currentIndex -= 1
+      }
     }
   }
 }
