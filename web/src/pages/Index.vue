@@ -3,7 +3,7 @@
     <section id="site-main">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-lg-8 logo">
+          <div class="col logo">
             <div class="knapp-image">
               <video-embed />
             </div>
@@ -19,12 +19,12 @@
           <front-nav />
         </div>
         <div class="row">
-          <div class="col-lg-8">
+          <div class="col">
             <div class="spacer"></div>
           </div>
         </div>
         <div class="row">
-          <div class="col-lg-8 footer">
+          <div class="col footer">
             <p class="footer-text">
               <span class="top-row">
                 Galerie Günther Franke München &bull; Maximilianstraße 22, Telefon 226420

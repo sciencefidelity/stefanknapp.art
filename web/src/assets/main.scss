@@ -99,7 +99,7 @@ blockquote {
   }
 }
 
-.container-fluid {
+.container {
   padding-left: 0.325rem;
   padding-right: 0.325rem;
   width: 100%;
@@ -115,23 +115,23 @@ blockquote {
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
+  margin-right: -1.5rem;
+  margin-left: -1.5rem;
   @include b.mq(lg) {
     margin-right: 0px;
     margin-left: 0px;
   }
 }
 
-.col-lg-8 {
+.col {
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-  @media (min-width: 993px) {
-    flex: 0 0 66.666667%;
-    max-width: 66.666667%;
-    position: relative;
-    width: 100%;
+  padding: 0 1.5rem;
+  flex: 0 0 66.666667%;
+  max-width: 66.666667%;
+  position: relative;
+  @include b.mq(lg) {
+    flex: 0 0 100%;
+    max-width: 100%;
   }
 }
 
