@@ -8,8 +8,11 @@
     <main>
       <section>
         <div class="container gallery">
-          <div v-for="edge in $page.artwork.edges" :key="edge.node.id">
-            <div class="gallery__image">
+          <div
+            v-for="(edge, index) in $page.artwork.edges"
+            :key="edge.node.id"
+          >
+            <div class="gallery__image" @click="toggleModal(index)">
               <sanity-image
                 :title="edge.node.title.en"
                 :link="edge.node.mainImage"
@@ -57,7 +60,19 @@
           </g-link>
         </div>
       </section>
-    <modal />
+      <div v-show="showModal">
+        <modal
+          @closeModal="closeModal"
+          @nextIndex="nextIndex"
+          @prevIndex="prevIndex"
+          :title="$page.artwork.edges[currentIndex].node.title.en"
+          :date="$page.artwork.edges[currentIndex].node.date"
+          :medium="$page.artwork.edges[currentIndex].node.medium[0].title.en"
+          :link="$page.artwork.edges[currentIndex].node.mainImage"
+          :width="$page.artwork.edges[currentIndex].node.mainImage.asset.metadata.dimensions.width"
+          :height="$page.artwork.edges[currentIndex].node.mainImage.asset.metadata.dimensions.height"
+        />
+      </div>
     </main>
   </layout>
 </template>
@@ -139,6 +154,27 @@ export default {
     SanityImage,
     BlockContent,
     Modal
+  },
+  data() {
+    return {
+      showModal: false,
+      currentIndex: 0
+    }
+  },
+  methods: {
+    toggleModal(index) {
+      this.currentIndex = index
+      this.showModal = true
+    },
+    closeModal() {
+      this.showModal = false
+    },
+    nextIndex() {
+      this.currentIndex = this.currentIndex + 1
+    },
+    prevIndex() {
+      this.currentIndex = this.currentIndex - 1
+    }
   }
 }
 </script>

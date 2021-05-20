@@ -1,5 +1,5 @@
 <template>
-<div v-show="showModal" class="modal">
+<div class="modal">
     <div class="btn btn--prev" @click="prevIndex()">
       <img
         alt="Previous image"
@@ -21,26 +21,47 @@
       />
     </div>
     <div class="modal__image">
-      <sanity-image
-        image=""
-        alt=""
+      <lightbox-image
+        :title=title
+        :link=link
+        :width=width
+        :height=height
       />
       <p class="modal__caption">
-        <em></em>,
+        {{ title }} ({{ date }})
       </p>
       <p class="modal__caption">
-        ,
+        {{ medium }}
       </p>
     </div>
   </div>
 </template>
 
 <script lang="ts">
+import LightboxImage from '@/components/LightboxImage.vue'
+
 export default {
   name: 'Modal',
-  data() {
-    return {
-      showModal: true,
+  components: {
+    LightboxImage,
+  },
+  props: {
+    title: String,
+    date: Number,
+    medium: String,
+    link: Object,
+    width: Number,
+    height: Number,
+  },
+  methods: {
+    closeModal() {
+      this.$emit('closeModal')
+    },
+    nextIndex() {
+      this.$emit('nextIndex')
+    },
+    prevIndex() {
+      this.$emit('prevIndex')
     }
   }
 }
@@ -70,9 +91,7 @@ export default {
     margin: auto;
     display: inline-block;
     z-index: 7;
-    img {
-      max-height: 80vh;
-    }
+    // width: max(65vh, 65vw);
   }
   &__caption {
     font-size: 1.8rem;
