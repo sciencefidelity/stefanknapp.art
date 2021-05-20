@@ -55,7 +55,6 @@
 <script lang="ts">
 export default {
   name: 'FrontNav',
-  // el: '#hamburger-container',
   data() {
     return {
       showMenu: false,
