@@ -1,5 +1,5 @@
 <template>
-<div class="modal">
+  <div class="modal">
     <div class="btn btn--prev" @click="prevIndex()">
       <img
         alt="Previous image"
@@ -86,8 +86,9 @@ export default {
   display: flex;
   font-size: 1rem;
   &__image {
+    font-size: 0.8vw;
     background: white;
-    padding: 2rem;
+    padding: max(2em, 2rem);
     margin: auto;
     display: inline-block;
     z-index: 7;

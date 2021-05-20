@@ -78,14 +78,13 @@ export default {
 <style lang="scss" scoped>
 .sanity-image {
   position: relative;
-  // height: 100%;
-  // width: 100%;
-  // overflow: hidden;
 }
 
 img {
   height: auto;
-  width: min(95vw, 95vh);
+  width: auto;
+  max-width: 85vw;
+  max-height: 85vh;
 }
 
 .placeholder {
@@ -95,7 +94,6 @@ img {
   bottom: 0;
   right: 0;
   z-index: 1;
-  // opacity: 0;
 }
 
 .v-lazy-image {
