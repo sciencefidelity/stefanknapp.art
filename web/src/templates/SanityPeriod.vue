@@ -57,6 +57,7 @@
           </g-link>
         </div>
       </section>
+    <modal />
     </main>
   </layout>
 </template>
@@ -131,11 +132,13 @@ query Period ($id: ID!, $yearFrom: Float, $yearTo: Float) {
 <script lang="ts">
 import SanityImage from '@/components/SanityImage.vue'
 import BlockContent from '@/components/BlockContent.vue'
+import Modal from '@/components/Modal.vue'
 
 export default {
   components: {
     SanityImage,
-    BlockContent
+    BlockContent,
+    Modal
   }
 }
 </script>
