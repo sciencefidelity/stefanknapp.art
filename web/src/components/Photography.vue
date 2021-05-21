@@ -104,7 +104,33 @@ export default {
       } else {
         this.currentIndex -= 1
       }
+    },
+    onKeydown(e) {
+      if (this.showModal) {
+        switch (e.key) {
+          case 'ArrowRight':
+            this.nextIndex()
+            break
+          case 'ArrowLeft':
+            this.prevIndex()
+            break
+          case 'ArrowDown':
+          case 'ArrowUp':
+          case ' ':
+            e.preventDefault()
+            break
+          case 'Escape':
+            this.closeModal()
+            break
+        }
+      }
     }
+  },
+  mounted() {
+    window.addEventListener('keydown', this.onKeydown)
+  },
+  destroyed() {
+    window.removeEventListener('keydown', this.onKeydown)
   }
 }
 
