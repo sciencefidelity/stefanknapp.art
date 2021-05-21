@@ -22,7 +22,7 @@
         .quality(10)
         .fit(fit)
         .crop(crop)
-        .height(13)
+        .height(2)
         .url()"
       decoding="async"
       loading="lazy"
@@ -89,6 +89,8 @@ img {
 
 .placeholder {
   position: absolute;
+  width: 100%;
+  height: 100%;
   top: 0;
   left: 0;
   bottom: 0;

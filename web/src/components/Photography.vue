@@ -1,21 +1,24 @@
 <template>
   <div>
-    <div class="gallery-container">
-      <div v-for="(edge, index) in $static.photo.edges" :key="edge.node.id">
-        <div @click="toggleModal(index)" >
+    <div class="container gallery">
+      <div
+        v-for="(edge, index) in $static.photo.edges"
+        :key="edge.node.id"
+      >
+        <div class="gallery__image" @click="toggleModal(index)" >
           <sanity-image
             :title="edge.node.title.en"
             :link="edge.node.mainImage"
             :width="edge.node.mainImage.asset.metadata.dimensions.width"
             :height="edge.node.mainImage.asset.metadata.dimensions.height"
-            w=442
+            w=400
             h=400
           />
         </div>
-        <p v-if="$context.locale === 'en-gb'" class="caption">
+        <p v-if="$context.locale === 'en-gb'" class="gallery__caption">
           {{ edge.node.title.en }}, {{ edge.node.date }}
         </p>
-        <p v-else class="caption">
+        <p v-else class="gallery__caption">
           {{ edge.node.title.pl }}, {{ edge.node.date }}
         </p>
       </div>
@@ -25,11 +28,10 @@
         @closeModal="closeModal"
         @nextIndex="nextIndex"
         @prevIndex="prevIndex"
-        :title="$page.photo.edges[currentIndex].node.title.en"
-        :date="$page.photo.edges[currentIndex].node.date"
-        :link="$page.photo.edges[currentIndex].node.mainImage"
-        :width="$page.photo.edges[currentIndex].node.mainImage.asset.metadata.dimensions.width"
-        :height="$page.photo.edges[currentIndex].node.mainImage.asset.metadata.dimensions.height"
+        :title="$static.photo.edges[currentIndex].node.title.en"
+        :link="$static.photo.edges[currentIndex].node.mainImage"
+        :width="$static.photo.edges[currentIndex].node.mainImage.asset.metadata.dimensions.width"
+        :height="$static.photo.edges[currentIndex].node.mainImage.asset.metadata.dimensions.height"
       />
     </div>
   </div>
@@ -66,11 +68,13 @@
 
 <script lang="ts">
 import SanityImage from '@/components/SanityImage.vue'
+import Modal from '@/components/Modal.vue'
 
 export default {
   name: 'Gallery',
   components: {
-    SanityImage
+    SanityImage,
+    Modal
   },
   data() {
     return {
@@ -87,7 +91,7 @@ export default {
       this.showModal = false
     },
     nextIndex() {
-      if (this.currentIndex + 1 >= this.$page.artwork.edges.length) {
+      if (this.currentIndex + 1 >= this.$static.photo.edges.length) {
         this.showModal = false
       } else {
         this.currentIndex += 1
@@ -109,27 +113,42 @@ export default {
 @use '../assets/scss/colors' as c;
 @use '../assets/scss/breakpoints' as b;
 
-.gallery-container {
+.container {
   width: min(100rem, 88%);
   margin: auto;
+}
+
+.gallery {
+  padding: 14rem 0;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 3rem;
-  div {
-    margin-bottom: 3rem;
-  }
+  gap: 1em;
   @include b.mq(md) {
     grid-template-columns: 1fr 1fr;
   }
   @include b.mq(sm) {
     grid-template-columns: 1fr;
   }
-}
-
-.caption {
-  margin-top: -3.2rem;
-  text-align: right;
-  font-size: 1.9rem;
+  div {
+    margin-bottom: 1em;
+  }
+  p {
+    margin-bottom: 0;
+  }
+  &__image {
+    margin-bottom: 0.5em !important;
+    aspect-ratio: 1 / 1;
+    cursor: pointer;
+    transition: 0.4s opacity;
+    &:hover {
+      opacity: 90%;
+      transition: 0.4s opacity;
+    }
+  }
+  &__caption {
+    text-align: right;
+    font-size: 1.8rem;
+  }
 }
 
 </style>
