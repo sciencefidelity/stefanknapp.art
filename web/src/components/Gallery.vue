@@ -2,9 +2,27 @@
   <div class="gallery">
     <div v-for="edge in $static.allSanityPeriod.edges" :key="edge.node.id">
       <div class="gallery__image">
-        <g-link :to="edge.node.slug.current" class="gallery__link">
+        <g-link
+          v-if="$context.locale === 'en-gb'"
+          :to="edge.node.slug.current"
+          class="gallery__link"
+        >
           <sanity-image
             :title="edge.node.title.en"
+            :link="edge.node.mainImage"
+            :width="edge.node.mainImage.asset.metadata.dimensions.width"
+            :height="edge.node.mainImage.asset.metadata.dimensions.height"
+            w=400
+            h=400
+          />
+        </g-link>
+        <g-link
+          v-else
+          :to="`/pl/${edge.node.slug.current}/`"
+          class="gallery__link"
+        >
+          <sanity-image
+            :title="edge.node.title.pl"
             :link="edge.node.mainImage"
             :width="edge.node.mainImage.asset.metadata.dimensions.width"
             :height="edge.node.mainImage.asset.metadata.dimensions.height"
