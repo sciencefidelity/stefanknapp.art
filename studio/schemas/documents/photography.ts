@@ -11,7 +11,7 @@ export default {
     {
       name: 'date',
       title: 'Date',
-      type: 'string',
+      type: 'number',
     },
     {
       name: 'mainImage',
@@ -26,6 +26,7 @@ export default {
   preview: {
     select: {
       title: 'title.en',
+      subtitle: 'date',
       media: 'mainImage',
     },
   },
