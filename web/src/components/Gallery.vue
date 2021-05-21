@@ -17,7 +17,7 @@
           ({{ edge.node.yearFrom }}-{{ edge.node.yearTo.toString() }})
         </p>
         <p v-else class="gallery__caption">
-          {{ edge.node.title.en }}
+          {{ edge.node.title.pl }}
           ({{ edge.node.yearFrom }}-{{ edge.node.yearTo.toString() }})
         </p>
       </div>
@@ -32,6 +32,7 @@
         node {
           title {
             en
+            pl
           }
           id
           yearFrom
