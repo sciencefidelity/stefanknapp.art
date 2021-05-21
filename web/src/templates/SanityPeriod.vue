@@ -50,17 +50,17 @@
         <div class="text__links">
           <g-link v-if="$context.locale === 'en-gb'" to="/en/art/">Back to art</g-link>
           <g-link v-else to="/pl/art/">Powrót do sztuka</g-link>
-          <g-link v-if="$context.next" :to="$context.next.slug.current">
-            <div v-if="$context.locale === 'en-gb'">
+          <div v-if="$context.next">
+            <g-link v-if="$context.locale === 'en-gb'" :to="`/en/${$context.next.slug.current}/`">
               Next: {{ $context.next.title.en }} ({{ $context.next.yearFrom }}-{{ $context.next.yearTo }})
-            </div>
-            <div v-else>
+            </g-link>
+            <g-link v-else :to="`/pl/${$context.next.slug.current}/`">
               Kolejny: {{ $context.next.title.pl }} ({{ $context.next.yearFrom }}-{{ $context.next.yearTo }})
-            </div>
-          </g-link>
+            </g-link>
+          </div>
         </div>
       </section>
-      <div v-show="showModal">
+      <div v-if="$context.locale === 'en-gb'" v-show="showModal">
         <modal
           @closeModal="closeModal"
           @nextIndex="nextIndex"
@@ -68,6 +68,19 @@
           :title="$page.artwork.edges[currentIndex].node.title.en"
           :date="$page.artwork.edges[currentIndex].node.date"
           :medium="$page.artwork.edges[currentIndex].node.medium[0].title.en"
+          :link="$page.artwork.edges[currentIndex].node.mainImage"
+          :width="$page.artwork.edges[currentIndex].node.mainImage.asset.metadata.dimensions.width"
+          :height="$page.artwork.edges[currentIndex].node.mainImage.asset.metadata.dimensions.height"
+        />
+      </div>
+      <div v-else v-show="showModal">
+        <modal
+          @closeModal="closeModal"
+          @nextIndex="nextIndex"
+          @prevIndex="prevIndex"
+          :title="$page.artwork.edges[currentIndex].node.title.pl"
+          :date="$page.artwork.edges[currentIndex].node.date"
+          :medium="$page.artwork.edges[currentIndex].node.medium[0].title.pl"
           :link="$page.artwork.edges[currentIndex].node.mainImage"
           :width="$page.artwork.edges[currentIndex].node.mainImage.asset.metadata.dimensions.width"
           :height="$page.artwork.edges[currentIndex].node.mainImage.asset.metadata.dimensions.height"
