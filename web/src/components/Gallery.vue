@@ -8,7 +8,7 @@
           class="gallery__link"
         >
           <sanity-image
-            :title="edge.node.title.en"
+            :title="`/en/${edge.node.slug.current}/`"
             :link="edge.node.mainImage"
             :width="edge.node.mainImage.asset.metadata.dimensions.width"
             :height="edge.node.mainImage.asset.metadata.dimensions.height"
