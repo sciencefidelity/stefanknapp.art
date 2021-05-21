@@ -85,30 +85,30 @@ export default {
 
 $transition: 1s ease-in-out;
 
-.nav--big,
-.nav--small {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  box-shadow: 0 5px 10px rgba(black, 0.1);
-  z-index: 5;
-  transition: height $transition, background-color $transition;
-}
-
-.nav--big {
-  height: 18rem;
-  background-color: rgba(c.$grey-950, 0.5);
-  @include b.mq(sm) {
-    height: 30vw;
+.nav {
+  &--big,
+  &--small {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 5px 10px rgba(black, 0.1);
+    z-index: 5;
+    transition: height $transition, background-color $transition;
   }
-}
-
-.nav--small {
-  height: 8rem;
-  background-color: rgba(c.$grey-050, 1);
-  @include b.mq(sm) {
-    height:30vw;
+  &--big {
+    height: 18rem;
+    background-color: rgba(c.$grey-950, 0.5);
+    @include b.mq(sm) {
+      height: 30vw;
+    }
+  }
+  &--small {
+    height: 8rem;
+    background-color: rgba(c.$grey-050, 1);
+    @include b.mq(sm) {
+      height:30vw;
+    }
   }
 }
 
@@ -125,95 +125,101 @@ $transition: 1s ease-in-out;
   }
 }
 
-.link--big,
-.link--small {
-  position: relative;
-  z-index: 2;
-  transition: color 0.4s;
-  &:hover{
-    transition: color 0.3s;
+.link {
+  &--big,
+  &--small {
+    position: relative;
+    z-index: 2;
+    transition: color 0.4s;
+    &:hover{
+      transition: color 0.3s;
+    }
+  }
+  &--big {
+    color: c.$grey-350;
+    &:hover{
+      color: c.$grey-050;
+    }
+    &.active--exact {
+      color: c.$grey-050;
+    }
+  }
+  &--small {
+    color: c.$grey-500;
+    &:hover{
+      color: c.$grey-950;
+    }
+    &.active--exact {
+      color: c.$grey-950;
+    }
   }
 }
 
-.link--big {
-  color: c.$grey-350;
-  &:hover{
-    color: c.$grey-050;
-  }
-}
-
-.link--small {
-  color: c.$grey-500;
-  &:hover{
-    color: c.$grey-950;
-  }
-}
-
-.link--big.active--exact {
-  color: c.$grey-050;
-}
-
-.link--small.active--exact {
-  color: c.$grey-950;
-}
-
-.menu--big,
-.menu--small {
-  display: flex;
-  flex-direction: column;
-  list-style: none;
-  padding: 0;
-  font-size: 3rem;
-  font-weight: 600;
-  line-height: 1.2;
-  text-align: right;
-  text-transform: uppercase;
-  li {
-    transition: transform $transition;
+.menu {
+  &--big,
+  &--small {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
     padding: 0;
-  }
-  @include b.mq(sm) {
-    font-size: 6vw;
-  }
-}
-
-.menu--small {
-  .art {
-    transform: translate(-21.2rem, 3.3rem);
+    font-size: 3rem;
+    font-weight: 600;
+    line-height: 1.2;
+    text-align: right;
+    text-transform: uppercase;
+    li {
+      transition: transform $transition;
+      padding: 0;
+    }
     @include b.mq(sm) {
-      font-size: 100%;
-      transform: translate(-12.9em, 2.2em);
+      font-size: 6vw;
     }
   }
-  .life {
-    transform: translate(-12.6rem, -0.3rem);
-    @include b.mq(sm) {
-      transform: translate(-7.1em, 1em);
+  &--small {
+    .art {
+      transform: translate(-21.2rem, 3.3rem);
+      display: inline;
+      z-index: 3;
+      @include b.mq(sm) {
+        font-size: 100%;
+        transform: translate(-12.9em, 2.2em);
+      }
     }
-  }
-  .estate {
-    transform: translate(0rem, -3.9rem);
-    @include b.mq(sm) {
-      transform: translate(0em, -0.2em);
+    .life {
+      transform: translate(-12.6rem, -0.3rem);
+      z-index: 2;
+      @include b.mq(sm) {
+        transform: translate(-7.1em, 1em);
+      }
     }
-  }
-  .art-pl {
-    transform: translate(-32rem, 3.3rem);
-    @include b.mq(sm) {
-      transform: translate(-11.2em, 2.2em);
+    .estate {
+      z-index: 1;
+      transform: translate(0rem, -3.9rem);
+      @include b.mq(sm) {
+        transform: translate(0em, -0.2em);
+      }
     }
-  }
-  .life-pl {
-    transform: translate(-21rem, -0.3rem);
-    @include b.mq(sm) {
-      transform: translate(-7.1em, 1em);
+    .art-pl {
+      z-index: 3;
+      transform: translate(-32rem, 3.3rem);
+      @include b.mq(sm) {
+        transform: translate(-11.2em, 2.2em);
+      }
     }
-  }
-  .estate-pl {
-    transform: translate(0rem, -3.9rem);
-    @include b.mq(sm) {
-      font-size: 100%;
-      transform: translate(0em, -0.2em);
+    .life-pl {
+      z-index: 2;
+      transform: translate(-21rem, -0.3rem);
+      @include b.mq(sm) {
+        transform: translate(-7.1em, 1em);
+      }
+    }
+    .estate-pl {
+      z-index: 1;
+      transform: translate(0rem, -3.9rem);
+      @include b.mq(sm) {
+        font-size: 100%;
+        transform: translate(0em, -0.2em);
+      }
     }
   }
 }
