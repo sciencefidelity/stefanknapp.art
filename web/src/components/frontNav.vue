@@ -1,13 +1,13 @@
 <template>
   <nav>
-    <div class="front-nav">
-      <div id="hamburger-container" @click="toggleMenu()">
+    <div class="nav nav--front">
+      <div class="hamburger" @click="toggleMenu()">
         <span class="screen-reader-text">Main Menu</span>
         <transition appear>
-          <div :class="[ showMenu ? 'hamburger x-active' : 'hamburger' ]"></div>
+          <div :class="[ showMenu ? 'hamburger__icon hamburger__icon--active' : 'hamburger__icon' ]"></div>
         </transition>
       </div>
-      <div :class="[ showMenu ? 'active' : 'inactive' ]">
+      <div :class="[ showMenu ? 'nav__active' : 'nav__inactive' ]">
         <ul>
           <li v-if="$context.locale === 'en-gb'">
             <g-link  to="/en/art/" data-fill="Art">
@@ -40,8 +40,8 @@
             </g-link>
           </li>
         </ul>
-        <div class="front-title--container">
-          <p class="front-title">
+        <div class="nav__title-container">
+          <p class="nav__title">
             {{ $context.locale === "en-gb" ?
              'The Estate of Stefan Knapp' :
              'Posiadłość Stefana Knappa' }}
@@ -84,15 +84,56 @@ nav {
   margin-left: auto;
 }
 
-.front-nav {
-  padding: 0 3.5rem 0 0;
-  z-index: 1;
-  @include b.mq(lg) {
-    font: 1rem;
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 0;
+.nav {
+  &--front {
+    padding: 0 3.5rem 0 0;
+    z-index: 1;
+    @include b.mq(lg) {
+      font: 1rem;
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 0;
+    }
+  }
+  &__active,
+  &__inactive {
+    transition: clip-path 1s ease-in-out;
+    z-index: -1;
+    @include b.mq(lg) {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: rgba(c.$grey-950, 0.8);
+      width: 100vw;
+      height: 100vw;
+    }
+  }
+  &__inactive {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+  &__active {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  &__title-container {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    padding-top: 5rem;
+    @include b.mq(lg) {
+      padding-top: 0;
+    }
+  }
+  &__title {
+    font-size: 3.25vw;
+    text-transform: uppercase;
+    white-space: nowrap;
+    writing-mode: vertical-lr;
+    @include b.mq(lg) {
+      font-size: 5vw;
+      padding: 2.3em 0.8em;
+      writing-mode: lr;
+    }
   }
 }
 
@@ -148,7 +189,7 @@ ul {
   }
 }
 
-#hamburger-container {
+.hamburger {
   font-size: 0.7vw;
   display: grid;
   cursor: pointer;
@@ -167,112 +208,56 @@ ul {
     font-size: 1.2vw;
     margin: 3.5em 2.5em 2em auto;
   }
-}
-
-// ******** animated hamburger ***********
-
-.hamburger,
-.x-active {
-  font-size: 0.7vw;
-  position: relative;
-  z-index: 1;
-  width: 8em;
-  height: 0.4em;
-  margin: 2.6em 0 3em;
-  &::before,
-  &::after {
-    position: absolute;
-    content: "";
-    display: block;
-    background: c.$sepia-150;
+  &__icon {
+    font-size: 0.7vw;
+    position: relative;
+    z-index: 1;
     width: 8em;
     height: 0.4em;
-  }
-  @include b.mq(lg) {
-    font-size: 1.2vw;
-
-  }
-}
-
-.hamburger {
-  background-color: rgba(c.$sepia-150, 1);
-  transition: background-color 0s;
-  transition-delay: 0.5s;
-  &::before,
-  &::after {
-    transform: rotate(0);
-    transition: transform 0.5s, top 0.5s;
-    transition-delay: 0s, 0.5s;
-    transition-property: transform, top;
-  }
-  &::before {
-    top: -2.6em;
-  }
-  &::after {
-    top: 2.6em;
-  }
-}
-
-.x-active {
-  background-color: rgba(c.$sepia-150, 0);
-  transition: background-color 0s;
-  transition-delay: 0.5s;
-  &::before,
-  &::after {
-    top: 0;
-    transition: top 0.5s, transform 0.5s;
-    transition-delay: 0s, 0.5s;
-    transition-property: top, transform;
-  }
-  &::before {
-    transform: rotate(0.125turn);
-  }
-  &::after {
-    transform: rotate(-0.125turn);
-  }
-}
-
-.active,
-.inactive {
-  transition: clip-path 1s ease-in-out;
-  z-index: -1;
-  @include b.mq(lg) {
-    position: absolute;
-    top: 0;
-    right: 0;
-    background: rgba(c.$grey-950, 0.8);
-    width: 100vw;
-    height: 100vw;
-  }
-}
-
-.inactive {
-  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-}
-
-.active {
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-}
-
-.front-title--container {
-  display: flex;
-  width: 100%;
-  justify-content: flex-end;
-  padding-top: 5rem;
-  @include b.mq(lg) {
-    padding-top: 0;
-  }
-}
-
-.front-title {
-  font-size: 3.25vw;
-  text-transform: uppercase;
-  white-space: nowrap;
-  writing-mode: vertical-lr;
-  @include b.mq(lg) {
-    font-size: 5vw;
-    padding: 2.3em 0.8em;
-    writing-mode: lr;
+    margin: 2.6em 0 3em;
+    background-color: rgba(c.$sepia-150, 1);
+    transition: background-color 0s;
+    transition-delay: 0.5s;
+    &::before,
+    &::after {
+      position: absolute;
+      content: "";
+      display: block;
+      background: c.$sepia-150;
+      width: 8em;
+      height: 0.4em;
+      transform: rotate(0);
+      transition: transform 0.5s, top 0.5s;
+      transition-delay: 0s, 0.5s;
+      transition-property: transform, top;
+    }
+    &::before {
+      top: -2.6em;
+    }
+    &::after {
+      top: 2.6em;
+    }
+    &--active {
+      background-color: rgba(c.$sepia-150, 0);
+      transition: background-color 0s;
+      transition-delay: 0.5s;
+      &::before,
+      &::after {
+        top: 0;
+        transition: top 0.5s, transform 0.5s;
+        transition-delay: 0s, 0.5s;
+        transition-property: top, transform;
+      }
+      &::before {
+        transform: rotate(0.125turn);
+      }
+      &::after {
+        transform: rotate(-0.125turn);
+      }
+    }
+    @include b.mq(lg) {
+      font-size: 1.2vw;
+    }
   }
 }
 

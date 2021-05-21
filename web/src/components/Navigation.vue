@@ -1,4 +1,4 @@
-/<template>
+<template>
   <nav :class="[ resizeNav ? 'nav--big' : 'nav--small' ]">
     <div class="container">
       <g-link v-if="$context.locale === 'en-gb'" to="/en/"><div>
