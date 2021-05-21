@@ -29,6 +29,7 @@
         @nextIndex="nextIndex"
         @prevIndex="prevIndex"
         :title="$static.photo.edges[currentIndex].node.title.en"
+        :date="$static.photo.edges[currentIndex].node.date"
         :link="$static.photo.edges[currentIndex].node.mainImage"
         :width="$static.photo.edges[currentIndex].node.mainImage.asset.metadata.dimensions.width"
         :height="$static.photo.edges[currentIndex].node.mainImage.asset.metadata.dimensions.height"
@@ -39,7 +40,7 @@
 
 <static-query>
   query {
-    photo: allSanityPhotography {
+    photo: allSanityPhotography(sortBy: "date", order: ASC) {
       edges {
         node {
           id

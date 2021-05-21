@@ -30,7 +30,7 @@
       <p class="modal__caption">
         {{ title }} ({{ date }})
       </p>
-      <p class="modal__caption">
+      <p v-if="medium" class="modal__caption">
         {{ medium }}
       </p>
     </div>

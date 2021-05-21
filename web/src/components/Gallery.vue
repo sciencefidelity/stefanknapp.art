@@ -90,7 +90,7 @@ export default {
     grid-template-columns: 1fr;
   }
   div {
-    margin-bottom: 1em;
+    margin-bottom: 0.5em;
   }
   p {
     margin-bottom: 0;
