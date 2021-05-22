@@ -52,7 +52,7 @@ export default {
   },
   data() {
     return {
-      resizeNav: true
+      resizeNav: Boolean
     }
   },
   methods: {
@@ -61,6 +61,11 @@ export default {
     },
     upIntersect() {
       this.resizeNav = true
+    }
+  },
+  mounted() {
+    if (document.body.scrollTop < 500 || document.documentElement.scrollTop < 500) {
+      this.resizeNav = false
     }
   }
 }
