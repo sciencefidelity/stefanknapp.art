@@ -100,14 +100,14 @@ $transition: 1s ease-in-out;
     height: 18rem;
     background-color: rgba(c.$grey-950, 0.5);
     @include b.mq(sm) {
-      height: 30vw;
+      height: 26vw;
     }
   }
   &--small {
     height: 8rem;
     background-color: rgba(c.$grey-050, 1);
     @include b.mq(sm) {
-      height:30vw;
+      height:26vw;
     }
   }
 }
@@ -172,7 +172,8 @@ $transition: 1s ease-in-out;
       padding: 0;
     }
     @include b.mq(sm) {
-      font-size: 6vw;
+      // font-size: 6vw;
+      display: none;
     }
   }
   &--small {
@@ -180,46 +181,46 @@ $transition: 1s ease-in-out;
       transform: translate(-21.2rem, 3.3rem);
       display: inline;
       z-index: 3;
-      @include b.mq(sm) {
-        font-size: 100%;
-        transform: translate(-12.9em, 2.2em);
-      }
+      // @include b.mq(sm) {
+      //   font-size: 100%;
+      //   transform: translate(-12.9em, 2.2em);
+      // }
     }
     .life {
       transform: translate(-12.6rem, -0.3rem);
       z-index: 2;
-      @include b.mq(sm) {
-        transform: translate(-7.1em, 1em);
-      }
+      // @include b.mq(sm) {
+      //   transform: translate(-7.1em, 1em);
+      // }
     }
     .estate {
       z-index: 1;
       transform: translate(0rem, -3.9rem);
-      @include b.mq(sm) {
-        transform: translate(0em, -0.2em);
-      }
+      // @include b.mq(sm) {
+      //   transform: translate(0em, -0.2em);
+      // }
     }
     .art-pl {
       z-index: 3;
       transform: translate(-32rem, 3.3rem);
-      @include b.mq(sm) {
-        transform: translate(-11.2em, 2.2em);
-      }
+      // @include b.mq(sm) {
+      //   transform: translate(-11.2em, 2.2em);
+      // }
     }
     .life-pl {
       z-index: 2;
       transform: translate(-21rem, -0.3rem);
-      @include b.mq(sm) {
-        transform: translate(-7.1em, 1em);
-      }
+      // @include b.mq(sm) {
+      //   transform: translate(-7.1em, 1em);
+      // }
     }
     .estate-pl {
       z-index: 1;
       transform: translate(0rem, -3.9rem);
-      @include b.mq(sm) {
-        font-size: 100%;
-        transform: translate(0em, -0.2em);
-      }
+      // @include b.mq(sm) {
+      //   font-size: 100%;
+      //   transform: translate(0em, -0.2em);
+      // }
     }
   }
 }
