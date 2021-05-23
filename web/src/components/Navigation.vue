@@ -246,31 +246,27 @@ $transition: 1s ease-in-out;
 .hamburger {
   display: none;
   position: absolute;
-  top: 2.6em;
-  right: 4em;
-  font-size: 0.7vw;
+  top: 0em;
+  right: 0em;
   display: grid;
   cursor: pointer;
-  height: 5.8em;
-  width: 8em;
-  margin: 3.7em 1.5em 6.5em auto;
+  height: 2.3em;
+  width: 3em;
   cursor: pointer;
   z-index: 4;
   @include b.mq(sm) {
     display: block;
-    font-size: 1.2vw;
-    margin: 3.5em 2.5em 2em auto;
+    margin: 1em 1em 1em auto;
   }
   &__icon {
     &--big,
     &--small {
       display: none;
-      font-size: 0.7vw;
       position: relative;
       z-index: 6;
-      width: 8em;
-      height: 0.6em;
-      margin: 2.6em 0 3em;
+      width: 3em;
+      height: 0.2em;
+      margin: 1em 0 3em;
       background-color: c.$grey-150;
       transition: background-color $transition;
       &::before,
@@ -279,19 +275,18 @@ $transition: 1s ease-in-out;
         content: "";
         display: block;
         background: c.$grey-150;
-        width: 8em;
-        height: 0.6em;
+        width: 3em;
+        height: 0.2em;
         transition: background-color $transition;
       }
       &::before {
-        top: -2.6em;
+        top: -1em;
       }
       &::after {
-        top: 2.6em;
+        top: 1em;
       }
       @include b.mq(sm) {
         display: block;
-        font-size: 1.2vw;
       }
     }
     &--small {
