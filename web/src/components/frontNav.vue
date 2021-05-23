@@ -3,9 +3,7 @@
     <div class="nav nav--front">
       <div class="hamburger" @click="toggleMenu()">
         <span class="screen-reader-text">Main Menu</span>
-        <transition appear>
-          <div :class="[ showMenu ? 'hamburger__icon hamburger__icon--active' : 'hamburger__icon' ]"></div>
-        </transition>
+        <div :class="[ showMenu ? 'hamburger__icon hamburger__icon--active' : 'hamburger__icon' ]"></div>
       </div>
       <div :class="[ showMenu ? 'nav__active' : 'nav__inactive' ]">
         <ul>
