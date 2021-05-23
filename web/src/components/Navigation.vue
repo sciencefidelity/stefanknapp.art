@@ -306,16 +306,17 @@ $transition: 1s ease-in-out;
 
 .mobile {
   &__nav {
-    // display: none;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
     position: absolute;
     top: 3.5em;
     left: 0;
     width: 100vw;
-    height: 0em;
+    height: calc(100vh - 3.5em);
     background-color: rgba(c.$grey-950, 0.6);
+    transition: clip-path 1s;
     &--active {
-      // display: block;
-      height: calc(100vh - 3.5em);
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      transition: clip-path 1s;
     }
   }
   &__menu {
