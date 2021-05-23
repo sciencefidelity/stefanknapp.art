@@ -60,6 +60,11 @@
             </g-link>
           </li>
         </ul>
+        <div class="hamburger" @click="toggleMenu()">
+          <span class="screen-reader-text">Main Menu</span>
+          <div :class="[ resizeNav ? 'hamburger__icon--big' : 'hamburger__icon--small' ]">
+        </div>
+        </div>
       </div>
     </div>
   </nav>
@@ -100,14 +105,14 @@ $transition: 1s ease-in-out;
     height: 18rem;
     background-color: rgba(c.$grey-950, 0.5);
     @include b.mq(sm) {
-      height: 26vw;
+      height: 3.5em;
     }
   }
   &--small {
     height: 8rem;
     background-color: rgba(c.$grey-050, 1);
     @include b.mq(sm) {
-      height:26vw;
+      height:3.5em;
     }
   }
 }
@@ -120,7 +125,7 @@ $transition: 1s ease-in-out;
   justify-content: space-between;
   align-items: center;
   @include b.mq(sm) {
-    padding-top: 1em;
+    padding-top: 0.65em;
     align-items: flex-start;
   }
 }
@@ -172,7 +177,6 @@ $transition: 1s ease-in-out;
       padding: 0;
     }
     @include b.mq(sm) {
-      // font-size: 6vw;
       display: none;
     }
   }
@@ -181,46 +185,88 @@ $transition: 1s ease-in-out;
       transform: translate(-21.2rem, 3.3rem);
       display: inline;
       z-index: 3;
-      // @include b.mq(sm) {
-      //   font-size: 100%;
-      //   transform: translate(-12.9em, 2.2em);
-      // }
     }
     .life {
       transform: translate(-12.6rem, -0.3rem);
       z-index: 2;
-      // @include b.mq(sm) {
-      //   transform: translate(-7.1em, 1em);
-      // }
     }
     .estate {
       z-index: 1;
       transform: translate(0rem, -3.9rem);
-      // @include b.mq(sm) {
-      //   transform: translate(0em, -0.2em);
-      // }
     }
     .art-pl {
       z-index: 3;
       transform: translate(-32rem, 3.3rem);
-      // @include b.mq(sm) {
-      //   transform: translate(-11.2em, 2.2em);
-      // }
     }
     .life-pl {
       z-index: 2;
       transform: translate(-21rem, -0.3rem);
-      // @include b.mq(sm) {
-      //   transform: translate(-7.1em, 1em);
-      // }
     }
     .estate-pl {
       z-index: 1;
       transform: translate(0rem, -3.9rem);
-      // @include b.mq(sm) {
-      //   font-size: 100%;
-      //   transform: translate(0em, -0.2em);
-      // }
+    }
+  }
+}
+
+.hamburger {
+  display: none;
+  position: absolute;
+  top: 2.6em;
+  right: 4em;
+  font-size: 0.7vw;
+  display: grid;
+  cursor: pointer;
+  height: 5.8em;
+  width: 8em;
+  margin: 3.7em 1.5em 6.5em auto;
+  cursor: pointer;
+  transition: opacity 0.3s;
+  z-index: 4;
+  @include b.mq(sm) {
+    display: block;
+    font-size: 1.2vw;
+    margin: 3.5em 2.5em 2em auto;
+  }
+  &__icon {
+    &--big,
+    &--small {
+      display: none;
+      font-size: 0.7vw;
+      position: relative;
+      z-index: 6;
+      width: 8em;
+      height: 0.6em;
+      margin: 2.6em 0 3em;
+      background-color: c.$grey-150;
+      transition: background-color $transition;
+      &::before,
+      &::after {
+        position: absolute;
+        content: "";
+        display: block;
+        background: c.$grey-150;
+        width: 8em;
+        height: 0.6em;
+        transition: background-color $transition;
+      }
+      &::before {
+        top: -2.6em;
+      }
+      &::after {
+        top: 2.6em;
+      }
+      @include b.mq(sm) {
+        display: block;
+        font-size: 1.2vw;
+      }
+    }
+    &--small {
+      background-color: c.$grey-950;
+      &::before,
+      &::after {
+        background-color: c.$grey-950;
+      }
     }
   }
 }

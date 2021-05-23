@@ -34,7 +34,7 @@ $transition: 1s ease-in-out;
     width: 30rem;
   }
   @include b.mq(sm) {
-    width: 50vw;
+    width: 7.5em;
   }
 }
 
@@ -43,7 +43,7 @@ $transition: 1s ease-in-out;
   fill: c.$grey-950;
   transition: width $transition, fill $transition;
   @include b.mq(sm) {
-    width: 43vw;
+    width: 7.5em;
   }
 }
 </style>
