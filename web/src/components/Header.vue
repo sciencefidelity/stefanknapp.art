@@ -15,7 +15,7 @@ export default {
     Navigation
   },
   props: {
-    resizeNav: Boolean
+    resizeNav: false
   }
 }
 </script>

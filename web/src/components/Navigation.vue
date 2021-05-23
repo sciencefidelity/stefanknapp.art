@@ -101,7 +101,7 @@ export default {
     Logo,
   },
   props: {
-    resizeNav: Boolean
+    resizeNav: false
   },
   data() {
     return {

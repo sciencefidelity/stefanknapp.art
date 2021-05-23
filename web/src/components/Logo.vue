@@ -12,7 +12,7 @@
 export default {
   name: 'Logo',
   props: {
-    resizeLogo: Boolean
+    resizeLogo: false
   }
 }
 </script>
