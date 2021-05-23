@@ -49,7 +49,7 @@
 
 <page-query>
   query {
-    sanityMeta {
+    sanityMeta(id: "8708a608-e41b-4ac7-86ce-0c39395f9d53") {
       title {
         en
       }
@@ -75,11 +75,10 @@ export default {
   name: 'Index',
   metaInfo() {
     return {
-    title: this.$page.sanityMeta.title.en,
+      title: this.$page.sanityMeta.title.en,
       meta: [
         {
-          name: 'author',
-          content: 'John Doe'
+          description: this.$page.sanityMeta.description.en,
         }
       ],
     }
