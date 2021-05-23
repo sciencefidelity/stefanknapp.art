@@ -121,6 +121,9 @@ export default {
   padding: 15rem 0 18rem;
   background: c.$slate-100;
   z-index: 0;
+  @include b.mq(sm) {
+    padding: 10rem 0 15rem;
+  }
 }
 
 .gallery-section {
@@ -130,6 +133,9 @@ export default {
   background: hsl(0,0%,99%);
   padding: 15rem 0 18rem;
   overflow: hidden;
+  @include b.mq(sm) {
+    padding: 5rem 0 5rem;
+  }
 }
 
 .video-section {

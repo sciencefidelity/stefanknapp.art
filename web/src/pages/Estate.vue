@@ -107,6 +107,9 @@ export default {
   padding: 15rem 0 18rem;
   background: c.$slate-050;
   z-index: 0;
+  @include b.mq(sm) {
+    padding: 10rem 0 15rem;
+  }
 }
 
 .video-embed {
