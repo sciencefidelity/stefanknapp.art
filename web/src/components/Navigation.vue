@@ -60,11 +60,33 @@
             </g-link>
           </li>
         </ul>
-        <div class="hamburger" @click="toggleMenu()">
-          <span class="screen-reader-text">Main Menu</span>
-          <div :class="[ resizeNav ? 'hamburger__icon--big' : 'hamburger__icon--small' ]">
+      </div>
+      <div class="hamburger" @click="toggleMenu()">
+        <span class="screen-reader-text">Main Menu</span>
+        <div :class="[ resizeNav ? 'hamburger__icon--big' : 'hamburger__icon--small' ]">
         </div>
-        </div>
+      </div>
+      <div :class="[ showMenu ? 'mobile__nav mobile__nav--active' : 'mobile__nav' ]">
+        <ul class="mobile__menu">
+          <li v-if="$context.locale === 'en-gb'">
+            <g-link to="/en/art/" class="mobile__link">Art</g-link>
+          </li>
+          <li v-else>
+            <g-link to="/pl/art/" class="mobile__link">Sztuka</g-link>
+          </li>
+          <li v-if="$context.locale === 'en-gb'">
+            <g-link to="/en/life/" class="mobile__link">Life</g-link>
+          </li>
+          <li v-else>
+            <g-link to="/pl/life/" class="mobile__link">Życie</g-link>
+          </li>
+          <li v-if="$context.locale === 'en-gb'">
+            <g-link to="/en/estate/" class="mobile__link">Estate</g-link>
+          </li>
+          <li v-else>
+            <g-link to="/pl/estate/" class="mobile__link">Posiadłość</g-link>
+          </li>
+        </ul>
       </div>
     </div>
   </nav>
@@ -80,6 +102,16 @@ export default {
   },
   props: {
     resizeNav: Boolean
+  },
+  data() {
+    return {
+      showMenu: false,
+    }
+  },
+  methods: {
+    toggleMenu() {
+      this.showMenu = !this.showMenu
+    }
   }
 }
 </script>
@@ -97,7 +129,7 @@ $transition: 1s ease-in-out;
     top: 0;
     left: 0;
     width: 100%;
-    box-shadow: 0 5px 10px rgba(black, 0.1);
+
     z-index: 5;
     transition: height $transition, background-color $transition;
   }
@@ -106,11 +138,13 @@ $transition: 1s ease-in-out;
     background-color: rgba(c.$grey-950, 0.5);
     @include b.mq(sm) {
       height: 3.5em;
+      background-color: rgba(c.$grey-950, 0.6);
     }
   }
   &--small {
     height: 8rem;
     background-color: rgba(c.$grey-050, 1);
+    box-shadow: 0 5px 10px rgba(black, 0.1);
     @include b.mq(sm) {
       height:3.5em;
     }
@@ -221,7 +255,6 @@ $transition: 1s ease-in-out;
   width: 8em;
   margin: 3.7em 1.5em 6.5em auto;
   cursor: pointer;
-  transition: opacity 0.3s;
   z-index: 4;
   @include b.mq(sm) {
     display: block;
@@ -267,6 +300,44 @@ $transition: 1s ease-in-out;
       &::after {
         background-color: c.$grey-950;
       }
+    }
+  }
+}
+
+.mobile {
+  &__nav {
+    // display: none;
+    position: absolute;
+    top: 3.5em;
+    left: 0;
+    width: 100vw;
+    height: 0em;
+    background-color: rgba(c.$grey-950, 0.6);
+    &--active {
+      // display: block;
+      height: calc(100vh - 3.5em);
+    }
+  }
+  &__menu {
+    position: absolute;
+    top: 0.5em;
+    right: 0.83em;
+    list-style: none;
+    padding: 0;
+    font-size: 3rem;
+    font-weight: 600;
+    line-height: 1.8;
+    text-align: right;
+    text-transform: uppercase;
+    li {
+      padding: 0;
+    }
+  }
+  &__link {
+    color: c.$grey-050;
+    &.active--exact {
+      text-decoration: underline;
+      text-decoration-thickness: 0.1em;
     }
   }
 }
