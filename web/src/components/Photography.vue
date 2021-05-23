@@ -166,10 +166,10 @@ export default {
     margin-bottom: 0.5em !important;
     aspect-ratio: 1 / 1;
     cursor: pointer;
-    transition: 0.4s opacity;
+    transition: opacity 0.4s;
     &:hover {
-      opacity: 90%;
-      transition: 0.4s opacity;
+      opacity: 0.9;
+      transition: opacity 0.4s;
     }
   }
   &__caption {
