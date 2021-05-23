@@ -86,6 +86,11 @@ import BlockContent from '@/components/BlockContent.vue'
 
 export default {
   name: 'Estate',
+  metaInfo() {
+    return {
+      title: this.$static.sanityPage.title.en,
+    }
+  },
   components: {
     SanityImage,
     BlockContent

@@ -98,6 +98,11 @@ import VideoEmbedArt from '@/components/VideoEmbedArt.vue'
 
 export default {
   name: 'Art',
+  metaInfo() {
+    return {
+      title: this.$static.sanityPage.title.en,
+    }
+  },
   components: {
     SanityImage,
     BlockContent,

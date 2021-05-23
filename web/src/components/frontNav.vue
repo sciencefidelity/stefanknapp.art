@@ -129,7 +129,7 @@ nav {
     writing-mode: vertical-lr;
     @include b.mq(lg) {
       font-size: 5vw;
-      padding: 2.3em 0.8em;
+      padding: 2em 0.8em;
       writing-mode: lr;
     }
   }
@@ -154,8 +154,8 @@ ul {
   flex-direction: column;
   justify-content: right;
   @include b.mq(lg) {
-    font-size: 10.5vw;
-    line-height: 10.5vw;
+    font-size: 9.8vw;
+    line-height: 11.2vw;
     padding: 1.4em 0.3em 0 0;
   }
   li {

@@ -9,8 +9,8 @@ const clientConfig = require('./client-config')
 const i18n = require('./plugins/i18n')
 
 module.exports = {
-  siteName: 'Stefan Knapp Estate',
-  siteDescription: 'The Estate of visual artist Stefan Knapp',
+  siteName: 'The Estate of Stefan Knapp',
+  siteDescription: 'Polish-born painter and sculptor, who worked in Great Britain. He developed and patented a technique of painting with enamel paint on steel.',
   plugins: [
     {
       use: 'gridsome-source-sanity',

@@ -98,6 +98,11 @@ import VideoEmbedLife from '@/components/VideoEmbedLife.vue'
 
 export default {
   name: 'Life',
+  metaInfo() {
+    return {
+      title: this.$static.sanityPage.title.en,
+    }
+  },
   components: {
     SanityImage,
     BlockContent,
