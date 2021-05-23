@@ -47,6 +47,25 @@
   </layout>
 </template>
 
+<page-query>
+  query {
+    sanityMeta {
+      title {
+        en
+      }
+      description {
+        en
+      }
+      ogTitle {
+        en
+      }
+      ogDescription {
+        en
+      }
+    }
+  }
+</page-query>
+
 <script lang="ts">
 import Layout from '@/layouts/FrontPage.vue'
 import VideoEmbed from '@/components/VideoEmbed.vue'
@@ -54,6 +73,17 @@ import FrontNav from '@/components/FrontNav.vue'
 
 export default {
   name: 'Index',
+  metaInfo() {
+    return {
+    title: this.$page.sanityMeta.title.en,
+      meta: [
+        {
+          name: 'author',
+          content: 'John Doe'
+        }
+      ],
+    }
+  },
   components: {
     Layout,
     VideoEmbed,
