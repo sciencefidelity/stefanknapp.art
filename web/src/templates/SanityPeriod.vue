@@ -163,6 +163,11 @@ import BlockContent from '@/components/BlockContent.vue'
 import Modal from '@/components/Modal.vue'
 
 export default {
+  metaInfo() {
+    return {
+      title: this.$page.page.title.en,
+    }
+  },
   components: {
     SanityImage,
     BlockContent,
