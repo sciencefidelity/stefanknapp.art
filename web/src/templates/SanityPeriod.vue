@@ -290,6 +290,9 @@ h2 {
   padding: 15rem 0 15rem;
   background: c.$slate-050;
   z-index: 0;
+  @include b.mq(sm) {
+    padding: 7rem 0 5rem;
+  }
 }
 
 .text {
@@ -305,6 +308,13 @@ h2 {
     margin: 2em auto;
     display: flex;
     justify-content: space-between;
+    @include b.mq(sm) {
+      flex-direction: column-reverse;
+      text-align: center;
+      a:first-child {
+        padding-bottom: 1em;
+      }
+    }
     a {
       display: block;
       padding: 0 0.5rem;
