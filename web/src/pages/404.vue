@@ -7,9 +7,13 @@
   >
     <main>
       <section>
-        <div class="four-oh-four">
-          <h1>404: not found</h1>
+        <div v-if="$context.locale === 'en-gb'" class="four-oh-four">
+          <h1>404: Not Found</h1>
           <p>You just hit a route that doesn't exist... the sadness.</p>
+        </div>
+        <div v-else class="four-oh-four">
+          <h1>404 Nie Znaleziono</h1>
+          <p>Po prostu trafiłeś na trasę, która nie istnieje ... smutek.</p>
         </div>
       </section>
     </main>
