@@ -204,7 +204,7 @@ export default {
         },
         {
           name: 'twitter:image',
-          content: this.$urlForImage(this.$page.page.mainImage, this.$static.metadata.sanityOptions)
+          content: this.$urlForImage(this.$page.page.mainImage, this.$page.metadata.sanityOptions)
           .auto('format')
           .quality(80)
           .width(1200)
