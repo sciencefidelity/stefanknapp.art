@@ -33,7 +33,7 @@ export default {
     {
       name: 'ogDescription',
       title: 'Social description',
-      description: 'Displayed on Facebook and Twitter shares (max 60 characters)',
+      description: 'Displayed on Facebook and Twitter shares (max 65 characters)',
       type: 'string',
       validation: Rule => Rule.max(65).warning(`Only 65 characters will be visible.`),
     },
