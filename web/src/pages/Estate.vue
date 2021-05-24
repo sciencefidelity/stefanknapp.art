@@ -34,6 +34,12 @@
 
 <static-query>
   query {
+    metadata {
+      sanityOptions {
+        projectId
+        dataset
+      }
+    }
     sanityPage(id: "e0fb01c9-f899-4469-bdd5-b9d270d78024") {
       title {
         en
