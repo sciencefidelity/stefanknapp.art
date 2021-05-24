@@ -44,6 +44,12 @@
 
 <static-query>
   query {
+    metadata {
+      sanityOptions {
+        projectId
+        dataset
+      }
+    }
     sanityPage(id: "07891a7c-d81e-49e7-b8d3-0b2b51aac12a") {
       title {
         en
@@ -101,6 +107,34 @@ export default {
   metaInfo() {
     return {
       title: this.$static.sanityPage.title.en,
+      meta: [
+        {
+          name: 'description',
+          content: 'The artistic periods of enamelist and sculptor Stefan Knapp.'
+        },
+        {
+          property: 'og:image',
+          content: this.$urlForImage(this.$static.sanityPage.mainImage, this.$static.metadata.sanityOptions)
+          .auto('format')
+          .quality(80)
+          .width(1200)
+          .height(630)
+          .url()
+        },
+        {
+          name: 'twitter:card',
+          content: 'summary_large_image'
+        },
+        {
+          name: 'twitter:image',
+          content: this.$urlForImage(this.$static.sanityPage.mainImage, this.$static.metadata.sanityOptions)
+          .auto('format')
+          .quality(80)
+          .width(1200)
+          .height(628)
+          .url()
+        }
+      ]
     }
   },
   components: {
