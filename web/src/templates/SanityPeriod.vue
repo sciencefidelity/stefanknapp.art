@@ -107,6 +107,8 @@ query Period ($id: ID!, $yearFrom: Float, $yearTo: Float) {
       _rawEn(resolveReferences: {maxDepth: 5})
       _rawPl(resolveReferences: {maxDepth: 5})
     }
+    ogTitle
+    ogDescription
     mainImage {
       caption {
         en
@@ -166,6 +168,50 @@ export default {
   metaInfo() {
     return {
       title: this.$page.page.title.en,
+      meta: [
+        {
+          name: 'description',
+          content: this.$page.page.ogDescription
+        },
+        {
+          property: 'og:title',
+          content: this.$page.page.ogTitle
+        },
+        {
+          property: 'og:description',
+          content: this.$page.page.ogDescription
+        },
+        {
+          property: 'og:image',
+          content: this.$urlForImage(this.$page.page.mainImage, this.$page.metadata.sanityOptions)
+          .auto('format')
+          .quality(80)
+          .width(1200)
+          .height(630)
+          .url()
+        },
+        {
+          name: 'twitter:card',
+          content: 'summary_large_image'
+        },
+        {
+          name: 'twitter:title',
+          content: this.$page.page.ogTitle
+        },
+        {
+          name: 'twitter:description',
+          content: this.$page.page.ogDescription
+        },
+        {
+          name: 'twitter:image',
+          content: this.$urlForImage(this.$page.page.mainImage, this.$static.metadata.sanityOptions)
+          .auto('format')
+          .quality(80)
+          .width(1200)
+          .height(628)
+          .url()
+        }
+      ]
     }
   },
   components: {
