@@ -28,14 +28,14 @@ export default {
       title: 'Social title',
       description: 'Displayed on Facebook and Twitter shares (max 60 characters)',
       type: 'string',
-      validation: Rule => Rule.max(60).warning(`Only 60 characters will be visible.`),
+      validation: (Rule:any) => Rule.max(60).warning(`Only 60 characters will be visible.`),
     },
     {
       name: 'ogDescription',
       title: 'Social description',
       description: 'Displayed on Facebook and Twitter shares (max 65 characters)',
       type: 'string',
-      validation: Rule => Rule.max(65).warning(`Only 65 characters will be visible.`),
+      validation: (Rule:any) => Rule.max(65).warning(`Only 65 characters will be visible.`),
     },
     {
       name: 'mainImage',
