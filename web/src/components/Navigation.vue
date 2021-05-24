@@ -256,7 +256,7 @@ $transition: 1s ease-in-out;
   z-index: 4;
   @include b.mq(sm) {
     display: block;
-    margin: 0.7em 0.7em 0.7em auto;
+    margin: 0.7em 0.7ex 0.7em auto;
   }
   &__icon {
     &--big,
@@ -264,7 +264,7 @@ $transition: 1s ease-in-out;
       display: none;
       position: relative;
       z-index: 6;
-      width: 2.5em;
+      width: 2.1em;
       height: 0.15em;
       margin: 1em 0 3em;
       background-color: c.$grey-150;
@@ -275,15 +275,15 @@ $transition: 1s ease-in-out;
         content: "";
         display: block;
         background: c.$grey-150;
-        width: 2.5em;
+        width: 2.1em;
         height: 0.15em;
         transition: background-color $transition;
       }
       &::before {
-        top: -0.7em;
+        top: -0.6em;
       }
       &::after {
-        top: 0.7em;
+        top: 0.6em;
       }
       @include b.mq(sm) {
         display: block;
