@@ -112,7 +112,7 @@ export default {
       meta: [
         {
           name: 'description',
-          content: 'The artistic periods of enamelist and sculptor Stefan Knapp.'
+          content: this.$static.sanityPage.ogDescription
         },
         {
           property: 'og:title',
