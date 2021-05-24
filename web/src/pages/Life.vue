@@ -53,6 +53,8 @@
         _rawEn(resolveReferences: {maxDepth: 5})
         _rawPl(resolveReferences: {maxDepth: 5})
       }
+      ogTitle
+      ogDescription
       mainImage {
         caption {
           en
@@ -101,6 +103,50 @@ export default {
   metaInfo() {
     return {
       title: this.$static.sanityPage.title.en,
+      meta: [
+        {
+          name: 'description',
+          content: 'The artistic periods of enamelist and sculptor Stefan Knapp.'
+        },
+        {
+          property: 'og:title',
+          content: this.$static.sanityPage.ogTitle
+        },
+        {
+          property: 'og:description',
+          content: this.$static.sanityPage.ogDescription
+        },
+        {
+          property: 'og:image',
+          content: this.$urlForImage(this.$static.sanityPage.mainImage, this.$static.metadata.sanityOptions)
+          .auto('format')
+          .quality(80)
+          .width(1200)
+          .height(630)
+          .url()
+        },
+        {
+          name: 'twitter:card',
+          content: 'summary_large_image'
+        },
+        {
+          name: 'twitter:title',
+          content: this.$static.sanityPage.ogTitle
+        },
+        {
+          name: 'twitter:description',
+          content: this.$static.sanityPage.ogDescription
+        },
+        {
+          name: 'twitter:image',
+          content: this.$urlForImage(this.$static.sanityPage.mainImage, this.$static.metadata.sanityOptions)
+          .auto('format')
+          .quality(80)
+          .width(1200)
+          .height(628)
+          .url()
+        }
+      ]
     }
   },
   components: {

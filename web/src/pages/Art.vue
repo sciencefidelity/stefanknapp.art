@@ -59,6 +59,8 @@
         _rawEn(resolveReferences: {maxDepth: 5})
         _rawPl(resolveReferences: {maxDepth: 5})
       }
+      ogTitle
+      ogDescription
       mainImage {
         caption {
           en
@@ -114,11 +116,11 @@ export default {
         },
         {
           property: 'og:title',
-          content: 'The artistic periods of Stefan Knapp'
+          content: this.$static.sanityPage.ogTitle
         },
         {
           property: 'og:description',
-          content: 'The work of the famous artist in 6 distinct periods'
+          content: this.$static.sanityPage.ogDescription
         },
         {
           property: 'og:image',
@@ -135,11 +137,11 @@ export default {
         },
         {
           name: 'twitter:title',
-          content: 'The artistic periods of Stefan Knapp'
+          content: this.$static.sanityPage.ogTitle
         },
         {
           name: 'twitter:description',
-          content: 'The work of the famous artist in 6 distinct periods'
+          content: this.$static.sanityPage.ogDescription
         },
         {
           name: 'twitter:image',
