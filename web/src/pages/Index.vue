@@ -47,7 +47,31 @@
   </layout>
 </template>
 
+<static-query>
+query {
+  metadata {
+    sanityOptions {
+      projectId
+      dataset
+    }
+  }
+  sanityMeta(id: "8708a608-e41b-4ac7-86ce-0c39395f9d53") {
+    title
+    description
+    ogTitle
+    ogDescription
+    ogImage {
+      asset {
+        url
+      }
+    }
+  }
+}
+
+</static-query>
+
 <script lang="ts">
+
 import Layout from '@/layouts/FrontPage.vue'
 import VideoEmbed from '@/components/VideoEmbed.vue'
 import FrontNav from '@/components/FrontNav.vue'
@@ -56,7 +80,51 @@ export default {
   name: 'Index',
   metaInfo() {
     return {
-      title: 'Home',
+      title: this.$static.sanityMeta.title,
+      meta: [
+        {
+          name: 'description',
+          content: this.$static.sanityMeta.description
+        },
+        {
+          property: 'og:title',
+          content: this.$static.sanityMeta.ogTitle
+        },
+        {
+          property: 'og:description',
+          content: this.$static.sanityMeta.ogDescription
+        },
+        {
+          property: 'og:image',
+          content: this.$urlForImage(this.$static.sanityMeta.ogImage, this.$static.metadata.sanityOptions)
+          .auto('format')
+          .quality(80)
+          .width(1200)
+          .height(630)
+          .url()
+        },
+        {
+          name: 'twitter:card',
+          content: 'summary_large_image'
+        },
+        {
+          name: 'twitter:title',
+          content: this.$static.sanityMeta.ogTitle
+        },
+        {
+          name: 'twitter:description',
+          content: this.$static.sanityMeta.ogDescription
+        },
+        {
+          name: 'twitter:image',
+          content: this.$urlForImage(this.$static.sanityMeta.ogImage, this.$static.metadata.sanityOptions)
+          .auto('format')
+          .quality(80)
+          .width(1200)
+          .height(628)
+          .url()
+        }
+      ]
     }
   },
   components: {
