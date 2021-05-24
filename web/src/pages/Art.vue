@@ -113,6 +113,14 @@ export default {
           content: 'The artistic periods of enamelist and sculptor Stefan Knapp.'
         },
         {
+          property: 'og:title',
+          content: 'The artistic periods of Stefan Knapp'
+        },
+        {
+          property: 'og:description',
+          content: 'The work of the famous artist in 6 distinct periods'
+        },
+        {
           property: 'og:image',
           content: this.$urlForImage(this.$static.sanityPage.mainImage, this.$static.metadata.sanityOptions)
           .auto('format')
@@ -124,6 +132,14 @@ export default {
         {
           name: 'twitter:card',
           content: 'summary_large_image'
+        },
+        {
+          name: 'twitter:title',
+          content: 'The artistic periods of Stefan Knapp'
+        },
+        {
+          name: 'twitter:description',
+          content: 'The work of the famous artist in 6 distinct periods'
         },
         {
           name: 'twitter:image',
