@@ -3,10 +3,6 @@
   "project": {
     "name": "Stefan Knapp"
   },
-  "api": {
-    "projectId": "0u3fubc7",
-    "dataset": "production"
-  },
   "plugins": [
     "@sanity/base",
     "@sanity/components",
