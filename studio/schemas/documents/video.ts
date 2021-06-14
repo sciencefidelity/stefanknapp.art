@@ -11,30 +11,22 @@ export default {
       type: 'localeString',
     },
     {
-      name: 'body',
-      title: 'Body',
-      type: 'localeRichText',
+      name: 'mp4',
+      title: 'mp4 Video',
+      description: 'Upload a video file in .mp4 format',
+      type: 'file',
     },
     {
-      name: 'videoLink',
-      title: 'Video Link',
-      type: 'url',
-    },
-    {
-      name: 'slug',
-      title: 'Slug',
-      type: 'slug',
-      options: {
-        source: `title.${supportedLanguages[0].name}`,
-      },
+      name: 'webm',
+      title: 'WebM Video',
+      description: 'Upload a video file in .webm format',
+      type: 'file',
     },
     {
       name: 'mainImage',
-      title: 'Main image',
+      title: 'Video thumbnail',
+      description: 'Should be the same dimensions as the video file',
       type: 'image',
-      options: {
-        hotspot: true,
-      },
     },
   ],
 
