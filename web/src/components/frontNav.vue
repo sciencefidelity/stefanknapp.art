@@ -6,35 +6,15 @@
         <div :class="[ showMenu ? 'hamburger__icon hamburger__icon--active' : 'hamburger__icon' ]"></div>
       </div>
       <div :class="[ showMenu ? 'nav__active' : 'nav__inactive' ]">
-        <ul>
+        <ul v-for="edge in $static.allSanityPage.edges" :key="edge.node.id">
           <li v-if="$context.locale === 'en-gb'">
-            <g-link  to="/en/art/" data-fill="Art">
-              Art
+            <g-link  :to="`/en/${edge.node.slug.current}/`" :data-fill="edge.node.title.en">
+              {{ edge.node.title.en }}
             </g-link>
           </li>
           <li v-else>
-            <g-link to="/pl/art/" data-fill="Sztuka">
-              Sztuka
-            </g-link>
-          </li>
-          <li v-if="$context.locale === 'en-gb'">
-            <g-link to="/en/life/" data-fill="Life">
-              Life
-            </g-link>
-          </li>
-          <li v-else>
-            <g-link to="/pl/life/" data-fill="Życie">
-              Życie
-            </g-link>
-          </li>
-          <li v-if="$context.locale === 'en-gb'">
-            <g-link to="/en/estate/" data-fill="Estate">
-              Estate
-            </g-link>
-          </li>
-          <li v-else>
-            <g-link to="/pl/estate/" data-fill="Posiadłość">
-              Posiadłość
+            <g-link :to="`/pl/${edge.node.slug.current}/`" :data-fill="edge.node.title.pl">
+              {{ edge.node.title.pl }}
             </g-link>
           </li>
         </ul>
@@ -50,7 +30,27 @@
   </nav>
 </template>
 
+<static-query>
+  query {
+    allSanityPage(sortBy:"_createdAt", order:ASC) {
+      edges {
+        node {
+          id
+          title {
+            en
+            pl
+          }
+          slug {
+            current
+          }
+        }
+      }
+    }
+  }
+</static-query>
+
 <script lang="ts">
+
 export default {
   name: 'FrontNav',
   data() {
@@ -64,6 +64,7 @@ export default {
     }
   }
 }
+
 </script>
 
 <style lang="scss" scoped>
