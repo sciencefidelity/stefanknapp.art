@@ -144,7 +144,7 @@ export default {
   display: flex;
   place-items: center;
   height: calc(100vh - 4.4rem);
-  background: c.$slate-050;
+  background: c.$grey-050;
   z-index: 0;
   @include b.mq(sm) {
     padding: 10rem 0 15rem;
@@ -168,7 +168,7 @@ export default {
     }
   }
   &__image {
-    border: 0.6rem solid c.$grey-050;
+    border: 0.6rem solid c.$grey-000;
     box-shadow: 3px 5px 15px rgba(black, 0.2);
     filter: grayscale(100%);
     @include b.mq(md) {
@@ -187,7 +187,7 @@ export default {
     a {
       display: block;
       width: 100%;
-      text-align: center;
+      text-align: right;
     }
   }
 }
