@@ -196,7 +196,8 @@ h1 {
 }
 
 .front-copy {
-  margin: 0 auto;
+  margin: 0 0 0 auto;
+  padding: 0 5rem 0 0;
   p {
     font-size: clamp(1.4rem, 1.8vw, 1.9rem);
     font-weight: 600;
