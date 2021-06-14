@@ -16,6 +16,12 @@ export default {
       type: 'string',
     },
     {
+      name: 'contact',
+      title: 'Contact email',
+      description: 'Displayed on the estate page',
+      type: 'string',
+    },
+    {
       name: 'ogTitle',
       title: 'Social title',
       description: 'Displayed on Facebook and Twitter shares (max 60 characters)',
