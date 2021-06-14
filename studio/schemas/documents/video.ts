@@ -1,5 +1,3 @@
-import { supportedLanguages } from '../languages'
-
 export default {
   name: 'video',
   title: 'Video',
