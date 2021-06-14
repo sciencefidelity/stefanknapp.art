@@ -4,9 +4,9 @@
     :link="$static.sanityPage.mainImage"
   >
     <main>
-      <section class="art-section">
-        <div class="container">
-          <div class="art-image">
+      <section class="estate">
+        <div class="estate__container">
+          <div class="estate__image">
             <sanity-image
               :title="$static.sanityPhotography.mainImage.caption.en"
               :link="$static.sanityPhotography.mainImage"
@@ -14,17 +14,8 @@
               :height="$static.sanityPhotography.mainImage.asset.metadata.dimensions.height"
             />
           </div>
-          <div>
-            <block-content
-              v-if="$context.locale === 'en-gb'"
-              class="post__content"
-              :blocks="$static.sanityPage.body._rawEn"
-            />
-            <block-content
-              v-else
-              class="post__content"
-              :blocks="$static.sanityPage.body._rawPl"
-            />
+          <div class="estate__text">
+            <a href="mailto:info@stefanknapp.art">info@stefanknapp.art</a>
           </div>
         </div>
       </section>
@@ -154,51 +145,56 @@ export default {
 @use '../assets/scss/colors' as c;
 @use '../assets/scss/breakpoints' as b;
 
-.art-section {
+.estate {
   position: relative;
-  padding: 15rem 0 18rem;
+  display: flex;
+  place-items: center;
+  height: calc(100vh - 4.4rem);
   background: c.$slate-050;
   z-index: 0;
   @include b.mq(sm) {
     padding: 10rem 0 15rem;
   }
-}
-
-.video-embed {
-  width: 100%;
-  height: 100vh;
-  object-fit: cover;
-}
-
-.container {
-  width: min(100rem, 88%);
-  margin: auto;
-  display: flex;
-  div {
-    padding-left: 6.5rem;
-    &:first-child {
-      padding-left: 0rem;
+  &__container {
+    width: min(100rem, 88%);
+    margin: auto;
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    div {
+      padding-left: 6.5rem;
+      &:first-child {
+        padding-left: 0rem;
+      }
+      @include b.mq(md) {
+        padding-left: 0;
+      }
     }
     @include b.mq(md) {
-      padding-left: 0;
+      flex-direction: column;
     }
   }
-  @include b.mq(md) {
-    flex-direction: column;
+  &__image {
+    border: 0.6rem solid c.$grey-050;
+    box-shadow: 3px 5px 15px rgba(black, 0.2);
+    filter: grayscale(100%);
+    @include b.mq(md) {
+      width: 75%;
+      margin: 0 auto 6rem;
+    }
+    @include b.mq(sm) {
+      width: 100%;
+    }
   }
-}
-
-.art-image {
-  border: 0.6rem solid c.$grey-050;
-  width: 370rem;
-  box-shadow: 3px 5px 15px rgba(black, 0.2);
-  filter: grayscale(100%);
-  @include b.mq(md) {
-    width: 75%;
-    margin: 0 auto 6rem;
-  }
-  @include b.mq(sm) {
-    width: 100%;
+  &__text {
+    font-size: 3rem;
+    font-weight: 600;
+    display: flex;
+    place-items: center;
+    a {
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
   }
 }
 

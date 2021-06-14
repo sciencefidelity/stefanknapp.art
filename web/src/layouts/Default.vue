@@ -1,16 +1,8 @@
 <template>
   <div class="layout">
-    <Header
+    <!-- <Header
       :resizeNav="resizeNav"
-    />
-    <Hero
-      :title=title
-      :link=link
-      :width=width
-      :height=height
-      :crop=crop
-      :pos=pos
-    />
+    /> -->
     <div class="down-intersect"><Observer @intersect="downIntersect"/>
     </div>
     <div class="up-intersect"><Observer @intersect="upIntersect"/>

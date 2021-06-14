@@ -6,37 +6,8 @@
     :height="$static.sanityPage.mainImage.asset.metadata.dimensions.height"
   >
     <main>
-      <section class="art-section">
-        <div class="container">
-          <div class="art-image">
-            <sanity-image
-              :title="$static.sanityPhotography.mainImage.caption.en"
-              :link="$static.sanityPhotography.mainImage"
-              :width="$static.sanityPhotography.mainImage.asset.metadata.dimensions.width"
-              :height="$static.sanityPhotography.mainImage.asset.metadata.dimensions.height"
-            />
-          </div>
-          <div>
-            <block-content
-              v-if="$context.locale === 'en-gb'"
-              class="post__content"
-              :blocks="$static.sanityPage.body._rawEn"
-            />
-            <block-content
-              v-else
-              class="post__content"
-              :blocks="$static.sanityPage.body._rawPl"
-            />
-          </div>
-        </div>
-      </section>
       <section class="gallery-section">
         <gallery captions:caption />
-      </section>
-      <section class="video-section">
-        <div class="video-wrapper">
-          <video-embed-art />
-        </div>
       </section>
     </main>
   </layout>

@@ -39,7 +39,7 @@ export default {
   background-color: c.$slate-100;
   transition: background-color 0.4s;
   &:hover {
-    background-color: c.$grey-000;
+    background-color: hsl(0,0%,99%);
     transition: background-color 0.4s;
   }
   @include b.mq(sm) {

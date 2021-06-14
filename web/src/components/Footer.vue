@@ -3,10 +3,10 @@
     <div class="container-footer">
       <locale-switcher />
       <p v-if="$context.locale === 'en-gb'">
-        &copy; {{ year }} The Estate of <b>Stefan Knapp</b>
+        &copy; {{ year }} The Estate of <b><g-link to="/">Stefan Knapp</g-link></b>
       </p>
       <p v-else>
-        &copy; {{ year }} Posiadłość <b>Stefana Knappa</b>
+        &copy; {{ year }} Posiadłość <b><g-link to="/">Stefana Knappa</g-link></b>
       </p>
     </div>
   </footer>

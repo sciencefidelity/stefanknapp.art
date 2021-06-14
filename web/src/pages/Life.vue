@@ -30,9 +30,6 @@
           </div>
         </div>
       </section>
-      <section class="gallery-section">
-        <photography captions:caption />
-      </section>
       <section class="video-section">
         <div class="video-wrapper">
           <video-embed-life />
