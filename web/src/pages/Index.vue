@@ -4,9 +4,6 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col logo">
-            <div class="knapp-image">
-              <video-embed />
-            </div>
             <div class="circle">
               <g-link v-if="$context.locale === 'en-gb'" to="/en/art/">
                 <div class="title"><h1>Knapp</h1></div>
@@ -24,16 +21,6 @@
           </div>
         </div>
         <div class="row">
-          <div class="col footer">
-            <p class="footer-text">
-              <span class="top-row">
-                Galerie Günther Franke München &bull; Maximilianstraße 22, Telefon 226420
-              </span><br />
-              <span class="bottom-row">
-                2. Februar bis Ende Februar 1968, geöffnet Montag mit Samstag 9 bis 17 Uhr
-              </span>
-            </p>
-          </div>
           <div class="front-copy">
             <p>&copy; {{ copyright }}
               {{ $context.locale === "en-gb" ?
@@ -174,7 +161,7 @@ h1 {
 
 .circle {
   width: 100%;
-  background: rgba(c.$sepia-650, 0.3);
+  background: c.$sepia-150;
   border-radius: 50%;
   position: relative;
   &::after {
@@ -245,6 +232,7 @@ h1 {
   align-self: flex-end;
   p {
     font-size: clamp(1.4rem, 1.8vw, 1.9rem);
+    font-weight: 600;
     margin: 0;
     @include b.mq(sm) {
       font-size: 1.2rem;
