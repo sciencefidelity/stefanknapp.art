@@ -89,20 +89,18 @@ export default {
       }
     },
     onKeydown(e) {
-      if (this.showModal) {
-        switch (e.key) {
-          case 'ArrowRight':
-            this.nextIndex()
-            break
-          case 'ArrowLeft':
-            this.prevIndex()
-            break
-          case 'ArrowDown':
-          case 'ArrowUp':
-          case ' ':
-            e.preventDefault()
-            break
-        }
+      switch (e.key) {
+        case 'ArrowRight':
+          this.nextIndex()
+          break
+        case 'ArrowLeft':
+          this.prevIndex()
+          break
+        case 'ArrowDown':
+        case 'ArrowUp':
+        case ' ':
+          e.preventDefault()
+          break
       }
     }
   },

@@ -1,8 +1,5 @@
 <template>
-  <layout
-    :title="$static.sanityPage.mainImage.caption.en"
-    :link="$static.sanityPage.mainImage"
-  >
+  <layout>
     <main>
       <section class="estate">
         <div class="estate__container">
@@ -35,10 +32,6 @@
       title {
         en
         pl
-      }
-      body {
-        _rawEn(resolveReferences: {maxDepth: 5})
-        _rawPl(resolveReferences: {maxDepth: 5})
       }
       ogTitle
       ogDescription
@@ -84,7 +77,6 @@
 
 <script lang="ts">
 import SanityImage from '@/components/SanityImage.vue'
-import BlockContent from '@/components/BlockContent.vue'
 
 export default {
   name: 'Estate',
@@ -138,8 +130,7 @@ export default {
     }
   },
   components: {
-    SanityImage,
-    BlockContent
+    SanityImage
   }
 }
 </script>

@@ -99,10 +99,6 @@ export default {
     transform: translateY(-50%);
     width: 2.5rem;
   }
-  &--close {
-    right: 3em;
-    top: 2em;
-  }
   &--next {
     right: 3em;
   }

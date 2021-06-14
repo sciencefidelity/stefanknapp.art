@@ -60,7 +60,6 @@ query {
 <script lang="ts">
 
 import Layout from '@/layouts/FrontPage.vue'
-import VideoEmbed from '@/components/VideoEmbed.vue'
 import FrontNav from '@/components/FrontNav.vue'
 
 export default {
@@ -116,7 +115,6 @@ export default {
   },
   components: {
     Layout,
-    VideoEmbed,
     FrontNav
   },
   data() {

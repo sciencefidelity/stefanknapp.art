@@ -1,14 +1,6 @@
 <template>
   <nav :class="[ resizeNav ? 'nav--big' : 'nav--small' ]">
     <div class="container">
-      <g-link v-if="$context.locale === 'en-gb'" to="/en/"><div>
-        <span class="screen-reader-text">Estate of Stefan Knapp - home</span>
-        <logo :resizeLogo="resizeNav"/>
-      </div></g-link>
-      <g-link  v-else to="/pl/"><div>
-        <span class="screen-reader-text">Posiadłość Stefana Knappa - dom</span>
-        <logo :resizeLogo="resizeNav"/>
-      </div></g-link>
       <div>
         <ul :class="[ resizeNav ? 'menu--big' : 'menu--small' ]">
           <li v-if="$context.locale === 'en-gb'" class="art">
@@ -93,13 +85,9 @@
 </template>
 
 <script lang="ts">
-import Logo from '@/components/Logo.vue'
 
 export default {
   name: 'Navigation',
-  components: {
-    Logo,
-  },
   props: {
     resizeNav: false
   },

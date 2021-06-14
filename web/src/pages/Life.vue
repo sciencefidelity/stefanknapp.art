@@ -6,9 +6,9 @@
     pos="top"
   >
     <main>
-      <section class="art-section">
-        <div class="container">
-          <div class="art-image">
+      <section class="life">
+        <div class="life__container">
+          <div class="life__image">
             <sanity-image
               :title="$static.sanityPhotography.mainImage.caption.en"
               :link="$static.sanityPhotography.mainImage"
@@ -32,7 +32,7 @@
       </section>
       <section class="video-section">
         <div class="video-wrapper">
-          <video-embed-life />
+          <video-embed />
         </div>
       </section>
     </main>
@@ -98,8 +98,7 @@
 <script lang="ts">
 import SanityImage from '@/components/SanityImage.vue'
 import BlockContent from '@/components/BlockContent.vue'
-import Photography from '@/components/Photography.vue'
-import VideoEmbedLife from '@/components/VideoEmbedLife.vue'
+import VideoEmbed from '@/components/VideoEmbed.vue'
 
 export default {
   name: 'Life',
@@ -155,8 +154,7 @@ export default {
   components: {
     SanityImage,
     BlockContent,
-    Photography,
-    VideoEmbedLife
+    VideoEmbed
   }
 }
 </script>
@@ -165,7 +163,7 @@ export default {
 @use '../assets/scss/colors' as c;
 @use '../assets/scss/breakpoints' as b;
 
-.art-section {
+.life {
   position: relative;
   padding: 15rem 0 18rem;
   background: c.$slate-100;
@@ -173,17 +171,35 @@ export default {
   @include b.mq(sm) {
     padding: 10rem 0 15rem;
   }
-}
-
-.gallery-section {
-  position: relative;
-  display: grid;
-  place-content: center;
-  background: hsl(0,0%,99%);
-  padding: 15rem 0 18rem;
-  overflow: hidden;
-  @include b.mq(sm) {
-    padding: 5rem 0 5rem;
+  &__container {
+    width: min(100rem, 88%);
+    margin: auto;
+    display: flex;
+    div {
+      padding-left: 6.5rem;
+      &:first-child {
+        padding-left: 0rem;
+      }
+      @include b.mq(md) {
+        padding-left: 0;
+      }
+    }
+    @include b.mq(md) {
+      flex-direction: column;
+    }
+  }
+  &__image {
+    border: 0.6rem solid c.$grey-050;
+    width: 370rem;
+    box-shadow: 3px 5px 15px rgba(black, 0.2);
+    filter: grayscale(100%);
+    @include b.mq(md) {
+      width: 75%;
+      margin: 0 auto 6rem;
+    }
+    @include b.mq(sm) {
+      width: 100%;
+    }
   }
 }
 
@@ -204,38 +220,6 @@ export default {
   width: 100%;
   height: 100vh;
   object-fit: cover;
-}
-
-.container {
-  width: min(100rem, 88%);
-  margin: auto;
-  display: flex;
-  div {
-    padding-left: 6.5rem;
-    &:first-child {
-      padding-left: 0rem;
-    }
-    @include b.mq(md) {
-      padding-left: 0;
-    }
-  }
-  @include b.mq(md) {
-    flex-direction: column;
-  }
-}
-
-.art-image {
-  border: 0.6rem solid c.$grey-050;
-  width: 370rem;
-  box-shadow: 3px 5px 15px rgba(black, 0.2);
-  filter: grayscale(100%);
-  @include b.mq(md) {
-    width: 75%;
-    margin: 0 auto 6rem;
-  }
-  @include b.mq(sm) {
-    width: 100%;
-  }
 }
 
 </style>

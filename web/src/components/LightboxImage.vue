@@ -1,5 +1,9 @@
 <template>
-  <div class="sanity-image">
+  <div
+    class="sanity-image"
+    :width=width
+    :height=height
+  >
     <v-lazy-image
       :alt=title
       :src="$urlForImage(link, $static.metadata.sanityOptions)
@@ -13,10 +17,9 @@
       :width=width
       :height=height
     />
-    <!-- <img
+    <img
       :alt=title
       :src="$urlForImage(link, $static.metadata.sanityOptions)
-        .auto('format')
         .quality(10)
         .fit(fit)
         .crop(crop)
@@ -27,7 +30,7 @@
       class="placeholder"
       :width=width
       :height=height
-    /> -->
+    />
   </div>
 </template>
 
@@ -74,9 +77,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// .sanity-image {
-//   position: relative;
-// }
+.sanity-image {
+  position: relative;
+  overflow: hidden;
+}
 
 img {
   height: auto;

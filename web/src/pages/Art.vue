@@ -44,10 +44,7 @@
 </static-query>
 
 <script lang="ts">
-import SanityImage from '@/components/SanityImage.vue'
-import BlockContent from '@/components/BlockContent.vue'
 import Gallery from '@/components/Gallery.vue'
-import VideoEmbedArt from '@/components/VideoEmbedArt.vue'
 
 export default {
   name: 'Art',
@@ -116,7 +113,6 @@ export default {
   place-content: center;
   background: c.$grey-000;
   height: calc(100vh - 4.4rem);
-  overflow: hidden;
   @include b.mq(sm) {
     padding: 5rem 0 5rem;
   }

@@ -3,10 +3,6 @@
     <!-- <Header
       :resizeNav="resizeNav"
     /> -->
-    <div class="down-intersect"><Observer @intersect="downIntersect"/>
-    </div>
-    <div class="up-intersect"><Observer @intersect="upIntersect"/>
-    </div>
     <slot />
     <Footer />
   </div>
@@ -22,16 +18,12 @@ query {
 </static-query>
 
 <script lang="ts">
-import Observer from "@/components/Observer.vue"
 import Header from '@/components/Header.vue'
-import Hero from '@/components/Hero.vue'
 import Footer from '@/components/Footer.vue'
 
 export default {
   components: {
-    Observer,
     Header,
-    Hero,
     Footer
   },
   props: {
