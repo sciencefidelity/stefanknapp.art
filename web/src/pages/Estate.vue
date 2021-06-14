@@ -15,7 +15,7 @@
             />
           </div>
           <div class="estate__text">
-            <a href="mailto:info@stefanknapp.art">info@stefanknapp.art</a>
+            <a href="mailto:info@stefanknapp.art">{{ $static.sanityMeta.contact }}</a>
           </div>
         </div>
       </section>
@@ -75,6 +75,9 @@
           }
         }
       }
+    }
+    sanityMeta(id: "8708a608-e41b-4ac7-86ce-0c39395f9d53") {
+      contact
     }
   }
 </static-query>
