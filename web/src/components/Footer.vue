@@ -33,8 +33,9 @@ export default {
 @use '../assets/scss/breakpoints' as b;
 
 footer {
+  border-top: 1px solid c.$slate-850;
   position: relative;
-  background: c.$grey-100;
+  background: c.$slate-100;
   display: flex;
 }
 

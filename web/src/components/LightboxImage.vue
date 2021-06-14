@@ -17,7 +17,7 @@
       :width=width
       :height=height
     />
-    <img
+    <!-- <img
       :alt=title
       :src="$urlForImage(link, $static.metadata.sanityOptions)
         .quality(10)
@@ -30,7 +30,7 @@
       class="placeholder"
       :width=width
       :height=height
-    />
+    /> -->
   </div>
 </template>
 
@@ -89,15 +89,15 @@ img {
   max-height: calc(85vh - 4.4rem);
 }
 
-.placeholder {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  overflow: hidden;
-}
+// .placeholder {
+//   position: absolute;
+//   width: 100%;
+//   height: 100%;
+//   top: 0;
+//   left: 0;
+//   z-index: 1;
+//   overflow: hidden;
+// }
 
 .v-lazy-image {
   position: relative;

@@ -192,7 +192,7 @@ export default {
     border: 0.6rem solid c.$grey-050;
     width: 370rem;
     box-shadow: 3px 5px 15px rgba(black, 0.2);
-    filter: grayscale(100%);
+    // filter: grayscale(100%);
     @include b.mq(md) {
       width: 75%;
       margin: 0 auto 6rem;
