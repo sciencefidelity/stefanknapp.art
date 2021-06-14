@@ -83,8 +83,8 @@ export default {
 img {
   height: auto;
   width: auto;
-  max-width: 85vw;
-  max-height: 85vh;
+  max-width: 80vw;
+  max-height: calc(85vh - 4.4rem);
 }
 
 .placeholder {

@@ -13,13 +13,6 @@
         src="data:image/svg+xml,%3Csvg viewBox='0 0 54 104' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M48.85 52.05l-48.1 48.1c-.8.8-.8 2.1 0 2.9.8.8 2.1.8 2.9 0l49.6-49.6c.8-.8.8-2.1 0-2.9L3.65.95c-.8-.8-2.1-.8-2.9 0-.8.8-.8 2.1 0 2.9l48.1 48.1v.1z' fill='%234C4C4C'/%3E%3C/svg%3E"
       />
     </div>
-    <div class="close" @click="closeModal()"></div>
-    <div class="btn btn--close" @click="closeModal()">
-      <img
-        alt="Close lightbox"
-        src="data:image/svg+xml,%3Csvg viewBox='0 0 104 104' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M49.104 51.877L.949 3.722c-.8-.8-.8-2.1 0-2.9.8-.8 2.1-.8 2.9 0l48.1 48.1h.1l48.1-48.1c.8-.8 2.1-.8 2.9 0 .8.8.8 2.1 0 2.9L54.928 51.843l48.155 48.155c.8.8.8 2.1 0 2.9-.8.8-2.1.8-2.9 0l-48.1-48.1h-.1l-48.1 48.1c-.8.8-2.1.8-2.9 0-.8-.8-.8-2.1 0-2.9l48.121-48.121z' fill='%234C4C4C'/%3E%3C/svg%3E"
-      />
-    </div>
     <div class="modal__image">
       <lightbox-image
         :title=title
@@ -28,10 +21,7 @@
         :height=height
       />
       <p class="modal__caption">
-        {{ title }} ({{ date }})
-      </p>
-      <p v-if="medium" class="modal__caption">
-        {{ medium }}
+        <b>{{ title }}</b>, {{ medium.toLowerCase() }} {{ date }}
       </p>
     </div>
   </div>
@@ -54,9 +44,6 @@ export default {
     height: Number,
   },
   methods: {
-    closeModal() {
-      this.$emit('closeModal')
-    },
     nextIndex() {
       this.$emit('nextIndex')
     },
@@ -72,18 +59,6 @@ export default {
 @use '../assets/scss/breakpoints' as b;
 
 .modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(white, 0.75);
-  z-index: 7;
-  overflow: auto;
-  display: flex;
   font-size: 1rem;
   &__image {
     font-size: 0.8vw;
@@ -92,30 +67,16 @@ export default {
     margin: auto;
     display: inline-block;
     z-index: 7;
-    // width: max(65vh, 65vw);
   }
   &__caption {
-    font-size: 1.8rem;
-    margin-bottom: 0;
+    font-size: 2rem;
+    margin: 1rem 0 0 0;
     text-align: right;
     z-index: 7;
     @include b.mq(sm) {
       font-size: 1.6rem;
     }
   }
-}
-
-
-.close {
-  position: absolute;
-  z-index: 8;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: 0;
-  width: 100vw;
-  height: 100vh;
 }
 
 .btn {

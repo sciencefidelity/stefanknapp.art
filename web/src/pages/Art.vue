@@ -1,10 +1,5 @@
 <template>
-  <layout
-    :title="$static.sanityPage.mainImage.caption.en"
-    :link="$static.sanityPage.mainImage"
-    :width="$static.sanityPage.mainImage.asset.metadata.dimensions.width"
-    :height="$static.sanityPage.mainImage.asset.metadata.dimensions.height"
-  >
+  <layout>
     <main>
       <section class="gallery-section">
         <gallery captions:caption />
@@ -26,10 +21,6 @@
         en
         pl
       }
-      body {
-        _rawEn(resolveReferences: {maxDepth: 5})
-        _rawPl(resolveReferences: {maxDepth: 5})
-      }
       ogTitle
       ogDescription
       mainImage {
@@ -39,23 +30,6 @@
         }
         asset {
           _id
-          url
-          metadata {
-            dimensions {
-              height
-              width
-            }
-          }
-        }
-      }
-    }
-    sanityPhotography(id: "de115ee8-e847-45f1-a4b9-e1d0fc69dffe") {
-      mainImage {
-        caption {
-          en
-          pl
-        }
-        asset {
           url
           metadata {
             dimensions {
@@ -127,10 +101,7 @@ export default {
     }
   },
   components: {
-    SanityImage,
-    BlockContent,
-    Gallery,
-    VideoEmbedArt
+    Gallery
   }
 }
 </script>
@@ -139,76 +110,15 @@ export default {
 @use '../assets/scss/colors' as c;
 @use '../assets/scss/breakpoints' as b;
 
-.art-section {
-  position: relative;
-  padding: 15rem 0 18rem;
-  background: c.$slate-100;
-  z-index: 0;
-  @include b.mq(sm) {
-    padding: 10rem 0 15rem;
-  }
-}
-
 .gallery-section {
   position: relative;
   display: grid;
   place-content: center;
-  background: hsl(0,0%,99%);
-  padding: 15rem 0 18rem;
+  background: c.$grey-000;
+  height: calc(100vh - 4.4rem);
   overflow: hidden;
   @include b.mq(sm) {
     padding: 5rem 0 5rem;
-  }
-}
-
-.video-section {
-  position: relative;
-  height: 100vh;
-  width: 100vw;
-  overflow: hidden;
-}
-
-.video-wrapper {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.video-embed {
-  width: 100%;
-  height: 100vh;
-  object-fit: cover;
-}
-
-.container {
-  width: min(100rem, 88%);
-  margin: auto;
-  display: flex;
-  div {
-    padding-left: 6.5rem;
-    &:first-child {
-      padding-left: 0rem;
-    }
-    @include b.mq(md) {
-      padding-left: 0;
-    }
-  }
-  @include b.mq(md) {
-    flex-direction: column;
-  }
-}
-
-.art-image {
-  border: 0.6rem solid c.$grey-050;
-  width: 370rem;
-  box-shadow: 3px 5px 15px rgba(black, 0.2);
-  filter: grayscale(100%);
-  @include b.mq(md) {
-    width: 75%;
-    margin: 0 auto 6rem;
-  }
-  @include b.mq(sm) {
-    width: 100%;
   }
 }
 

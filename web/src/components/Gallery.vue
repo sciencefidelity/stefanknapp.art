@@ -1,77 +1,57 @@
 <template>
   <div class="gallery">
-    <div v-for="edge in $static.allSanityPeriod.edges" :key="edge.node.id">
-      <div class="gallery__image">
-        <g-link
-          v-if="$context.locale === 'en-gb'"
-          :to="edge.node.slug.current"
-          class="gallery__link"
-        >
-          <sanity-image
-            :title="`/en/${edge.node.slug.current}/`"
-            :link="edge.node.mainImage"
-            :width="edge.node.mainImage.asset.metadata.dimensions.width"
-            :height="edge.node.mainImage.asset.metadata.dimensions.height"
-            w=400
-            h=400
-          />
-        </g-link>
-        <g-link
-          v-else
-          :to="`/pl/${edge.node.slug.current}/`"
-          class="gallery__link"
-        >
-          <sanity-image
-            :title="edge.node.title.pl"
-            :link="edge.node.mainImage"
-            :width="edge.node.mainImage.asset.metadata.dimensions.width"
-            :height="edge.node.mainImage.asset.metadata.dimensions.height"
-            w=400
-            h=400
-          />
-        </g-link>
-        <p v-if="$context.locale === 'en-gb'" class="gallery__caption">
-          {{ edge.node.title.en }}
-          ({{ edge.node.yearFrom }}-{{ edge.node.yearTo.toString() }})
-        </p>
-        <p v-else class="gallery__caption">
-          {{ edge.node.title.pl }}
-          ({{ edge.node.yearFrom }}-{{ edge.node.yearTo.toString() }})
-        </p>
-      </div>
-    </div>
+    <modal
+      v-if="$context.locale === 'en-gb'"
+      @nextIndex="nextIndex"
+      @prevIndex="prevIndex"
+      :title="$static.artwork.edges[currentIndex].node.title.en"
+      :date="$static.artwork.edges[currentIndex].node.date"
+      :medium="$static.artwork.edges[currentIndex].node.medium[0].title.en"
+      :link="$static.artwork.edges[currentIndex].node.mainImage"
+      :width="$static.artwork.edges[currentIndex].node.mainImage.asset.metadata.dimensions.width"
+      :height="$static.artwork.edges[currentIndex].node.mainImage.asset.metadata.dimensions.height"
+    />
+    <modal
+      v-else
+      @nextIndex="nextIndex"
+      @prevIndex="prevIndex"
+      :title="$static.artwork.edges[currentIndex].node.title.pl"
+      :date="$static.artwork.edges[currentIndex].node.date"
+      :medium="$static.artwork.edges[currentIndex].node.medium[0].title.pl"
+      :link="$static.artwork.edges[currentIndex].node.mainImage"
+      :width="$static.artwork.edges[currentIndex].node.mainImage.asset.metadata.dimensions.width"
+      :height="$static.artwork.edges[currentIndex].node.mainImage.asset.metadata.dimensions.height"
+    />
   </div>
 </template>
 
 <static-query>
-  query staticQuery {
-    allSanityPeriod(sortBy: "yearFrom", order: ASC) {
+  query {
+    artwork: allSanityArtwork(sortBy: "date", order: ASC) {
       edges {
         node {
+          id
           title {
             en
             pl
           }
-          id
-          yearFrom
-          yearTo
-          slug {
-            current
+          medium {
+            title {
+              en
+              pl
+            }
           }
+          date
           mainImage {
             asset {
               _id
               url
               metadata {
                 dimensions {
-                  width
                   height
+                  width
                 }
               }
-            }
-            caption {
-              en
-              pl
             }
           }
         }
@@ -81,53 +61,56 @@
 </static-query>
 
 <script lang="ts">
-import SanityImage from './SanityImage.vue'
+import Modal from '@/components/Modal.vue'
 
 export default {
   name: 'Gallery',
   components: {
-    SanityImage
+    Modal
+  },
+  data() {
+    return {
+      currentIndex: 0
+    }
+  },
+  methods: {
+    nextIndex() {
+      if (this.currentIndex + 1 >= this.$static.artwork.edges.length) {
+        this.currentIndex = 0
+      } else {
+        this.currentIndex += 1
+      }
+    },
+    prevIndex() {
+      if (this.currentIndex - 1 < 0) {
+        this.currentIndex = this.$static.artwork.edges.length - 1
+      } else {
+        this.currentIndex -= 1
+      }
+    },
+    onKeydown(e) {
+      if (this.showModal) {
+        switch (e.key) {
+          case 'ArrowRight':
+            this.nextIndex()
+            break
+          case 'ArrowLeft':
+            this.prevIndex()
+            break
+          case 'ArrowDown':
+          case 'ArrowUp':
+          case ' ':
+            e.preventDefault()
+            break
+        }
+      }
+    }
+  },
+  mounted() {
+    window.addEventListener('keydown', this.onKeydown)
+  },
+  destroyed() {
+    window.removeEventListener('keydown', this.onKeydown)
   }
 }
 </script>
-
-<style lang="scss" scoped>
-@use '../assets/scss/colors' as c;
-@use '../assets/scss/breakpoints' as b;
-
-.gallery {
-  width: min(100rem, 88%);
-  margin: auto;
-  padding: 14rem 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 1em;
-  @include b.mq(md) {
-    grid-template-columns: 1fr 1fr;
-  }
-  @include b.mq(sm) {
-    grid-template-columns: 1fr;
-  }
-  div {
-    margin-bottom: 0.5em;
-  }
-  p {
-    margin-bottom: 0;
-  }
-  &__image {
-    margin-bottom: 0.5em !important;
-    aspect-ratio: 1 / 1;
-    cursor: pointer;
-    transition: opacity 0.4s;
-    &:hover {
-      opacity: 0.9;
-      transition: opacity 0.4s;
-    }
-  }
-  &__caption {
-    text-align: right;
-    font-size: 1.8rem;
-  }
-}
-
-</style>
