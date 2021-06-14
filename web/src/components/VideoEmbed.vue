@@ -7,11 +7,11 @@
     :class="classname"
   >
     <source
-      :src="$static.sanityVideo.mp4.asset.url"
+      :src="$static.video.edges[randomVideo].node.mp4.asset.url"
       type="video/mp4"
     />
     <source
-      :src="$static.sanityVideo.webm.asset.url"
+      :src="$static.video.edges[randomVideo].node.webm.asset.url"
       type="video/webm"
     />
     <picture>
@@ -27,30 +27,34 @@
 
 <static-query>
   query {
-    sanityVideo(id: "ae87b16a-585e-488b-99bb-b00cf9145621") {
-      id
-      title {
-        en
-        pl
-      }
-      mp4 {
-        asset {
-          url
-        }
-      }
-      webm {
-        asset {
-          url
-        }
-      }
-      mainImage {
-        asset {
-          _id
-          url
-          metadata {
-            dimensions {
-              height
-              width
+    video: allSanityVideo {
+      edges {
+        node {
+          id
+          title {
+            en
+            pl
+          }
+          mp4 {
+            asset {
+              url
+            }
+          }
+          webm {
+            asset {
+              url
+            }
+          }
+          mainImage {
+            asset {
+              _id
+              url
+              metadata {
+                dimensions {
+                  height
+                  width
+                }
+              }
             }
           }
         }
@@ -69,6 +73,11 @@ export default {
       default: 'video-embed',
     },
   },
+  data() {
+    return {
+      randomVideo: Math.floor(Math.random() + 1 * 3 - 1)
+    }
+  }
 }
 
 </script>
