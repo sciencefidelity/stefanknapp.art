@@ -36,10 +36,10 @@ export default {
   font-weight: 600;
   padding: 0.51em 0.7em;
   margin: 0;
-  background-color: c.$slate-100;
+  background-color: c.$grey-100;
   transition: background-color 0.4s;
   &:hover {
-    background-color: hsl(0,0%,99%);
+    background-color: c.$grey-000;
     transition: background-color 0.4s;
   }
   @include b.mq(sm) {

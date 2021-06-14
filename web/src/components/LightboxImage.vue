@@ -3,9 +3,8 @@
     <v-lazy-image
       :alt=title
       :src="$urlForImage(link, $static.metadata.sanityOptions)
-        .auto('format')
-        .quality(80)
-        .width(500)
+        .quality(70)
+        .width(600)
         .fit(fit)
         .crop(crop)
         .url()"
@@ -13,9 +12,8 @@
       loading="lazy"
       :width=width
       :height=height
-      :style="{ 'object-position': pos }"
     />
-    <img
+    <!-- <img
       :alt=title
       :src="$urlForImage(link, $static.metadata.sanityOptions)
         .auto('format')
@@ -29,7 +27,7 @@
       class="placeholder"
       :width=width
       :height=height
-    />
+    /> -->
   </div>
 </template>
 
@@ -76,14 +74,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.sanity-image {
-  position: relative;
-}
+// .sanity-image {
+//   position: relative;
+// }
 
 img {
   height: auto;
   width: auto;
-  max-width: 80vw;
+  max-width: 70vw;
   max-height: calc(85vh - 4.4rem);
 }
 
@@ -93,9 +91,8 @@ img {
   height: 100%;
   top: 0;
   left: 0;
-  bottom: 0;
-  right: 0;
   z-index: 1;
+  overflow: hidden;
 }
 
 .v-lazy-image {

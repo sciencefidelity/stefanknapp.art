@@ -21,7 +21,7 @@
         :height=height
       />
       <p class="modal__caption">
-        <b>{{ title }}</b>, {{ medium.toLowerCase() }} {{ date }}
+        <b>{{ title }}</b> {{ date }}<br />{{ medium.toLowerCase() }}
       </p>
     </div>
   </div>

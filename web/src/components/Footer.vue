@@ -34,7 +34,7 @@ export default {
 
 footer {
   position: relative;
-  background: c.$slate-100;
+  background: c.$grey-100;
   display: flex;
 }
 
