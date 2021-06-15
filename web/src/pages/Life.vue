@@ -1,10 +1,5 @@
 <template>
-  <layout
-    :title="$static.sanityPage.mainImage.caption.en"
-    :link="$static.sanityPage.mainImage"
-    crop="top"
-    pos="top"
-  >
+  <layout>
     <main>
       <section class="life">
         <div class="life__container">

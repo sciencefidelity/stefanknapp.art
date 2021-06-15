@@ -1,17 +1,19 @@
 <template>
-  <layout
-    :title="$static.sanityPhotography.mainImage.caption.en"
-    :link="$static.sanityPhotography.mainImage"
-    :width="$static.sanityPhotography.mainImage.asset.metadata.dimensions.width"
-    :height="$static.sanityPhotography.mainImage.asset.metadata.dimensions.height"
-  >
+  <layout>
     <main>
-      <section>
-        <div v-if="$context.locale === 'en-gb'" class="four-oh-four">
+      <hero
+        :title="$static.sanityPhotography.mainImage.caption.en"
+        :link="$static.sanityPhotography.mainImage"
+        :width="$static.sanityPhotography.mainImage.asset.metadata.dimensions.width"
+        :height="$static.sanityPhotography.mainImage.asset.metadata.dimensions.height"
+      >
+      </hero>
+      <section class="fourohfour">
+        <div v-if="$context.locale === 'en-gb'" class="fourohfour__text">
           <h1>404: Not Found</h1>
           <p>You just hit a route that doesn't exist... the sadness.</p>
         </div>
-        <div v-else class="four-oh-four">
+        <div v-else class="fourohfour__text">
           <h1>404 Nie Znaleziono</h1>
           <p>Po prostu trafiłeś na trasę, która nie istnieje ... smutek.</p>
         </div>
@@ -43,6 +45,8 @@
 </static-query>
 
 <script lang="ts">
+import Hero from '@/components/Hero.vue'
+
 export default {
   name: '404',
   metaInfo() {
@@ -55,14 +59,18 @@ export default {
         }
       ]
     }
+  },
+  components: {
+    Hero,
   }
 }
 </script>
 
 <style lang="scss" scoped>
+@use '../assets/scss/colors' as c;
 @use '../assets/scss/breakpoints' as b;
 
-section {
+.fourohfour {
   display: grid;
   place-content: center;
   position: absolute;
@@ -72,18 +80,18 @@ section {
   right: 0;
   width: 100vw;
   height: 100vh;
-}
-
-.four-oh-four {
-  @include b.mq(sm) {
-    padding-top: 10rem;
+  &__four-oh-four {
+    @include b.mq(sm) {
+      padding-top: 10rem;
+    }
   }
 }
 
 h1,
 p {
+  border: 1px solid c.$slate-850;
   display: block;
-  background: white;
+  background: c.$slate-100;
   padding: 0.2em 0.5em;
   text-align: center;
 }
