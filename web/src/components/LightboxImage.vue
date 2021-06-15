@@ -77,9 +77,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@use '../assets/scss/breakpoints' as b;
+
 .sanity-image {
   position: relative;
-  overflow: hidden;
+  display: grid;
+  justify-content: center;
 }
 
 img {
@@ -87,6 +90,9 @@ img {
   width: auto;
   max-width: 70vw;
   max-height: calc(85vh - 4.4rem);
+  @include b.mq(sm) {
+    max-width: 100vw;
+  }
 }
 
 // .placeholder {

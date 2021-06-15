@@ -37,6 +37,7 @@ footer {
   position: relative;
   background: c.$slate-100;
   display: flex;
+  z-index: 10;
 }
 
 .container-footer {

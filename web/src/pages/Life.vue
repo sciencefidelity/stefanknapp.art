@@ -165,6 +165,11 @@ export default {
   height: 100vh;
   background: c.$slate-100;
   z-index: 0;
+  @include b.mq(md) {
+    flex-direction: column;
+    height: unset;
+    padding: 10rem 0;
+  }
   @include b.mq(sm) {
     padding: 10rem 0 15rem;
   }
