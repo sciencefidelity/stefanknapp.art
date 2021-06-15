@@ -165,7 +165,9 @@ export default {
 
 .life {
   position: relative;
-  padding: 15rem 0 18rem;
+  display: flex;
+  place-items: center;
+  height: 100vh;
   background: c.$slate-100;
   z-index: 0;
   @include b.mq(sm) {
@@ -190,9 +192,8 @@ export default {
   }
   &__image {
     border: 0.6rem solid c.$grey-050;
-    width: 370rem;
+    width: max(500rem, 370%);
     box-shadow: 3px 5px 15px rgba(black, 0.2);
-    // filter: grayscale(100%);
     @include b.mq(md) {
       width: 75%;
       margin: 0 auto 6rem;

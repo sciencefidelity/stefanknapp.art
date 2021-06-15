@@ -15,11 +15,18 @@
       type="video/webm"
     />
     <picture>
-      <source srcset="../../static/03-hc.webp" type="image/webp">
-      <source srcset="../../static/03-hc.jpg" type="image/jpeg">
+      <source
+        :srcset="$static.video.edges[randomVideo].node.mainImage.asset.url"
+        type="image/webp"
+      >
+      <source
+        :srcset="$static.video.edges[randomVideo].node.mainImage.asset.url"
+        type="image/jpeg"
+      >
       <img
-        src="../../static/03-hc.jpg"
-        title="Sorry, your browser doesn't support embedded videos" />
+        :src="$static.video.edges[randomVideo].node.mainImage.asset.url"
+        :title="$static.video.edges[randomVideo].node.title.en"
+      />
     </picture>
     Sorry, your browser doesn't support embedded videos.
   </video>
@@ -75,7 +82,7 @@ export default {
   },
   data() {
     return {
-      randomVideo: Math.floor(Math.random() + 1 * 3 - 1)
+      randomVideo: Math.floor(Math.random() * 3)
     }
   }
 }
