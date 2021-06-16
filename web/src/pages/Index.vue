@@ -13,7 +13,7 @@
               </g-link>
             </div>
           </div>
-          <FrontNav />
+          <front-nav />
         </div>
         <div class="row">
           <div class="col">
