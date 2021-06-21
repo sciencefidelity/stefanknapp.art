@@ -1,8 +1,8 @@
 <template>
   <div class="layout">
-    <!-- <Header
+    <Header
       :resizeNav="resizeNav"
-    /> -->
+    />
     <slot />
     <Footer />
   </div>

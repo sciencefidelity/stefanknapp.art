@@ -1,82 +1,21 @@
 <template>
-  <nav :class="[ resizeNav ? 'nav--big' : 'nav--small' ]">
-    <div class="container">
-      <div>
-        <ul :class="[ resizeNav ? 'menu--big' : 'menu--small' ]">
-          <li v-if="$context.locale === 'en-gb'" class="art">
-            <g-link
-              to="/en/art/"
-              :class="[ resizeNav ? 'link--big' : 'link--small' ]"
-            >
-              Art
-            </g-link>
-          </li>
-          <li v-else class="art-pl">
-            <g-link
-              to="/pl/art/"
-              :class="[ resizeNav ? 'link--big' : 'link--small' ]"
-            >
-              Sztuka
-            </g-link>
-          </li>
-          <li v-if="$context.locale === 'en-gb'" class="life">
-            <g-link
-              to="/en/life/"
-              :class="[ resizeNav ? 'link--big' : 'link--small' ]"
-            >
-              Life
-            </g-link>
-          </li>
-          <li v-else class="life-pl">
-            <g-link
-              to="/pl/life/"
-              :class="[ resizeNav ? 'link--big' : 'link--small' ]"
-            >
-              Życie
-            </g-link>
-          </li>
-          <li v-if="$context.locale === 'en-gb'" class="estate">
-            <g-link
-              to="/en/estate/"
-              :class="[ resizeNav ? 'link--big' : 'link--small' ]"
-            >
-              Estate
-            </g-link>
-          </li>
-          <li v-else class="estate-pl">
-            <g-link
-              to="/pl/estate/"
-              :class="[ resizeNav ? 'link--big' : 'link--small' ]"
-            >
-              Posiadłość
-            </g-link>
-          </li>
-        </ul>
-      </div>
+  <nav>
+    <div class="nav nav--front">
       <div class="hamburger" @click="toggleMenu()">
         <span class="screen-reader-text">Main Menu</span>
-        <div :class="[ resizeNav ? 'hamburger__icon--big' : 'hamburger__icon--small' ]">
-        </div>
+        <div :class="[ showMenu ? 'hamburger__icon hamburger__icon--active' : 'hamburger__icon' ]"></div>
       </div>
-      <div :class="[ showMenu ? 'mobile__nav mobile__nav--active' : 'mobile__nav' ]">
-        <ul class="mobile__menu">
+      <div :class="[ showMenu ? 'nav__active' : 'nav__inactive' ]">
+        <ul v-for="edge in $static.allSanityPage.edges" :key="edge.node.id">
           <li v-if="$context.locale === 'en-gb'">
-            <g-link to="/en/art/" class="mobile__link">Art</g-link>
+            <g-link  :to="`/en/${edge.node.slug.current}/`" :data-fill="edge.node.title.en">
+              {{ edge.node.title.en }}
+            </g-link>
           </li>
           <li v-else>
-            <g-link to="/pl/art/" class="mobile__link">Sztuka</g-link>
-          </li>
-          <li v-if="$context.locale === 'en-gb'">
-            <g-link to="/en/life/" class="mobile__link">Life</g-link>
-          </li>
-          <li v-else>
-            <g-link to="/pl/life/" class="mobile__link">Życie</g-link>
-          </li>
-          <li v-if="$context.locale === 'en-gb'">
-            <g-link to="/en/estate/" class="mobile__link">Estate</g-link>
-          </li>
-          <li v-else>
-            <g-link to="/pl/estate/" class="mobile__link">Posiadłość</g-link>
+            <g-link :to="`/pl/${edge.node.slug.current}/`" :data-fill="edge.node.title.pl">
+              {{ edge.node.title.pl }}
+            </g-link>
           </li>
         </ul>
       </div>
@@ -84,13 +23,29 @@
   </nav>
 </template>
 
+<static-query>
+  query {
+    allSanityPage(sortBy:"_createdAt", order:ASC) {
+      edges {
+        node {
+          id
+          title {
+            en
+            pl
+          }
+          slug {
+            current
+          }
+        }
+      }
+    }
+  }
+</static-query>
+
 <script lang="ts">
 
 export default {
-  name: 'Navigation',
-  props: {
-    resizeNav: false
-  },
+  name: 'FrontNav',
   data() {
     return {
       showMenu: false,
@@ -102,226 +57,190 @@ export default {
     }
   }
 }
+
 </script>
 
 <style lang="scss" scoped>
 @use '../assets/scss/colors' as c;
 @use '../assets/scss/breakpoints' as b;
 
-$transition: 1s ease-in-out;
+::selection {
+  background: rgba(c.$grey-150, 0.3);
+}
 
 .nav {
-  &--big,
-  &--small {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-
-    z-index: 5;
-    transition: height $transition, background-color $transition;
-  }
-  &--big {
-    height: 18rem;
-    background-color: rgba(c.$grey-950, 0.5);
-    @include b.mq(sm) {
-      height: 3.5em;
-      background-color: rgba(c.$grey-950, 0.6);
-    }
-  }
-  &--small {
-    height: 8rem;
-    background-color: rgba(c.$grey-050, 1);
-    box-shadow: 0 5px 10px rgba(black, 0.1);
-    @include b.mq(sm) {
-      height:3.5em;
-    }
-  }
-}
-
-.container {
-  width: min(100rem, 88%);
-  height: 100%;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  @include b.mq(sm) {
-    padding-top: 0.65em;
-    align-items: flex-start;
-  }
-}
-
-.link {
-  &--big,
-  &--small {
-    position: relative;
-    z-index: 2;
-    transition: color 0.4s;
-    &:hover{
-      transition: color 0.3s;
-    }
-  }
-  &--big {
-    color: c.$grey-350;
-    &:hover{
-      color: c.$grey-050;
-    }
-    &.active--exact {
-      color: c.$grey-050;
-    }
-  }
-  &--small {
-    color: c.$grey-500;
-    &:hover{
-      color: c.$grey-950;
-    }
-    &.active--exact {
-      color: c.$grey-950;
-    }
-  }
-}
-
-.menu {
-  &--big,
-  &--small {
-    display: flex;
-    flex-direction: column;
-    list-style: none;
-    padding: 0;
-    font-size: 3rem;
-    font-weight: 600;
-    line-height: 1.2;
-    text-align: right;
-    text-transform: uppercase;
-    li {
-      transition: transform $transition;
+  &--front {
+    padding: 0 3.5rem 0 0;
+    z-index: 1;
+    @include b.mq(lg) {
+      font: 1rem;
+      position: absolute;
+      top: 0;
+      right: 0;
       padding: 0;
     }
-    @include b.mq(sm) {
-      display: none;
+  }
+  &__active,
+  &__inactive {
+    transition: clip-path 1s ease-in-out;
+    z-index: -1;
+    @include b.mq(lg) {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: rgba(c.$grey-150, 0.8);
+      width: 100vw;
+      height: 100vw;
     }
   }
-  &--small {
-    .art {
-      transform: translate(-21.2rem, 3.3rem);
-      display: inline;
-      z-index: 3;
+  &__inactive {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+  &__active {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  &__title-container {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    padding-top: 5rem;
+    @include b.mq(lg) {
+      padding-top: 0;
     }
-    .life {
-      transform: translate(-12.6rem, -0.3rem);
-      z-index: 2;
+  }
+  &__title {
+    font-size: 3.25vw;
+    text-transform: uppercase;
+    white-space: nowrap;
+    writing-mode: vertical-lr;
+    @include b.mq(lg) {
+      font-size: 5vw;
+      padding: 2em 0.8em;
+      writing-mode: lr;
     }
-    .estate {
-      z-index: 1;
-      transform: translate(0rem, -3.9rem);
-    }
-    .art-pl {
-      z-index: 3;
-      transform: translate(-32rem, 3.3rem);
-    }
-    .life-pl {
-      z-index: 2;
-      transform: translate(-21rem, -0.3rem);
-    }
-    .estate-pl {
-      z-index: 1;
-      transform: translate(0rem, -3.9rem);
+  }
+}
+
+a {
+  display: inline;
+  color: transparent;
+  margin: auto;
+}
+
+ul {
+  display: inline;
+  list-style: none;
+  padding: 0 1.3rem 0 0;
+  -webkit-text-stroke: 0.08rem c.$sepia-150;
+  font-size: 4.45vw;
+  font-weight: 600;
+  line-height: 1.2;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  @include b.mq(lg) {
+    font-size: 9.8vw;
+    line-height: 11.2vw;
+    padding: 1.4em 0.3em 0 0;
+  }
+  li {
+    margin-left: auto;
+    position: relative;
+    a {
+      &:hover::before {
+        width: 100%;
+      }
+      &::before {
+        content: attr(data-fill);
+        position: absolute;
+        display: inline;
+        top: 0;
+        left: 0;
+        width: 0%;
+        transition-duration: 0.7s;
+        transition-timing-function: cubic-bezier(0.19, 1, 0.4, 1);
+        transition-delay: initial;
+        transition-property: width;
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-stroke-width: 0.015em;
+        -webkit-text-stroke-color: c.$sepia-150;
+        background-color: c.$sepia-150;
+      }
     }
   }
 }
 
 .hamburger {
-  display: none;
-  position: absolute;
-  top: 0em;
-  right: 0em;
+  font-size: 0.5vw;
   display: grid;
   cursor: pointer;
-  height: 2.3em;
-  width: 3em;
+  height: 5.8em;
+  width: 8em;
+  margin: 3.7em 1.5em 6.5em auto;
   cursor: pointer;
-  z-index: 4;
-  @include b.mq(sm) {
-    display: block;
-    margin: 0.7em 0.7ex 0.7em auto;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+  z-index: 0;
+  &:hover {
+    opacity: 1;
+    transition: opacity 0.3s;
+  }
+  @include b.mq(lg) {
+    font-size: 1.2vw;
+    margin: 3.5em 2.5em 2em auto;
   }
   &__icon {
-    &--big,
-    &--small {
-      display: none;
-      position: relative;
-      z-index: 6;
-      width: 2.1em;
-      height: 0.15em;
-      margin: 1em 0 3em;
-      background-color: c.$grey-150;
-      transition: background-color $transition;
+    font-size: 0.5vw;
+    position: relative;
+    z-index: 1;
+    width: 8em;
+    height: 0.4em;
+    margin: 2.6em 0 3em;
+    background-color: rgba(c.$sepia-150, 1);
+    transition: background-color 0s;
+    transition-delay: 0.5s;
+    &::before,
+    &::after {
+      position: absolute;
+      content: "";
+      display: block;
+      background: c.$sepia-150;
+      width: 8em;
+      height: 0.4em;
+      transform: rotate(0);
+      transition: transform 0.5s, top 0.5s;
+      transition-delay: 0s, 0.5s;
+      transition-property: transform, top;
+    }
+    &::before {
+      top: -2.6em;
+    }
+    &::after {
+      top: 2.6em;
+    }
+    &--active {
+      background-color: rgba(c.$sepia-150, 0);
+      transition: background-color 0s;
+      transition-delay: 0.5s;
       &::before,
       &::after {
-        position: absolute;
-        content: "";
-        display: block;
-        background: c.$grey-150;
-        width: 2.1em;
-        height: 0.15em;
-        transition: background-color $transition;
+        top: 0;
+        transition: top 0.5s, transform 0.5s;
+        transition-delay: 0s, 0.5s;
+        transition-property: top, transform;
       }
       &::before {
-        top: -0.6em;
+        transform: rotate(0.125turn);
       }
       &::after {
-        top: 0.6em;
-      }
-      @include b.mq(sm) {
-        display: block;
+        transform: rotate(-0.125turn);
       }
     }
-    &--small {
-      background-color: c.$grey-950;
-      &::before,
-      &::after {
-        background-color: c.$grey-950;
-      }
-    }
-  }
-}
-
-.mobile {
-  &__nav {
-    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-    position: absolute;
-    top: 3.5em;
-    left: 0;
-    width: 100vw;
-    height: calc(100vh - 3.5em);
-    background-color: rgba(c.$grey-950, 0.6);
-    transition: clip-path 1s;
-    &--active {
-      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-      transition: clip-path 1s;
-    }
-  }
-  &__menu {
-    position: absolute;
-    top: 0.5em;
-    right: 0.83em;
-    list-style: none;
-    padding: 0;
-    font-size: 3rem;
-    font-weight: 600;
-    line-height: 1.8;
-    text-align: right;
-    text-transform: uppercase;
-    li {
-      padding: 0;
-    }
-  }
-  &__link {
-    color: c.$grey-050;
-    &.active--exact {
-      text-decoration: underline;
-      text-decoration-thickness: 0.1em;
+    @include b.mq(lg) {
+      font-size: 1.2vw;
     }
   }
 }
