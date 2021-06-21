@@ -23,10 +23,10 @@ export default {
 
 header {
   position: absolute;
-  z-index: 20;
+  z-index: 10;
   // background: rgba(c.$grey-000, 0.6);
   width: 100%;
-  height: 100vh;
+  // height: 100vh;
 }
 
 </style>
