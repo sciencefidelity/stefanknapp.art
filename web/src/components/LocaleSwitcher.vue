@@ -33,13 +33,13 @@ export default {
 .language {
   font-size: 1.9rem;
   text-align: left;
-  font-weight: 600;
+  font-weight: 400;
   padding: 0.51em 0.7em;
   margin: 0;
-  background-color: c.$grey-100;
+  background-color: c.$grey-000;
   transition: background-color 0.4s;
   &:hover {
-    background-color: c.$grey-000;
+    background-color: c.$grey-100;
     transition: background-color 0.4s;
   }
   @include b.mq(sm) {

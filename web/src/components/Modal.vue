@@ -21,7 +21,7 @@
         :height=height
       />
       <p class="modal__caption">
-        <b>{{ title }}</b> {{ date }}<br />{{ medium.toLowerCase() }}
+        {{ title }} {{ date }}<br />{{ medium.toLowerCase() }}
       </p>
     </div>
   </div>
@@ -60,6 +60,7 @@ export default {
 
 .modal {
   font-size: 1rem;
+  box-shadow: 3px 5px 15px rgba(black, 0.1);
   &__image {
     font-size: 0.8vw;
     background: white;
@@ -69,12 +70,13 @@ export default {
     z-index: 7;
   }
   &__caption {
-    font-size: 2rem;
     margin: 1rem 0 0 0;
+    font-size: 1.7rem;
     text-align: right;
+    // text-transform: uppercase;
     z-index: 7;
     @include b.mq(sm) {
-      font-size: 1.6rem;
+      font-size: 1.5rem;
     }
   }
 }
