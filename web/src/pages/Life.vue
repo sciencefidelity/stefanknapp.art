@@ -191,9 +191,9 @@ export default {
     }
   }
   &__image {
-    border: 0.6rem solid c.$grey-050;
+    border: 0.6rem solid c.$grey-000;
     width: max(500rem, 370%);
-    box-shadow: 3px 5px 15px rgba(black, 0.2);
+    // box-shadow: 3px 5px 15px rgba(black, 0.2);
     @include b.mq(md) {
       width: 75%;
       margin: 0 auto 6rem;

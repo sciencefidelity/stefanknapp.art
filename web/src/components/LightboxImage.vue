@@ -88,8 +88,8 @@ export default {
 img {
   height: auto;
   width: auto;
-  max-width: 70vw;
-  max-height: calc(85vh - 4.4rem);
+  max-width: 75vw;
+  max-height: calc(80vh - 4.4rem);
   @include b.mq(sm) {
     max-width: 100vw;
   }

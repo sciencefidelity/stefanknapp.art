@@ -12,7 +12,7 @@
             />
           </div>
           <div class="estate__text">
-            <p>contact: <a href="mailto:info@stefanknapp.art">{{ $static.sanityMeta.contact }}</a></p>
+            <p>contact: <a :href="`mailto:${$static.sanityMeta.contact}`">{{ $static.sanityMeta.contact }}</a></p>
           </div>
         </div>
       </section>
@@ -169,7 +169,7 @@ export default {
   }
   &__image {
     border: 0.6rem solid c.$grey-050;
-    box-shadow: 3px 5px 15px rgba(black, 0.2);
+    // box-shadow: 3px 5px 15px rgba(black, 0.2);
     // filter: grayscale(100%);
     @include b.mq(md) {
       width: 75%;
@@ -183,20 +183,21 @@ export default {
     display: flex;
     place-items: center;
     p {
-      font-size: 3rem;
+      font-size: 2.2rem;
       width: 100%;
-      text-align: right;
+      text-align: center;
+      // background: c.$grey-000;
     }
     a {
-      font-weight: 600;
+      font-weight: 400;
       text-align: right;
       text-decoration: underline;
-      text-decoration-thickness: 0.1em;
+      text-decoration-thickness: 0.07em;
       text-decoration-color: rgba(c.$grey-950, 0);
       transition: text-decoration-color 0.3s;
       &:hover {
         text-decoration: underline;
-        text-decoration-thickness: 0.1em;
+        text-decoration-thickness: 0.07em;
         text-decoration-color: rgba(c.$grey-950, 1);
         transition: text-decoration 0.3s;
       }
