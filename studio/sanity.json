@@ -10,7 +10,7 @@
     "@sanity/default-login",
     "@sanity/desk-tool",
     "@sanity/dashboard",
-    "vercel-deploy"
+    "dashboard-widget-vercel"
   ],
   "env": {
     "development": {
