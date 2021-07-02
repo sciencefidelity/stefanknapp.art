@@ -100,7 +100,9 @@ nav {
     transition: clip-path 1s ease-in-out;
     z-index: -1;
     @include b.mq(lg) {
+      font-size: 9.8vw;
       position: absolute;
+      padding: 1.2em 0 0 0;
       top: 0;
       right: 0;
       background: rgba(c.$grey-950, 0.8);
@@ -156,13 +158,16 @@ ul {
   justify-content: right;
   @include b.mq(lg) {
     font-size: 9.8vw;
-    line-height: 11.2vw;
-    padding: 1.4em 0.3em 0 0;
+    line-height: 12vw;
+    padding: 0 0.3em 0 0;
   }
   li {
     margin-left: auto;
     position: relative;
     a {
+      &:hover {
+        text-decoration: none;
+      }
       &:hover::before {
         width: 100%;
       }
