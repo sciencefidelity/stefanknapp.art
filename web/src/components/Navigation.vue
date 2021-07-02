@@ -150,7 +150,7 @@ ul {
   width: 8em;
   margin: 5em 5.5em 3.5em auto;
   cursor: pointer;
-  opacity: 0.7;
+  opacity: 0.6;
   transition: opacity 0.3s;
   z-index: 0;
   &:hover {
@@ -168,7 +168,7 @@ ul {
     width: 8em;
     height: 0.4em;
     margin: 2.6em 0 3em;
-    background-color: rgba(c.$grey-650, 1);
+    background-color: rgba(c.$grey-850, 1);
     transition: background-color 0s;
     transition-delay: 0.5s;
     &::before,
@@ -176,7 +176,7 @@ ul {
       position: absolute;
       content: "";
       display: block;
-      background: c.$grey-600;
+      background: c.$grey-850;
       width: 8em;
       height: 0.4em;
       transform: rotate(0);
