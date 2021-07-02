@@ -163,7 +163,7 @@ export default {
   display: flex;
   place-items: center;
   height: 100vh;
-  background: c.$slate-100;
+  background: c.$grey-000;
   z-index: 0;
   @include b.mq(md) {
     flex-direction: column;
@@ -191,9 +191,7 @@ export default {
     }
   }
   &__image {
-    border: 0.6rem solid c.$grey-000;
     width: max(500rem, 370%);
-    // box-shadow: 3px 5px 15px rgba(black, 0.2);
     @include b.mq(md) {
       width: 75%;
       margin: 0 auto 6rem;
