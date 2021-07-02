@@ -100,13 +100,23 @@ export default {
 
 a {
   display: inline;
-  color: c.$grey-650;
+  color: c.$grey-850;
   margin: auto;
-  opacity: 0.7;
+  opacity: 0.6;
   transition: opacity 0.3s;
   &:hover {
     opacity: 1;
     transition: opacity 0.3s;
+    text-decoration: none;
+  }
+}
+
+.active--exact {
+  color: c.$grey-850;
+  opacity: 1;
+  &:hover {
+    opacity: 1;
+    cursor: default;
   }
 }
 
