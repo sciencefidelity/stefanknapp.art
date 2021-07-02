@@ -3,10 +3,10 @@
     <div class="container-footer">
       <locale-switcher />
       <p v-if="$context.locale === 'en-gb'">
-        &copy; {{ year }} The Estate of <g-link to="/">Stefan Knapp</g-link>
+        &copy; {{ year }} The Estate of <g-link to="/en">Stefan Knapp</g-link>
       </p>
       <p v-else>
-        &copy; {{ year }} Posiadłość <g-link to="/">Stefana Knappa</g-link>
+        &copy; {{ year }} Posiadłość <g-link to="/pl">Stefana Knappa</g-link>
       </p>
     </div>
   </footer>
@@ -33,11 +33,10 @@ export default {
 @use '../assets/scss/breakpoints' as b;
 
 footer {
-  // border-top: 1px solid c.$grey-200;
   position: relative;
   background: c.$grey-000;
   display: flex;
-  z-index: 10;
+  z-index: 2;
 }
 
 .container-footer {

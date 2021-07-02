@@ -5,20 +5,20 @@
         <span class="screen-reader-text">Main Menu</span>
         <div :class="[ showMenu ? 'hamburger__icon hamburger__icon--active' : 'hamburger__icon' ]"></div>
       </div>
-      <div :class="[ showMenu ? 'nav__active' : 'nav__inactive' ]">
-        <ul v-for="edge in $static.allSanityPage.edges" :key="edge.node.id">
-          <li v-if="$context.locale === 'en-gb'">
-            <g-link  :to="`/en/${edge.node.slug.current}/`">
-              {{ edge.node.title.en }}
-            </g-link>
-          </li>
-          <li v-else>
-            <g-link :to="`/pl/${edge.node.slug.current}/`">
-              {{ edge.node.title.pl }}
-            </g-link>
-          </li>
-        </ul>
-      </div>
+    </div>
+    <div :class="[ showMenu ? 'nav__active' : 'nav__inactive' ]">
+      <ul v-for="edge in $static.allSanityPage.edges" :key="edge.node.id">
+        <li v-if="$context.locale === 'en-gb'">
+          <g-link  :to="`/en/${edge.node.slug.current}/`">
+            {{ edge.node.title.en }}
+          </g-link>
+        </li>
+        <li v-else>
+          <g-link :to="`/pl/${edge.node.slug.current}/`">
+            {{ edge.node.title.pl }}
+          </g-link>
+        </li>
+      </ul>
     </div>
   </nav>
 </template>
@@ -65,36 +65,35 @@ export default {
 @use '../assets/scss/breakpoints' as b;
 
 ::selection {
-  background: rgba(c.$grey-150, 0.3);
+  background: rgba(c.$grey-100, 0.3);
 }
 
 .nav {
-  padding: 0 3.5rem 0 0;
-  z-index: 1;
+  z-index: 3;
   @include b.mq(lg) {
-    font: 1rem;
+    font-size: 1rem;
     top: 0;
     right: 0;
     padding: 0;
   }
   &__active,
   &__inactive {
-    transition: clip-path 1s ease-in-out;
+    padding: 5em 3.5em 0 0;
     z-index: -1;
-    @include b.mq(lg) {
-      position: absolute;
-      top: 0;
-      right: 0;
-      background: rgba(c.$grey-000, 1);
-      width: 100vw;
-      height: 100vh;
-    }
+    background: rgba(c.$grey-000, 0.9);
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    right: 0;
   }
   &__inactive {
     clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    transition: clip-path 1s ease-out;
   }
   &__active {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    transition: clip-path 1s ease-in;
   }
 }
 
@@ -123,7 +122,7 @@ a {
 ul {
   display: inline;
   list-style: none;
-  padding: 0 2.8rem 0 0;
+  // padding: 0 0.8em 0 0;
   font-size: 4vw;
   font-weight: 300;
   line-height: 1.2;
@@ -148,11 +147,11 @@ ul {
   cursor: pointer;
   height: 5.8em;
   width: 8em;
-  margin: 5em 5.5em 3.5em auto;
+  margin: 9em 12em 3.5em auto;
   cursor: pointer;
   opacity: 0.6;
   transition: opacity 0.3s;
-  z-index: 0;
+  z-index: 4;
   &:hover {
     opacity: 1;
     transition: opacity 0.3s;
