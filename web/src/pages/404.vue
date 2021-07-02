@@ -1,13 +1,6 @@
 <template>
   <layout>
     <main>
-      <hero
-        :title="$static.sanityPhotography.mainImage.caption.en"
-        :link="$static.sanityPhotography.mainImage"
-        :width="$static.sanityPhotography.mainImage.asset.metadata.dimensions.width"
-        :height="$static.sanityPhotography.mainImage.asset.metadata.dimensions.height"
-      >
-      </hero>
       <section class="fourohfour">
         <div v-if="$context.locale === 'en-gb'" class="fourohfour__text">
           <h1>404: Not Found</h1>
@@ -73,13 +66,8 @@ export default {
 .fourohfour {
   display: grid;
   place-content: center;
-  position: absolute;
-  background: transparent;
-  z-index: 2;
-  top: 0;
-  right: 0;
-  width: 100vw;
-  height: 100vh;
+  background: c.$grey-000;
+  height: calc(100vh - 4.4rem);
   &__four-oh-four {
     @include b.mq(sm) {
       padding-top: 10rem;
@@ -89,10 +77,7 @@ export default {
 
 h1,
 p {
-  border: 1px solid c.$slate-850;
   display: block;
-  background: c.$slate-100;
-  padding: 0.2em 0.5em;
   text-align: center;
 }
 
@@ -105,7 +90,6 @@ h1 {
 }
 
 p {
-  padding: 0.5em 0.9em;
   font-size: 2.2rem;
   @include b.mq(sm) {
     font-size: 1.6rem;
