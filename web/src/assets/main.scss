@@ -75,13 +75,13 @@ a {
   color: c.$grey-850;
   text-decoration: underline;
   text-decoration-thickness: 0.07em;
+  text-decoration-width: 0.07em;
+  text-underline-offset: 0.08em;
   text-decoration-color: rgba(c.$grey-950, 0);
   transition: text-decoration-color 0.3s;
   &:hover {
-    text-decoration: underline;
-    text-decoration-thickness: 0.07em;
     text-decoration-color: rgba(c.$grey-950, 1);
-    transition: text-decoration 0.3s;
+    transition: text-decoration-color 0.3s;
   }
 }
 
