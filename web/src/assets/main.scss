@@ -20,17 +20,11 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
-body.home {
-  background: c.$grey-950;
-}
-
 body {
   font-family: t.$stack;
   color: c.$grey-700;
-  background: c.$grey-000;
+  background: c.$grey-950;
 }
-
-
 
 #site-main {
   padding: 3.125rem;
