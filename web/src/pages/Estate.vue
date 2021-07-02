@@ -12,7 +12,12 @@
             />
           </div>
           <div class="estate__text">
-            <p>contact: <a :href="`mailto:${$static.sanityMeta.contact}`">{{ $static.sanityMeta.contact }}</a></p>
+            <p v-if="$context.locale === 'en-gb'">contact:
+              <a :href="`mailto:${$static.sanityMeta.contact}`">{{ $static.sanityMeta.contact }}</a>
+            </p>
+            <p v-else>kontakt:
+              <a :href="`mailto:${$static.sanityMeta.contact}`">{{ $static.sanityMeta.contact }}</a>
+            </p>
           </div>
         </div>
       </section>
