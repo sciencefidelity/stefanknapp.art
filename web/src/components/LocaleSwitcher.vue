@@ -38,10 +38,10 @@ export default {
   margin: 0;
   background-color: c.$grey-000;
   transition: background-color 0.4s;
-  &:hover {
-    background-color: c.$grey-100;
-    transition: background-color 0.4s;
-  }
+  // &:hover {
+  //   background-color: c.$grey-050;
+  //   transition: background-color 0.4s;
+  // }
   @include b.mq(sm) {
     font-size: 1.5rem;
   }

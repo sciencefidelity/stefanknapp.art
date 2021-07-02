@@ -183,21 +183,10 @@ export default {
       font-size: 2.2rem;
       width: 100%;
       text-align: center;
-      // background: c.$grey-000;
     }
     a {
       font-weight: 400;
       text-align: right;
-      text-decoration: underline;
-      text-decoration-thickness: 0.07em;
-      text-decoration-color: rgba(c.$grey-950, 0);
-      transition: text-decoration-color 0.3s;
-      &:hover {
-        text-decoration: underline;
-        text-decoration-thickness: 0.07em;
-        text-decoration-color: rgba(c.$grey-950, 1);
-        transition: text-decoration 0.3s;
-      }
     }
   }
 }
