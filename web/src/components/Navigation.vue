@@ -78,7 +78,7 @@ export default {
   }
   &__active,
   &__inactive {
-    padding: 5em 3.5em 0 0;
+    padding: 5em 3.3em 0 0;
     z-index: -1;
     background: rgba(c.$grey-000, 0.9);
     width: 100vw;
@@ -86,6 +86,12 @@ export default {
     position: absolute;
     top: 0;
     right: 0;
+    @include b.mq(lg) {
+      padding: 5em 3em 0 0;
+    }
+    @include b.mq(sm) {
+      padding: 5.4em 1.8em 0 0;
+    }
   }
   &__inactive {
     clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
@@ -122,8 +128,7 @@ a {
 ul {
   display: inline;
   list-style: none;
-  // padding: 0 0.8em 0 0;
-  font-size: 4vw;
+  font-size: 6rem;
   font-weight: 300;
   line-height: 1.2;
   text-transform: uppercase;
@@ -131,9 +136,10 @@ ul {
   flex-direction: column;
   justify-content: right;
   @include b.mq(lg) {
-    font-size: 9.8vw;
-    line-height: 11.2vw;
-    padding: 1.4em 0.3em 0 0;
+    font-size: 5.5rem;
+  }
+  @include b.mq(sm) {
+    font-size: 5rem;
   }
   li {
     margin-left: auto;
@@ -142,12 +148,12 @@ ul {
 }
 
 .hamburger {
-  font-size: 0.4vw;
+  font-size: 0.5rem;
   display: grid;
   cursor: pointer;
   height: 5.8em;
   width: 8em;
-  margin: 9em 12em 3.5em auto;
+  margin: 9em 15em 3.5em auto;
   cursor: pointer;
   opacity: 0.6;
   transition: opacity 0.3s;
@@ -157,11 +163,15 @@ ul {
     transition: opacity 0.3s;
   }
   @include b.mq(lg) {
-    font-size: 1.2vw;
-    margin: 3.5em 2.5em 2em auto;
+    font-size: 0.55rem;
+    margin: 7em 8.5em 2em auto;
+  }
+  @include b.mq(sm) {
+    font-size: 0.5rem;
+    margin: 5.5em 5em 2em auto;
   }
   &__icon {
-    font-size: 0.4vw;
+    font-size: 0.6rem;
     position: relative;
     z-index: 1;
     width: 8em;
@@ -208,7 +218,10 @@ ul {
       }
     }
     @include b.mq(lg) {
-      font-size: 1.2vw;
+      font-size: 0.55rem;
+    }
+    @include b.mq(sm) {
+      font-size: 0.5rem;
     }
   }
 }

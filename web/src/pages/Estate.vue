@@ -151,14 +151,22 @@ export default {
   height: calc(100vh - 4.4rem);
   background: c.$grey-000;
   z-index: 0;
+  @include b.mq(md) {
+    padding: 8rem 0 2rem;
+    height: auto;
+    min-height: calc(100vh - 4.4rem);
+  }
   @include b.mq(sm) {
-    padding: 10rem 0 15rem;
+    padding: 8rem 0 2rem;
   }
   &__container {
     width: min(100rem, 88%);
     margin: auto;
     display: grid;
     grid-template-columns: 2fr 3fr;
+    @include b.mq(md) {
+      grid-template-columns: 1fr;
+    }
     div {
       padding-left: 6.5rem;
       &:first-child {
