@@ -11,7 +11,7 @@
 }
 
 ::selection {
-  background: rgba(c.$grey-300, 1);
+  background: rgba(c.$grey-100, 1);
 }
 
 html {
@@ -20,11 +20,17 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body.home {
+  background: c.$grey-950;
+}
+
 body {
   font-family: t.$stack;
   color: c.$grey-700;
-  background: c.$grey-950;
+  background: c.$grey-000;
 }
+
+
 
 #site-main {
   padding: 3.125rem;

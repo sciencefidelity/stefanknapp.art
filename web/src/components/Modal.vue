@@ -60,7 +60,6 @@ export default {
 
 .modal {
   font-size: 1rem;
-  // box-shadow: 3px 5px 15px rgba(black, 0.1);
   &__image {
     font-size: 0.8vw;
     background: white;
@@ -73,7 +72,6 @@ export default {
     margin: 1rem 0 0 0;
     font-size: 1.7rem;
     text-align: right;
-    // text-transform: uppercase;
     z-index: 7;
     @include b.mq(sm) {
       font-size: 1.5rem;

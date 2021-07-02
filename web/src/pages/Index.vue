@@ -64,6 +64,12 @@ import FrontNav from '@/components/FrontNav.vue'
 
 export default {
   name: 'Index',
+  beforeCreate: function() {
+    document.body.className = 'home';
+  },
+  beforeDestroy: function() {
+    document.body.className = '';
+  },
   metaInfo() {
     return {
       title: this.$static.sanityMeta.title,
