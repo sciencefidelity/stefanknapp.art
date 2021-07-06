@@ -37,12 +37,12 @@
             <block-content
               v-if="$context.locale === 'en-gb'"
               class="post__content"
-              :blocks="$static.sanityBio.biography2._rawEn"
+              :blocks="$static.sanityBio.exhibitions._rawEn"
             />
             <block-content
               v-else
               class="post__content"
-              :blocks="$static.sanityBio.biography2._rawPl"
+              :blocks="$static.sanityBio.exhibitions._rawPl"
             />
           </div>
         </div>
