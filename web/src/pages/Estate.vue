@@ -33,7 +33,7 @@
         dataset
       }
     }
-    sanityPage(id: "e0fb01c9-f899-4469-bdd5-b9d270d78024") {
+    sanityPage(id: "a2695196-0f56-42d9-bbb4-7b9d255d1ee1") {
       title {
         en
         pl
