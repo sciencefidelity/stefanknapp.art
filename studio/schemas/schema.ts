@@ -16,6 +16,7 @@ import artwork from './documents/artwork'
 import bio from './documents/bio'
 import exhibition from './documents/exhibition'
 import meta from './documents/meta'
+import page from './documents/page'
 import photography from './documents/photography'
 import video from './documents/video'
 
@@ -38,6 +39,7 @@ export default createSchema({
     bio,
     exhibition,
     meta,
+    page,
     photography,
     video,
 
