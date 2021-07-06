@@ -5,10 +5,10 @@
         <div class="life__container">
           <div class="life__image">
             <sanity-image
-              :title="$static.sanityPhotography.mainImage.caption.en"
-              :link="$static.sanityPhotography.mainImage"
-              :width="$static.sanityPhotography.mainImage.asset.metadata.dimensions.width"
-              :height="$static.sanityPhotography.mainImage.asset.metadata.dimensions.height"
+              :title="$static.imageOne.mainImage.caption.en"
+              :link="$static.imageOne.mainImage"
+              :width="$static.imageOne.mainImage.asset.metadata.dimensions.width"
+              :height="$static.imageOne.mainImage.asset.metadata.dimensions.height"
             />
           </div>
           <div>
@@ -21,6 +21,28 @@
               v-else
               class="post__content"
               :blocks="$static.sanityBio.biography._rawPl"
+            />
+          </div>
+        </div>
+        <div class="life__container">
+          <div class="life__image">
+            <sanity-image
+              :title="$static.imageTwo.mainImage.caption.en"
+              :link="$static.imageTwo.mainImage"
+              :width="$static.imageTwo.mainImage.asset.metadata.dimensions.width"
+              :height="$static.imageTwo.mainImage.asset.metadata.dimensions.height"
+            />
+          </div>
+          <div>
+            <block-content
+              v-if="$context.locale === 'en-gb'"
+              class="post__content"
+              :blocks="$static.sanityBio.biography2._rawEn"
+            />
+            <block-content
+              v-else
+              class="post__content"
+              :blocks="$static.sanityBio.biography2._rawPl"
             />
           </div>
         </div>
@@ -71,8 +93,46 @@
         _rawEn(resolveReferences: {maxDepth: 5})
         _rawPl(resolveReferences: {maxDepth: 5})
       }
+      exhibitions {
+        _rawEn(resolveReferences: {maxDepth: 5})
+        _rawPl(resolveReferences: {maxDepth: 5})
+      }
     }
-    sanityPhotography(id: "9cc83967-cbb5-465c-96c0-36a6208a7a29") {
+    imageOne: sanityPhotography(id: "dc5c8996-399e-46d2-88aa-8a0d75318ca0") {
+      mainImage {
+        caption {
+          en
+          pl
+        }
+        asset {
+          url
+          metadata {
+            dimensions {
+              height
+              width
+            }
+          }
+        }
+      }
+    }
+    imageTwo: sanityPhotography(id: "02e6ff9e-578f-4eda-ba03-d4b43bb4d270") {
+      mainImage {
+        caption {
+          en
+          pl
+        }
+        asset {
+          url
+          metadata {
+            dimensions {
+              height
+              width
+            }
+          }
+        }
+      }
+    }
+    imageThree: sanityPhotography(id: "5382b64e-9639-4ff8-856e-4c6e0ffab18a") {
       mainImage {
         caption {
           en
@@ -164,7 +224,7 @@ export default {
   position: relative;
   display: flex;
   place-items: center;
-  height: 100vh;
+  padding: 12rem 0 12rem 0;
   background: c.$grey-000;
   z-index: 0;
   @include b.mq(md) {
@@ -193,7 +253,8 @@ export default {
     }
   }
   &__image {
-    width: max(500rem, 370%);
+    width: 180%;
+    /* width: max(500rem, 370%); */
     @include b.mq(md) {
       width: 75%;
       margin: 0 auto 6rem;
