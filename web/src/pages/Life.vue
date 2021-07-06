@@ -15,12 +15,12 @@
             <block-content
               v-if="$context.locale === 'en-gb'"
               class="post__content"
-              :blocks="$static.sanityPage.body._rawEn"
+              :blocks="$static.sanityBio.biography._rawEn"
             />
             <block-content
               v-else
               class="post__content"
-              :blocks="$static.sanityPage.body._rawPl"
+              :blocks="$static.sanityBio.biography._rawPl"
             />
           </div>
         </div>
@@ -47,10 +47,6 @@
         en
         pl
       }
-      body {
-        _rawEn(resolveReferences: {maxDepth: 5})
-        _rawPl(resolveReferences: {maxDepth: 5})
-      }
       ogTitle
       ogDescription
       mainImage {
@@ -68,6 +64,12 @@
             }
           }
         }
+      }
+    }
+    sanityBio(id: "2b871be4-985f-4175-bdb7-59468e0e0ba6") {
+      biography {
+        _rawEn(resolveReferences: {maxDepth: 5})
+        _rawPl(resolveReferences: {maxDepth: 5})
       }
     }
     sanityPhotography(id: "9cc83967-cbb5-465c-96c0-36a6208a7a29") {
