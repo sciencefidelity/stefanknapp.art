@@ -2,6 +2,7 @@ export default {
   name: 'bio',
   title: 'Biography',
   type: 'document',
+  __experimental_actions: [/*'create',*/ 'update', /*'delete',*/ 'publish'],
   fields: [
     {
       name: 'name',

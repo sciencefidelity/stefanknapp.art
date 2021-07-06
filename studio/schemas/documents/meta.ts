@@ -2,6 +2,7 @@ export default {
   name: 'meta',
   title: 'Page Meta',
   type: 'document',
+  __experimental_actions: [/*'create',*/ 'update', /*'delete',*/ 'publish'],
   fields: [
     {
       name: 'title',
