@@ -27,7 +27,12 @@ export default {
     },
     {
       name: 'biography',
-      title: 'Biography',
+      title: 'Biography Part 1',
+      type: 'localeRichText',
+    },
+    {
+      name: 'exhibitions',
+      title: 'Biography Part 2',
       type: 'localeRichText',
     },
   ],
