@@ -1,5 +1,5 @@
 export default {
-  name: 'exhibition',
+  name: 'Exhibition',
   title: 'exhibition',
   type: 'document',
   fields: [
@@ -19,8 +19,8 @@ export default {
       type: 'localeString',
     },
     {
-      name: 'Solo',
-      title: 'solo',
+      title: 'Solo',
+      name: 'solo',
       type: 'boolean',
     },
   ],
