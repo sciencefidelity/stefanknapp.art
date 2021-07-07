@@ -1,6 +1,6 @@
 export default {
-  name: 'Exhibition',
-  title: 'exhibition',
+  name: 'exhibition',
+  title: 'Exhibition',
   type: 'document',
   fields: [
     {
@@ -19,8 +19,8 @@ export default {
       type: 'localeString',
     },
     {
-      title: 'Solo',
       name: 'solo',
+      title: 'Solo',
       type: 'boolean',
     },
   ],
@@ -28,7 +28,7 @@ export default {
   preview: {
     select: {
       title: 'gallery',
-      media: 'mainImage',
+      subtitle: 'year',
     },
   },
 }
