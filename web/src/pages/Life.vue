@@ -25,14 +25,6 @@
           </div>
         </div>
         <div class="life__container">
-          <div class="life__image">
-            <sanity-image
-              :title="$static.imageTwo.mainImage.caption.en"
-              :link="$static.imageTwo.mainImage"
-              :width="$static.imageTwo.mainImage.asset.metadata.dimensions.width"
-              :height="$static.imageTwo.mainImage.asset.metadata.dimensions.height"
-            />
-          </div>
           <div>
             <block-content
               v-if="$context.locale === 'en-gb'"
@@ -43,6 +35,14 @@
               v-else
               class="post__content"
               :blocks="$static.sanityBio.exhibitions._rawPl"
+            />
+          </div>
+          <div class="life__image">
+            <sanity-image
+              :title="$static.imageTwo.mainImage.caption.en"
+              :link="$static.imageTwo.mainImage"
+              :width="$static.imageTwo.mainImage.asset.metadata.dimensions.width"
+              :height="$static.imageTwo.mainImage.asset.metadata.dimensions.height"
             />
           </div>
         </div>
@@ -223,6 +223,8 @@ export default {
 .life {
   position: relative;
   display: flex;
+  flex-direction: column;
+  gap: 5rem;
   place-items: center;
   padding: 12rem 0 12rem 0;
   background: c.$grey-000;
