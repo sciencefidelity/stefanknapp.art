@@ -11,7 +11,7 @@
               :height="$static.imageOne.mainImage.asset.metadata.dimensions.height"
             />
           </div>
-          <div>
+          <div class="life__text">
             <block-content
               v-if="$context.locale === 'en-gb'"
               class="post__content"
@@ -25,7 +25,7 @@
           </div>
         </div>
         <div class="life__container">
-          <div>
+          <div class="life__text">
             <block-content
               v-if="$context.locale === 'en-gb'"
               class="post__content"
@@ -45,6 +45,9 @@
               :height="$static.imageThree.mainImage.asset.metadata.dimensions.height"
             />
           </div>
+        </div>
+        <div class="life__container full">
+          <exhibitions />
         </div>
       </section>
       <section class="video-section">
@@ -156,6 +159,7 @@
 import SanityImage from '@/components/SanityImage.vue'
 import BlockContent from '@/components/BlockContent.vue'
 import VideoEmbed from '@/components/VideoEmbed.vue'
+import Exhibitions from '@/components/Exhibitions.vue'
 
 export default {
   name: 'Life',
@@ -211,7 +215,8 @@ export default {
   components: {
     SanityImage,
     BlockContent,
-    VideoEmbed
+    VideoEmbed,
+    Exhibitions
   }
 }
 </script>
@@ -241,7 +246,9 @@ export default {
   &__container {
     width: min(100rem, 88%);
     margin: auto;
-    display: flex;
+    /* display: flex; */
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
     div {
       padding-left: 6.5rem;
       &:first-child {
@@ -256,7 +263,7 @@ export default {
     }
   }
   &__image {
-    width: 180%;
+    /* width: 180%; */
     @include b.mq(md) {
       width: 75%;
       margin: 0 auto 6rem;
@@ -271,6 +278,10 @@ export default {
   @include b.mq(md) {
     display: none;
   }
+}
+
+.full {
+  grid-template-columns: 1fr;
 }
 
 .video-section {
