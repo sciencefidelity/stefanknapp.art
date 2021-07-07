@@ -37,12 +37,12 @@
               :blocks="$static.sanityBio.exhibitions._rawPl"
             />
           </div>
-          <div class="life__image">
+          <div class="life__image hide">
             <sanity-image
-              :title="$static.imageTwo.mainImage.caption.en"
-              :link="$static.imageTwo.mainImage"
-              :width="$static.imageTwo.mainImage.asset.metadata.dimensions.width"
-              :height="$static.imageTwo.mainImage.asset.metadata.dimensions.height"
+              :title="$static.imageThree.mainImage.caption.en"
+              :link="$static.imageThree.mainImage"
+              :width="$static.imageThree.mainImage.asset.metadata.dimensions.width"
+              :height="$static.imageThree.mainImage.asset.metadata.dimensions.height"
             />
           </div>
         </div>
@@ -233,6 +233,7 @@ export default {
     flex-direction: column;
     height: unset;
     padding: 10rem 0;
+    gap: 0;
   }
   @include b.mq(sm) {
     padding: 10rem 0 15rem;
@@ -256,7 +257,6 @@ export default {
   }
   &__image {
     width: 180%;
-    /* width: max(500rem, 370%); */
     @include b.mq(md) {
       width: 75%;
       margin: 0 auto 6rem;
@@ -264,6 +264,12 @@ export default {
     @include b.mq(sm) {
       width: 100%;
     }
+  }
+}
+
+.hide {
+  @include b.mq(md) {
+    display: none;
   }
 }
 
