@@ -1,6 +1,7 @@
 <template>
   <div>
-    <h3>Selected exhibitions</h3>
+    <h3 v-if="$context.locale === 'en-gb'">Selected exhibitions</h3>
+    <h3 v-else>Wybrane wystawy</h3>
     <ul v-for="edge in $static.allSanityExhibition.edges" :key="edge.node.id">
       <li v-if="$context.locale === 'en-gb'">
         {{ edge.node.year }}&nbsp;&nbsp;&nbsp;&nbsp;{{ edge.node.gallery }}, {{ edge.node.location.en }} (solo)
