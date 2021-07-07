@@ -39,10 +39,10 @@
           </div>
           <div class="life__image hide">
             <sanity-image
-              :title="$static.imageThree.mainImage.caption.en"
-              :link="$static.imageThree.mainImage"
-              :width="$static.imageThree.mainImage.asset.metadata.dimensions.width"
-              :height="$static.imageThree.mainImage.asset.metadata.dimensions.height"
+              :title="$static.imageTwo.mainImage.caption.en"
+              :link="$static.imageTwo.mainImage"
+              :width="$static.imageTwo.mainImage.asset.metadata.dimensions.width"
+              :height="$static.imageTwo.mainImage.asset.metadata.dimensions.height"
             />
           </div>
         </div>
@@ -118,24 +118,7 @@
         }
       }
     }
-    imageTwo: sanityPhotography(id: "02e6ff9e-578f-4eda-ba03-d4b43bb4d270") {
-      mainImage {
-        caption {
-          en
-          pl
-        }
-        asset {
-          url
-          metadata {
-            dimensions {
-              height
-              width
-            }
-          }
-        }
-      }
-    }
-    imageThree: sanityPhotography(id: "5382b64e-9639-4ff8-856e-4c6e0ffab18a") {
+    imageTwo: sanityPhotography(id: "5382b64e-9639-4ff8-856e-4c6e0ffab18a") {
       mainImage {
         caption {
           en
