@@ -27,7 +27,7 @@
 
 <static-query>
   query {
-    artwork: allSanityArtwork(sortBy: "date", order: ASC) {
+    artwork: allSanityArtwork(sortBy: "date", order: ASC, filter: {display: {eq: true}}) {
       edges {
         node {
           id
