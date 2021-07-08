@@ -71,7 +71,7 @@ export default {
 .nav {
   z-index: 3;
   @include b.mq(lg) {
-    font-size: 1rem;
+    font-size: 10px;
     top: 0;
     right: 0;
     padding: 0;
@@ -148,33 +148,30 @@ ul {
 }
 
 .hamburger {
-  font-size: 0.5rem;
+  font-size: 5px;
   display: grid;
   cursor: pointer;
   height: 5.8em;
   width: 8em;
   margin: 9em 15em 3.5em auto;
-  cursor: pointer;
   opacity: 0.6;
   transition: opacity 0.3s;
-  z-index: 4;
   &:hover {
     opacity: 1;
     transition: opacity 0.3s;
   }
   @include b.mq(lg) {
-    font-size: 0.55rem;
+    font-size: 5.5px;
     margin: 7em 8.5em 2em auto;
   }
   @include b.mq(sm) {
-    font-size: 0.5rem;
+    font-size: 5px;
     margin: 5.5em 5em 2em auto;
   }
   &__icon {
-    font-size: 0.6rem;
+    font-size: 6px;
     position: relative;
-    z-index: 1;
-    width: 8em;
+      width: 8em;
     height: 0.4em;
     margin: 2.6em 0 3em;
     background-color: rgba(c.$grey-850, 1);
@@ -218,10 +215,10 @@ ul {
       }
     }
     @include b.mq(lg) {
-      font-size: 0.55rem;
+      font-size: 5.5px;
     }
     @include b.mq(sm) {
-      font-size: 0.5rem;
+      font-size: 5px;
     }
   }
 }
