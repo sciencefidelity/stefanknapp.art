@@ -229,7 +229,6 @@ export default {
   &__container {
     width: min(100rem, 88%);
     margin: auto;
-    /* display: flex; */
     display: grid;
     grid-template-columns: 1fr 1.5fr;
     div {
@@ -247,7 +246,6 @@ export default {
     }
   }
   &__image {
-    /* width: 180%; */
     @include b.mq(md) {
       width: 75%;
       margin: 0 auto 6rem;
