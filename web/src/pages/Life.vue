@@ -243,6 +243,7 @@ export default {
     }
     @include b.mq(md) {
       flex-direction: column;
+      grid-template-columns: 1fr;
     }
   }
   &__image {
