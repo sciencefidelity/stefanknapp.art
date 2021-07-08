@@ -75,6 +75,7 @@ export default {
     z-index: 7;
     @include b.mq(sm) {
       font-size: 1.5rem;
+      margin-right: 2em;
     }
   }
 }
