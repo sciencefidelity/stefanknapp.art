@@ -7,9 +7,7 @@
         {{ edge.node.year }}&nbsp;&nbsp;&nbsp;&nbsp;{{ edge.node.gallery }}, {{ edge.node.location.en }} (solo)
       </li>
       <li v-else>
-        <g-link :to="`/pl/${edge.node.slug.current}/`">
-          {{ edge.node.year }}&nbsp;&nbsp;&nbsp;&nbsp;{{ edge.node.gallery }}, {{ edge.node.location.pl }} (solo)
-        </g-link>
+        {{ edge.node.year }}&nbsp;&nbsp;&nbsp;&nbsp;{{ edge.node.gallery }}, {{ edge.node.location.pl }} (solo)
       </li>
     </ul>
   </div>
