@@ -148,7 +148,8 @@ export default {
   position: relative;
   display: flex;
   place-items: center;
-  height: calc(100vh - 4.4rem);
+  /* height: calc(100vh - 4.4rem); */
+  padding: 12rem 0 12rem 0;
   background: c.$grey-000;
   z-index: 0;
   @include b.mq(md) {
