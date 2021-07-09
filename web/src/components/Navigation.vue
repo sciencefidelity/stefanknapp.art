@@ -6,7 +6,7 @@
         <div :class="[ showMenu ? 'hamburger__icon hamburger__icon--active' : 'hamburger__icon' ]"></div>
       </div>
     </div>
-    <div :class="[ showMenu ? 'menu visible' : 'menu hidden' ]">
+    <div :class="[ showMenu ? 'nav__active' : 'nav__inactive' ]">
       <ul v-for="edge in $static.allSanityPage.edges" :key="edge.node.id">
         <li v-if="$context.locale === 'en-gb'">
           <g-link  :to="`/en/${edge.node.slug.current}/`">
@@ -76,38 +76,36 @@ export default {
     right: 0;
     padding: 0;
   }
-}
-
-.menu {
-  padding: 5em 3.3em 0 0;
-  z-index: -2;
-  background: rgba(c.$grey-000, 0.9);
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  top: 0;
-  right: 0;
-  @include b.mq(lg) {
-    padding: 5em 3em 0 0;
+  &__active,
+  &__inactive {
+    padding: 5em 3.3em 0 0;
+    z-index: -2;
+    background: rgba(c.$grey-000, 0.9);
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    right: 0;
+    @include b.mq(lg) {
+      padding: 5em 3em 0 0;
+    }
+    @include b.mq(sm) {
+      padding: 5.4em 1.8em 0 0;
+    }
   }
-  @include b.mq(sm) {
-    padding: 5.4em 1.8em 0 0;
+  &__inactive {
+    visibility: hidden;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    transition: clip-path 1s, visibility 0s;
+    transition-delay: 0s, 1s;
+    transition-property: clip-path, visibility;
+    transition-timing-function: ease-out;
   }
-}
-
-.visible {
-  cursor: default;
-  height: 0vh;
-  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-  transition: clip-path 1s, height 0s;
-  transition-delay: 0s, 1s;
-  transition-property: clip-path, height;
-  transition-timing-function: ease-out;
-}
-
-.hidden {
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-  transition: clip-path 1s ease-in;
+  &__active {
+    visibility: visible;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    transition: clip-path 1s ease-in;
+  }
 }
 
 a {

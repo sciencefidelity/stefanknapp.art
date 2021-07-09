@@ -95,52 +95,51 @@ nav {
       padding: 0;
     }
   }
-}
-
-.nav__active,
-.nav__inactive {
-  z-index: -1;
-  @include b.mq(lg) {
-    font-size: 9.8vw;
-    position: absolute;
-    padding: 1.2em 0 0 0;
-    top: 0;
-    right: 0;
-    background: rgba(c.$grey-950, 0.8);
-    width: 100vw;
+  &__active,
+  &__inactive {
+    z-index: -1;
+    @include b.mq(lg) {
+      font-size: 9.8vw;
+      position: absolute;
+      padding: 1.2em 0 0 0;
+      top: 0;
+      right: 0;
+      background: rgba(c.$grey-950, 0.8);
+      width: 100vw;
+    }
   }
-}
-
-.nav__inactive {
-  cursor: default;
-  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-  transition: clip-path 1s ease-out;
-}
-
-.nav__active {
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-  transition: clip-path 1s ease-in;
-}
-
-.nav__title-container {
-  display: flex;
-  width: 100%;
-  justify-content: flex-end;
-  padding-top: 5rem;
-  @include b.mq(lg) {
-    padding-top: 0;
+  &__inactive {
+    visibility: hidden;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    transition: clip-path 1s, visibility 0s;
+    transition-delay: 0s, 1s;
+    transition-property: clip-path, visibility;
+    transition-timing-function: ease-out;
   }
-}
-
-.nav__title {
-  font-size: 3.25vw;
-  text-transform: uppercase;
-  white-space: nowrap;
-  writing-mode: vertical-lr;
-  @include b.mq(lg) {
-    font-size: 5vw;
-    padding: 2em 0.8em;
-    writing-mode: lr;
+  &__active {
+    visibility: visible;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    transition: clip-path 1s ease-in;
+  }
+  &__title-container {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    padding-top: 5rem;
+    @include b.mq(lg) {
+      padding-top: 0;
+    }
+  }
+  &__title {
+    font-size: 3.25vw;
+    text-transform: uppercase;
+    white-space: nowrap;
+    writing-mode: vertical-lr;
+    @include b.mq(lg) {
+      font-size: 5vw;
+      padding: 2em 0.8em;
+      writing-mode: lr;
+    }
   }
 }
 
