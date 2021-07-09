@@ -6,7 +6,7 @@
         <div :class="[ showMenu ? 'hamburger__icon hamburger__icon--active' : 'hamburger__icon' ]"></div>
       </div>
     </div>
-    <div :class="[ showMenu ? 'nav__active' : 'nav__inactive' ]">
+    <div :class="[ showMenu ? 'menu visible' : 'menu hidden' ]">
       <ul v-for="edge in $static.allSanityPage.edges" :key="edge.node.id">
         <li v-if="$context.locale === 'en-gb'">
           <g-link  :to="`/en/${edge.node.slug.current}/`">
@@ -78,12 +78,12 @@ export default {
   }
 }
 
-.nav__active,
-.nav__inactive {
+.menu {
   padding: 5em 3.3em 0 0;
-  z-index: -1;
+  z-index: -2;
   background: rgba(c.$grey-000, 0.9);
   width: 100vw;
+  height: 100vh;
   position: absolute;
   top: 0;
   right: 0;
@@ -95,7 +95,7 @@ export default {
   }
 }
 
-.nav__inactive {
+.visible {
   cursor: default;
   height: 0vh;
   clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
@@ -105,8 +105,7 @@ export default {
   transition-timing-function: ease-out;
 }
 
-.nav__active {
-  height: 100vh;
+.hidden {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   transition: clip-path 1s ease-in;
 }
