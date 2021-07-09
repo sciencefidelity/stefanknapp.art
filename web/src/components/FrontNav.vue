@@ -97,7 +97,6 @@ nav {
   }
   &__active,
   &__inactive {
-    transition: clip-path 1s ease-in-out;
     z-index: -1;
     @include b.mq(lg) {
       font-size: 9.8vw;
@@ -107,14 +106,21 @@ nav {
       right: 0;
       background: rgba(c.$grey-950, 0.8);
       width: 100vw;
-      height: 100vw;
     }
   }
   &__inactive {
+    cursor: default;
+    height: 0;
     clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    transition: clip-path 1s, height 0s;
+    transition-delay: 0s, 1s;
+    transition-property: clip-path, height;
+    transition-timing-function: ease-out;
   }
   &__active {
+    height: 100vw;
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    transition: clip-path 1s ease-in;
   }
   &__title-container {
     display: flex;

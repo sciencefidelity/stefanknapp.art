@@ -82,7 +82,6 @@ export default {
     z-index: -1;
     background: rgba(c.$grey-000, 0.9);
     width: 100vw;
-    height: 100vh;
     position: absolute;
     top: 0;
     right: 0;
@@ -94,10 +93,16 @@ export default {
     }
   }
   &__inactive {
+    cursor: default;
+    height: 0;
     clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-    transition: clip-path 1s ease-out;
+    transition: clip-path 1s, height 0s;
+    transition-delay: 0s, 1s;
+    transition-property: clip-path, height;
+    transition-timing-function: ease-out;
   }
   &__active {
+    height: 100vh;
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
     transition: clip-path 1s ease-in;
   }
