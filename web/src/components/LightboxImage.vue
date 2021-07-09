@@ -17,20 +17,6 @@
       :width=width
       :height=height
     />
-    <!-- <img
-      :alt=title
-      :src="$urlForImage(link, $static.metadata.sanityOptions)
-        .quality(10)
-        .fit(fit)
-        .crop(crop)
-        .height(2)
-        .url()"
-      decoding="async"
-      loading="lazy"
-      class="placeholder"
-      :width=width
-      :height=height
-    /> -->
   </div>
 </template>
 
@@ -94,16 +80,6 @@ img {
     max-width: 100vw;
   }
 }
-
-// .placeholder {
-//   position: absolute;
-//   width: 100%;
-//   height: 100%;
-//   top: 0;
-//   left: 0;
-//   z-index: 1;
-//   overflow: hidden;
-// }
 
 .v-lazy-image {
   position: relative;

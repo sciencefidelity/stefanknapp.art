@@ -75,19 +75,9 @@
       ogTitle
       ogDescription
       mainImage {
-        caption {
-          en
-          pl
-        }
         asset {
           _id
           url
-          metadata {
-            dimensions {
-              height
-              width
-            }
-          }
         }
       }
     }

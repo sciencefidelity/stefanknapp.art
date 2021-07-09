@@ -15,30 +15,7 @@
   </layout>
 </template>
 
-<static-query>
-  query {
-    sanityPhotography(id: "c001c0b0-8e97-4bc8-abe5-ab3cf72e4dad") {
-      mainImage {
-        caption {
-          en
-          pl
-        }
-        asset {
-          url
-          metadata {
-            dimensions {
-              height
-              width
-            }
-          }
-        }
-      }
-    }
-  }
-</static-query>
-
 <script lang="ts">
-import Hero from '@/components/Hero.vue'
 
 export default {
   name: '404',
@@ -52,9 +29,6 @@ export default {
         }
       ]
     }
-  },
-  components: {
-    Hero,
   }
 }
 </script>

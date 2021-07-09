@@ -11,9 +11,6 @@ export default {
   name: 'Header',
   components: {
     Navigation
-  },
-  props: {
-    resizeNav: false
   }
 }
 </script>
@@ -26,5 +23,4 @@ header {
   z-index: 10;
   width: 100%;
 }
-
 </style>

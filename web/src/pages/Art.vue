@@ -2,7 +2,7 @@
   <layout>
     <main>
       <section class="gallery-section">
-        <gallery captions:caption />
+        <gallery />
       </section>
     </main>
   </layout>
@@ -24,19 +24,9 @@
       ogTitle
       ogDescription
       mainImage {
-        caption {
-          en
-          pl
-        }
         asset {
           _id
           url
-          metadata {
-            dimensions {
-              height
-              width
-            }
-          }
         }
       }
     }

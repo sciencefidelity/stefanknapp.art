@@ -32,7 +32,7 @@
 
 <static-query>
   query {
-    allSanityPage(sortBy:"_createdAt", order:ASC) {
+    allSanityPage(sortBy:"_createdAt", order: ASC) {
       edges {
         node {
           id
