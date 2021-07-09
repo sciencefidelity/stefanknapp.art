@@ -76,36 +76,39 @@ export default {
     right: 0;
     padding: 0;
   }
-  &__active,
-  &__inactive {
-    padding: 5em 3.3em 0 0;
-    z-index: -1;
-    background: rgba(c.$grey-000, 0.9);
-    width: 100vw;
-    position: absolute;
-    top: 0;
-    right: 0;
-    @include b.mq(lg) {
-      padding: 5em 3em 0 0;
-    }
-    @include b.mq(sm) {
-      padding: 5.4em 1.8em 0 0;
-    }
+}
+
+.nav__active,
+.nav__inactive {
+  padding: 5em 3.3em 0 0;
+  z-index: -1;
+  background: rgba(c.$grey-000, 0.9);
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  right: 0;
+  @include b.mq(lg) {
+    padding: 5em 3em 0 0;
   }
-  &__inactive {
-    cursor: default;
-    height: 0;
-    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-    transition: clip-path 1s, height 0s;
-    transition-delay: 0s, 1s;
-    transition-property: clip-path, height;
-    transition-timing-function: ease-out;
+  @include b.mq(sm) {
+    padding: 5.4em 1.8em 0 0;
   }
-  &__active {
-    height: 100vh;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    transition: clip-path 1s ease-in;
-  }
+}
+
+.nav__inactive {
+  cursor: default;
+  height: 0vh;
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  transition: clip-path 1s, height 0s;
+  transition-delay: 0s, 1s;
+  transition-property: clip-path, height;
+  transition-timing-function: ease-out;
+}
+
+.nav__active {
+  height: 100vh;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  transition: clip-path 1s ease-in;
 }
 
 a {
