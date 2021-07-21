@@ -6,7 +6,7 @@
           <g-link to="/en">
             <img
               alt="Link to home"
-              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 0 24 24' width='24px' fill='%23000000'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z'/%3E%3C/svg%3E"
+              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23262626'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z'/%3E%3C/svg%3E"
               loading="lazy"
             />
           </g-link>
@@ -15,7 +15,7 @@
           <g-link to="/pl">
             <img
               alt="Link to home"
-              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 0 24 24' width='24px' fill='%23000000'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z'/%3E%3C/svg%3E"
+              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23262626'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z'/%3E%3C/svg%3E"
               loading="lazy"
             />
           </g-link>
@@ -81,9 +81,12 @@ footer {
 }
 
 .footer__btn {
-  font-size: 1rem;
-  width: 3em;
-  padding: 1em 0.7em 1em 0;
+  width: 3rem;
+  padding: 1rem 0.7rem 1rem 0;
+  @include b.mq(sm) {
+    width: 2.7rem;
+    padding: 0.7rem 0.7rem 1.3rem 0;
+  }
 }
 
 </style>
