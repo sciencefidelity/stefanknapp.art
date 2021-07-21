@@ -83,6 +83,13 @@ nav {
   margin-left: auto;
 }
 
+a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
 .nav {
   &--front {
     padding: 0 3.5rem 0 0;
