@@ -81,8 +81,9 @@ footer {
 }
 
 .footer__btn {
-  width: 3rem;
-  padding: 1rem 0.7rem 1rem 0;
+  font-size: 1rem;
+  width: 3em;
+  padding: 1em 0.7em 1em 0;
 }
 
 </style>

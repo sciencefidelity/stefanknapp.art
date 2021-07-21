@@ -73,11 +73,12 @@ export default {
     margin: 1rem 0 0 0;
     font-size: 1.7rem;
     text-align: right;
+    position: absolute;
+    right: max(calc((100vw - 100rem) / 2), 6%);
     z-index: 7;
     @include b.mq(sm) {
       width: 100%;
       font-size: 1.5rem;
-      position: absolute;
       right: 6%;
       bottom: 1rem;
     }

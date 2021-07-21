@@ -74,8 +74,13 @@ export default {
 
 img {
   height: calc(100vh - 19.9rem);
-  width: 100%;
   object-fit: contain;
+  max-width: 70%;
+  margin: auto;
+  @include b.mq(sm) {
+    max-width: 100%;
+    width: 100%;
+  }
 }
 
 .v-lazy-image {
