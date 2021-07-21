@@ -138,7 +138,6 @@ ul {
   line-height: 1.2;
   text-transform: uppercase;
   display: flex;
-  flex-direction: column;
   justify-content: right;
   @include b.mq(lg) {
     font-size: 5.5rem;
