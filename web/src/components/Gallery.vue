@@ -134,3 +134,12 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.gallery {
+  height: calc(100vh - 11.9rem);
+  width: 100%;
+  position: absolute;
+  top: 7.5rem;
+}
+</style>

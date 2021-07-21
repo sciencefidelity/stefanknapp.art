@@ -103,9 +103,6 @@ export default {
   place-content: center;
   background: c.$grey-000;
   height: calc(100vh - 4.4rem);
-  @include b.mq(sm) {
-    padding: 5rem 0 5rem;
-  }
 }
 
 </style>

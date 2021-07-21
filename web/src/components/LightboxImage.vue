@@ -69,16 +69,13 @@ export default {
   position: relative;
   display: grid;
   justify-content: center;
+  object-fit: contain;
 }
 
 img {
-  height: auto;
-  width: auto;
-  max-width: 75vw;
-  max-height: calc(80vh - 4.4rem);
-  @include b.mq(sm) {
-    max-width: 100vw;
-  }
+  height: calc(100vh - 19.9rem);
+  width: 100%;
+  object-fit: contain;
 }
 
 .v-lazy-image {

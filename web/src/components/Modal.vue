@@ -64,8 +64,10 @@ export default {
     font-size: 0.8vw;
     background: white;
     margin: auto;
-    display: inline-block;
     z-index: 7;
+    height: calc(100vh - 11.9rem);
+    width: 100%;
+    object-fit: contain;
   }
   &__caption {
     margin: 1rem 0 0 0;
@@ -73,8 +75,11 @@ export default {
     text-align: right;
     z-index: 7;
     @include b.mq(sm) {
+      width: 100%;
       font-size: 1.5rem;
-      margin-right: 2em;
+      position: absolute;
+      right: 6%;
+      bottom: 1rem;
     }
   }
 }
