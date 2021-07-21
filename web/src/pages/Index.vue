@@ -136,6 +136,7 @@ export default {
 #site-main {
   background: c.$grey-950;
   color: c.$sepia-150;
+  min-height: 100vh;
 }
 
 h1 {
