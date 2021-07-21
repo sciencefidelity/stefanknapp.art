@@ -106,6 +106,7 @@ nav {
       right: 0;
       background: rgba(c.$grey-950, 0.8);
       width: 100vw;
+      height: 100vh;
     }
   }
   &__inactive {
