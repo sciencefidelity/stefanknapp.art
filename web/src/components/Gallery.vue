@@ -102,13 +102,35 @@ export default {
           e.preventDefault()
           break
       }
+    },
+    onTouchStart(e) {
+      if (e.changedTouches.length !== 1) {
+        return
+      }
+      const posXStart = e.changedTouches[0].clientX;
+      console.log('touched')
+      window.addEventListener('touchend', (e) => this.onTouchEnd(e, posXStart), {once: true})
+    },
+    onTouchEnd(e, posXStart) {
+      if (e.changedTouches.length !== 1) {
+        return
+      }
+      const posXEnd = e.changedTouches[0].clientX;
+      if (posXStart < posXEnd) {
+        this.prevIndex()
+      } else if (posXStart > posXEnd) {
+        this.nextIndex()
+      }
+      window.removeEventListener('touchend', this.onTouchStart)
     }
   },
   mounted() {
-    window.addEventListener('keydown', this.onKeydown)
+    window.addEventListener('keydown', this.onKeydown),
+    window.addEventListener('touchstart', this.onTouchStart)
   },
   destroyed() {
-    window.removeEventListener('keydown', this.onKeydown)
+    window.removeEventListener('keydown', this.onKeydown),
+    window.removeEventListener('touchstart', this.onTouchStart)
   }
 }
 </script>

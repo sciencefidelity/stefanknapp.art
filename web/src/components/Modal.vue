@@ -63,7 +63,6 @@ export default {
   &__image {
     font-size: 0.8vw;
     background: white;
-    padding: max(2em, 2rem);
     margin: auto;
     display: inline-block;
     z-index: 7;
