@@ -139,6 +139,7 @@ ul {
   text-transform: uppercase;
   display: flex;
   justify-content: right;
+  padding: 0;
   @include b.mq(lg) {
     font-size: 5.5rem;
   }
