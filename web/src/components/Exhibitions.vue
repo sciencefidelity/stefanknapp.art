@@ -7,8 +7,9 @@
         <div>{{ edge.node.year }}</div>
         <div>{{ edge.node.gallery }}, {{ edge.node.location.en }} (solo)</div>
       </li>
-      <li v-else>
-        {{ edge.node.year }}&nbsp;&nbsp;&nbsp;&nbsp;{{ edge.node.gallery }}, {{ edge.node.location.pl }} (solo)
+      <li v-else class="exhibitions--list">
+        <div>{{ edge.node.year }}</div>
+        <div>{{ edge.node.gallery }}, {{ edge.node.location.pl }} (solo)</div>
       </li>
     </ul>
   </div>
