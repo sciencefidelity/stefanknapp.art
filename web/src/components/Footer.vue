@@ -1,7 +1,27 @@
 <template>
   <footer>
-    <div class="container-footer">
-      <locale-switcher />
+    <div class="footer__container">
+      <div class="footer__links">
+        <div v-if="$context.locale === 'en-gb'" class="footer__btn">
+          <g-link to="/en">
+            <img
+              alt="Link to home"
+              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 0 24 24' width='24px' fill='%23000000'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z'/%3E%3C/svg%3E"
+              loading="lazy"
+            />
+          </g-link>
+        </div>
+        <div v-else class="footer__btn">
+          <g-link to="/pl">
+            <img
+              alt="Link to home"
+              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 0 24 24' width='24px' fill='%23000000'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z'/%3E%3C/svg%3E"
+              loading="lazy"
+            />
+          </g-link>
+        </div>
+        <locale-switcher />
+      </div>
       <p v-if="$context.locale === 'en-gb'">
         &copy; {{ year }} The Estate of <g-link to="/en">Stefan Knapp</g-link>
       </p>
@@ -39,7 +59,7 @@ footer {
   z-index: 2;
 }
 
-.container-footer {
+.footer__container {
   width: min(100rem, 88%);
   margin: auto;
   text-align: right;
@@ -56,8 +76,13 @@ footer {
   }
 }
 
-.language {
-  text-align: left;
-  font-weight: 600;
+.footer__links {
+  display: flex;
 }
+
+.footer__btn {
+  width: 3rem;
+  padding: 1rem 0.7rem 1rem 0;
+}
+
 </style>
