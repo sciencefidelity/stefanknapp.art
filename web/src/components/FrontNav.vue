@@ -201,6 +201,9 @@ ul {
         -webkit-text-stroke-width: 0.015em;
         -webkit-text-stroke-color: c.$sepia-150;
         background-color: c.$sepia-150;
+        @include b.mq(sm) {
+          width: 100%;
+        }
       }
     }
   }
