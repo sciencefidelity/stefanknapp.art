@@ -3,8 +3,9 @@
     <h3 v-if="$context.locale === 'en-gb'">Selected exhibitions</h3>
     <h3 v-else>Wybrane wystawy</h3>
     <ul v-for="edge in $static.allSanityExhibition.edges" :key="edge.node.id">
-      <li v-if="$context.locale === 'en-gb'">
-        {{ edge.node.year }}&nbsp;&nbsp;&nbsp;&nbsp;{{ edge.node.gallery }}, {{ edge.node.location.en }} (solo)
+      <li v-if="$context.locale === 'en-gb'" class="exhibitions--list">
+        <div>{{ edge.node.year }}</div>
+        <div>{{ edge.node.gallery }}, {{ edge.node.location.en }} (solo)</div>
       </li>
       <li v-else>
         {{ edge.node.year }}&nbsp;&nbsp;&nbsp;&nbsp;{{ edge.node.gallery }}, {{ edge.node.location.pl }} (solo)
@@ -41,6 +42,13 @@
 ul {
   list-style: none;
   padding: 0;
+}
+
+.exhibitions--list {
+  display: flex;
+  div:first-child {
+    padding-right: 2rem;
+  }
 }
 
 </style>
