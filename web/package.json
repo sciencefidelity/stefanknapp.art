@@ -7,7 +7,7 @@
     "build": "gridsome build"
   },
   "dependencies": {
-    "@sanity/image-url": "^0.140.22",
+    "@sanity/image-url": "^1.0.1",
     "dotenv": "^10.0.0",
     "gridsome": "^0.7.23",
     "gridsome-plugin-i18n": "^1.6.0",
