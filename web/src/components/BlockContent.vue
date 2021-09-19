@@ -18,13 +18,13 @@
 </static-query>
 
 <script lang="ts">
-import PortableText from 'sanity-blocks-vue-component'
+import PortableText from "sanity-blocks-vue-component"
 export default {
   props: {
     blocks: Array
   },
   components: {
     PortableText
-  },
+  }
 }
 </script>

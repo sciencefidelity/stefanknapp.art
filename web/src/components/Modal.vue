@@ -15,10 +15,10 @@
     </div>
     <div class="modal__image">
       <lightbox-image
-        :title=title
-        :link=link
-        :width=width
-        :height=height
+        :title="title"
+        :link="link"
+        :width="width"
+        :height="height"
       />
       <p class="modal__caption">
         {{ title }} {{ date }}<br />{{ medium.toLowerCase() }}
@@ -28,12 +28,12 @@
 </template>
 
 <script lang="ts">
-import LightboxImage from '@/components/LightboxImage.vue'
+import LightboxImage from "@/components/LightboxImage.vue"
 
 export default {
-  name: 'Modal',
+  name: "Modal",
   components: {
-    LightboxImage,
+    LightboxImage
   },
   props: {
     title: String,
@@ -41,14 +41,14 @@ export default {
     medium: String,
     link: Object,
     width: Number,
-    height: Number,
+    height: Number
   },
   methods: {
     nextIndex() {
-      this.$emit('nextIndex')
+      this.$emit("nextIndex")
     },
     prevIndex() {
-      this.$emit('prevIndex')
+      this.$emit("prevIndex")
     }
   }
 }
@@ -112,5 +112,4 @@ export default {
     left: 3em;
   }
 }
-
 </style>

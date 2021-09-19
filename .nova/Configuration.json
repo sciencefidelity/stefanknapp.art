@@ -1,7 +1,7 @@
 {
   "apexskier.eslint.config.fixOnSave" : "Enable",
   "apexskier.typescript.config.organizeImportsOnSave" : "null",
-  "prettier.default-config.printWidth" : 90,
+  "prettier.default-config.printWidth" : 80,
   "tommasonegri.vue.config.vetur.completion.autoImport" : "Enable",
   "tommasonegri.vue.serverRunning" : true,
   "workspace.art_style" : 1,

@@ -3,26 +3,40 @@
     <div class="nav nav--front">
       <div class="hamburger" @click="toggleMenu()">
         <span class="screen-reader-text">Main Menu</span>
-        <div :class="[ showMenu ? 'hamburger__icon hamburger__icon--active' : 'hamburger__icon' ]"></div>
+        <div
+          :class="[
+            showMenu
+              ? 'hamburger__icon hamburger__icon--active'
+              : 'hamburger__icon'
+          ]"
+        ></div>
       </div>
-      <div :class="[ showMenu ? 'nav__active' : 'nav__inactive' ]">
+      <div :class="[showMenu ? 'nav__active' : 'nav__inactive']">
         <ul v-for="edge in $static.allSanityPage.edges" :key="edge.node.id">
           <li v-if="$context.locale === 'en-gb'">
-            <g-link  :to="`/en/${edge.node.slug.current}/`" :data-fill="edge.node.title.en">
+            <g-link
+              :to="`/en/${edge.node.slug.current}/`"
+              :data-fill="edge.node.title.en"
+            >
               {{ edge.node.title.en }}
             </g-link>
           </li>
           <li v-else>
-            <g-link :to="`/pl/${edge.node.slug.current}/`" :data-fill="edge.node.title.pl">
+            <g-link
+              :to="`/pl/${edge.node.slug.current}/`"
+              :data-fill="edge.node.title.pl"
+            >
               {{ edge.node.title.pl }}
             </g-link>
           </li>
         </ul>
         <div class="nav__title-container">
           <p class="nav__title">
-            {{ $context.locale === "en-gb" ?
-             'The Estate of Stefan Knapp' :
-             'Posiadłość Stefana Knappa' }}
+            {{
+              $context.locale === "en-gb"
+                ? "The Estate of Stefan Knapp"
+                : "Posiadłość Stefana Knappa"
+            }}
           </p>
         </div>
       </div>
@@ -50,12 +64,11 @@
 </static-query>
 
 <script lang="ts">
-
 export default {
-  name: 'FrontNav',
+  name: "FrontNav",
   data() {
     return {
-      showMenu: false,
+      showMenu: false
     }
   },
   methods: {
@@ -64,7 +77,6 @@ export default {
     }
   }
 }
-
 </script>
 
 <style lang="scss" scoped>
@@ -280,5 +292,4 @@ ul {
     }
   }
 }
-
 </style>

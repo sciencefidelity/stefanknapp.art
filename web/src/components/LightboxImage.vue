@@ -1,21 +1,19 @@
 <template>
-  <div
-    class="sanity-image"
-    :width=width
-    :height=height
-  >
+  <div class="sanity-image" :width="width" :height="height">
     <v-lazy-image
-      :alt=title
-      :src="$urlForImage(link, $static.metadata.sanityOptions)
-        .quality(70)
-        .width(600)
-        .fit(fit)
-        .crop(crop)
-        .url()"
+      :alt="title"
+      :src="
+        $urlForImage(link, $static.metadata.sanityOptions)
+          .quality(70)
+          .width(600)
+          .fit(fit)
+          .crop(crop)
+          .url()
+      "
       decoding="async"
       loading="lazy"
-      :width=width
-      :height=height
+      :width="width"
+      :height="height"
     />
   </div>
 </template>
@@ -32,10 +30,10 @@
 </static-query>
 
 <script lang="ts">
-import VLazyImage from "v-lazy-image";
+import VLazyImage from "v-lazy-image"
 
 export default {
-  name: 'SanityImage',
+  name: "SanityImage",
   components: {
     VLazyImage
   },
@@ -48,16 +46,16 @@ export default {
     height: Number,
     pos: {
       type: String,
-      default: '50% 50%',
+      default: "50% 50%"
     },
     fit: {
       type: String,
-      default: 'crop',
+      default: "crop"
     },
     crop: {
       type: String,
-      default: 'center',
-    },
+      default: "center"
+    }
   }
 }
 </script>

@@ -33,19 +33,18 @@
 </template>
 
 <script lang="ts">
-import LocaleSwitcher from '@/components/LocaleSwitcher.vue'
+import LocaleSwitcher from "@/components/LocaleSwitcher.vue"
 export default {
-  name: 'Footer',
+  name: "Footer",
   components: {
     LocaleSwitcher
   },
   data() {
     return {
-      year: new Date().getFullYear(),
+      year: new Date().getFullYear()
     }
   }
 }
-
 </script>
 
 <style lang="scss" scoped>
@@ -88,5 +87,4 @@ footer {
     padding: 0.7rem 0.7rem 1.3rem 0;
   }
 }
-
 </style>

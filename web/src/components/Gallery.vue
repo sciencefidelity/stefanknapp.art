@@ -19,8 +19,14 @@
       :date="$static.artwork.edges[currentIndex].node.date"
       :medium="$static.artwork.edges[currentIndex].node.medium[0].title.pl"
       :link="$static.artwork.edges[currentIndex].node.mainImage"
-      :width="$static.artwork.edges[currentIndex].node.mainImage.asset.metadata.dimensions.width"
-      :height="$static.artwork.edges[currentIndex].node.mainImage.asset.metadata.dimensions.height"
+      :width="
+        $static.artwork.edges[currentIndex].node.mainImage.asset.metadata
+          .dimensions.width
+      "
+      :height="
+        $static.artwork.edges[currentIndex].node.mainImage.asset.metadata
+          .dimensions.height
+      "
     />
   </div>
 </template>
@@ -61,10 +67,10 @@
 </static-query>
 
 <script lang="ts">
-import Modal from '@/components/Modal.vue'
+import Modal from "@/components/Modal.vue"
 
 export default {
-  name: 'Gallery',
+  name: "Gallery",
   components: {
     Modal
   },
@@ -90,15 +96,15 @@ export default {
     },
     onKeydown(e) {
       switch (e.key) {
-        case 'ArrowRight':
+        case "ArrowRight":
           this.nextIndex()
           break
-        case 'ArrowLeft':
+        case "ArrowLeft":
           this.prevIndex()
           break
-        case 'ArrowDown':
-        case 'ArrowUp':
-        case ' ':
+        case "ArrowDown":
+        case "ArrowUp":
+        case " ":
           e.preventDefault()
           break
       }
@@ -107,30 +113,32 @@ export default {
       if (e.changedTouches.length !== 1) {
         return
       }
-      const posXStart = e.changedTouches[0].clientX;
-      console.log('touched')
-      window.addEventListener('touchend', (e) => this.onTouchEnd(e, posXStart), {once: true})
+      const posXStart = e.changedTouches[0].clientX
+      console.log("touched")
+      window.addEventListener("touchend", e => this.onTouchEnd(e, posXStart), {
+        once: true
+      })
     },
     onTouchEnd(e, posXStart) {
       if (e.changedTouches.length !== 1) {
         return
       }
-      const posXEnd = e.changedTouches[0].clientX;
+      const posXEnd = e.changedTouches[0].clientX
       if (posXStart < posXEnd) {
         this.prevIndex()
       } else if (posXStart > posXEnd) {
         this.nextIndex()
       }
-      window.removeEventListener('touchend', this.onTouchStart)
+      window.removeEventListener("touchend", this.onTouchStart)
     }
   },
   mounted() {
-    window.addEventListener('keydown', this.onKeydown),
-    window.addEventListener('touchstart', this.onTouchStart)
+    window.addEventListener("keydown", this.onKeydown),
+      window.addEventListener("touchstart", this.onTouchStart)
   },
   destroyed() {
-    window.removeEventListener('keydown', this.onKeydown),
-    window.removeEventListener('touchstart', this.onTouchStart)
+    window.removeEventListener("keydown", this.onKeydown),
+      window.removeEventListener("touchstart", this.onTouchStart)
   }
 }
 </script>

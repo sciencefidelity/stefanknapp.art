@@ -1,11 +1,5 @@
 <template>
-  <video
-    autoplay
-    loop
-    muted
-    playsinline
-    :class="classname"
-  >
+  <video autoplay loop muted playsinline :class="classname">
     <source
       :src="$static.video.edges[randomVideo].node.mp4.asset.url"
       type="video/mp4"
@@ -18,11 +12,11 @@
       <source
         :srcset="$static.video.edges[randomVideo].node.mainImage.asset.url"
         type="image/webp"
-      >
+      />
       <source
         :srcset="$static.video.edges[randomVideo].node.mainImage.asset.url"
         type="image/jpeg"
-      >
+      />
       <img
         :src="$static.video.edges[randomVideo].node.mainImage.asset.url"
         :title="$static.video.edges[randomVideo].node.title.en"
@@ -71,14 +65,13 @@
 </static-query>
 
 <script lang="ts">
-
 export default {
-  name: 'VideoEmbed',
+  name: "VideoEmbed",
   props: {
     classname: {
       type: String,
-      default: 'video-embed',
-    },
+      default: "video-embed"
+    }
   },
   data() {
     return {
@@ -86,5 +79,4 @@ export default {
     }
   }
 }
-
 </script>

@@ -34,9 +34,9 @@
 </static-query>
 
 <script lang="ts">
-  export default {
-    name: 'Exhibitions'
-  }
+export default {
+  name: "Exhibitions"
+}
 </script>
 
 <style lang="scss" scoped>
@@ -51,5 +51,4 @@ ul {
     padding-right: 2rem;
   }
 }
-
 </style>
