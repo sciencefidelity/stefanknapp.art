@@ -50,7 +50,7 @@
   }
 </static-query>
 
-<script lang="ts">
+<script>
 import VLazyImage from "v-lazy-image/v2"
 
 export default {
