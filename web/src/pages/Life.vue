@@ -129,58 +129,64 @@
 </static-query>
 
 <script lang="ts">
-import SanityImage from '@/components/SanityImage.vue'
-import BlockContent from '@/components/BlockContent.vue'
-import VideoEmbed from '@/components/VideoEmbed.vue'
-import Exhibitions from '@/components/Exhibitions.vue'
+import SanityImage from "@/components/SanityImage.vue"
+import BlockContent from "@/components/BlockContent.vue"
+import VideoEmbed from "@/components/VideoEmbed.vue"
+import Exhibitions from "@/components/Exhibitions.vue"
 
 export default {
-  name: 'Life',
+  name: "Life",
   metaInfo() {
     return {
       title: this.$static.sanityPage.title.en,
       meta: [
         {
-          name: 'description',
+          name: "description",
           content: this.$static.sanityPage.ogDescription
         },
         {
-          property: 'og:title',
+          property: "og:title",
           content: this.$static.sanityPage.ogTitle
         },
         {
-          property: 'og:description',
+          property: "og:description",
           content: this.$static.sanityPage.ogDescription
         },
         {
-          property: 'og:image',
-          content: this.$urlForImage(this.$static.sanityPage.mainImage, this.$static.metadata.sanityOptions)
-          .auto('format')
-          .quality(80)
-          .width(1200)
-          .height(630)
-          .url()
+          property: "og:image",
+          content: this.$urlForImage(
+            this.$static.sanityPage.mainImage,
+            this.$static.metadata.sanityOptions
+          )
+            .auto("format")
+            .quality(80)
+            .width(1200)
+            .height(630)
+            .url()
         },
         {
-          name: 'twitter:card',
-          content: 'summary_large_image'
+          name: "twitter:card",
+          content: "summary_large_image"
         },
         {
-          name: 'twitter:title',
+          name: "twitter:title",
           content: this.$static.sanityPage.ogTitle
         },
         {
-          name: 'twitter:description',
+          name: "twitter:description",
           content: this.$static.sanityPage.ogDescription
         },
         {
-          name: 'twitter:image',
-          content: this.$urlForImage(this.$static.sanityPage.mainImage, this.$static.metadata.sanityOptions)
-          .auto('format')
-          .quality(80)
-          .width(1200)
-          .height(628)
-          .url()
+          name: "twitter:image",
+          content: this.$urlForImage(
+            this.$static.sanityPage.mainImage,
+            this.$static.metadata.sanityOptions
+          )
+            .auto("format")
+            .quality(80)
+            .width(1200)
+            .height(628)
+            .url()
         }
       ]
     }
@@ -274,5 +280,4 @@ export default {
   height: 100vh;
   object-fit: cover;
 }
-
 </style>

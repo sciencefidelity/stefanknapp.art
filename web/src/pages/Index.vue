@@ -22,10 +22,13 @@
         </div>
         <div class="row">
           <div class="front-copy">
-            <p>&copy; {{ copyright }}
-              {{ $context.locale === "en-gb" ?
-               'The Estate of Stefan Knapp' :
-               'Posiadłość Stefana Knappa' }}
+            <p>
+              &copy; {{ copyright }}
+              {{
+                $context.locale === "en-gb"
+                  ? "The Estate of Stefan Knapp"
+                  : "Posiadłość Stefana Knappa"
+              }}
             </p>
           </div>
         </div>
@@ -58,57 +61,62 @@ query {
 </static-query>
 
 <script lang="ts">
-
-import Layout from '@/layouts/FrontPage.vue'
-import FrontNav from '@/components/FrontNav.vue'
+import Layout from "@/layouts/FrontPage.vue"
+import FrontNav from "@/components/FrontNav.vue"
 
 export default {
-  name: 'Index',
+  name: "Index",
   metaInfo() {
     return {
       title: this.$static.sanityMeta.title,
       meta: [
         {
-          name: 'description',
+          name: "description",
           content: this.$static.sanityMeta.description
         },
         {
-          property: 'og:title',
+          property: "og:title",
           content: this.$static.sanityMeta.ogTitle
         },
         {
-          property: 'og:description',
+          property: "og:description",
           content: this.$static.sanityMeta.ogDescription
         },
         {
-          property: 'og:image',
-          content: this.$urlForImage(this.$static.sanityMeta.ogImage, this.$static.metadata.sanityOptions)
-          .auto('format')
-          .quality(80)
-          .width(1200)
-          .height(630)
-          .url()
+          property: "og:image",
+          content: this.$urlForImage(
+            this.$static.sanityMeta.ogImage,
+            this.$static.metadata.sanityOptions
+          )
+            .auto("format")
+            .quality(80)
+            .width(1200)
+            .height(630)
+            .url()
         },
         {
-          name: 'twitter:card',
-          content: 'summary_large_image'
+          name: "twitter:card",
+          content: "summary_large_image"
         },
         {
-          name: 'twitter:title',
+          name: "twitter:title",
           content: this.$static.sanityMeta.ogTitle
         },
         {
-          name: 'twitter:description',
+          name: "twitter:description",
           content: this.$static.sanityMeta.ogDescription
         },
         {
-          name: 'twitter:image',
-          content: this.$urlForImage(this.$static.sanityMeta.ogImage, this.$static.metadata.sanityOptions)
-          .auto('format')
-          .quality(80)
-          .width(1200)
-          .height(628)
-          .url()
+          name: "twitter:image",
+          content: this.$urlForImage(
+            this.$static.sanityMeta.ogImage,
+            this.$static.metadata.sanityOptions
+          )
+            .auto("format")
+            .quality(80)
+            .width(1200)
+            .height(628)
+            .url()
         }
       ]
     }
@@ -216,5 +224,4 @@ h1 {
     padding-bottom: 1%;
   }
 }
-
 </style>

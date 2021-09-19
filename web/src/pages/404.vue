@@ -16,16 +16,15 @@
 </template>
 
 <script lang="ts">
-
 export default {
-  name: '404',
+  name: "404",
   metaInfo() {
     return {
-      title: '404: not found',
+      title: "404: not found",
       meta: [
         {
-          name: 'description',
-          content: 'You just hit a route that doesn\'t exist... the sadness.'
+          name: "description",
+          content: "You just hit a route that doesn't exist... the sadness."
         }
       ]
     }
@@ -69,5 +68,4 @@ p {
     font-size: 1.6rem;
   }
 }
-
 </style>
