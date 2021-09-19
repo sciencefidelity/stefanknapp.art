@@ -1,20 +1,20 @@
 export default {
-  title: 'Image',
-  name: 'captionImage',
-  type: 'image',
+  title: "Image",
+  name: "captionImage",
+  type: "image",
   fields: [
     {
-      name: 'caption',
-      type: 'localeString',
-      title: 'Caption',
+      name: "caption",
+      type: "localeString",
+      title: "Caption",
       options: {
         isHighlighted: true
       }
     },
     {
-      name: 'Caption',
-      type: 'string',
-      title: 'Attribution',
+      name: "Caption",
+      type: "string",
+      title: "Attribution"
     }
   ],
   liveEdit: false

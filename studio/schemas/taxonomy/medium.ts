@@ -1,17 +1,17 @@
 export default {
-  name: 'medium',
-  title: 'Medium',
-  type: 'document',
+  name: "medium",
+  title: "Medium",
+  type: "document",
   fields: [
     {
-      name: 'title',
-      title: 'Title',
-      type: 'localeString',
-    },
+      name: "title",
+      title: "Title",
+      type: "localeString"
+    }
   ],
   preview: {
     select: {
-      title: 'title.en',
-    },
-  },
+      title: "title.en"
+    }
+  }
 }

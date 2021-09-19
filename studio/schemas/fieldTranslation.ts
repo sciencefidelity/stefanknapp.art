@@ -1,17 +1,17 @@
-import { supportedLanguages, baseLanguage } from './languages'
+import { supportedLanguages, baseLanguage } from "./languages"
 
 // This is the basis for all fields that should have translations.
 // Its used to fill out more complete field definitions in
 // 'translateDocs' below
 const languageField = {
-  type: 'object',
+  type: "object",
   fieldsets: [
     {
-      title: 'Translations',
-      name: 'translations',
+      title: "Translations",
+      name: "translations",
       options: { collapsible: true }
-    },
-  ],
+    }
+  ]
 }
 
 // We need to figure out which language to map the preview
@@ -25,12 +25,9 @@ const localizePreview = (preview: any) => {
   if (!select) return null
   return {
     select: {
-      ...(select.title
-        && { title: `${select.title}.${baseLanguage.name}` }),
-      ...(select.subtitle
-        && { subtitle: `${select.subtitle}` }),
-      ...(select.media
-        && { media: `${select.media}` }),
+      ...(select.title && { title: `${select.title}.${baseLanguage.name}` }),
+      ...(select.subtitle && { subtitle: `${select.subtitle}` }),
+      ...(select.media && { media: `${select.media}` })
     }
   }
 }
@@ -40,7 +37,8 @@ export const translateFields = (docs: any) => {
     // Change all the fields to object versions with properties for each
     // language, if either the document has localize: true or individual fields
     const fields = doc.fields.map((field: any) => {
-      const shouldLocalize = field.type !== 'reference' && (doc.localize || field.localize)
+      const shouldLocalize =
+        field.type !== "reference" && (doc.localize || field.localize)
       // Use the field defined as-is if its not to be translated
       if (!shouldLocalize || field.localize === false) return field
 
@@ -52,7 +50,7 @@ export const translateFields = (docs: any) => {
           title: language.title,
           name: language.name,
           // All other languages except the first one is collapsed by default
-          fieldset: i === 0 ? null : 'translations',
+          fieldset: i === 0 ? null : "translations"
         }))
       }
     })

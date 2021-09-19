@@ -4,12 +4,12 @@
 
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
-const clientConfig = require('./client-config')
+const clientConfig = require("./client-config")
 
 module.exports = function (api) {
   api.loadSource(store => {
     // Use the Data Store API here: https://gridsome.org/docs/data-store-api/
-    store.addMetadata('sanityOptions', clientConfig.sanity)
+    store.addMetadata("sanityOptions", clientConfig.sanity)
   })
 
   api.createSchema(({ addSchemaTypes }) => {
