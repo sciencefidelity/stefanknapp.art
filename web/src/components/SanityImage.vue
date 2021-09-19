@@ -51,7 +51,7 @@
 </static-query>
 
 <script lang="ts">
-import VLazyImage from "v-lazy-image"
+import VLazyImage from "v-lazy-image/v2"
 
 export default {
   name: "SanityImage",
