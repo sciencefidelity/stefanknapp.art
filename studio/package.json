@@ -7,7 +7,7 @@
   "author": "Matt Cook <matt@sciencefidelity.co.uk>",
   "license": "UNLICENSED",
   "scripts": {
-    "dev": "sanity start",
+    "dev": "sanity start --host=0.0.0.0",
     "build": "sanity build",
     "deploy": "sanity deploy && sanity graphql deploy --playground",
     "lint": "eslint .",

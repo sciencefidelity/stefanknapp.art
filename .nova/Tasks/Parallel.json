@@ -1,0 +1,14 @@
+{
+  "actions" : {
+    "build" : {
+      "enabled" : true,
+      "script" : "#!\/bin\/sh\npnpm run build"
+    },
+    "run" : {
+      "enabled" : true,
+      "script" : "#!\/bin\/sh\npnpm run dev"
+    }
+  },
+  "identifier" : "DB567450-C1D3-487C-8858-64181DC9E659",
+  "openLogOnRun" : "start"
+}
