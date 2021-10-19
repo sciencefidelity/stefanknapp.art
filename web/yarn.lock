@@ -4431,10 +4431,10 @@ gridsome-plugin-i18n@^1.6.0:
     core-js "^3.6.4"
     vue-i18n "^8.15.5"
 
-gridsome-source-sanity@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/gridsome-source-sanity/-/gridsome-source-sanity-1.1.0.tgz#b9c637e4925bae007f6e19525edd6c5ce585225b"
-  integrity sha512-PSRCEvAnCL4ba64vvf82wFJNxr+CpgHvpC8UHQUnC+jXRiIJGCw9i3WBbbT3by0hp1PT3VXNrZytIvMnjkMUrw==
+gridsome-source-sanity@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/gridsome-source-sanity/-/gridsome-source-sanity-1.2.0.tgz#c8c26d0a4c66d3a1233875f50d9f089936190891"
+  integrity sha512-5qIO+BXLsUPtZTbCcOqGlEa8qVMLT4dyyQXIAJVuCFDny3VgkjfVPlg1STANx942oLvKAsL0+3yO2cMKk942fw==
   dependencies:
     "@sanity/client" "^2.19.0"
     axios "^0.22.0"
