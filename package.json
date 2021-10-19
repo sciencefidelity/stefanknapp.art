@@ -1,7 +1,20 @@
 {
+  "name": "stefanknapp-studio",
+  "description": "Website about the artist Stefan Knapp",
   "private": true,
-  "name": "stefan-knapp",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "author": "Matt Cook <matt@sciencefidelity.co.uk>",
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:sciencefidelity/stefanknapp.git"
+  },
+  "homepage": "https://stefanknapp.art",
+  "keywords": [
+    "gridsome",
+    "vue",
+    "sanity"
+  ],
   "scripts": {
     "build": "pnpm run build --parallel",
     "dev": "pnpm run dev --parallel",
