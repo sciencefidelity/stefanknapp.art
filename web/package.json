@@ -1,11 +1,19 @@
 {
-  "name": "knapp-stage",
+  "name": "stefanknapp-web",
+  "description": "Website about the artist Stefan Knapp",
   "private": true,
-  "scripts": {
-    "dev": "gridsome develop",
-    "explore": "gridsome explore",
-    "build": "gridsome build"
+  "version": "1.0.0",
+  "author": "Matt Cook <matt@sciencefidelity.co.uk>",
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:sciencefidelity/stefanknapp.git"
   },
+  "homepage": "https://stefanknapp.art",
+  "keywords": [
+    "gridsome",
+    "vue"
+  ],
   "dependencies": {
     "@sanity/image-url": "^1.0.1",
     "dotenv": "^10.0.0",
@@ -16,7 +24,7 @@
     "v-lazy-image": "^1.4.0"
   },
   "devDependencies": {
-    "sass": "^1.34.0",
-    "sass-loader": "^10.2.0"
+    "sass": "^1.43.2",
+    "sass-loader": "^12.2.0"
   }
 }
