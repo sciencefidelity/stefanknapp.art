@@ -26,7 +26,7 @@
     "gridsome-plugin-i18n": "^1.6.0",
     "gridsome-source-sanity": "^1.1.0",
     "sanity-blocks-vue-component": "^0.1.0",
-    "v-lazy-image": "^1.4.0"
+    "v-lazy-image": "^2.0.1"
   },
   "devDependencies": {
     "sass": "^1.43.2",
