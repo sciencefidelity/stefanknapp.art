@@ -1239,10 +1239,10 @@
     postcss-value-parser "^3.3.0"
     source-list-map "^2.0.0"
 
-"@sanity/dashboard@^2.21.4":
-  version "2.21.4"
-  resolved "https://registry.npmjs.org/@sanity/dashboard/-/dashboard-2.21.4.tgz#1938f2eb7d19453ad59387aeaa852e01c45bea07"
-  integrity sha512-lOMAybl1oxc8/yTf3/YNj0yoxsXuJxv1DIEpNrxwjBEEXfMHQ/nSUz9LWb/n1IlBEkJPoylY8KSE9CMxANvbgw==
+"@sanity/dashboard@^2.21.5":
+  version "2.21.5"
+  resolved "https://registry.yarnpkg.com/@sanity/dashboard/-/dashboard-2.21.5.tgz#6da0cf0363a19c797a1d854a47747e16488e651b"
+  integrity sha512-7Vy2UL1MjLa3fSUqJm23Xu6tNl4IR8zRa/rFMV5Q6j8Gw3CMtYI/Gve88e4mEHbfFHeX0Ab8h4VNvZuPysC8ug==
   dependencies:
     "@sanity/icons" "^1.2.1"
     "@sanity/image-url" "^1.0.1"
