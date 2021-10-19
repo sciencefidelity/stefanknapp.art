@@ -15,6 +15,9 @@ updates:
       - dependency-name: "@sanity/vision"
   - package-ecosystem: "npm"
     directory: "/web"
+    ignore:
+      - dependency-name: "@sanity/base"
+      - dependency-name: "v-lazy-image"
     schedule:
       interval: "monthly"
   - package-ecosystem: "npm"
