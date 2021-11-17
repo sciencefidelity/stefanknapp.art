@@ -571,6 +571,11 @@
     estree-walker "^2.0.1"
     picomatch "^2.2.2"
 
+"@sanity/image-url@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@sanity/image-url/-/image-url-1.0.1.tgz#960d649b2f4396da0adb31cf94503c929495cea0"
+  integrity sha512-AdKQ3zMk7WdoNwoJPrAvQhW+kUtBldBX0nHtnGy+rwmgsCQ0rAXasrgH43Fhmsp/yB6piiq+F2d5qEuBFsdQVg==
+
 "@trysound/sax@0.2.0":
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/@trysound/sax/-/sax-0.2.0.tgz#cccaab758af56761eb7bf37af6f03f326dd798ad"
@@ -2559,6 +2564,11 @@ graceful-fs@^4.1.15, graceful-fs@^4.1.2, graceful-fs@^4.1.6, graceful-fs@^4.2.0,
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.8.tgz#e412b8d33f5e006593cbd3cee6df9f2cebbe802a"
   integrity sha512-qkIilPUYcNhJpd33n0GBXTB1MMPp14TxEsEs0pTrsSVucApsYzW5V+Q8Qxhik6KU3evy+qkAAowTByymK0avdg==
 
+groq@^2.15.0:
+  version "2.15.0"
+  resolved "https://registry.yarnpkg.com/groq/-/groq-2.15.0.tgz#d5618e0424c866a7998722d6ed441b3cc97e8de3"
+  integrity sha512-V3VLBLftaEylbeXDwb2VoGa87SFLGLbU9h6Lz7vuZK+wcs4Kk92qG3A8nWtsdCp63hYKft0/AaXuanbkch0GeA==
+
 gzip-size@^6.0.0:
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/gzip-size/-/gzip-size-6.0.0.tgz#065367fd50c239c0671cbcbad5be3e2eeb10e462"
@@ -3195,6 +3205,11 @@ lodash.memoize@^4.1.2:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/lodash.memoize/-/lodash.memoize-4.1.2.tgz#bcc6c49a42a2840ed997f323eada5ecd182e0bfe"
   integrity sha1-vMbEmkKihA7Zl/Mj6tpezRguC/4=
+
+lodash.merge@^4.6.2:
+  version "4.6.2"
+  resolved "https://registry.yarnpkg.com/lodash.merge/-/lodash.merge-4.6.2.tgz#558aa53b43b661e1925a0afdfa36a9a1085fe57a"
+  integrity sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==
 
 lodash.template@^4.5.0:
   version "4.5.0"
@@ -4412,6 +4427,19 @@ safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
 
+sanitize.css@^13.0.0:
+  version "13.0.0"
+  resolved "https://registry.yarnpkg.com/sanitize.css/-/sanitize.css-13.0.0.tgz#2675553974b27964c75562ade3bd85d79879f173"
+  integrity sha512-ZRwKbh/eQ6w9vmTjkuG0Ioi3HBwPFce0O+v//ve+aOq1oeCy7jMV2qzzAlpsNuqpqCBjjriM1lbtZbF/Q8jVyA==
+
+sanity-blocks-vue-component@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/sanity-blocks-vue-component/-/sanity-blocks-vue-component-1.0.1.tgz#7237f1d7c7b150533f31e62bdfb54abca6e96fc3"
+  integrity sha512-ba59NoGz3NENuIIAKMtjg/JWoyQVpHccanyenEVrT0A1cr3t1/75tUX9XSBMUUe6QyKEedjjJeO6KtNbEzeBRQ==
+  dependencies:
+    lodash.merge "^4.6.2"
+    vue "^3.0.0"
+
 sax@^1.2.4:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
@@ -5043,6 +5071,11 @@ utils-merge@1.0.1:
   resolved "https://registry.yarnpkg.com/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
   integrity sha1-n5VxD1CiZ5R7LMwSR0HBAoQn5xM=
 
+v-lazy-image@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/v-lazy-image/-/v-lazy-image-2.0.1.tgz#5a17baf8e31a60931ff965375d1a640e7ca0bedb"
+  integrity sha512-2e29ouwRb2RwllL2sl1ZHbRiWXjbphzjA42QH8seoYBPINGPm2atRyFHq7SLU243FyMLhJEF2M87Csv/p/+Q7Q==
+
 vite@^2.6.14:
   version "2.6.14"
   resolved "https://registry.yarnpkg.com/vite/-/vite-2.6.14.tgz#35c09a15e4df823410819a2a239ab11efb186271"
@@ -5100,7 +5133,7 @@ vue-style-loader@^4.1.3:
     hash-sum "^1.0.2"
     loader-utils "^1.0.2"
 
-vue@^3.2.22:
+vue@^3.0.0, vue@^3.2.22:
   version "3.2.22"
   resolved "https://registry.yarnpkg.com/vue/-/vue-3.2.22.tgz#46e4dd89e98cc4b851ae1eb35f00ced413a34bb7"
   integrity sha512-KD5nZpXVZquOC6926Xnp3zOvswrUyO9Rya7ZUoxWFQEjFDW4iACtwzubRB4Um2Om9kj6CaJOqAVRDSFlqLpdgw==
