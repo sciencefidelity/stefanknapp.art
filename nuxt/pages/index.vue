@@ -5,15 +5,15 @@
         <div class="row">
           <div class="col logo">
             <div class="circle">
-              <g-link v-if="$context.locale === 'en-gb'" to="/en/art/">
+              <NuxtLink v-if="$context.locale === 'en-gb'" to="/en/art/">
                 <div class="title"><h1>Knapp</h1></div>
-              </g-link>
-              <g-link v-else to="/pl/art/">
+              </NuxtLink>
+              <NuxtLink v-else to="/pl/art/">
                 <div class="title"><h1>Knapp</h1></div>
-              </g-link>
+              </NuxtLink>
             </div>
           </div>
-          <front-nav />
+          <FrontNav />
         </div>
         <div class="row">
           <div class="col">
@@ -111,8 +111,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@use "../assets/scss/colors" as c;
-@use "../assets/scss/breakpoints" as b;
+@use "../styles/foundation/colors" as c;
+@use "../styles/foundation/breakpoints" as b;
 
 ::selection {
   background: rgba(c.$sepia-150, 0.3);
