@@ -1,6 +1,6 @@
 # stefanknapp.art
 
-Website about the artist Stefan Knapp.
+The Estate of Polish artist Stefan Knapp.
 
 [stefanknapp.art](https://stefanknapp.art/)
 
