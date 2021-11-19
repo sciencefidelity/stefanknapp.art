@@ -1,14 +1,11 @@
 <template>
-  <layout>
+  <Layout>
     <section id="site-main">
       <div class="container-fluid">
         <div class="row">
           <div class="col logo">
             <div class="circle">
-              <NuxtLink v-if="$context.locale === 'en-gb'" to="/en/art/">
-                <div class="title"><h1>Knapp</h1></div>
-              </NuxtLink>
-              <NuxtLink v-else to="/pl/art/">
+              <NuxtLink to="/">
                 <div class="title"><h1>Knapp</h1></div>
               </NuxtLink>
             </div>
@@ -22,49 +19,47 @@
         </div>
         <div class="row">
           <div class="front-copy">
-            <p>
-              &copy; {{ copyright }}
-              {{
-                $context.locale === "en-gb"
-                  ? "The Estate of Stefan Knapp"
-                  : "Posiadłość Stefana Knappa"
-              }}
-            </p>
+            <p>&copy; {{ copyright }} The Estate of Stefan Knapp</p>
           </div>
         </div>
       </div>
     </section>
-  </layout>
+  </Layout>
 </template>
 
 <script lang="ts">
+import groq from "groq"
+import sanityClient from "../sanityClient"
 import Layout from "@/layouts/FrontPage.vue"
 import FrontNav from "@/components/FrontNav.vue"
+
+const query = groq`
+  {
+    "meta": *[_type == 'meta']{ title, description, ogTitle, ogDescription, ogImage }
+  }
+`
 
 export default {
   name: "Index",
   metaInfo() {
     return {
-      title: this.$static.sanityMeta.title,
+      title: this.meta.title,
       meta: [
         {
           name: "description",
-          content: this.$static.sanityMeta.description
+          content: this.meta.description
         },
         {
           property: "og:title",
-          content: this.$static.sanityMeta.ogTitle
+          content: this.meta.ogTitle
         },
         {
           property: "og:description",
-          content: this.$static.sanityMeta.ogDescription
+          content: this.meta.ogDescription
         },
         {
           property: "og:image",
-          content: this.$urlForImage(
-            this.$static.sanityMeta.ogImage,
-            this.$static.metadata.sanityOptions
-          )
+          content: this.$urlForImage(this.meta.ogImage, sanityClient)
             .auto("format")
             .quality(80)
             .width(1200)
@@ -77,18 +72,15 @@ export default {
         },
         {
           name: "twitter:title",
-          content: this.$static.sanityMeta.ogTitle
+          content: this.meta.ogTitle
         },
         {
           name: "twitter:description",
-          content: this.$static.sanityMeta.ogDescription
+          content: this.meta.ogDescription
         },
         {
           name: "twitter:image",
-          content: this.$urlForImage(
-            this.$static.sanityMeta.ogImage,
-            this.$static.metadata.sanityOptions
-          )
+          content: this.$urlForImage(this.meta.ogImage, sanityClient)
             .auto("format")
             .quality(80)
             .width(1200)
@@ -111,8 +103,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@use "../styles/foundation/colors" as c;
-@use "../styles/foundation/breakpoints" as b;
+@use "../assets/foundation/colors" as c;
+@use "../assets/foundation/breakpoints" as b;
 
 ::selection {
   background: rgba(c.$sepia-150, 0.3);

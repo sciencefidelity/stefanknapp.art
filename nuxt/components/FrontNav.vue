@@ -12,32 +12,18 @@
         ></div>
       </div>
       <div :class="[showMenu ? 'nav__active' : 'nav__inactive']">
-        <ul v-for="edge in $static.allSanityPage.edges" :key="edge.node.id">
-          <li v-if="$context.locale === 'en-gb'">
-            <g-link
-              :to="`/en/${edge.node.slug.current}/`"
-              :data-fill="edge.node.title.en"
+        <ul v-for="page in pages" :key="page._id">
+          <li>
+            <NuxtLink
+              :to="`/en/${page.slug.current}/`"
+              :data-fill="page.title.en"
             >
-              {{ edge.node.title.en }}
-            </g-link>
-          </li>
-          <li v-else>
-            <g-link
-              :to="`/pl/${edge.node.slug.current}/`"
-              :data-fill="edge.node.title.pl"
-            >
-              {{ edge.node.title.pl }}
-            </g-link>
+              {{ page.title.en }}
+            </NuxtLink>
           </li>
         </ul>
         <div class="nav__title-container">
-          <p class="nav__title">
-            {{
-              $context.locale === "en-gb"
-                ? "The Estate of Stefan Knapp"
-                : "Posiadłość Stefana Knappa"
-            }}
-          </p>
+          <p class="nav__title">The Estate of Stefan Knapp</p>
         </div>
       </div>
     </div>
@@ -45,6 +31,14 @@
 </template>
 
 <script lang="ts">
+import groq from "groq"
+
+const query = groq`
+  {
+    "pages": *[_type == 'page']{ _id, title { en, pl }, slug {current} }
+  }
+`
+
 export default {
   name: "FrontNav",
   data() {
@@ -61,8 +55,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@use "../styles/foundation/colors" as c;
-@use "../styles/foundation/breakpoints" as b;
+@use "../assets/foundation/colors" as c;
+@use "../assets/foundation/breakpoints" as b;
 
 ::selection {
   background: rgba(c.$sepia-150, 0.3);
