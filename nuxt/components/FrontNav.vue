@@ -12,10 +12,10 @@
         ></div>
       </div>
       <div :class="[showMenu ? 'nav__active' : 'nav__inactive']">
-        <ul v-for="page in pages" :key="page._id">
-          <li>
+        <ul>
+          <li v-for="page in pages" :key="page._id">
             <NuxtLink
-              :to="`/en/${page.slug.current}/`"
+              :to="{ path: `${page.slug.current}` }"
               :data-fill="page.title.en"
             >
               {{ page.title.en }}
@@ -32,15 +32,19 @@
 
 <script lang="ts">
 import groq from "groq"
+import sanityClient from "../sanityClient"
 
 const query = groq`
   {
-    "pages": *[_type == 'page']{ _id, title { en, pl }, slug {current} }
+    "pages": *[_type == 'page']{ _id, title, slug }
   }
 `
 
 export default {
   name: "FrontNav",
+  async asyncData() {
+    return await sanityClient.fetch(query)
+  },
   data() {
     return {
       showMenu: false
