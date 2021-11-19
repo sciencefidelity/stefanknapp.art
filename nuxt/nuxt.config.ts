@@ -5,6 +5,10 @@ export default defineNuxtConfig({
   css: [
     '@/assets/main.scss'
   ],
+  // publicRuntimeConfig: {
+  //   sanityProjectId: process.env.SANITY_PROJECT_ID,
+  //   sanityDataset: process.env.SANITY_DATASET
+  // },
   buildModules: ['@intlify/nuxt3'],
   intlify: {
     locales: [
