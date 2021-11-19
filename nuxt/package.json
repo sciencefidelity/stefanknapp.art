@@ -6,6 +6,7 @@
     "start": "node .output/server/index.mjs"
   },
   "devDependencies": {
+    "@intlify/nuxt3": "^0.1.8",
     "eslint": "^8.2.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-nuxt": "^3.0.0",
@@ -17,7 +18,7 @@
     "sass-loader": "10"
   },
   "dependencies": {
-    "@nuxtjs/i18n": "^7.2.0",
+    "@sanity/client": "^2.21.10",
     "@sanity/image-url": "^1.0.1",
     "groq": "^2.15.0",
     "sanitize.css": "^13.0.0",
