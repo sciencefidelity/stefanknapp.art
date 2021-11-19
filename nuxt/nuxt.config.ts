@@ -2,9 +2,22 @@ import { defineNuxtConfig } from "nuxt3"
 
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
-  modules: ["@nuxtjs/i18n"],
-  i18n: {
-    locales: ["en", "pl"],
+  css: [
+    '@/assets/main.scss'
+  ],
+  buildModules: ['@intlify/nuxt3'],
+  intlify: {
+    locales: [
+      {
+        code: "en",
+        iso: "en-GB"
+      },
+      {
+        code: "es",
+        iso: "pl-PL"
+      }
+    ],
+    baseUrl: "https://stefanknapp.art",
     defaultLocale: "en",
     vueI18n: {
       fallbackLocale: "en",
@@ -16,6 +29,11 @@ export default defineNuxtConfig({
           welcome: "Witamy"
         }
       }
+    },
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: "i18n_redirected",
+      redirectOn: "root"
     }
   }
 })
