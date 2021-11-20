@@ -1,7 +1,6 @@
-@use 'foundation/normalize';
-@use 'foundation/typography' as t;
-@use 'foundation/colors' as c;
-@use 'foundation/breakpoints' as b;
+@use 'typography' as t;
+@use 'colors' as c;
+@use 'breakpoints' as b;
 
 *,
 *::after,
