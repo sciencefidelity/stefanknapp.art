@@ -1,0 +1,13 @@
+{
+  "actions" : {
+    "build" : {
+      "enabled" : true,
+      "script" : "#!\/bin\/sh\ncd nuxt\nyarn build"
+    },
+    "run" : {
+      "enabled" : true,
+      "script" : "#!\/bin\/sh\ncd nuxt\nyarn build"
+    }
+  },
+  "identifier" : "B318AB29-CC1F-4C96-918D-20FC7BFE2914"
+}
