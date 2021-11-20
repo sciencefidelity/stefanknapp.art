@@ -64,7 +64,9 @@
 </static-query>
 
 <script lang="ts">
-export default {
+import Vue from "vue"
+
+export default Vue.extend({
   name: "FrontNav",
   data() {
     return {
@@ -76,7 +78,7 @@ export default {
       this.showMenu = !this.showMenu
     }
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>
