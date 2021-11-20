@@ -13,12 +13,12 @@
       </div>
       <div :class="[showMenu ? 'nav__active' : 'nav__inactive']">
         <ul>
-          <li v-for="page in pages" :key="page._id">
+          <li>
             <NuxtLink
-              :to="{ path: `${page.slug.current}` }"
-              :data-fill="page.title.en"
+              :to="{ path: `${slug.current}` }"
+              :data-fill="title.en"
             >
-              {{ page.title.en }}
+              {{ title.en }}
             </NuxtLink>
           </li>
         </ul>
@@ -34,21 +34,26 @@
 import groq from "groq"
 import sanityClient from "../sanityClient"
 
-const query = groq`
-  {
-    "pages": *[_type == 'page']{ _id, title, slug }
-  }
-`
+interface Props {
+  _id: string
+  title: string
+  slug: string
+}
 
 export default {
   name: "FrontNav",
-  async asyncData() {
-    return await sanityClient.fetch(query)
-  },
-  data() {
-    return {
-      showMenu: false
-    }
+  data: () => ({
+    _id: "",
+    title: "",
+    slug: "",
+    showMenu: false
+  }),
+  async fetch() {
+    const query = groq`*[_type == 'page'][0]{ _id, title, slug }`
+    const data: Props = await this.$sanity.fetch(query)
+    this.id = data._id
+    this.title = data.title
+    this.slug = data.slug
   },
   methods: {
     toggleMenu() {
@@ -59,8 +64,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@use "../assets/foundation/colors" as c;
-@use "../assets/foundation/breakpoints" as b;
+@use "../assets/css/colors" as c;
+@use "../assets/css/breakpoints" as b;
 
 ::selection {
   background: rgba(c.$sepia-150, 0.3);

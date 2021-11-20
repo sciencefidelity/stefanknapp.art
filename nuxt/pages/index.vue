@@ -19,7 +19,9 @@
         </div>
         <div class="row">
           <div class="front-copy">
-            <p>&copy; {{ copyright }} The Estate of Stefan Knapp</p>
+            <p>
+              &copy; {{ new Date().getFullYear() }} The Estate of Stefan Knapp
+            </p>
           </div>
         </div>
       </div>
@@ -33,78 +35,39 @@ import sanityClient from "../sanityClient"
 import Layout from "@/layouts/FrontPage.vue"
 import FrontNav from "@/components/FrontNav.vue"
 
-const query = groq`
-  {
-    "meta": *[_type == 'meta']{ title, description, ogTitle, ogDescription, ogImage }
-  }
-`
+interface Props {
+  title: string
+  description: string
+  ogTitle: string
+  ogDescription: string
+  ogImage: string
+}
 
 export default {
-  name: "Index",
-  metaInfo() {
-    return {
-      title: this.meta.title,
-      meta: [
-        {
-          name: "description",
-          content: this.meta.description
-        },
-        {
-          property: "og:title",
-          content: this.meta.ogTitle
-        },
-        {
-          property: "og:description",
-          content: this.meta.ogDescription
-        },
-        {
-          property: "og:image",
-          content: this.$urlForImage(this.meta.ogImage, sanityClient)
-            .auto("format")
-            .quality(80)
-            .width(1200)
-            .height(630)
-            .url()
-        },
-        {
-          name: "twitter:card",
-          content: "summary_large_image"
-        },
-        {
-          name: "twitter:title",
-          content: this.meta.ogTitle
-        },
-        {
-          name: "twitter:description",
-          content: this.meta.ogDescription
-        },
-        {
-          name: "twitter:image",
-          content: this.$urlForImage(this.meta.ogImage, sanityClient)
-            .auto("format")
-            .quality(80)
-            .width(1200)
-            .height(628)
-            .url()
-        }
-      ]
-    }
-  },
+  name: "index",
   components: {
     Layout,
     FrontNav
   },
-  data() {
-    return {
-      copyright: new Date().getFullYear()
-    }
+  data: () => ({
+    title: "",
+    description: "",
+    ogTitle: "",
+    ogDescription: "",
+    ogImage: ""
+  }),
+  async fetch() {
+    const query = groq`*[_type == 'meta']{
+      title, description, ogTitle, ogDescription, ogImage
+    }`
+    const data: Props = await this.$sanity.fetch(query)
   }
 }
 </script>
 
 <style lang="scss" scoped>
-@use "../assets/foundation/colors" as c;
-@use "../assets/foundation/breakpoints" as b;
+@use "../assets/css/colors" as c;
+@use "../assets/css/breakpoints" as b;
 
 ::selection {
   background: rgba(c.$sepia-150, 0.3);
