@@ -32,9 +32,13 @@
     "eslint-plugin-vue": "^7.12.1",
     "jest": "^27.0.5",
     "prettier": "^2.3.2",
+    "sass": "^1.43.4",
+    "sass-loader": "^10.1.1",
     "stylelint": "^13.13.1",
     "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-sass-guidelines": "^9.0.1",
     "stylelint-config-standard": "^22.0.0",
+    "stylelint-scss": "^4.0.0",
     "ts-jest": "^27.0.3",
     "vue-jest": "^3.0.4"
   }
