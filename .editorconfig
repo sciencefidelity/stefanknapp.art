@@ -5,26 +5,29 @@ root = true
 
 # Unix-style newlines with a newline ending every file
 [*]
+indent_style = space
 end_of_line = lf
 insert_final_newline = true
 charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+# Markdown
+[*.md]
+trim_trailing_whitespace = false
 
 # Vue
 [*.vue]
-indent_style = space
 indent_size = 2
 
 # TypeScript, JavaScript
 [*.{ts,js}]
-indent_style = space
 indent_size = 2
 
 # scss
 [*.scss]
-indent_style = space
 indent_size = 2
 
 # json
 [*.json]
-indent_style = space
 indent_size = 2
