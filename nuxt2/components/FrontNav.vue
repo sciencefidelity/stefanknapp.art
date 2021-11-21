@@ -13,12 +13,12 @@
       </div>
       <div :class="[showMenu ? 'nav__active' : 'nav__inactive']">
         <ul>
-          <li v-for="edge in $static.allSanityPage.edges" :key="edge.node.id">
+          <li v-for="page in pages" :key="page.id">
             <NuxtLink
-              :to="`/en/${edge.node.slug.current}/`"
-              :data-fill="edge.node.title.en"
+              :to="`${page.slug.current}`"
+              :data-fill="page.title.en"
             >
-              {{ edge.node.title.en }}
+              {{ title }}
             </NuxtLink>
           </li>
         </ul>
@@ -32,13 +32,22 @@
 
 <script lang="ts">
 import Vue from "vue"
+import { groq } from "@nuxtjs/sanity"
+
+interface Props {
+  pages: []
+}
 
 export default Vue.extend({
   name: "FrontNav",
-  data() {
-    return {
-      showMenu: false
-    }
+  data: () => ({
+    showMenu: false,
+    pages: []
+  }),
+  async fetch() {
+    const query = groq`*[_type == 'page']{ _id, title, slug }`
+    const data: Props = await this.$sanity.fetch(query)
+    this.pages = data
   },
   methods: {
     toggleMenu(): boolean {
@@ -49,8 +58,8 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-@use "../assets/css/colors" as c;
-@use "../assets/css/breakpoints" as b;
+@use '../assets/css/colors' as c;
+@use '../assets/css/breakpoints' as b;
 
 ::selection {
   background: rgba(c.$sepia-150, 0.3);
@@ -214,7 +223,7 @@ ul {
     &::before,
     &::after {
       background: c.$sepia-150;
-      content: "";
+      content: '';
       display: block;
       height: 0.4em;
       position: absolute;

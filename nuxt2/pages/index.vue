@@ -30,8 +30,13 @@
 </template>
 
 <script lang="ts">
+import { groq } from "@nuxtjs/sanity"
 import Layout from "@/layouts/FrontPage.vue"
 import FrontNav from "@/components/FrontNav.vue"
+
+const query = groq`*[_type == 'meta']{
+  title, description, ogTitle, ogDescription, ogImage
+}`
 
 export default {
   name: "Index",
