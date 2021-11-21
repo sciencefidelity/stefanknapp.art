@@ -1,5 +1,5 @@
 {
-  "name": "The Estate of Stefan Knapp",
+  "name": "stefanknapp-web",
   "description": "The art, life and estate of Polish Enamelist Stefan Knapp",
   "private": true,
   "version": "0.1.0",
@@ -27,6 +27,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@nuxtjs/sanity": "^0.10.0",
     "core-js": "^3.15.1",
     "nuxt-edge": "latest",
     "sanitize.css": "^13.0.0"
@@ -35,8 +36,6 @@
     "@babel/eslint-parser": "^7.14.7",
     "@nuxt/bridge": "npm:@nuxt/bridge-edge",
     "@nuxt/types": "^2.15.7",
-    "@nuxt/typescript-build": "^2.1.0",
-    "@nuxt/typescript-runtime": "^2.1.0",
     "@nuxtjs/eslint-config-typescript": "^6.0.1",
     "@nuxtjs/eslint-module": "^3.0.2",
     "@nuxtjs/stylelint-module": "^4.0.0",
