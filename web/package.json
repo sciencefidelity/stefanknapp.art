@@ -1,8 +1,8 @@
 {
   "name": "stefanknapp-web",
-  "description": "Website about the artist Stefan Knapp",
+  "description": "The art, life and estate of Polish enamelist Stefan Knapp",
   "private": true,
-  "version": "1.0.0",
+  "version": "0.1.0",
   "author": "Matt Cook <matt@sciencefidelity.co.uk>",
   "license": "UNLICENSED",
   "repository": {

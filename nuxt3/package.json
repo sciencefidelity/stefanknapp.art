@@ -1,13 +1,19 @@
 {
+  "name": "stefanknapp-web",
+  "description": "The art, life and estate of Polish enamelist Stefan Knapp",
   "private": true,
-  "scripts": {
-    "dev": "nuxi dev",
-    "build": "nuxi generate",
-    "start": "node .output/server/index.mjs",
-    "lint:js": "eslint --ext \".js,.vue\" --ignore-path ../.gitignore .",
-    "lint:style": "stylelint \"**/*.{vue,css}\" --ignore-path .gitignore",
-    "lint": "yarn lint:js && yarn lint:style"
+  "version": "0.1.0",
+  "author": "Matt Cook <matt@sciencefidelity.co.uk>",
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:sciencefidelity/stefanknapp.git"
   },
+  "homepage": "https://stefanknapp.art",
+  "keywords": [
+    "nuxt",
+    "vue"
+  ],
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "^7.0.2",
     "@nuxtjs/eslint-module": "^3.0.2",

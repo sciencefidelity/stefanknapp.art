@@ -1,6 +1,6 @@
 {
-  "name": "stefanknapp-studio",
-  "description": "Website about the artist Stefan Knapp",
+  "name": "stefanknapp",
+  "description": "The art, life and estate of Polish enamelist Stefan Knapp",
   "private": true,
   "version": "1.0.0",
   "author": "Matt Cook <matt@sciencefidelity.co.uk>",
@@ -12,6 +12,7 @@
   "homepage": "https://stefanknapp.art",
   "keywords": [
     "gridsome",
+    "nuxt",
     "sanity",
     "vue"
   ],
@@ -19,11 +20,8 @@
     "build": "pnpm run build --parallel",
     "dev": "pnpm run dev --parallel",
     "format": "pnpm run format",
-    "build-studio": "(cd studio && npm run build)",
-    "build-web": "(cd studio && SANITY_AUTH_TOKEN=$SANITY_DEPLOY_STUDIO_TOKEN npm run graphql-deploy) && (cd web && npm run build)",
-    "graphql-deploy": "pnpm run graphql-deploy",
-    "lint": "pnpm run lint",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "graphql-deploy": "cd studio && pnpm run graphql-deploy",
+    "lint": "pnpm run lint"
   },
   "devDependencies": {
     "eslint": "^8.2.0",
