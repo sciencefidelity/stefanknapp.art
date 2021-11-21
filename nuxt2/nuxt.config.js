@@ -38,9 +38,7 @@ export default defineNuxtConfig({
     // https://sanity.nuxtjs.org
     "@nuxtjs/sanity/module",
     // https://go.nuxtjs.dev/stylelint
-    "@nuxtjs/stylelint-module",
-    // https://go.nuxtjs.dev/typescript
-    "@nuxt/typescript-build"
+    "@nuxtjs/stylelint-module"
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
