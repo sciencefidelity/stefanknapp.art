@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate",
+    "dev": "nuxi dev",
+    "build": "nuxi build",
+    "start": "node .output/server/index.mjs",
+    "generate": "nuxi generate",
     "lint:js": "eslint --ext .js,.ts,.vue .",
     "lint:style": "stylelint '**/*.{vue,css}' --ignore-path .eslintignore",
     "lint": "yarn lint:js && yarn lint:style",
@@ -17,11 +17,12 @@
   },
   "dependencies": {
     "core-js": "^3.15.1",
-    "nuxt": "^2.15.7",
+    "nuxt-edge": "latest",
     "sanitize.css": "^13.0.0"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.14.7",
+    "@nuxt/bridge": "npm:@nuxt/bridge-edge",
     "@nuxt/types": "^2.15.7",
     "@nuxt/typescript-build": "^2.1.0",
     "@nuxt/typescript-runtime": "^2.1.0",
