@@ -14,11 +14,13 @@
       <div :class="[showMenu ? 'nav__active' : 'nav__inactive']">
         <ul>
           <li>
-            <NuxtLink
-              to="/"
-            >
-              Art
-            </NuxtLink>
+            <NuxtLink to="/">Art</NuxtLink>
+          </li>
+          <li>
+            <NuxtLink to="/">Life</NuxtLink>
+          </li>
+          <li>
+            <NuxtLink to="/">Estate</NuxtLink>
           </li>
         </ul>
         <div class="nav__title-container">
@@ -30,8 +32,9 @@
 </template>
 
 <script lang="ts">
+import Vue from "vue"
 
-export default {
+export default Vue.extend({
   name: "FrontNav",
   data() {
     return {
@@ -39,11 +42,11 @@ export default {
     }
   },
   methods: {
-    toggleMenu() {
-      this.showMenu = !this.showMenu
+    toggleMenu(): boolean {
+      return (this.showMenu = !this.showMenu)
     }
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>
@@ -60,16 +63,6 @@ nav {
   margin-left: auto;
   top: 0;
   z-index: 1;
-}
-
-a {
-  color: transparent;
-  display: inline;
-  margin: auto;
-  text-decoration: none;
-  &:hover {
-    text-decoration: none;
-  }
 }
 
 .nav {
@@ -154,11 +147,12 @@ ul {
     margin-left: auto;
     position: relative;
     a {
+      color: transparent;
+      display: inline;
+      margin: auto;
+      text-decoration: none;
       &:hover {
         text-decoration: none;
-      }
-      &:hover::before {
-        width: 100%;
       }
       &::before {
         background-clip: text;
@@ -179,6 +173,9 @@ ul {
         @include b.mq(sm) {
           width: 100%;
         }
+      }
+      &:hover::before {
+        width: 100%;
       }
     }
   }

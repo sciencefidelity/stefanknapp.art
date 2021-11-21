@@ -14,5 +14,6 @@ module.exports = {
     "max-nesting-depth": 4,
     "rule-empty-line-before": ["always", { except: ["inside-block"] }],
     "selector-max-id": 1,
+    "value-keyword-case": ["lower", { "ignoreProperties": ["/^\\$/"] }]
   },
 }
