@@ -18,7 +18,7 @@
               :to="`${page.slug.current}`"
               :data-fill="page.title.en"
             >
-              {{ title }}
+              {{ page.title.en }}
             </NuxtLink>
           </li>
         </ul>
@@ -38,20 +38,24 @@ interface Props {
   pages: []
 }
 
+const query = groq`*[_type == 'page']{ _id, title, slug }`
+
 export default Vue.extend({
   name: "FrontNav",
   data: () => ({
     showMenu: false,
-    pages: []
+    pages: [],
+    _id: "",
+    title: "",
+    slug: ""
   }),
   async fetch() {
-    const query = groq`*[_type == 'page']{ _id, title, slug }`
     const data: Props = await this.$sanity.fetch(query)
     this.pages = data
   },
   methods: {
-    toggleMenu(): boolean {
-      return (this.showMenu = !this.showMenu)
+    toggleMenu() {
+      return (this.showMenu = !this.showMenu) as boolean
     }
   }
 })
