@@ -199,22 +199,22 @@ ul {
         width: 100%;
       }
       &::before {
-        content: attr(data-fill);
-        position: absolute;
-        display: inline;
-        top: 0;
-        left: 0;
-        width: 0%;
-        transition-duration: 0.7s;
-        transition-timing-function: cubic-bezier(0.19, 1, 0.4, 1);
-        transition-delay: initial;
-        transition-property: width;
-        -webkit-text-fill-color: transparent;
-        -webkit-background-clip: text;
         background-clip: text;
-        -webkit-text-stroke-width: 0.015em;
-        -webkit-text-stroke-color: c.$sepia-150;
         background-color: c.$sepia-150;
+        content: attr(data-fill);
+        display: inline;
+        left: 0;
+        top: 0;
+        position: absolute;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke-color: c.$sepia-150;
+        -webkit-text-stroke-width: 0.015em;
+        transition-delay: initial;
+        transition-duration: 0.7s;
+        transition-property: width;
+        transition-timing-function: cubic-bezier(0.19, 1, 0.4, 1);
+        width: 0%;
         @include b.mq(sm) {
           width: 100%;
         }
