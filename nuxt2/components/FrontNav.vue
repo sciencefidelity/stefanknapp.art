@@ -13,14 +13,13 @@
       </div>
       <div :class="[showMenu ? 'nav__active' : 'nav__inactive']">
         <ul>
-          <li>
-            <NuxtLink to="/">Art</NuxtLink>
-          </li>
-          <li>
-            <NuxtLink to="/">Life</NuxtLink>
-          </li>
-          <li>
-            <NuxtLink to="/">Estate</NuxtLink>
+          <li v-for="edge in $static.allSanityPage.edges" :key="edge.node.id">
+            <NuxtLink
+              :to="`/en/${edge.node.slug.current}/`"
+              :data-fill="edge.node.title.en"
+            >
+              {{ edge.node.title.en }}
+            </NuxtLink>
           </li>
         </ul>
         <div class="nav__title-container">
@@ -50,8 +49,8 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-@use '../assets/css/colors' as c;
-@use '../assets/css/breakpoints' as b;
+@use "../assets/css/colors" as c;
+@use "../assets/css/breakpoints" as b;
 
 ::selection {
   background: rgba(c.$sepia-150, 0.3);
@@ -215,7 +214,7 @@ ul {
     &::before,
     &::after {
       background: c.$sepia-150;
-      content: '';
+      content: "";
       display: block;
       height: 0.4em;
       position: absolute;
