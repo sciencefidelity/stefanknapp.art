@@ -5,6 +5,8 @@ yarn.lock
 .nuxt
 node_modules
 .nova
+.output
+dist
 
 *.scss
 *.css
