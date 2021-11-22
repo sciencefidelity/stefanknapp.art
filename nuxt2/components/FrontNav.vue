@@ -38,7 +38,7 @@ interface Props {
   pages: []
 }
 
-const query = groq`*[_type == 'page']{ _id, title, slug }`
+const query = groq`*[_type == 'page'] | order(_createdAt) { _id, title, slug }`
 
 export default Vue.extend({
   name: "FrontNav",
@@ -180,7 +180,7 @@ ul {
         transition-duration: 0.7s;
         transition-property: width;
         -webkit-text-fill-color: transparent;
-        -webkit-text-stroke-color: c.$sepia-150;
+        -webkit-text-stroke-color: transparent;
         -webkit-text-stroke-width: 0.015em;
         @include b.mq(sm) {
           width: 100%;

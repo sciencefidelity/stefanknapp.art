@@ -6,23 +6,25 @@ export default defineNuxtConfig({
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: "nuxt2",
+    title: "The Estate of Stefan Knapp",
     htmlAttrs: {
       lang: "en"
     },
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { hid: "description", name: "description", content: "" },
+      {
+        hid: "description",
+        name: "description",
+        content: "The art, life and estate of Polish enamelist Stefan Knapp"
+      },
       { name: "format-detection", content: "telephone=no" }
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
+    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.svg" }]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-    "assets/css/main.scss"
-  ],
+  css: ["assets/css/main.scss"],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
