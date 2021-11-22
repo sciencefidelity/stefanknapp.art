@@ -20,9 +20,9 @@ html {
 }
 
 body {
-  background: c.$grey-000;
-  color: c.$grey-700;
   font-family: t.$stack;
+  color: c.$grey-700;
+  background: c.$grey-000;
 }
 
 #site-main {
@@ -60,9 +60,9 @@ h2 {
 }
 
 h3 {
+  margin: 3rem 0 2rem;
   font-size: 3rem;
   font-weight: 600;
-  margin: 3rem 0 2rem;
 }
 
 h4 {
@@ -73,8 +73,8 @@ h4 {
 a {
   color: c.$grey-850;
   text-decoration: underline;
-  text-decoration-color: rgba(c.$grey-950, 0);
   text-decoration-thickness: 0.07em;
+  text-decoration-color: rgba(c.$grey-950, 0);
   text-underline-offset: 0.08em;
   transition: text-decoration-color 0.3s;
   &:hover {
@@ -92,12 +92,12 @@ strong {
 }
 
 blockquote {
-  border-left: 0.2em solid c.$grey-350;
+  padding-left: 1.5em;
+  margin-bottom: 2rem;
   font-size: 2.1rem;
   font-style: italic;
   font-weight: 300;
-  margin-bottom: 2rem;
-  padding-left: 1.5em;
+  border-left: 0.2em solid c.$grey-350;
   @include b.mq(xl) {
     font-size: 1.9rem;
   }
@@ -107,34 +107,34 @@ blockquote {
 }
 
 .container {
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 0.325rem;
-  padding-right: 0.325rem;
   width: 100%;
+  padding-right: 0.325rem;
+  padding-left: 0.325rem;
+  margin-right: auto;
+  margin-left: auto;
   @include b.mq(lg) {
-    padding-left: 0;
     padding-right: 0;
+    padding-left: 0;
   }
 }
 
 .row {
   display: flex;
   flex-wrap: wrap;
-  margin-left: -1.5rem;
   margin-right: -1.5rem;
+  margin-left: -1.5rem;
   @include b.mq(lg) {
-    margin-left: 0;
     margin-right: 0;
+    margin-left: 0;
   }
 }
 
 .col {
+  position: relative;
   flex: 0 0 66.666667%;
+  width: 100%;
   max-width: 66.666667%;
   padding: 0 1.5rem;
-  position: relative;
-  width: 100%;
   @include b.mq(lg) {
     flex: 0 0 100%;
     max-width: 100%;
@@ -142,34 +142,34 @@ blockquote {
 }
 
 .screen-reader-text {
-  border: 0;
-  clip: rect(1px, 1px, 1px, 1px);
-  clip-path: inset(50%);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
   position: absolute !important;
   width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
   word-wrap: normal !important;
+  border: 0;
 }
 
 .screen-reader-text:focus {
+  top: 5px;
+  left: 5px;
+  z-index: 100000;
+  display: block;
+  width: auto;
+  height: auto;
+  padding: 15px 23px 14px;
+  clip: auto !important;
+  clip-path: none;
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: normal;
+  color: hsl(199, 65%, 37%);
+  text-decoration: none;
   background-color: hsl(0, 0%, 95%);
   border-radius: 3px;
   box-shadow: 0 0 2px 2px hsla(0, 0%, 0%, 0.6);
-  clip: auto !important;
-  clip-path: none;
-  color: hsl(199, 65%, 37%);
-  display: block;
-  font-size: 0.875rem;
-  font-weight: 700;
-  height: auto;
-  left: 5px;
-  line-height: normal;
-  padding: 15px 23px 14px;
-  text-decoration: none;
-  top: 5px;
-  width: auto;
-  z-index: 100000;
 }

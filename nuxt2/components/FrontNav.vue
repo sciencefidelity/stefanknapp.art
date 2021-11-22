@@ -70,57 +70,57 @@ export default Vue.extend({
 }
 
 nav {
-  height: 18rem;
-  left: 0;
-  margin-left: auto;
   top: 0;
+  left: 0;
   z-index: 1;
+  height: 18rem;
+  margin-left: auto;
 }
 
 .nav {
   &--front {
-    padding: 0 3.5rem 0 0;
     z-index: 1;
+    padding: 0 3.5rem 0 0;
     @include b.mq(lg) {
-      font: 1rem;
-      padding: 0;
       position: absolute;
-      right: 0;
       top: 0;
+      right: 0;
+      padding: 0;
+      font-size: 1rem;
     }
   }
   &__active,
   &__inactive {
     z-index: -1;
     @include b.mq(lg) {
-      background: rgba(c.$grey-950, 0.8);
-      font-size: 9.8vw;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100vw;
       height: 100vh;
       padding: 1.2em 0 0;
-      position: absolute;
-      right: 0;
-      top: 0;
-      width: 100vw;
+      font-size: 9.8vw;
+      background: rgba(c.$grey-950, 0.8);
     }
   }
   &__inactive {
     clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    visibility: hidden;
     transition: clip-path 1s, visibility 0s;
     transition-delay: 0s, 1s;
-    transition-property: clip-path, visibility;
     transition-timing-function: ease-out;
-    visibility: hidden;
+    transition-property: clip-path, visibility;
   }
   &__active {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    transition: clip-path 1s ease-in;
     visibility: visible;
+    transition: clip-path 1s ease-in;
   }
   &__title-container {
     display: flex;
     justify-content: flex-end;
-    padding-top: 5rem;
     width: 100%;
+    padding-top: 5rem;
     @include b.mq(lg) {
       padding-top: 0;
     }
@@ -131,57 +131,60 @@ nav {
     white-space: nowrap;
     writing-mode: vertical-lr;
     @include b.mq(lg) {
-      font-size: 5vw;
       padding: 2em 0.8em;
+      font-size: 5vw;
       writing-mode: lr;
     }
   }
+}
+
+a {
+  display: inline;
+  margin: auto;
+  color: transparent;
+  text-decoration: none;
 }
 
 ul {
   display: inline;
   display: flex;
   flex-direction: column;
+  justify-content: right;
+  padding: 0 1.3rem 0 0;
   font-size: 4.45vw;
   font-weight: 600;
-  justify-content: right;
   line-height: 1.2;
-  list-style: none;
-  padding: 0 1.3rem 0 0;
-  -webkit-text-stroke: 0.08rem c.$sepia-150;
   text-transform: uppercase;
+  list-style: none;
+  -webkit-text-stroke: 0.08rem c.$sepia-150;
   @include b.mq(lg) {
+    padding: 0 0.3em 0 0;
     font-size: 9.8vw;
     line-height: 12vw;
-    padding: 0 0.3em 0 0;
   }
   li {
-    margin-left: auto;
     position: relative;
+    margin-left: auto;
     a {
-      color: transparent;
-      display: inline;
-      margin: auto;
-      text-decoration: none;
       &:hover {
         text-decoration: none;
       }
       &::before {
-        background-clip: text;
-        background-color: c.$sepia-150;
-        content: attr(data-fill);
-        display: inline;
-        left: 0;
         position: absolute;
+        top: 0;
+        left: 0;
+        display: inline;
+        width: 0%;
+        content: attr(data-fill);
+        background-color: c.$sepia-150;
+        background-clip: text;
+        transition-delay: initial;
+        transition-timing-function: cubic-bezier(0.19, 1, 0.4, 1);
+        transition-duration: 0.7s;
+        transition-property: width;
         -webkit-text-fill-color: transparent;
         -webkit-text-stroke-color: c.$sepia-150;
         -webkit-text-stroke-width: 0.015em;
-        top: 0;
-        transition-delay: initial;
-        transition-duration: 0.7s;
-        transition-property: width;
-        transition-timing-function: cubic-bezier(0.19, 1, 0.4, 1);
-        width: 0%;
         @include b.mq(sm) {
           width: 100%;
         }
@@ -194,48 +197,48 @@ ul {
 }
 
 .hamburger {
-  cursor: pointer;
+  z-index: 0;
   display: grid;
-  font-size: 0.7vw;
+  width: 8em;
   height: 5.8em;
   margin: 3.7em 1.5em 6.5em auto;
+  font-size: 0.7vw;
+  cursor: pointer;
   opacity: 0.5;
   transition: opacity 0.3s;
-  width: 8em;
-  z-index: 0;
   @include b.mq(lg) {
-    font-size: 1.2vw;
     margin: 3.5em 2.5em 2em auto;
+    font-size: 1.2vw;
   }
   &:hover {
     opacity: 1;
     transition: opacity 0.3s;
   }
   &__icon {
-    background-color: rgba(c.$sepia-150, 1);
-    font-size: 0.7vw;
+    position: relative;
+    z-index: 1;
+    width: 8em;
     height: 0.4em;
     margin: 2.6em 0 3em;
-    position: relative;
+    font-size: 0.7vw;
+    background-color: rgba(c.$sepia-150, 1);
     transition: background-color 0s;
     transition-delay: 0.5s;
-    width: 8em;
-    z-index: 1;
     @include b.mq(lg) {
       font-size: 1.2vw;
     }
     &::before,
     &::after {
-      background: c.$sepia-150;
-      content: '';
-      display: block;
-      height: 0.4em;
       position: absolute;
-      transform: rotate(0);
+      display: block;
+      width: 8em;
+      height: 0.4em;
+      content: '';
+      background: c.$sepia-150;
       transition: transform 0.5s, top 0.5s;
       transition-delay: 0s, 0.5s;
       transition-property: transform, top;
-      width: 8em;
+      transform: rotate(0);
     }
     &::before {
       top: -2.6em;
