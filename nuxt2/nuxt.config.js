@@ -21,9 +21,6 @@ export default defineNuxtConfig({
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    "sanitize.css",
-    "sanitize.css/typography.css",
-    "sanitize.css/reduce-motion.css",
     "assets/css/main.scss"
   ],
 

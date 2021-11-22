@@ -138,13 +138,6 @@ nav {
   }
 }
 
-a {
-  display: inline;
-  margin: auto;
-  color: transparent;
-  text-decoration: none;
-}
-
 ul {
   display: inline;
   display: flex;
@@ -166,6 +159,10 @@ ul {
     position: relative;
     margin-left: auto;
     a {
+      display: inline;
+      margin: auto;
+      color: transparent;
+      text-decoration: none;
       &:hover {
         text-decoration: none;
       }
