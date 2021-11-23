@@ -61,6 +61,7 @@ export default Vue.extend({
 })
 </script>
 
+<!-- prettier-ignore -->
 <style lang="scss" scoped>
 @use '../assets/css/colors' as c;
 @use '../assets/css/breakpoints' as b;

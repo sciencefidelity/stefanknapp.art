@@ -19,9 +19,7 @@
         </div>
         <div class="row">
           <div class="front-copy">
-            <p>
-              &copy; {{ new Date().getFullYear() }} The Estate of Stefan Knapp
-            </p>
+            <p>&copy; {{ new Date().getFullYear() }} {{ title }}</p>
           </div>
         </div>
       </div>
@@ -30,23 +28,108 @@
 </template>
 
 <script lang="ts">
+import Vue from "vue"
 import { groq } from "@nuxtjs/sanity"
 import Layout from "@/layouts/FrontPage.vue"
 import FrontNav from "@/components/FrontNav.vue"
 
-const query = groq`*[_type == 'meta']{
+interface Props {
+  title: string
+  description: string
+  ogTitle: string
+  ogDescription: string
+  ogImage: object
+}
+
+const query = groq`*[_type == 'meta'][0]{
   title, description, ogTitle, ogDescription, ogImage
 }`
 
-export default {
+export default Vue.extend({
   name: "Index",
   components: {
     Layout,
     FrontNav
+  },
+  data: () => ({
+    showMenu: false,
+    title: "",
+    description: "",
+    ogTitle: "",
+    ogDescription: "",
+    ogImage: {}
+  }),
+  async fetch() {
+    const data: Props = await this.$sanity.fetch(query)
+    this.title = data.title
+    this.description = data.description
+    this.ogTitle = data.ogTitle
+    this.ogDescription = data.ogDescription
+    this.ogImage = data.ogImage
+  },
+  head() {
+    return {
+      title: this.title,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: this.description
+        },
+        { hid: "og:title", name: "og:title", content: this.ogTitle },
+        {
+          hid: "og:description",
+          name: "og:description",
+          content: this.ogDescription
+        },
+        {
+          hid: "og:image",
+          property: "og:image",
+          content: this.$urlFor(
+            this.ogImage
+          )
+            .width(1200)
+            .height(628)
+            .fit("crop")
+            .auto("format")
+            .quality(80)
+            .url()
+        },
+        {
+          hid: "twitter:card",
+          name: "twitter:card",
+          content: "summary_large_image"
+        },
+        {
+          hid: "twitter:title",
+          name: "twitter:title",
+          content: this.ogTitle
+        },
+        {
+          hid: "twitter:description",
+          name: "twitter:description",
+          content: this.ogDescription
+        },
+        {
+          hid: "twitter:image",
+          name: "twitter:image",
+          content: this.$urlFor(
+            this.ogImage
+          )
+            .width(1200)
+            .height(628)
+            .fit("crop")
+            .auto("format")
+            .quality(80)
+            .url()
+        }
+      ]
+    }
   }
-}
+})
 </script>
 
+<!-- prettier-ignore -->
 <style lang="scss" scoped>
 @use '../assets/css/colors' as c;
 @use '../assets/css/breakpoints' as b;
