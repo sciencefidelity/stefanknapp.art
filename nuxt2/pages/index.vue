@@ -5,7 +5,7 @@
         <div class="row">
           <div class="col logo">
             <div class="circle">
-              <NuxtLink :to="`${slug.current}`">
+              <NuxtLink :to="localePath(`${slug.current}`)">
                 <div class="title"><h1>knapp</h1></div>
               </NuxtLink>
             </div>
@@ -19,7 +19,10 @@
         </div>
         <div class="row">
           <div class="front-copy">
-            <p>&copy; {{ new Date().getFullYear() }} {{ title }}</p>
+            <p>
+              &copy; {{ new Date().getFullYear() }} {{ title }}
+              {{ $i18n.locale }}
+            </p>
           </div>
         </div>
       </div>
@@ -30,8 +33,8 @@
 <script lang="ts">
 import Vue from "vue"
 import { groq } from "@nuxtjs/sanity"
-import Layout from "@/layouts/FrontPage.vue"
-import FrontNav from "@/components/FrontNav.vue"
+import Layout from "@/layouts/frontPage.vue"
+import FrontNav from "@/components/frontNav.vue"
 
 interface MetaProps {
   title: string
