@@ -5,7 +5,7 @@ module.exports = {
     "stylelint-config-sass-guidelines",
     "stylelint-config-recess-order"
   ],
-  plugins: ["stylelint-scss"],
+  plugins: ["stylelint-scss", "stylelint-selector-bem-pattern"],
   // add your custom config here
   // https://stylelint.io/user-guide/configuration
   rules: {
@@ -22,6 +22,15 @@ module.exports = {
     "selector-max-id": 1,
     "value-keyword-case": ["lower", { ignoreProperties: ["/^\\$/"] }],
     "order/properties-alphabetical-order": null,
-    "scss/at-rule-no-unknown": true
+    "selector-class-pattern": null,
+    "scss/at-rule-no-unknown": true,
+    "plugin/selector-bem-pattern": {
+      "componentName": "[A-Z]+",
+      "componentSelectors": {
+        "initial": "^\\.{componentName}(?:-[a-z]+)?$",
+        "combined": "^\\.combined-{componentName}-[a-z]+$"
+      },
+      "utilitySelectors": "^\\.util-[a-z]+$"
+    }
   }
 }
