@@ -85,9 +85,7 @@ export default Vue.extend({
         {
           hid: "og:image",
           property: "og:image",
-          content: this.$urlFor(
-            this.ogImage
-          )
+          content: this.$urlFor(this.ogImage)
             .width(1200)
             .height(628)
             .fit("crop")
@@ -113,9 +111,7 @@ export default Vue.extend({
         {
           hid: "twitter:image",
           name: "twitter:image",
-          content: this.$urlFor(
-            this.ogImage
-          )
+          content: this.$urlFor(this.ogImage)
             .width(1200)
             .height(628)
             .fit("crop")

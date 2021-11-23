@@ -14,10 +14,7 @@
       <div :class="[showMenu ? 'nav__active' : 'nav__inactive']">
         <ul>
           <li v-for="page in pages" :key="page.id">
-            <NuxtLink
-              :to="`${page.slug.current}`"
-              :data-fill="page.title.en"
-            >
+            <NuxtLink :to="`${page.slug.current}`" :data-fill="page.title.en">
               {{ page.title.en }}
             </NuxtLink>
           </li>
