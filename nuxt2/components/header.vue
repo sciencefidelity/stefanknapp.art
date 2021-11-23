@@ -1,7 +1,7 @@
 <template>
-  <Header>
+  <header>
     <Navigation />
-  </Header>
+  </header>
 </template>
 
 <script lang="ts">

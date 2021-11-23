@@ -14,10 +14,7 @@
       />
     </div>
     <div class="modal__image">
-      <lightbox-image
-        :title="title"
-        :image="image"
-      />
+      <lightbox-image :title="title" :image="image" />
       <p class="modal__caption">
         {{ title }} {{ date }}<br />{{ medium.toLowerCase() }}
       </p>
@@ -34,12 +31,12 @@ export default Vue.extend({
   components: {
     LightboxImage
   },
-  props: {
-    title: String,
-    date: Number,
-    medium: String,
-    image: Object
-  },
+  data: () => ({
+    title: "",
+    date: 0,
+    medium: "",
+    image: {}
+  }),
   methods: {
     nextIndex() {
       this.$emit("nextIndex")

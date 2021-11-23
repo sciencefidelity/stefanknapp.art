@@ -14,7 +14,7 @@
       <div :class="[showMenu ? 'nav__active' : 'nav__inactive']">
         <ul>
           <li v-for="page in pages" :key="page.id">
-            <NuxtLink :to="`${page.slug.current}`" :data-fill="page.title.en">
+            <NuxtLink :to="localePath(`${page.slug.current}`)" :data-fill="page.title.en">
               {{ page.title.en }}
             </NuxtLink>
           </li>
@@ -50,10 +50,7 @@ export default Vue.extend({
   name: "FrontNav",
   data: () => ({
     showMenu: false,
-    pages: [],
-    _id: "",
-    title: "",
-    slug: ""
+    pages: []
   }),
   async fetch() {
     const pageData: PageProps = await this.$sanity.fetch(pageQuery)

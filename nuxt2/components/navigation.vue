@@ -15,7 +15,7 @@
     <div :class="[showMenu ? 'nav__active' : 'nav__inactive']">
       <ul>
         <li v-for="page in pages" :key="page.id">
-          <NuxtLink :to="`${page.slug.current}/`">
+          <NuxtLink :to="localePath(`${page.slug.current}`)">
             {{ page.title.en }}
           </NuxtLink>
         </li>
@@ -40,8 +40,8 @@ interface PageProps {
 
 const pageQuery = groq`*[_type == "page"] | order(_createdAt) { _id, title, slug }`
 
-export default {
-  name: "FrontNav",
+export default Vue.extend({
+  name: "Navigation",
   data: () => ({
     showMenu: false,
     pages: [],
@@ -55,10 +55,10 @@ export default {
   },
   methods: {
     toggleMenu() {
-      this.showMenu = !this.showMenu
+      this.showMenu = !this.showMenu as boolean
     }
   }
-}
+})
 </script>
 
 <!-- prettier-ignore -->

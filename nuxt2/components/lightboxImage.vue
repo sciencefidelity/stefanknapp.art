@@ -10,9 +10,9 @@ import { SanityImage } from "@nuxtjs/sanity/dist/components/sanity-image"
 
 export default Vue.extend({
   name: "SanityImage",
-  props: {
-    image: Object
-  }
+  data: () => ({
+    image: {}
+  })
 })
 </script>
 

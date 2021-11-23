@@ -1,9 +1,9 @@
 <template>
-  <Footer>
+  <footer>
     <div class="footer__container">
       <div class="footer__links">
         <div>
-          <NuxtLink to="/">
+          <NuxtLink :to="localePath('index')">
             <img
               alt="Link to home"
               src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23262626'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z'/%3E%3C/svg%3E"
@@ -12,12 +12,12 @@
           </NuxtLink>
         </div>
       </div>
-      <p v-if="$context.locale === 'en-gb'">
+      <p>
         &copy; {{ new Date().getFullYear() }} The Estate of
-        <NuxtLink to="/en">Stefan Knapp</NuxtLink>
+        <NuxtLink :to="localePath('index')">Stefan Knapp</NuxtLink>
       </p>
     </div>
-  </Footer>
+  </footer>
 </template>
 
 <script lang="ts">

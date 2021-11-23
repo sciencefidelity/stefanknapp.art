@@ -21,7 +21,6 @@
           <div class="front-copy">
             <p>
               &copy; {{ new Date().getFullYear() }} {{ title }}
-              {{ $i18n.locale }}
             </p>
           </div>
         </div>

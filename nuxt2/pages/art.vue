@@ -47,6 +47,12 @@ export default Vue.extend({
   components: {
     Gallery
   },
+  data: () => ({
+    mainImage: {},
+    ogDescription: "",
+    ogTitle: "",
+    title: ""
+  }),
   async fetch() {
     const pageData: PageProps = await this.$sanity.fetch(pageQuery)
     this.mainImage = pageData.mainImage
@@ -54,23 +60,27 @@ export default Vue.extend({
     this.ogTitle = pageData.ogTitle
     this.title = pageData.title
   },
-  metaInfo() {
+  head() {
     return {
       title: this.title.en,
       meta: [
         {
+          hid: "description",
           name: "description",
           content: this.ogDescription
         },
         {
-          property: "og:title",
+          hid: "og:title",
+          name: "og:title",
           content: this.ogTitle
         },
         {
-          property: "og:description",
+          hid: "og:description",
+          name: "og:description",
           content: this.ogDescription
         },
         {
+          hid: "og:image",
           property: "og:image",
           content: this.$urlFor(this.mainImage)
             .width(1200)
@@ -81,21 +91,24 @@ export default Vue.extend({
             .url()
         },
         {
+          hid: "twitter:card",
           name: "twitter:card",
           content: "summary_large_image"
         },
         {
+          hid: "twitter:title",
           name: "twitter:title",
           content: this.ogTitle
         },
         {
+          hid: "twitter:description",
           name: "twitter:description",
           content: this.ogDescription
         },
         {
+          hid: "twitter:image",
           name: "twitter:image",
           content: this.$urlFor(this.mainImage)
-            .auto("format")
             .width(1200)
             .height(628)
             .fit("crop")
@@ -111,8 +124,8 @@ export default Vue.extend({
 
 <!-- prettier-ignore -->
 <style lang="scss" scoped>
-@use '../assets/scss/colors' as c;
-@use '../assets/scss/breakpoints' as b;
+@use '../assets/css/colors' as c;
+@use '../assets/css/breakpoints' as b;
 
 .gallery-section {
   position: relative;
