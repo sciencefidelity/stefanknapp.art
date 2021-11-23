@@ -1,11 +1,9 @@
 <template>
-  <Layout>
-    <main>
-      <section class="gallery-section">
-        <Gallery />
-      </section>
-    </main>
-  </Layout>
+  <main>
+    <section class="gallery-section">
+      <Gallery />
+    </section>
+  </main>
 </template>
 
 <script lang="ts">

@@ -14,13 +14,16 @@
       <div :class="[showMenu ? 'nav__active' : 'nav__inactive']">
         <ul>
           <li v-for="page in pages" :key="page.id">
-            <NuxtLink :to="localePath(`${page.slug.current}`)" :data-fill="page.title.en">
-              {{ page.title.en }}
+            <NuxtLink
+              :to="localePath(`${page.slug.current}`)"
+              :data-fill="page.title.en.toUpperCase()"
+            >
+              {{ page.title.en.toUpperCase() }}
             </NuxtLink>
           </li>
         </ul>
         <div class="nav__title-container">
-          <p class="nav__title">{{ title }}</p>
+          <p class="nav__title">{{ title.toUpperCase() }}</p>
         </div>
       </div>
     </div>
@@ -32,11 +35,13 @@ import Vue from "vue"
 import { groq } from "@nuxtjs/sanity"
 
 interface PageProps {
-  page: [{
-    _id: string
-    slug: { _type: string; current: string }
-    title: { _type: string; en: string; pl: string }
-  }]
+  page: [
+    {
+      _id: string
+      slug: { _type: string; current: string }
+      title: { _type: string; en: string; pl: string }
+    }
+  ]
 }
 
 interface MetaProps {
@@ -50,7 +55,8 @@ export default Vue.extend({
   name: "FrontNav",
   data: () => ({
     showMenu: false,
-    pages: []
+    pages: [],
+    title: ""
   }),
   async fetch() {
     const pageData: PageProps = await this.$sanity.fetch(pageQuery)
@@ -133,7 +139,6 @@ nav {
   }
   &__title {
     font-size: 3.25vw;
-    text-transform: uppercase;
     white-space: nowrap;
     writing-mode: vertical-lr;
     @include b.mq(lg) {
@@ -153,7 +158,6 @@ ul {
   font-size: 4.45vw;
   font-weight: 600;
   line-height: 1.2;
-  text-transform: uppercase;
   list-style: none;
   -webkit-text-stroke: 0.08rem c.$sepia-150;
   @include b.mq(lg) {

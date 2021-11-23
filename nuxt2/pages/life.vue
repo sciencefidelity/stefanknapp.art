@@ -1,34 +1,32 @@
 <template>
-  <Layout>
-    <main>
-      <section class="life">
-        <div class="life__container">
-          <div class="life__image">
-            <SanityImage :asset-id="image1.asset._ref" auto="format" />
-          </div>
-          <div class="life__text">
-            <SanityContent :blocks="biography.en" />
-          </div>
+  <main>
+    <section class="life">
+      <div class="life__container">
+        <div class="life__image">
+          <SanityImage :asset-id="image1.asset._ref" auto="format" />
         </div>
-        <div class="life__container">
-          <div class="life__text">
-            <SanityContent :blocks="exhibitions.en" />
-          </div>
-          <div class="life__image hide">
-            <SanityImage :asset-id="image2.asset._ref" auto="format" />
-          </div>
+        <div class="life__text">
+          <SanityContent :blocks="biography.en" />
         </div>
-        <div class="life__container full">
-          <Exhibitions />
+      </div>
+      <div class="life__container">
+        <div class="life__text">
+          <SanityContent :blocks="exhibitions.en" />
         </div>
-      </section>
-      <section class="video-section">
-        <div class="video-wrapper">
-          <VideoEmbed />
+        <div class="life__image hide">
+          <SanityImage :asset-id="image2.asset._ref" auto="format" />
         </div>
-      </section>
-    </main>
-  </Layout>
+      </div>
+      <div class="life__container full">
+        <Exhibitions />
+      </div>
+    </section>
+    <section class="video-section">
+      <div class="video-wrapper">
+        <VideoEmbed />
+      </div>
+    </section>
+  </main>
 </template>
 
 <script lang="ts">
@@ -123,7 +121,11 @@ export default Vue.extend({
     this.biography = bioData.biography
     this.exhibitions = bioData.exhibitions
     this.image1 = image1Data.mainImage
+    this.image1Title = image1Data.title
+    this.image1Date = image1Data.date
     this.image2 = image2Data.mainImage
+    this.image2Title = image2Data.title
+    this.image2Date = image2Data.date
   },
   head() {
     return {
@@ -163,12 +165,12 @@ export default Vue.extend({
         {
           hid: "twitter:title",
           name: "twitter:title",
-          content: this.$static.sanityPage.ogTitle
+          content: this.ogTitle
         },
         {
           hid: "twitter:description",
           name: "twitter:description",
-          content: this.$static.sanityPage.ogDescription
+          content: this.ogDescription
         },
         {
           hid: "twitter:image",

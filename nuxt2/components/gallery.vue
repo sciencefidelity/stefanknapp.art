@@ -41,8 +41,8 @@ export default Vue.extend({
     currentIndex: 0
   }),
   async fetch() {
-    const pageData: ArtworkProps = await this.$sanity.fetch(artworkQuery)
-    this.artworks = artworkQuery
+    const artworkData: ArtworkProps = await this.$sanity.fetch(artworkQuery)
+    this.artworks = artworkData
   },
   methods: {
     nextIndex() {

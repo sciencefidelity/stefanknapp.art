@@ -1,24 +1,12 @@
 <template>
   <video autoplay loop muted playsinline :class="classname">
-    <source
-      :src="videos[randomVideo].mp4.asset.url"
-      type="video/mp4"
-    />
-    <source
-      :src="videos[randomVideo].webm.asset.url"
-      type="video/webm"
-    />
+    <source :src="videos[randomVideo].mp4Url" type="video/mp4" />
+    <source :src="videos[randomVideo].webmUrl" type="video/webm" />
     <picture>
-      <source
-        :srcset="videos[randomVideo].mainImage.asset.url"
-        type="image/webp"
-      />
-      <source
-        :srcset="videos[randomVideo].mainImage.asset.url"
-        type="image/jpeg"
-      />
+      <source :srcset="videos[randomVideo].imageUrl" type="image/webp" />
+      <source :srcset="videos[randomVideo].imageUrl" type="image/jpeg" />
       <img
-        :src="videos[randomVideo].mainImage.asset.url"
+        :src="videos[randomVideo].imageUrl"
         :title="videos[randomVideo].title.en"
       />
     </picture>
@@ -33,21 +21,23 @@ import { groq } from "@nuxtjs/sanity"
 interface VideoProps {
   video: [
     {
-      id: string
       gallery: string
-      mp4: {
-        _type: string
-        asset: { _ref: string; _type: string }
-      }
-      webm: boolean
+      imageUrl: string
+      mp4Url: string
+      webmUrl: string
       title: string
     }
   ]
 }
 
-const videoQuery = groq`*[_type == "video"]{ _id, mainImage, mp4, webm, title }`
+const videoQuery = groq`*[_type == "video"]{
+  "imageUrl": mainImage.asset->url,
+  "mp4Url": mp4.asset->url,
+  "webmUrl": webm.asset->url,
+  title
+}`
 
-export default Vue.extend ({
+export default Vue.extend({
   name: "VideoEmbed",
   props: {
     classname: {
@@ -56,7 +46,8 @@ export default Vue.extend ({
     }
   },
   data: () => ({
-    randomVideo: Math.floor(Math.random() * 3)
+    randomVideo: Math.floor(Math.random() * 3),
+    videos: []
   }),
   async fetch() {
     const videoData: VideoProps = await this.$sanity.fetch(videoQuery)

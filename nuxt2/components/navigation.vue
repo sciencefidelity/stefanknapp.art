@@ -14,7 +14,7 @@
     </div>
     <div :class="[showMenu ? 'nav__active' : 'nav__inactive']">
       <ul>
-        <li v-for="page in pages" :key="page.id">
+        <li v-for="page in pages" :key="page._id">
           <NuxtLink :to="localePath(`${page.slug.current}`)">
             {{ page.title.en }}
           </NuxtLink>

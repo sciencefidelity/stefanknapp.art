@@ -1,21 +1,19 @@
 <template>
-  <layout>
-    <main>
-      <section class="estate">
-        <div class="estate__container">
-          <div class="estate__image">
-            <SanityImage />
-          </div>
-          <div class="estate__text">
-            <p>
-              contact:
-              <a :href="`mailto:${contact}`">{{ contact }}</a>
-            </p>
-          </div>
+  <main>
+    <section class="estate">
+      <div class="estate__container">
+        <div class="estate__image">
+          <SanityImage />
         </div>
-      </section>
-    </main>
-  </layout>
+        <div class="estate__text">
+          <p>
+            contact:
+            <a :href="`mailto:${contact}`">{{ contact }}</a>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
 </template>
 
 <script lang="ts">

@@ -12,7 +12,24 @@ export default Vue.extend({
   name: "SanityImage",
   data: () => ({
     image: {}
-  })
+  }),
+  props: {
+    image: Object,
+    width: Number,
+    height: Number,
+    pos: {
+      type: String,
+      default: "50% 50%"
+    },
+    fit: {
+      type: String,
+      default: "crop"
+    },
+    crop: {
+      type: String,
+      default: "center"
+    }
+  }
 })
 </script>
 

@@ -1,38 +1,35 @@
 <template>
-  <Layout>
-    <section id="site-main">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col logo">
-            <div class="circle">
-              <NuxtLink :to="localePath(`${slug.current}`)">
-                <div class="title"><h1>knapp</h1></div>
-              </NuxtLink>
-            </div>
-          </div>
-          <FrontNav />
-        </div>
-        <div class="row">
-          <div class="col">
-            <div class="spacer"></div>
+  <section id="site-main">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col logo">
+          <div class="circle">
+            <NuxtLink :to="localePath(`${slug.current}`)">
+              <div class="title">
+                <h1>{{ artist.toUpperCase() }}</h1>
+              </div>
+            </NuxtLink>
           </div>
         </div>
-        <div class="row">
-          <div class="front-copy">
-            <p>
-              &copy; {{ new Date().getFullYear() }} {{ title }}
-            </p>
-          </div>
+        <FrontNav />
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="spacer"></div>
         </div>
       </div>
-    </section>
-  </Layout>
+      <div class="row">
+        <div class="front-copy">
+          <p>&copy; {{ new Date().getFullYear() }} {{ title }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script lang="ts">
 import Vue from "vue"
 import { groq } from "@nuxtjs/sanity"
-import Layout from "@/layouts/frontPage.vue"
 import FrontNav from "@/components/frontNav.vue"
 
 interface MetaProps {
@@ -70,12 +67,13 @@ const metaQuery = groq`*[_type == "meta"][0]{
 const pageQuery = groq`*[_type == "page"][0]{ slug }`
 
 export default Vue.extend({
+  layout: "frontPage",
   name: "Index",
   components: {
-    Layout,
     FrontNav
   },
   data: () => ({
+    artist: "Knapp",
     showMenu: false,
     title: "",
     description: "",
@@ -215,7 +213,6 @@ h1 {
   bottom: 50%;
   line-height: 0;
   text-align: right;
-  text-transform: uppercase;
   @include b.mq(lg) {
     right: 0.5em;
     font-size: 1vw;
