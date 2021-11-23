@@ -5,8 +5,8 @@
         <div class="row">
           <div class="col logo">
             <div class="circle">
-              <NuxtLink to="/">
-                <div class="title"><h1>Knapp</h1></div>
+              <NuxtLink :to="`${slug.current}`">
+                <div class="title"><h1>knapp</h1></div>
               </NuxtLink>
             </div>
           </div>
@@ -33,17 +33,39 @@ import { groq } from "@nuxtjs/sanity"
 import Layout from "@/layouts/FrontPage.vue"
 import FrontNav from "@/components/FrontNav.vue"
 
-interface Props {
+interface MetaProps {
   title: string
   description: string
   ogTitle: string
   ogDescription: string
-  ogImage: object
+  ogImage: {
+    _type: string
+    asset: { _ref: string; _type: string }
+    crop: {
+      _type: string
+      bottom: number
+      left: number
+      right: number
+      top: number
+    }
+    hotspot: {
+      _type: string
+      height: number
+      width: number
+      x: number
+      y: number
+    }
+  }
 }
 
-const query = groq`*[_type == 'meta'][0]{
+interface PageProps {
+  slug: { _type: string; current: string }
+}
+
+const metaQuery = groq`*[_type == "meta"][0]{
   title, description, ogTitle, ogDescription, ogImage
 }`
+const pageQuery = groq`*[_type == "page"][0]{ slug }`
 
 export default Vue.extend({
   name: "Index",
@@ -57,15 +79,18 @@ export default Vue.extend({
     description: "",
     ogTitle: "",
     ogDescription: "",
-    ogImage: {}
+    ogImage: {},
+    slug: ""
   }),
   async fetch() {
-    const data: Props = await this.$sanity.fetch(query)
-    this.title = data.title
-    this.description = data.description
-    this.ogTitle = data.ogTitle
-    this.ogDescription = data.ogDescription
-    this.ogImage = data.ogImage
+    const metaData: MetaProps = await this.$sanity.fetch(metaQuery)
+    const pageData: PageProps = await this.$sanity.fetch(pageQuery)
+    this.title = metaData.title
+    this.description = metaData.description
+    this.ogTitle = metaData.ogTitle
+    this.ogDescription = metaData.ogDescription
+    this.ogImage = metaData.ogImage
+    this.slug = pageData.slug
   },
   head() {
     return {

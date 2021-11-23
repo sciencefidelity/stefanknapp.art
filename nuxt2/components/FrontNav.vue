@@ -20,7 +20,7 @@
           </li>
         </ul>
         <div class="nav__title-container">
-          <p class="nav__title">The Estate of Stefan Knapp</p>
+          <p class="nav__title">{{ title }}</p>
         </div>
       </div>
     </div>
@@ -31,11 +31,20 @@
 import Vue from "vue"
 import { groq } from "@nuxtjs/sanity"
 
-interface Props {
-  pages: []
+interface PageProps {
+  page: [{
+    _id: string
+    slug: { _type: string; current: string }
+    title: { _type: string; en: string; pl: string }
+  }]
 }
 
-const query = groq`*[_type == 'page'] | order(_createdAt) { _id, title, slug }`
+interface MetaProps {
+  title: string
+}
+
+const pageQuery = groq`*[_type == "page"] | order(_createdAt) { _id, title, slug }`
+const metaQuery = groq`*[_type == "meta"][0]{ title }`
 
 export default Vue.extend({
   name: "FrontNav",
@@ -47,8 +56,10 @@ export default Vue.extend({
     slug: ""
   }),
   async fetch() {
-    const data: Props = await this.$sanity.fetch(query)
-    this.pages = data
+    const pageData: PageProps = await this.$sanity.fetch(pageQuery)
+    const metaData: MetaProps = await this.$sanity.fetch(metaQuery)
+    this.pages = pageData
+    this.title = metaData.title
   },
   methods: {
     toggleMenu() {
