@@ -1,0 +1,51 @@
+<template>
+  <div class="sanity-image" :width="width" :height="height">
+    <SanityImage :asset-id="image.asset._ref" auto="format" />
+  </div>
+</template>
+
+<script lang="ts">
+import Vue from "vue"
+import { SanityImage } from "@nuxtjs/sanity/dist/components/sanity-image"
+
+export default Vue.extend({
+  name: "SanityImage",
+  props: {
+    image: Object
+  }
+})
+</script>
+
+<!-- prettier-ignore -->
+<style lang="scss" scoped>
+@use '../assets/scss/breakpoints' as b;
+
+.sanity-image {
+  position: relative;
+  display: grid;
+  justify-content: center;
+  object-fit: contain;
+}
+
+img {
+  max-width: 70%;
+  height: calc(100vh - 19.9rem);
+  margin: auto;
+  object-fit: contain;
+  @include b.mq(sm) {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+.v-lazy-image {
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.v-lazy-image-loaded {
+  opacity: 1;
+}
+</style>
