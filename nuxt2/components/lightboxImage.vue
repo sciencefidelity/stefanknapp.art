@@ -18,7 +18,7 @@ export default Vue.extend({
 
 <!-- prettier-ignore -->
 <style lang="scss" scoped>
-@use '../assets/scss/breakpoints' as b;
+@use '../assets/css/breakpoints' as b;
 
 .sanity-image {
   position: relative;

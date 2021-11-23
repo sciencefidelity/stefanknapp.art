@@ -13,7 +13,8 @@
         </div>
       </div>
       <p v-if="$context.locale === 'en-gb'">
-        &copy; {{ new Date().getFullYear() }} The Estate of <NuxtLink to="/en">Stefan Knapp</NuxtLink>
+        &copy; {{ new Date().getFullYear() }} The Estate of
+        <NuxtLink to="/en">Stefan Knapp</NuxtLink>
       </p>
     </div>
   </Footer>
@@ -29,8 +30,8 @@ export default Vue.extend({
 
 <!-- prettier-ignore -->
 <style lang="scss" scoped>
-@use '../assets/scss/colors' as c;
-@use '../assets/scss/breakpoints' as b;
+@use '../assets/css/colors' as c;
+@use '../assets/css/breakpoints' as b;
 
 footer {
   position: relative;

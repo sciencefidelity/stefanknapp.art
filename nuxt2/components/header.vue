@@ -18,7 +18,7 @@ export default Vue.extend({
 
 <!-- prettier-ignore -->
 <style lang="scss" scoped>
-@use '../assets/scss/colors' as c;
+@use '../assets/css/colors' as c;
 
 header {
   position: absolute;

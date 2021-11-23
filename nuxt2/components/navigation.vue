@@ -63,8 +63,8 @@ export default {
 
 <!-- prettier-ignore -->
 <style lang="scss" scoped>
-@use '../assets/scss/colors' as c;
-@use '../assets/scss/breakpoints' as b;
+@use '../assets/css/colors' as c;
+@use '../assets/css/breakpoints' as b;
 
 ::selection {
   background: rgba(c.$grey-100, 0.3);

@@ -53,8 +53,8 @@ export default Vue.extend({
 
 <!-- prettier-ignore -->
 <style lang="scss" scoped>
-@use '../assets/scss/colors' as c;
-@use '../assets/scss/breakpoints' as b;
+@use '../assets/css/colors' as c;
+@use '../assets/css/breakpoints' as b;
 
 .modal {
   font-size: 1rem;
