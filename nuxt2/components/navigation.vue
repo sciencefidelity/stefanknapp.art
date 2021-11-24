@@ -14,9 +14,9 @@
     </div>
     <div :class="[showMenu ? 'nav__active' : 'nav__inactive']">
       <ul>
-        <li v-for="page in pages" :key="page._id">
+        <li v-for="page in pages" :key="page._id" @click="toggleMenu()">
           <NuxtLink :to="localePath(`${page.slug.current}`)">
-            {{ page.title.en }}
+            {{ page.title.en.toUpperCase() }}
           </NuxtLink>
         </li>
       </ul>
@@ -40,25 +40,27 @@ interface PageProps {
 
 const pageQuery = groq`*[_type == "page"] | order(_createdAt) { _id, title, slug }`
 
-export default Vue.extend({
+export default {
   name: "Navigation",
-  data: () => ({
-    showMenu: false,
-    pages: [],
-    _id: "",
-    title: "",
-    slug: ""
-  }),
   async fetch() {
     const pageData: PageProps = await this.$sanity.fetch(pageQuery)
     this.pages = pageData
+  },
+  data: function () {
+    return {
+      showMenu: false,
+      pages: [],
+      _id: "",
+      title: "",
+      slug: ""
+    }
   },
   methods: {
     toggleMenu() {
       this.showMenu = !this.showMenu as boolean
     }
   }
-})
+}
 </script>
 
 <!-- prettier-ignore -->
@@ -123,7 +125,7 @@ a {
   }
 }
 
-.active--exact {
+.nuxt-link-exact-active {
   color: c.$grey-850;
   opacity: 1;
   &:hover {
@@ -133,14 +135,13 @@ a {
 }
 
 ul {
-  display: inline;
   display: flex;
+  flex-direction: column;
   justify-content: right;
   padding: 0;
   font-size: 6rem;
   font-weight: 300;
   line-height: 1.2;
-  text-transform: uppercase;
   list-style: none;
   @include b.mq(lg) {
     font-size: 5.5rem;
