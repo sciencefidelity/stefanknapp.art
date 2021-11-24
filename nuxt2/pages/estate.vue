@@ -3,7 +3,12 @@
     <section class="estate">
       <div class="estate__container">
         <div class="estate__image">
-          <SanityImage />
+          <SanityImage
+            :title="image.mainImage.caption.en"
+            :image="image.mainImage"
+            :width="image.meta.dimensions.width"
+            :height="image.meta.dimensions.height"
+          />
         </div>
         <div class="estate__text">
           <p>
@@ -19,7 +24,7 @@
 <script lang="ts">
 import Vue from "vue"
 import { groq } from "@nuxtjs/sanity"
-import { SanityImage } from "@nuxtjs/sanity/dist/components/sanity-image"
+import SanityImage from "@/components/sanityImage.vue"
 
 interface PageProps {
   mainImage: {
@@ -60,11 +65,24 @@ interface MetaProps {
 const pageQuery = groq`*[_type == "page"][0]{
   mainImage, ogDescription, ogTitle, title
 }`
-const imageQuery = groq`*[_type == "photography"][3]{ mainImage }`
+const imageQuery = groq`*[_type == "photography"] | order(date) [3]{
+  date, mainImage, "meta": mainImage.asset->metadata, title
+}`
 const metaQuery = groq`*[_type == "meta"][0]{contact}`
 
 export default Vue.extend({
   name: "Estate",
+  components: {
+    SanityImage
+  },
+  data: () => ({
+    mainImage: {},
+    ogDescription: "",
+    ogTitle: "",
+    title: {},
+    image: {},
+    contact: ""
+  }),
   async fetch() {
     const pageData: PageProps = await this.$sanity.fetch(pageQuery)
     const imageData: ImageProps = await this.$sanity.fetch(imageQuery)
@@ -73,7 +91,7 @@ export default Vue.extend({
     this.ogDescription = pageData.ogDescription
     this.ogTitle = pageData.ogTitle
     this.title = pageData.title
-    this.image = imageData.mainImage
+    this.image = imageData
     this.contact = metaData.contact
   },
   head() {
@@ -114,17 +132,17 @@ export default Vue.extend({
         {
           hid: "twitter:title",
           name: "twitter:title",
-          content: this.$static.sanityPage.ogTitle
+          content: this.ogTitle
         },
         {
           hid: "twitter:description",
           name: "twitter:description",
-          content: this.$static.sanityPage.ogDescription
+          content: this.ogDescription
         },
         {
           hid: "twitter:image",
           name: "twitter:image",
-          content: this.$urlForImage(this.mainImage)
+          content: this.$urlFor(this.mainImage)
             .width(1200)
             .height(628)
             .fit("crop")

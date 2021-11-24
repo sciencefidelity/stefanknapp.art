@@ -43,7 +43,7 @@
 import Vue from "vue"
 import VLazyImage from "v-lazy-image"
 
-export default {
+export default Vue.extend({
   name: "SanityImage",
   components: {
     VLazyImage
@@ -68,7 +68,7 @@ export default {
       default: "center"
     }
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>

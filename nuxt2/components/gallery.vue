@@ -5,7 +5,6 @@
       @prevIndex="prevIndex"
       :title="artworks[currentIndex].title.en"
       :date="artworks[currentIndex].date"
-      :medium="artworks[currentIndex].medium[0].title.en"
       :image="artworks[currentIndex].mainImage"
     />
   </div>

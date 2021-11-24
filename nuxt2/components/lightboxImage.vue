@@ -1,26 +1,35 @@
 <template>
   <div class="sanity-image" :width="width" :height="height">
-    <SanityImage :asset-id="image.asset._ref" auto="format" />
+    <VLazyImage
+      :alt="title"
+      :src="
+        $urlFor(image)
+          .width(600)
+          .fit(fit)
+          .crop(crop)
+          .auto('format')
+          .quality(70)
+          .url()
+      "
+      decoding="async"
+      loading="lazy"
+      :width="width"
+      :height="height"
+    />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue"
-import { SanityImage } from "@nuxtjs/sanity/dist/components/sanity-image"
+import VLazyImage from "v-lazy-image"
 
 export default Vue.extend({
-  name: "SanityImage",
-  data: () => ({
-    image: {}
-  }),
+  name: "LightboxImage",
+  components: {
+    VLazyImage
+  },
   props: {
     image: Object,
-    width: Number,
-    height: Number,
-    pos: {
-      type: String,
-      default: "50% 50%"
-    },
     fit: {
       type: String,
       default: "crop"
