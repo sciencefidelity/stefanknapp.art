@@ -20,7 +20,7 @@
       </div>
       <div class="row">
         <div class="front-copy">
-          <p>&copy; {{ new Date().getFullYear() }} {{ title }}</p>
+          <p>&copy; {{ new Date().getFullYear() }} {{ title.en }}</p>
         </div>
       </div>
     </div>
@@ -33,10 +33,10 @@ import { groq } from "@nuxtjs/sanity"
 import FrontNav from "@/components/frontNav.vue"
 
 interface MetaProps {
-  title: string
-  description: string
-  ogTitle: string
-  ogDescription: string
+  title: { en: string; pl: string }
+  description: { en: string; pl: string }
+  ogTitle: { en: string; pl: string }
+  ogDescription: { en: string; pl: string }
   ogImage: {
     _type: string
     asset: { _ref: string; _type: string }
@@ -66,7 +66,7 @@ const metaQuery = groq`*[_type == "meta"][0]{
 }`
 const pageQuery = groq`*[_type == "page"][0]{ slug }`
 
-export default Vue.extend({
+export default {
   layout: "frontPage",
   name: "Index",
   components: {
@@ -76,11 +76,11 @@ export default Vue.extend({
     artist: "Knapp",
     showMenu: false,
     title: "",
-    description: "",
-    ogTitle: "",
-    ogDescription: "",
+    description: {},
+    ogTitle: {},
+    ogDescription: {},
     ogImage: {},
-    slug: ""
+    slug: {}
   }),
   async fetch() {
     const metaData: MetaProps = await this.$sanity.fetch(metaQuery)
@@ -94,18 +94,18 @@ export default Vue.extend({
   },
   head() {
     return {
-      title: this.title,
+      title: this.title.en,
       meta: [
         {
           hid: "description",
           name: "description",
           content: this.description
         },
-        { hid: "og:title", name: "og:title", content: this.ogTitle },
+        { hid: "og:title", name: "og:title", content: this.ogTitle.en },
         {
           hid: "og:description",
           name: "og:description",
-          content: this.ogDescription
+          content: this.ogDescription.en
         },
         {
           hid: "og:image",
@@ -126,12 +126,12 @@ export default Vue.extend({
         {
           hid: "twitter:title",
           name: "twitter:title",
-          content: this.ogTitle
+          content: this.ogTitle.en
         },
         {
           hid: "twitter:description",
           name: "twitter:description",
-          content: this.ogDescription
+          content: this.ogDescription.en
         },
         {
           hid: "twitter:image",
@@ -147,7 +147,7 @@ export default Vue.extend({
       ]
     }
   }
-})
+}
 </script>
 
 <!-- prettier-ignore -->

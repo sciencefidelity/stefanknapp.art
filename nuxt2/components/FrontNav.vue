@@ -23,7 +23,7 @@
           </li>
         </ul>
         <div class="nav__title-container">
-          <p class="nav__title">{{ title.toUpperCase() }}</p>
+          <p class="nav__title">{{ title.en.toUpperCase() }}</p>
         </div>
       </div>
     </div>
@@ -51,7 +51,7 @@ interface MetaProps {
 const pageQuery = groq`*[_type == "page"] | order(_createdAt) { _id, title, slug }`
 const metaQuery = groq`*[_type == "meta"][0]{ title }`
 
-export default Vue.extend({
+export default {
   name: "FrontNav",
   data: () => ({
     showMenu: false,
@@ -69,7 +69,7 @@ export default Vue.extend({
       return (this.showMenu = !this.showMenu) as boolean
     }
   }
-})
+}
 </script>
 
 <!-- prettier-ignore -->
