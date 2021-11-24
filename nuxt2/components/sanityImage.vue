@@ -4,8 +4,8 @@
       :alt="title"
       :src="
         $urlFor(image)
-          .width(w)
-          .height(h)
+          .width()
+          .height()
           .fit(fit)
           .crop(crop)
           .quality(80)
@@ -45,14 +45,18 @@ import VLazyImage from "v-lazy-image"
 
 export default Vue.extend({
   name: "SanityImage",
+  data: function () {
+    return {
+      w: this.width / 3,
+      h: this.height / 3
+    }
+  },
   components: {
     VLazyImage
   },
   props: {
     title: String,
     image: Object,
-    w: String,
-    h: String,
     width: Number,
     height: Number,
     pos: {

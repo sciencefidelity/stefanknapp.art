@@ -102,7 +102,7 @@ const photoQueryTwo = groq`*[_type == "photography"] | order(date) [5] {
   date, mainImage, "meta": mainImage.asset->metadata, title
 }`
 
-export default Vue.extend({
+export default {
   name: "Life",
   components: {
     SanityImage,
@@ -192,7 +192,7 @@ export default Vue.extend({
       ]
     }
   }
-})
+}
 </script>
 
 <!-- prettier-ignore -->

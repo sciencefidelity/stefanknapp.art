@@ -30,8 +30,9 @@ export default Vue.extend({
   },
   props: {
     image: Object,
-    width: String,
-    height: String,
+    title: String,
+    width: Number,
+    height: Number,
     fit: {
       type: String,
       default: "crop"
