@@ -8,13 +8,13 @@ export default {
       name: "title",
       title: "Meta title",
       description: "Site title, shown on browser tabs and search engines",
-      type: "string"
+      type: "localeString"
     },
     {
       name: "description",
       title: "Meta description",
       description: "Site description, shown in search engine results",
-      type: "string"
+      type: "localeString"
     },
     {
       name: "contact",
@@ -27,7 +27,7 @@ export default {
       title: "Social title",
       description:
         "Displayed on Facebook and Twitter shares (max 60 characters)",
-      type: "string",
+      type: "localeString",
       validation: (Rule: any) =>
         Rule.max(60).warning(`Only 60 characters will be visible.`)
     },
@@ -36,7 +36,7 @@ export default {
       title: "Social description",
       description:
         "Displayed on Facebook and Twitter shares (max 65 characters)",
-      type: "string",
+      type: "localeString",
       validation: (Rule: any) =>
         Rule.max(65).warning(`Only 65 characters will be visible.`)
     },
