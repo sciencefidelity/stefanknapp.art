@@ -18,30 +18,13 @@
       :height="height"
       :style="{ 'object-position': pos }"
     />
-    <img
-      :alt="title"
-      :src="
-        $urlFor(image)
-          .width(2)
-          .height(2)
-          .fit(fit)
-          .crop(crop)
-          .quality(10)
-          .auto('format')
-          .url()
-      "
-      decoding="async"
-      loading="lazy"
-      class="placeholder"
-      :width="width"
-      :height="height"
-    />
+    <div class="placeholder" :style="{ 'background-color': color }" />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue"
-import VLazyImage from "v-lazy-image"
+import VLazyImage from "v-lazy-image/v2"
 
 export default Vue.extend({
   name: "SanityImage",
@@ -70,7 +53,8 @@ export default Vue.extend({
     crop: {
       type: String,
       default: "center"
-    }
+    },
+    color: String
   }
 })
 </script>

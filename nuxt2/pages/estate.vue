@@ -8,6 +8,7 @@
             :image="image.mainImage"
             :width="image.meta.dimensions.width"
             :height="image.meta.dimensions.height"
+            :color="image.meta.palette.lightMuted.background"
           />
         </div>
         <div class="estate__text">

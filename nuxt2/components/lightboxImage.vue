@@ -21,7 +21,7 @@
 
 <script lang="ts">
 import Vue from "vue"
-import VLazyImage from "v-lazy-image"
+import VLazyImage from "v-lazy-image/v2"
 
 export default Vue.extend({
   name: "LightboxImage",
@@ -40,7 +40,8 @@ export default Vue.extend({
     crop: {
       type: String,
       default: "center"
-    }
+    },
+    color: String
   }
 })
 </script>
@@ -53,7 +54,7 @@ export default Vue.extend({
   position: relative;
   display: grid;
   justify-content: center;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 img {

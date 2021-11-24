@@ -8,6 +8,7 @@
             :image="imageOne.mainImage"
             :width="imageOne.meta.dimensions.width"
             :height="imageOne.meta.dimensions.height"
+            :color="imageOne.meta.palette.lightMuted.background"
           />
         </div>
         <div class="life__text">
@@ -24,6 +25,7 @@
             :image="imageTwo.mainImage"
             :width="imageTwo.meta.dimensions.width"
             :height="imageTwo.meta.dimensions.height"
+            :color="imageTwo.meta.palette.lightMuted.background"
           />
         </div>
       </div>

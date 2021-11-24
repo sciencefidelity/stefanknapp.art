@@ -19,6 +19,7 @@
         :image="image"
         :width="width"
         :height="height"
+        :color="color"
       />
       <p class="modal__caption">
         {{ title }} {{ date }}<br />{{ medium.toLowerCase() }}
@@ -42,7 +43,8 @@ export default Vue.extend({
     medium: String,
     image: Object,
     width: Number,
-    height: Number
+    height: Number,
+    color: String
   },
   methods: {
     nextIndex() {
