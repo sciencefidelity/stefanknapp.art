@@ -3,9 +3,12 @@
     <Modal
       @nextIndex="nextIndex"
       @prevIndex="prevIndex"
+      :image="artworks[currentIndex].mainImage"
       :title="artworks[currentIndex].title.en"
       :date="artworks[currentIndex].date"
-      :image="artworks[currentIndex].mainImage"
+      :width="artworks[currentIndex].meta.dimensions.width"
+      :height="artworks[currentIndex].meta.dimensions.height"
+      :medium="artworks[currentIndex].medium.title.en"
     />
   </div>
 </template>
@@ -27,7 +30,7 @@ interface ArtworkProps {
 }
 
 const artworkQuery = groq`*[_type == "artwork" && display] | order(date) {
-  _id, date, mainImage, medium, title
+  _id, date, mainImage, "meta": mainImage.asset->metadata, medium[0]->, title
 }`
 
 export default Vue.extend({
