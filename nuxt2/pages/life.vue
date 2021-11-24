@@ -3,7 +3,12 @@
     <section class="life">
       <div class="life__container">
         <div class="life__image">
-          <SanityImage :asset-id="image1.asset._ref" auto="format" />
+          <SanityImage
+            :title="imageOne.mainImage.caption.en"
+            :image="imageOne.mainImage"
+            :width="imageOne.meta.dimensions.width"
+            :height="imageOne.meta.dimensions.height"
+          />
         </div>
         <div class="life__text">
           <SanityContent :blocks="biography.en" />
@@ -14,7 +19,12 @@
           <SanityContent :blocks="exhibitions.en" />
         </div>
         <div class="life__image hide">
-          <SanityImage :asset-id="image2.asset._ref" auto="format" />
+          <SanityImage
+            :title="imageTwo.mainImage.caption.en"
+            :image="imageTwo.mainImage"
+            :width="imageTwo.meta.dimensions.width"
+            :height="imageTwo.meta.dimensions.height"
+          />
         </div>
       </div>
       <div class="life__container full">
@@ -33,9 +43,9 @@
 import Vue from "vue"
 import { groq } from "@nuxtjs/sanity"
 import { SanityContent } from "@nuxtjs/sanity/dist/components/sanity-content"
-import { SanityImage } from "@nuxtjs/sanity/dist/components/sanity-image"
-import VideoEmbed from "@/components/videoEmbed.vue"
 import Exhibitions from "@/components/exhibitions.vue"
+import SanityImage from "@/components/sanityImage.vue"
+import VideoEmbed from "@/components/videoEmbed.vue"
 
 interface PageProps {
   mainImage: {
@@ -77,6 +87,7 @@ interface ImageProps {
     asset: { _ref: string; _type: string }
     caption: { _type: string; en: string; pl: string }
   }
+  meta: {}
   title: { en: string; pl: string }
 }
 
@@ -84,17 +95,16 @@ const pageQuery = groq`*[_type == "page"][0]{
   mainImage, ogDescription, ogTitle, title
 }`
 const bioQuery = groq`*[_type == "bio"][0]{ biography, exhibitions }`
-const photoQuery1 = groq`*[_type == "photography"] | order(date) [4] {
-  date, mainImage, title
+const photoQueryOne = groq`*[_type == "photography"] | order(date) [4]{
+  date, mainImage, "meta": mainImage.asset->metadata, title
 }`
-const photoQuery2 = groq`*[_type == "photography"] | order(date) [5] {
-  date, mainImage, title
+const photoQueryTwo = groq`*[_type == "photography"] | order(date) [5] {
+  date, mainImage, "meta": mainImage.asset->metadata, title
 }`
 
 export default Vue.extend({
   name: "Life",
   components: {
-    SanityContent,
     SanityImage,
     VideoEmbed,
     Exhibitions
@@ -106,26 +116,22 @@ export default Vue.extend({
     ogDescription: "",
     biography: {},
     exhibitions: {},
-    image1: {},
-    image2: {}
+    imageOne: {},
+    imageTwo: {}
   }),
   async fetch() {
     const pageData: PageProps = await this.$sanity.fetch(pageQuery)
     const bioData: BioProps = await this.$sanity.fetch(bioQuery)
-    const image1Data: ImageProps = await this.$sanity.fetch(photoQuery1)
-    const image2Data: ImageProps = await this.$sanity.fetch(photoQuery2)
+    const imageOneData: ImageProps = await this.$sanity.fetch(photoQueryOne)
+    const imageTwoData: ImageProps = await this.$sanity.fetch(photoQueryTwo)
     this.mainImage = pageData.mainImage
     this.title = pageData.title
     this.ogTitle = pageData.ogTitle
     this.ogDescription = pageData.ogDescription
     this.biography = bioData.biography
     this.exhibitions = bioData.exhibitions
-    this.image1 = image1Data.mainImage
-    this.image1Title = image1Data.title
-    this.image1Date = image1Data.date
-    this.image2 = image2Data.mainImage
-    this.image2Title = image2Data.title
-    this.image2Date = image2Data.date
+    this.imageOne = imageOneData
+    this.imageTwo = imageTwoData
   },
   head() {
     return {
