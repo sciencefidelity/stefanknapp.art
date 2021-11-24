@@ -28,8 +28,8 @@ export default {
       description:
         "Displayed on Facebook and Twitter shares (max 60 characters)",
       type: "localeString",
-      validation: (Rule: any) =>
-        Rule.max(60).warning(`Only 60 characters will be visible.`)
+      // validation: (Rule: any) =>
+      //   Rule.max(60).warning(`Only 60 characters will be visible.`)
     },
     {
       name: "ogDescription",
@@ -37,8 +37,8 @@ export default {
       description:
         "Displayed on Facebook and Twitter shares (max 65 characters)",
       type: "localeString",
-      validation: (Rule: any) =>
-        Rule.max(65).warning(`Only 65 characters will be visible.`)
+      // validation: (Rule: any) =>
+      //   Rule.max(65).warning(`Only 65 characters will be visible.`)
     },
     {
       name: "ogImage",
