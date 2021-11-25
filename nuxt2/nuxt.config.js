@@ -20,6 +20,60 @@ export default defineNuxtConfig({
       },
       { name: "format-detection", content: "telephone=no" }
     ],
+    link: [
+      {
+        rel: "preload",
+        as: "font",
+        href: "@/assets/fonts/futurapt-bold.woff2",
+        type: "font/woff2",
+        crossorigin: "anonymous"
+      }
+    ],
+    link: [
+      {
+        rel: "preload",
+        as: "font",
+        href: "@/assets/fonts/futurapt-book.woff2",
+        type: "font/woff2",
+        crossorigin: "anonymous"
+      }
+    ],
+    link: [
+      {
+        rel: "preload",
+        as: "font",
+        href: "@/assets/fonts/futurapt-bookobl.woff2",
+        type: "font/woff2",
+        crossorigin: "anonymous"
+      }
+    ],
+    link: [
+      {
+        rel: "preload",
+        as: "font",
+        href: "@/assets/fonts/futurapt-demi.woff2",
+        type: "font/woff2",
+        crossorigin: "anonymous"
+      }
+    ],
+    link: [
+      {
+        rel: "preload",
+        as: "font",
+        href: "@/assets/fonts/futurapt-light.woff2",
+        type: "font/woff2",
+        crossorigin: "anonymous"
+      }
+    ],
+    link: [
+      {
+        rel: "preload",
+        as: "font",
+        href: "@/assets/fonts/futurapt-lightobl.woff2",
+        type: "font/woff2",
+        crossorigin: "anonymous"
+      }
+    ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.svg" }]
   },
 
