@@ -29,12 +29,8 @@
 
 <script lang="ts">
 import { groq } from "@nuxtjs/sanity"
-import { MetaProps } from "@/types/interfaces"
+import { Meta, Page } from "../generated/schema"
 import FrontNav from "@/components/frontNav.vue"
-
-interface PageProps {
-  slug: { _type: string; current: string }
-}
 
 const metaQuery = groq`*[_type == "meta"][0]{
   title, description, ogTitle, ogDescription, ogImage
@@ -59,8 +55,8 @@ export default {
     year: new Date().getFullYear()
   }),
   async fetch() {
-    const metaData: MetaProps = await this.$sanity.fetch(metaQuery)
-    const pageData: PageProps = await this.$sanity.fetch(pageQuery)
+    const metaData: Meta = await this.$sanity.fetch(metaQuery)
+    const pageData: Page = await this.$sanity.fetch(pageQuery)
     this.title = metaData.title
     this.description = metaData.description
     this.ogTitle = metaData.ogTitle

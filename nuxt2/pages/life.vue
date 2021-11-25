@@ -44,53 +44,10 @@
 <script lang="ts">
 import { groq } from "@nuxtjs/sanity"
 import { SanityContent } from "@nuxtjs/sanity/dist/components/sanity-content"
+import { Bio, Page, Photography } from "../generated/schema"
 import Exhibitions from "@/components/exhibitions.vue"
 import SanityImage from "@/components/sanityImage.vue"
 import VideoEmbed from "@/components/videoEmbed.vue"
-
-interface PageProps {
-  mainImage: {
-    _type: string
-    asset: { _ref: string; _type: string }
-    caption: { _type: string; en: string; pl: string }
-    crop: {
-      _type: string
-      bottom: number
-      left: number
-      right: number
-      top: number
-    }
-    hotspot: {
-      _type: string
-      height: number
-      width: number
-      x: number
-      y: number
-    }
-  }
-  ogDescription: string
-  ogTitle: string
-  title: { en: string; pl: string }
-}
-
-interface BioProps {
-  biography: { _type: string; en: object[]; pl: object[] }
-  born: string
-  died: string
-  exhibitions: { _type: string; en: object[]; pl: object[] }
-  name: string
-}
-
-interface ImageProps {
-  date: number
-  mainImage: {
-    _type: string
-    asset: { _ref: string; _type: string }
-    caption: { _type: string; en: string; pl: string }
-  }
-  meta: {}
-  title: { en: string; pl: string }
-}
 
 const pageQuery = groq`*[_type == "page"][0]{
   mainImage, ogDescription, ogTitle, title
@@ -121,10 +78,11 @@ export default {
     imageTwo: {}
   }),
   async fetch() {
-    const pageData: PageProps = await this.$sanity.fetch(pageQuery)
-    const bioData: BioProps = await this.$sanity.fetch(bioQuery)
-    const imageOneData: ImageProps = await this.$sanity.fetch(photoQueryOne)
-    const imageTwoData: ImageProps = await this.$sanity.fetch(photoQueryTwo)
+    const pageData: Page = await this.$sanity.fetch(pageQuery)
+    const bioData: Bio = await this.$sanity.fetch(bioQuery)
+    const imageOneData: Photography = await this.$sanity.fetch(photoQueryOne)
+    const imageTwoData: Photography = await this.$sanity.fetch(photoQueryTwo)
+
     this.mainImage = pageData.mainImage
     this.title = pageData.title
     this.ogTitle = pageData.ogTitle

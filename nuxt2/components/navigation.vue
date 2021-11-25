@@ -26,23 +26,14 @@
 
 <script lang="ts">
 import { groq } from "@nuxtjs/sanity"
-
-interface PageProps {
-  page: [
-    {
-      _id: string
-      slug: { _type: string; current: string }
-      title: { _type: string; en: string; pl: string }
-    }
-  ]
-}
+import { Page } from "../generated/schema"
 
 const pageQuery = groq`*[_type == "page"] | order(_createdAt) { _id, title, slug }`
 
 export default {
   name: "Navigation",
   async fetch() {
-    const pageData: PageProps = await this.$sanity.fetch(pageQuery)
+    const pageData: Page = await this.$sanity.fetch(pageQuery)
     this.pages = pageData
   },
   data: function () {

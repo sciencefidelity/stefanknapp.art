@@ -19,43 +19,8 @@
 
 <script lang="ts">
 import { groq } from "@nuxtjs/sanity"
+import { Artwork, Page } from "../generated/schema"
 import Modal from "@/components/modal.vue"
-
-interface PageProps {
-  mainImage: {
-    _type: string
-    asset: { _ref: string; _type: string }
-    caption: { _type: string; en: string; pl: string }
-    crop: {
-      _type: string
-      bottom: number
-      left: number
-      right: number
-      top: number
-    }
-    hotspot: {
-      _type: string
-      height: number
-      width: number
-      x: number
-      y: number
-    }
-  }
-  ogDescription: string
-  ogTitle: string
-  title: { en: string; pl: string }
-}
-
-interface ArtworkProps {
-  _id: string
-  date: number
-  mainImage: {
-    _type: string
-    asset: { _ref: string; _type: string }
-  }
-  medium: object[]
-  title: string
-}
 
 const pageQuery = groq`*[_type == "page"][0]{
   mainImage, ogDescription, ogTitle, title
@@ -78,8 +43,8 @@ export default {
     currentIndex: 0
   }),
   async fetch() {
-    const pageData: PageProps = await this.$sanity.fetch(pageQuery)
-    const artworkData: ArtworkProps = await this.$sanity.fetch(artworkQuery)
+    const pageData: Page = await this.$sanity.fetch(pageQuery)
+    const artworkData: Artwork = await this.$sanity.fetch(artworkQuery)
     this.mainImage = pageData.mainImage
     this.ogDescription = pageData.ogDescription
     this.ogTitle = pageData.ogTitle

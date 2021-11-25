@@ -33,20 +33,7 @@
 <script lang="ts">
 import Vue from "vue"
 import { groq } from "@nuxtjs/sanity"
-
-interface PageProps {
-  page: [
-    {
-      _id: string
-      slug: { _type: string; current: string }
-      title: { _type: string; en: string; pl: string }
-    }
-  ]
-}
-
-interface MetaProps {
-  title: string
-}
+import { Meta, Page } from "../generated/schema"
 
 const pageQuery = groq`*[_type == "page"] | order(_createdAt) { _id, title, slug }`
 const metaQuery = groq`*[_type == "meta"][0]{ title }`
@@ -59,8 +46,9 @@ export default {
     title: ""
   }),
   async fetch() {
-    const pageData: PageProps = await this.$sanity.fetch(pageQuery)
-    const metaData: MetaProps = await this.$sanity.fetch(metaQuery)
+    const pageData: Page = await this.$sanity.fetch(pageQuery)
+    const metaData: Meta = await this.$sanity.fetch(metaQuery)
+
     this.pages = pageData
     this.title = metaData.title
   },

@@ -16,18 +16,7 @@
 
 <script lang="ts">
 import { groq } from "@nuxtjs/sanity"
-
-interface VideoProps {
-  video: [
-    {
-      gallery: string
-      imageUrl: string
-      mp4Url: string
-      webmUrl: string
-      title: string
-    }
-  ]
-}
+import { Video } from "../generated/schema"
 
 const videoQuery = groq`*[_type == "video"]{
   "imageUrl": mainImage.asset->url,
@@ -49,7 +38,7 @@ export default {
     videos: []
   }),
   async fetch() {
-    const videoData: VideoProps = await this.$sanity.fetch(videoQuery)
+    const videoData: Video = await this.$sanity.fetch(videoQuery)
     this.videos = videoData
   }
 }

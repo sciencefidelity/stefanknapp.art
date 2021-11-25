@@ -52,6 +52,7 @@
     "eslint-plugin-vue": "^7.12.1",
     "jest": "^27.0.5",
     "prettier": "^2.3.2",
+    "sanity-codegen": "^0.9.8",
     "sass": "^1.43.4",
     "sass-loader": "^10.1.1",
     "stylelint": "^13.13.1",

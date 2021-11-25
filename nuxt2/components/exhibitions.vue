@@ -13,18 +13,7 @@
 <script lang="ts">
 import Vue from "vue"
 import { groq } from "@nuxtjs/sanity"
-
-interface ExhibitionProps {
-  exhibition: [
-    {
-      _id: string
-      gallery: string
-      location: { _type: string; en: string; pl: string }
-      solo: boolean
-      year: number
-    }
-  ]
-}
+import { Exhibition } from "../generated/schema"
 
 const exhibitionQuery = groq`*[_type == "exhibition"] | order(year) {
   _id, gallery, location, solo, year
@@ -36,7 +25,7 @@ export default {
     exhibitions: []
   }),
   async fetch() {
-    const exhibitionData: ExhibitionProps = await this.$sanity.fetch(
+    const exhibitionData: Exhibition = await this.$sanity.fetch(
       exhibitionQuery
     )
     this.exhibitions = exhibitionData
