@@ -20,7 +20,7 @@
       </div>
       <div class="row">
         <div class="front-copy">
-          <p>&copy; {{ new Date().getFullYear() }} {{ title.en }}</p>
+          <p>&copy; {{ year }} {{ title.en }}</p>
         </div>
       </div>
     </div>
@@ -30,32 +30,8 @@
 <script lang="ts">
 import Vue from "vue"
 import { groq } from "@nuxtjs/sanity"
+import { MetaProps } from "@/types/interfaces"
 import FrontNav from "@/components/frontNav.vue"
-
-interface MetaProps {
-  title: { en: string; pl: string }
-  description: { en: string; pl: string }
-  ogTitle: { en: string; pl: string }
-  ogDescription: { en: string; pl: string }
-  ogImage: {
-    _type: string
-    asset: { _ref: string; _type: string }
-    crop: {
-      _type: string
-      bottom: number
-      left: number
-      right: number
-      top: number
-    }
-    hotspot: {
-      _type: string
-      height: number
-      width: number
-      x: number
-      y: number
-    }
-  }
-}
 
 interface PageProps {
   slug: { _type: string; current: string }
@@ -80,7 +56,8 @@ export default {
     ogTitle: {},
     ogDescription: {},
     ogImage: {},
-    slug: {}
+    slug: {},
+    year: new Date().getFullYear()
   }),
   async fetch() {
     const metaData: MetaProps = await this.$sanity.fetch(metaQuery)
