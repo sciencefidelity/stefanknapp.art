@@ -5,15 +5,14 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue"
 import Navigation from "@/components/navigation.vue"
 
-export default Vue.extend({
+export default {
   name: "Header",
   components: {
     Navigation
   }
-})
+}
 </script>
 
 <!-- prettier-ignore -->
