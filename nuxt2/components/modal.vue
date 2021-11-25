@@ -13,17 +13,18 @@
         src="data:image/svg+xml,%3Csvg viewBox='0 0 54 104' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M48.85 52.05l-48.1 48.1c-.8.8-.8 2.1 0 2.9.8.8 2.1.8 2.9 0l49.6-49.6c.8-.8.8-2.1 0-2.9L3.65.95c-.8-.8-2.1-.8-2.9 0-.8.8-.8 2.1 0 2.9l48.1 48.1v.1z' fill='%23262626'/%3E%3C/svg%3E"
       />
     </div>
-    <div class="modal__image">
-      <LightboxImage
-        :title="title"
-        :image="image"
-        :width="width"
-        :height="height"
-        :color="color"
-      />
-      <p class="modal__caption">
-        {{ title }} {{ date }}<br />{{ medium.toLowerCase() }}
-      </p>
+    <div :class="{ hidden: isHidden }">
+      <div class="modal__image">
+        <LightboxImage
+          :title="title"
+          :image="image"
+          :width="width"
+          :height="height"
+        />
+        <p class="modal__caption">
+          {{ title }} {{ date }}<br />{{ medium.toLowerCase() }}
+        </p>
+      </div>
     </div>
   </div>
 </template>
@@ -37,21 +38,27 @@ export default Vue.extend({
   components: {
     LightboxImage
   },
+  data:{
+    isHidden: false
+  },
   props: {
     title: String,
     date: Number,
     medium: String,
     image: Object,
     width: Number,
-    height: Number,
-    color: String
+    height: Number
   },
   methods: {
-    nextIndex() {
-      this.$emit("nextIndex")
+    async nextIndex() {
+      await setTimeout(() => {
+        this.$emit("nextIndex")
+      }, 200)
     },
-    prevIndex() {
-      this.$emit("prevIndex")
+    async prevIndex() {
+      await setTimeout(() => {
+        this.$emit("prevIndex")
+      }, 200)
     }
   }
 })

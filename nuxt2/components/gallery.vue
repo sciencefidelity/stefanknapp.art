@@ -8,7 +8,6 @@
       :date="artworks[currentIndex].date"
       :width="artworks[currentIndex].meta.dimensions.width"
       :height="artworks[currentIndex].meta.dimensions.height"
-      :color="artworks[currentIndex].meta.palette.lightMuted.background"
       :medium="artworks[currentIndex].medium.title.en"
     />
   </div>

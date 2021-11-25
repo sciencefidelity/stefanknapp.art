@@ -5,7 +5,7 @@
       :src="
         $urlFor(image)
           .width(600)
-          .fit(fit)
+          .fit('crop')
           .crop(crop)
           .auto('format')
           .quality(70)
@@ -40,8 +40,7 @@ export default Vue.extend({
     crop: {
       type: String,
       default: "center"
-    },
-    color: String
+    }
   }
 })
 </script>
@@ -66,6 +65,17 @@ img {
     width: 100%;
     max-width: 100%;
   }
+}
+
+.placeholder {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  width: 600px;
+  margin: auto;
 }
 
 .v-lazy-image {
