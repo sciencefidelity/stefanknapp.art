@@ -37,7 +37,7 @@ const videoQuery = groq`*[_type == "video"]{
   title
 }`
 
-export default Vue.extend({
+export default {
   name: "VideoEmbed",
   props: {
     classname: {
@@ -53,5 +53,5 @@ export default Vue.extend({
     const videoData: VideoProps = await this.$sanity.fetch(videoQuery)
     this.videos = videoData
   }
-})
+}
 </script>

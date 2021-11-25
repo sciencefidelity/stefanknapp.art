@@ -23,10 +23,9 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue"
 import VLazyImage from "v-lazy-image/v2"
 
-export default Vue.extend({
+export default {
   name: "SanityImage",
   data: function () {
     return {
@@ -56,7 +55,7 @@ export default Vue.extend({
     },
     color: String
   }
-})
+}
 </script>
 
 <style lang="scss" scoped>

@@ -71,7 +71,7 @@ const imageQuery = groq`*[_type == "photography"] | order(date) [3]{
 }`
 const metaQuery = groq`*[_type == "meta"][0]{contact}`
 
-export default Vue.extend({
+export default {
   name: "Estate",
   components: {
     SanityImage
@@ -154,7 +154,7 @@ export default Vue.extend({
       ]
     }
   }
-})
+}
 </script>
 
 <!-- prettier-ignore -->

@@ -30,7 +30,7 @@ const exhibitionQuery = groq`*[_type == "exhibition"] | order(year) {
   _id, gallery, location, solo, year
 }`
 
-export default Vue.extend({
+export default {
   name: "Exhibitions",
   data: () => ({
     exhibitions: []
@@ -41,7 +41,7 @@ export default Vue.extend({
     )
     this.exhibitions = exhibitionData
   }
-})
+}
 </script>
 
 <!-- prettier-ignore -->
