@@ -13,7 +13,7 @@
         </div>
       </div>
       <p>
-        &copy; {{ new Date().getFullYear() }} The Estate of
+        &copy; {{ year }} The Estate of
         <NuxtLink :to="localePath('index')">Stefan Knapp</NuxtLink>
       </p>
     </div>
@@ -22,7 +22,10 @@
 
 <script lang="ts">
 export default {
-  name: "Footer"
+  name: "Footer",
+  data: () => ({
+    year: new Date().getFullYear()
+  })
 }
 </script>
 
