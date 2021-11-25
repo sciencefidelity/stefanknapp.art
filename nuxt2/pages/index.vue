@@ -76,7 +76,7 @@ export default {
         {
           hid: "description",
           name: "description",
-          content: this.description
+          content: this.description.en
         },
         { hid: "og:title", name: "og:title", content: this.ogTitle.en },
         {
@@ -129,8 +129,8 @@ export default {
 
 <!-- prettier-ignore -->
 <style lang="scss" scoped>
-@use '../assets/css/colors' as c;
-@use '../assets/css/breakpoints' as b;
+@use '~assets/css/colors' as c;
+@use '~assets/css/breakpoints' as b;
 
 ::selection {
   background: rgba(c.$sepia-150, 0.3);

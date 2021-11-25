@@ -20,6 +20,7 @@ export default defineNuxtConfig({
       },
       { name: "format-detection", content: "telephone=no" }
     ],
+    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.svg" }],
     link: [
       {
         rel: "preload",
@@ -73,8 +74,7 @@ export default defineNuxtConfig({
         type: "font/woff2",
         crossorigin: "anonymous"
       }
-    ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.svg" }]
+    ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
