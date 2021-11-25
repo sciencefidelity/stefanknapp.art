@@ -23,7 +23,6 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue"
 import { groq } from "@nuxtjs/sanity"
 import SanityImage from "@/components/sanityImage.vue"
 

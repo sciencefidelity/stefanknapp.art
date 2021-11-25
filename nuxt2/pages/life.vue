@@ -42,7 +42,6 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue"
 import { groq } from "@nuxtjs/sanity"
 import { SanityContent } from "@nuxtjs/sanity/dist/components/sanity-content"
 import Exhibitions from "@/components/exhibitions.vue"

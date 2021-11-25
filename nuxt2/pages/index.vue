@@ -28,7 +28,6 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue"
 import { groq } from "@nuxtjs/sanity"
 import { MetaProps } from "@/types/interfaces"
 import FrontNav from "@/components/frontNav.vue"
