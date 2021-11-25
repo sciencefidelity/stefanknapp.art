@@ -30,10 +30,9 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue"
 import LightboxImage from "@/components/lightboxImage.vue"
 
-export default Vue.extend({
+export default {
   name: "Modal",
   components: {
     LightboxImage
@@ -61,7 +60,7 @@ export default Vue.extend({
       }, 200)
     }
   }
-})
+}
 </script>
 
 <!-- prettier-ignore -->

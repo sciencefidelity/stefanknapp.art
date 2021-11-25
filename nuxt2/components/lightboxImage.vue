@@ -20,10 +20,9 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue"
 import VLazyImage from "v-lazy-image/v2"
 
-export default Vue.extend({
+export default {
   name: "LightboxImage",
   components: {
     VLazyImage
@@ -42,7 +41,7 @@ export default Vue.extend({
       default: "center"
     }
   }
-})
+}
 </script>
 
 <!-- prettier-ignore -->
