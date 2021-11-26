@@ -18,42 +18,11 @@ export default defineNuxtConfig({
         name: "description",
         content: "The art, life and estate of Polish enamelist Stefan Knapp"
       },
-      { name: "format-detection", content: "telephone=no" }
-    ],
-    link: [
+      { name: "format-detection", content: "telephone=no" },
       {
-        rel: "preload",
-        as: "font",
-        href: "@/assets/fonts/futurapt-bold.woff2",
-        type: "font/woff2",
-        crossorigin: "anonymous"
-      }
-    ],
-    link: [
-      {
-        rel: "preload",
-        as: "font",
-        href: "@/assets/fonts/futurapt-book.woff2",
-        type: "font/woff2",
-        crossorigin: "anonymous"
-      }
-    ],
-    link: [
-      {
-        rel: "preload",
-        as: "font",
-        href: "@/assets/fonts/futurapt-demi.woff2",
-        type: "font/woff2",
-        crossorigin: "anonymous"
-      }
-    ],
-    link: [
-      {
-        rel: "preload",
-        as: "font",
-        href: "@/assets/fonts/futurapt-light.woff2",
-        type: "font/woff2",
-        crossorigin: "anonymous"
+        hid: "og:site_name",
+        name: "og:site_name",
+        content: "The Estate of Stefan Knapp"
       }
     ]
   },
