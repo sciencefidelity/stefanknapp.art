@@ -2,7 +2,7 @@
   <footer>
     <div class="footer__container">
       <div class="footer__links">
-        <div>
+        <div class="footer__btn">
           <NuxtLink :to="localePath('index')">
             <img
               alt="Link to home"
@@ -11,6 +11,7 @@
             />
           </NuxtLink>
         </div>
+        <LocaleSwitcher />
       </div>
       <p>
         &copy; {{ year }} The Estate of
@@ -21,8 +22,13 @@
 </template>
 
 <script lang="ts">
+import LocaleSwitcher from "@/components/localeSwitcher.vue"
+
 export default {
   name: "Footer",
+  components: {
+    LocaleSwitcher
+  },
   data: () => ({
     year: new Date().getFullYear()
   })

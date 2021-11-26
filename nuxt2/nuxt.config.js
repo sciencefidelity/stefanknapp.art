@@ -55,7 +55,16 @@ export default defineNuxtConfig({
   modules: ["@nuxtjs/i18n"],
 
   i18n: {
-    locales: ["en", "pl"]
+    locales: [
+      {
+        code: "en",
+        name: "EN"
+      },
+      {
+        code: "pl",
+        name: "PL"
+      }
+    ]
   },
 
   pwa: {
