@@ -2,9 +2,21 @@
   <main>
     <section class="fourohfour">
       <div>
-        <h1>404: not found</h1>
-        <p>You just hit a route that doesn't exist... the sadness.</p>
-        <p><NuxtLink :to="localePath('index')">Home page</NuxtLink></p>
+        <h1>
+          {{ $i18n.locale === "en" ? "404: Not found" : "404 Nie Znaleziono" }}
+        </h1>
+        <p>
+          {{
+            $i18n.locale === "en"
+              ? "You just hit a route that doesn't exist... the sadness."
+              : "Po prostu trafiłeś na trasę, która nie istnieje ... smutek."
+          }}
+        </p>
+        <p>
+          <NuxtLink :to="localePath('index')">{{
+            $i18n.locale === "en" ? "Home page" : "Strona główna"
+          }}</NuxtLink>
+        </p>
       </div>
     </section>
   </main>

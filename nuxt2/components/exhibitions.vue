@@ -6,7 +6,11 @@
     <ul v-for="exhibition in exhibitions" :key="exhibition._id">
       <li class="exhibitions--list">
         <div>{{ exhibition.year }}</div>
-        <div>{{ exhibition.gallery }}, {{ exhibition.location.en }} (solo)</div>
+        <div>
+          {{ exhibition.gallery }},
+          {{ $i18n.locale === "en" ? exhibition.location.en : exhibition.location.pl }}
+          (solo)
+        </div>
       </li>
     </ul>
   </div>
