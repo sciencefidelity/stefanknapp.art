@@ -6,11 +6,11 @@
           @nextIndex="nextIndex"
           @prevIndex="prevIndex"
           :image="artworks[currentIndex].mainImage"
-          :title="artworks[currentIndex].title.en"
+          :title="artworks[currentIndex].title"
           :date="artworks[currentIndex].date"
           :width="artworks[currentIndex].meta.dimensions.width"
           :height="artworks[currentIndex].meta.dimensions.height"
-          :medium="artworks[currentIndex].medium.title.en"
+          :medium="artworks[currentIndex].medium.title"
         />
       </div>
     </section>

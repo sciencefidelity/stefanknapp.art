@@ -12,12 +12,16 @@
           />
         </div>
         <div class="life__text">
-          <SanityContent :blocks="biography.en" />
+          <SanityContent
+            :blocks="$i18n.locale === 'en' ? biography.en : biography.pl"
+          />
         </div>
       </div>
       <div class="life__container">
         <div class="life__text">
-          <SanityContent :blocks="exhibitions.en" />
+          <SanityContent
+            :blocks="$i18n.locale === 'en' ? exhibitions.en : exhibitions.pl"
+          />
         </div>
         <div class="life__image hide">
           <SanityImage

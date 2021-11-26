@@ -1,6 +1,8 @@
 <template>
   <div>
-    <h3>Selected exhibitions</h3>
+    <h3>
+      {{ $i18n.locale === "en" ? "Selected exhibitions" : "Wybrane wystawy" }}
+    </h3>
     <ul v-for="exhibition in exhibitions" :key="exhibition._id">
       <li class="exhibitions--list">
         <div>{{ exhibition.year }}</div>

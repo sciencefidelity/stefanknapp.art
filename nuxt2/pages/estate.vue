@@ -13,7 +13,7 @@
         </div>
         <div class="estate__text">
           <p>
-            contact:
+            {{ $i18n.locale === "en" ? "contact" : "kontakt"}}:
             <a :href="`mailto:${contact}`">{{ contact }}</a>
           </p>
         </div>

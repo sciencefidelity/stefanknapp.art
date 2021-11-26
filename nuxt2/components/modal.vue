@@ -22,7 +22,12 @@
           :height="height"
         />
         <p class="modal__caption">
-          {{ title }} {{ date }}<br />{{ medium.toLowerCase() }}
+          {{ $i18n.locale === "en" ? title.en : title.pl }} {{ `(${date})`
+          }}<br />{{
+            $i18n.locale === "en"
+              ? medium.en.toLowerCase()
+              : medium.pl.toLowerCase()
+          }}
         </p>
       </div>
     </div>
@@ -41,9 +46,9 @@ export default {
     isHidden: false
   }),
   props: {
-    title: String,
+    title: Object,
     date: Number,
-    medium: String,
+    medium: Object,
     image: Object,
     width: Number,
     height: Number
