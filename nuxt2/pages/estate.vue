@@ -33,24 +33,24 @@ export default {
     SanityImage
   },
   data: () => ({
+    contact: "",
+    image: {},
     mainImage: {},
     ogDescription: "",
     ogTitle: "",
-    title: {},
-    image: {},
-    contact: ""
+    title: {}
   }),
   async fetch() {
-    const pageData: Page = await this.$sanity.fetch(estateQuery)
     const imageData: Photography = await this.$sanity.fetch(photoQueryThree)
     const metaData: Meta = await this.$sanity.fetch(metaQuery)
+    const pageData: Page = await this.$sanity.fetch(estateQuery)
 
+    this.contact = metaData.contact
+    this.image = imageData
     this.mainImage = pageData.mainImage
     this.ogDescription = pageData.ogDescription
     this.ogTitle = pageData.ogTitle
     this.title = pageData.title
-    this.image = imageData
-    this.contact = metaData.contact
   },
   head() {
     return {

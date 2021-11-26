@@ -28,18 +28,18 @@ export default {
     VLazyImage
   },
   props: {
-    image: Object,
-    title: String,
-    width: Number,
-    height: Number,
+    crop: {
+      type: String,
+      default: "center"
+    },
     fit: {
       type: String,
       default: "crop"
     },
-    crop: {
-      type: String,
-      default: "center"
-    }
+    height: Number,
+    image: Object,
+    title: String,
+    width: Number
   }
 }
 </script>

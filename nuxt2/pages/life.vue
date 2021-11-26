@@ -52,19 +52,19 @@ import VideoEmbed from "@/components/videoEmbed.vue"
 export default {
   name: "Life",
   components: {
+    Exhibitions,
     SanityImage,
-    VideoEmbed,
-    Exhibitions
+    VideoEmbed
   },
   data: () => ({
-    mainImage: {},
-    title: "",
-    ogTitle: "",
-    ogDescription: "",
     biography: {},
     exhibitions: {},
     imageOne: {},
-    imageTwo: {}
+    imageTwo: {},
+    mainImage: {},
+    ogDescription: "",
+    ogTitle: "",
+    title: ""
   }),
   async fetch() {
     const pageData: Page = await this.$sanity.fetch(lifeQuery)
@@ -88,17 +88,17 @@ export default {
         {
           hid: "description",
           name: "description",
-          content: this.ogDescription
+          content: this.ogDescription.en
         },
         {
           hid: "og:title",
           name: "og:title",
-          content: this.ogTitle
+          content: this.ogTitle.en
         },
         {
           hid: "og:description",
           name: "og:description",
-          content: this.ogDescription
+          content: this.ogDescription.en
         },
         {
           hid: "og:image",
@@ -119,12 +119,12 @@ export default {
         {
           hid: "twitter:title",
           name: "twitter:title",
-          content: this.ogTitle
+          content: this.ogTitle.en
         },
         {
           hid: "twitter:description",
           name: "twitter:description",
-          content: this.ogDescription
+          content: this.ogDescription.en
         },
         {
           hid: "twitter:image",

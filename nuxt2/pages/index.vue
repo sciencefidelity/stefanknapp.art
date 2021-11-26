@@ -40,25 +40,25 @@ export default {
   },
   data: () => ({
     artist: "Knapp",
-    showMenu: false,
-    title: "",
     description: {},
-    ogTitle: {},
     ogDescription: {},
     ogImage: {},
+    ogTitle: {},
+    showMenu: false,
     slug: {},
+    title: "",
     year: new Date().getFullYear()
   }),
   async fetch() {
     const metaData: Meta = await this.$sanity.fetch(metaQuery)
     const pageData: Page = await this.$sanity.fetch(artQuery)
 
-    this.title = metaData.title
     this.description = metaData.description
-    this.ogTitle = metaData.ogTitle
     this.ogDescription = metaData.ogDescription
     this.ogImage = metaData.ogImage
+    this.ogTitle = metaData.ogTitle
     this.slug = pageData.slug
+    this.title = metaData.title
   },
   head() {
     return {

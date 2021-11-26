@@ -42,8 +42,8 @@ export default {
     title: ""
   }),
   async fetch() {
-    const pageData: Page = await this.$sanity.fetch(pageQuery)
     const metaData: Meta = await this.$sanity.fetch(metaQuery)
+    const pageData: Page = await this.$sanity.fetch(pageQuery)
 
     this.pages = pageData
     this.title = metaData.title

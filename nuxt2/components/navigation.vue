@@ -30,18 +30,16 @@ import { Page } from "../generated/schema"
 
 export default {
   name: "Navigation",
+  data: () => ({
+    _id: "",
+    pages: [],
+    showMenu: false,
+    slug: "",
+    title: ""
+  }),
   async fetch() {
     const pageData: Page = await this.$sanity.fetch(pageQuery)
     this.pages = pageData
-  },
-  data: function () {
-    return {
-      showMenu: false,
-      pages: [],
-      _id: "",
-      title: "",
-      slug: ""
-    }
   },
   methods: {
     toggleMenu() {

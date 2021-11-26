@@ -4,19 +4,15 @@
       :alt="title"
       :src="
         $urlFor(image)
-          .width()
-          .height()
-          .fit(fit)
-          .crop(crop)
-          .quality(80)
+          .fit('crop')
           .auto('format')
+          .quality(80)
           .url()
       "
       decoding="async"
       loading="lazy"
       :width="width"
       :height="height"
-      :style="{ 'object-position': pos }"
     />
     <div class="placeholder" :style="{ 'background-color': color }" />
   </div>
@@ -27,33 +23,15 @@ import VLazyImage from "v-lazy-image/v2"
 
 export default {
   name: "SanityImage",
-  data: function () {
-    return {
-      w: this.width / 3,
-      h: this.height / 3
-    }
-  },
   components: {
     VLazyImage
   },
   props: {
-    title: String,
-    image: Object,
-    width: Number,
+    color: String,
     height: Number,
-    pos: {
-      type: String,
-      default: "50% 50%"
-    },
-    fit: {
-      type: String,
-      default: "crop"
-    },
-    crop: {
-      type: String,
-      default: "center"
-    },
-    color: String
+    image: Object,
+    title: String,
+    width: Number
   }
 }
 </script>
