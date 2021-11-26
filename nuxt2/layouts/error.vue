@@ -12,19 +12,7 @@
 
 <script lang="ts">
 export default {
-  name: "404",
-  head() {
-    return {
-      title: "404: not found",
-      meta: [
-        {
-          hid: "description",
-          name: "description",
-          content: "You just hit a route that doesn't exist... the sadness."
-        }
-      ]
-    }
-  }
+  props: ["error"]
 }
 </script>
 
