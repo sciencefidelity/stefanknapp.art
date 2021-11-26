@@ -18,8 +18,8 @@
 </template>
 
 <script lang="ts">
-import { artQuery, artworkQuery } from "../data/queries"
-import { Artwork, Page } from "../generated/schema"
+import { artQuery, artworkQuery, metaQuery } from "../data/queries"
+import { Artwork, Meta, Page } from "../generated/schema"
 import Modal from "@/components/modal.vue"
 
 export default {
@@ -28,20 +28,23 @@ export default {
     Modal
   },
   data: () => ({
-    mainImage: {},
-    ogDescription: "",
-    ogTitle: "",
-    title: "",
     artworks: [],
-    currentIndex: 0
+    currentIndex: 0,
+    mainImage: {},
+    ogDescription: {},
+    ogTitle: {},
+    siteTitle: {},
+    title: {}
   }),
   async fetch() {
-    const pageData: Page = await this.$sanity.fetch(artQuery)
     const artworkData: Artwork = await this.$sanity.fetch(artworkQuery)
+    const metaData: Meta = await this.$sanity.fetch(metaQuery)
+    const pageData: Page = await this.$sanity.fetch(artQuery)
 
     this.mainImage = pageData.mainImage
     this.ogDescription = pageData.ogDescription
     this.ogTitle = pageData.ogTitle
+    this.siteTitle = metaData.title
     this.title = pageData.title
     this.artworks = artworkData
   },
@@ -108,7 +111,7 @@ export default {
   },
   head() {
     return {
-      title: this.title.en,
+      title: `${this.title.en} | ${this.siteTitle.en}`,
       meta: [
         {
           hid: "description",

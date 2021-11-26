@@ -43,8 +43,14 @@
 
 <script lang="ts">
 import { SanityContent } from "@nuxtjs/sanity/dist/components/sanity-content"
-import { bioQuery, lifeQuery, photoQueryOne, photoQueryTwo } from "../data/queries"
-import { Bio, Page, Photography } from "../generated/schema"
+import {
+  bioQuery,
+  lifeQuery,
+  metaQuery,
+  photoQueryOne,
+  photoQueryTwo
+} from "../data/queries"
+import { Bio, Meta, Page, Photography } from "../generated/schema"
 import Exhibitions from "@/components/exhibitions.vue"
 import SanityImage from "@/components/sanityImage.vue"
 import VideoEmbed from "@/components/videoEmbed.vue"
@@ -62,28 +68,31 @@ export default {
     imageOne: {},
     imageTwo: {},
     mainImage: {},
-    ogDescription: "",
-    ogTitle: "",
-    title: ""
+    ogDescription: {},
+    ogTitle: {},
+    siteTitle: {},
+    title: {}
   }),
   async fetch() {
     const pageData: Page = await this.$sanity.fetch(lifeQuery)
     const bioData: Bio = await this.$sanity.fetch(bioQuery)
     const imageOneData: Photography = await this.$sanity.fetch(photoQueryOne)
     const imageTwoData: Photography = await this.$sanity.fetch(photoQueryTwo)
+    const metaData: Meta = await this.$sanity.fetch(metaQuery)
 
-    this.mainImage = pageData.mainImage
-    this.title = pageData.title
-    this.ogTitle = pageData.ogTitle
-    this.ogDescription = pageData.ogDescription
     this.biography = bioData.biography
     this.exhibitions = bioData.exhibitions
     this.imageOne = imageOneData
     this.imageTwo = imageTwoData
+    this.mainImage = pageData.mainImage
+    this.ogDescription = pageData.ogDescription
+    this.ogTitle = pageData.ogTitle
+    this.siteTitle = metaData.title
+    this.title = pageData.title
   },
   head() {
     return {
-      title: this.title.en,
+      title: `${this.title.en} | ${this.siteTitle.en}`,
       meta: [
         {
           hid: "description",

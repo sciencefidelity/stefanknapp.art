@@ -36,8 +36,9 @@ export default {
     contact: "",
     image: {},
     mainImage: {},
-    ogDescription: "",
-    ogTitle: "",
+    ogDescription: {},
+    ogTitle: {},
+    siteTitle: {},
     title: {}
   }),
   async fetch() {
@@ -50,11 +51,12 @@ export default {
     this.mainImage = pageData.mainImage
     this.ogDescription = pageData.ogDescription
     this.ogTitle = pageData.ogTitle
+    this.siteTitle = metaData.title
     this.title = pageData.title
   },
   head() {
     return {
-      title: this.title.en,
+      title: `${this.title.en} | ${this.siteTitle.en}`,
       meta: [
         {
           hid: "description",
