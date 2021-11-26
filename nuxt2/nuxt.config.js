@@ -20,7 +20,6 @@ export default defineNuxtConfig({
       },
       { name: "format-detection", content: "telephone=no" }
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.svg" }],
     link: [
       {
         rel: "preload",
@@ -43,15 +42,6 @@ export default defineNuxtConfig({
       {
         rel: "preload",
         as: "font",
-        href: "@/assets/fonts/futurapt-bookobl.woff2",
-        type: "font/woff2",
-        crossorigin: "anonymous"
-      }
-    ],
-    link: [
-      {
-        rel: "preload",
-        as: "font",
         href: "@/assets/fonts/futurapt-demi.woff2",
         type: "font/woff2",
         crossorigin: "anonymous"
@@ -62,15 +52,6 @@ export default defineNuxtConfig({
         rel: "preload",
         as: "font",
         href: "@/assets/fonts/futurapt-light.woff2",
-        type: "font/woff2",
-        crossorigin: "anonymous"
-      }
-    ],
-    link: [
-      {
-        rel: "preload",
-        as: "font",
-        href: "@/assets/fonts/futurapt-lightobl.woff2",
         type: "font/woff2",
         crossorigin: "anonymous"
       }
@@ -90,6 +71,8 @@ export default defineNuxtConfig({
   buildModules: [
     // https://sanity.nuxtjs.org
     "@nuxtjs/sanity/module",
+    // https://pwa.nuxtjs.org
+    "@nuxtjs/pwa",
     // https://go.nuxtjs.dev/stylelint
     "@nuxtjs/stylelint-module"
   ],
@@ -99,6 +82,10 @@ export default defineNuxtConfig({
 
   i18n: {
     locales: ["en", "pl"]
+  },
+
+  pwa: {
+    onesignal: false
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

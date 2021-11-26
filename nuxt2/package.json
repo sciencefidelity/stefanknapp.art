@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "@nuxtjs/i18n": "^7.2.0",
+    "@nuxtjs/pwa": "^3.3.5",
     "@nuxtjs/sanity": "^0.10.0",
     "@sanity/client": "^2.21.10",
     "@sanity/image-url": "^1.0.1",
