@@ -1,5 +1,5 @@
 <template>
-  <video autoplay loop muted playsinline :class="classname">
+  <video autoplay loop muted playsinline class="video-embed">
     <source :src="videos[randomVideo].mp4Url" type="video/mp4" />
     <source :src="videos[randomVideo].webmUrl" type="video/webm" />
     <picture>

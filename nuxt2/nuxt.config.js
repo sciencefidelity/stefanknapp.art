@@ -23,6 +23,11 @@ export default defineNuxtConfig({
         hid: "og:site_name",
         name: "og:site_name",
         content: "The Estate of Stefan Knapp"
+      },
+      {
+        hid: "theme-color",
+        name: "theme-color",
+        content: "#FFFFFF"
       }
     ]
   },

@@ -26,6 +26,10 @@ body {
   background: c.$grey-000;
 }
 
+.front {
+  background: c.$grey-950;
+}
+
 #site-main {
   padding: 3.125rem;
   @include b.mq(lg) {

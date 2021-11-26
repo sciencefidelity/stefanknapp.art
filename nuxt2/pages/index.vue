@@ -111,8 +111,16 @@ export default {
             .auto("format")
             .quality(80)
             .url()
+        },
+        {
+          hid: "theme-color",
+          name: "theme-color",
+          content: "#0D0D0D"
         }
-      ]
+      ],
+      bodyAttrs: {
+        class: "front"
+      }
     }
   }
 }
