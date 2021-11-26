@@ -46,12 +46,12 @@ export default {
     isHidden: false
   }),
   props: {
-    title: Object,
     date: Number,
-    medium: Object,
+    height: Number,
     image: Object,
-    width: Number,
-    height: Number
+    medium: Object,
+    title: Object,
+    width: Number
   },
   methods: {
     async nextIndex() {

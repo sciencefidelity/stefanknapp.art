@@ -1,7 +1,7 @@
 <template>
   <div class="sanity-image">
     <VLazyImage
-      :alt="title"
+      :alt="alt=$i18n.locale === 'en' ? title.en : title.pl"
       :src="
         $urlFor(image)
           .fit('crop')

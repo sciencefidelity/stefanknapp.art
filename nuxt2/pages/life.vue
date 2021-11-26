@@ -4,7 +4,7 @@
       <div class="life__container">
         <div class="life__image">
           <SanityImage
-            :title="imageOne.mainImage.caption.en"
+            :title="imageOne.mainImage.caption"
             :image="imageOne.mainImage"
             :width="imageOne.meta.dimensions.width"
             :height="imageOne.meta.dimensions.height"
@@ -25,7 +25,7 @@
         </div>
         <div class="life__image hide">
           <SanityImage
-            :title="imageTwo.mainImage.caption.en"
+            :title="imageTwo.mainImage.caption"
             :image="imageTwo.mainImage"
             :width="imageTwo.meta.dimensions.width"
             :height="imageTwo.meta.dimensions.height"

@@ -4,7 +4,7 @@
       <div class="estate__container">
         <div class="estate__image">
           <SanityImage
-            :title="image.mainImage.caption.en"
+            :title="image.mainImage.caption"
             :image="image.mainImage"
             :width="image.meta.dimensions.width"
             :height="image.meta.dimensions.height"

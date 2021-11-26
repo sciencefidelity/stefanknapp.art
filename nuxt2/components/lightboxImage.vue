@@ -1,12 +1,11 @@
 <template>
   <div class="sanity-image" :width="width" :height="height">
     <VLazyImage
-      :alt="title"
+      :alt="$i18n.locale === 'en' ? title.en : title.pl"
       :src="
         $urlFor(image)
           .width(600)
           .fit('crop')
-          .crop(crop)
           .auto('format')
           .quality(70)
           .url()
@@ -28,17 +27,9 @@ export default {
     VLazyImage
   },
   props: {
-    crop: {
-      type: String,
-      default: "center"
-    },
-    fit: {
-      type: String,
-      default: "crop"
-    },
     height: Number,
     image: Object,
-    title: String,
+    title: Object,
     width: Number
   }
 }
