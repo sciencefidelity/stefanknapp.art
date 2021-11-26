@@ -18,16 +18,9 @@
 </template>
 
 <script lang="ts">
-import { groq } from "@nuxtjs/sanity"
+import { artQuery, artworkQuery } from "../data/queries"
 import { Artwork, Page } from "../generated/schema"
 import Modal from "@/components/modal.vue"
-
-const pageQuery = groq`*[_type == "page"][0]{
-  mainImage, ogDescription, ogTitle, title
-}`
-const artworkQuery = groq`*[_type == "artwork" && display] | order(date) {
-  _id, date, mainImage, "meta": mainImage.asset->metadata, medium[0]->, title
-}`
 
 export default {
   name: "Art",
@@ -43,8 +36,9 @@ export default {
     currentIndex: 0
   }),
   async fetch() {
-    const pageData: Page = await this.$sanity.fetch(pageQuery)
+    const pageData: Page = await this.$sanity.fetch(artQuery)
     const artworkData: Artwork = await this.$sanity.fetch(artworkQuery)
+
     this.mainImage = pageData.mainImage
     this.ogDescription = pageData.ogDescription
     this.ogTitle = pageData.ogTitle

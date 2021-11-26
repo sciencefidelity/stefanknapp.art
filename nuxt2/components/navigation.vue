@@ -25,10 +25,8 @@
 </template>
 
 <script lang="ts">
-import { groq } from "@nuxtjs/sanity"
+import { pageQuery } from "../data/queries"
 import { Page } from "../generated/schema"
-
-const pageQuery = groq`*[_type == "page"] | order(_createdAt) { _id, title, slug }`
 
 export default {
   name: "Navigation",

@@ -28,14 +28,9 @@
 </template>
 
 <script lang="ts">
-import { groq } from "@nuxtjs/sanity"
+import { artQuery, metaQuery } from "../data/queries"
 import { Meta, Page } from "../generated/schema"
 import FrontNav from "@/components/frontNav.vue"
-
-const metaQuery = groq`*[_type == "meta"][0]{
-  title, description, ogTitle, ogDescription, ogImage
-}`
-const pageQuery = groq`*[_type == "page"][0]{ slug }`
 
 export default {
   layout: "frontPage",
@@ -56,7 +51,8 @@ export default {
   }),
   async fetch() {
     const metaData: Meta = await this.$sanity.fetch(metaQuery)
-    const pageData: Page = await this.$sanity.fetch(pageQuery)
+    const pageData: Page = await this.$sanity.fetch(artQuery)
+
     this.title = metaData.title
     this.description = metaData.description
     this.ogTitle = metaData.ogTitle

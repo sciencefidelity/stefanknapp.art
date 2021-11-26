@@ -31,12 +31,8 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue"
-import { groq } from "@nuxtjs/sanity"
+import { pageQuery, metaQuery } from "../data/queries"
 import { Meta, Page } from "../generated/schema"
-
-const pageQuery = groq`*[_type == "page"] | order(_createdAt) { _id, title, slug }`
-const metaQuery = groq`*[_type == "meta"][0]{ title }`
 
 export default {
   name: "FrontNav",

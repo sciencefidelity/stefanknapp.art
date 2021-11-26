@@ -23,17 +23,9 @@
 </template>
 
 <script lang="ts">
-import { groq } from "@nuxtjs/sanity"
+import { estateQuery, metaQuery, photoQueryThree } from "../data/queries"
 import { Meta, Page, Photography } from "../generated/schema"
 import SanityImage from "@/components/sanityImage.vue"
-
-const pageQuery = groq`*[_type == "page"][0]{
-  mainImage, ogDescription, ogTitle, title
-}`
-const imageQuery = groq`*[_type == "photography"] | order(date) [3]{
-  date, mainImage, "meta": mainImage.asset->metadata, title
-}`
-const metaQuery = groq`*[_type == "meta"][0]{contact}`
 
 export default {
   name: "Estate",
@@ -49,8 +41,8 @@ export default {
     contact: ""
   }),
   async fetch() {
-    const pageData: Page = await this.$sanity.fetch(pageQuery)
-    const imageData: Photography = await this.$sanity.fetch(imageQuery)
+    const pageData: Page = await this.$sanity.fetch(estateQuery)
+    const imageData: Photography = await this.$sanity.fetch(photoQueryThree)
     const metaData: Meta = await this.$sanity.fetch(metaQuery)
 
     this.mainImage = pageData.mainImage

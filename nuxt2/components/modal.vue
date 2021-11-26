@@ -37,9 +37,9 @@ export default {
   components: {
     LightboxImage
   },
-  data:{
+  data: () => ({
     isHidden: false
-  },
+  }),
   props: {
     title: String,
     date: Number,

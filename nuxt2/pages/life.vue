@@ -42,23 +42,12 @@
 </template>
 
 <script lang="ts">
-import { groq } from "@nuxtjs/sanity"
 import { SanityContent } from "@nuxtjs/sanity/dist/components/sanity-content"
+import { bioQuery, lifeQuery, photoQueryOne, photoQueryTwo } from "../data/queries"
 import { Bio, Page, Photography } from "../generated/schema"
 import Exhibitions from "@/components/exhibitions.vue"
 import SanityImage from "@/components/sanityImage.vue"
 import VideoEmbed from "@/components/videoEmbed.vue"
-
-const pageQuery = groq`*[_type == "page"][0]{
-  mainImage, ogDescription, ogTitle, title
-}`
-const bioQuery = groq`*[_type == "bio"][0]{ biography, exhibitions }`
-const photoQueryOne = groq`*[_type == "photography"] | order(date) [4]{
-  date, mainImage, "meta": mainImage.asset->metadata, title
-}`
-const photoQueryTwo = groq`*[_type == "photography"] | order(date) [5] {
-  date, mainImage, "meta": mainImage.asset->metadata, title
-}`
 
 export default {
   name: "Life",
@@ -78,7 +67,7 @@ export default {
     imageTwo: {}
   }),
   async fetch() {
-    const pageData: Page = await this.$sanity.fetch(pageQuery)
+    const pageData: Page = await this.$sanity.fetch(lifeQuery)
     const bioData: Bio = await this.$sanity.fetch(bioQuery)
     const imageOneData: Photography = await this.$sanity.fetch(photoQueryOne)
     const imageTwoData: Photography = await this.$sanity.fetch(photoQueryTwo)

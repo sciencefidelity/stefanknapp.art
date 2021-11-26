@@ -15,15 +15,8 @@
 </template>
 
 <script lang="ts">
-import { groq } from "@nuxtjs/sanity"
+import { videoQuery } from "../data/queries"
 import { Video } from "../generated/schema"
-
-const videoQuery = groq`*[_type == "video"]{
-  "imageUrl": mainImage.asset->url,
-  "mp4Url": mp4.asset->url,
-  "webmUrl": webm.asset->url,
-  title
-}`
 
 export default {
   name: "VideoEmbed",
