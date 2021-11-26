@@ -14,8 +14,11 @@
         <LocaleSwitcher />
       </div>
       <p>
-        &copy; {{ year }} The Estate of
-        <NuxtLink :to="localePath('index')">Stefan Knapp</NuxtLink>
+        &copy; {{ year }}
+        {{ $i18n.locale === "en" ? "The Estate of" : "Posiadłość" }}
+        <NuxtLink :to="localePath('index')">{{
+          $i18n.locale === "en" ? "Stefan Knapp" : "Stefana Knappa"
+        }}</NuxtLink>
       </p>
     </div>
   </footer>

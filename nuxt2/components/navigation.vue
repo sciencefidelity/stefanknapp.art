@@ -16,7 +16,11 @@
       <ul>
         <li v-for="page in pages" :key="page._id" @click="toggleMenu()">
           <NuxtLink :to="localePath(`${page.slug.current}`)">
-            {{ page.title.en.toUpperCase() }}
+            {{
+              $i18n.locale === "en"
+                ? page.title.en.toUpperCase()
+                : page.title.pl.toUpperCase()
+            }}
           </NuxtLink>
         </li>
       </ul>

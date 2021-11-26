@@ -20,7 +20,9 @@
       </div>
       <div class="row">
         <div class="front-copy">
-          <p>&copy; {{ year }} {{ title.en }}</p>
+          <p>
+            &copy; {{ year }} {{ $i18n.locale === "en" ? title.en : title.pl }}
+          </p>
         </div>
       </div>
     </div>

@@ -16,14 +16,28 @@
           <li v-for="page in pages" :key="page.id">
             <NuxtLink
               :to="localePath(`${page.slug.current}`)"
-              :data-fill="page.title.en.toUpperCase()"
+              :data-fill="
+                $i18n.locale === 'en'
+                  ? page.title.en.toUpperCase()
+                  : page.title.pl.toUpperCase()
+              "
             >
-              {{ page.title.en.toUpperCase() }}
+              {{
+                $i18n.locale === "en"
+                  ? page.title.en.toUpperCase()
+                  : page.title.pl.toUpperCase()
+              }}
             </NuxtLink>
           </li>
         </ul>
         <div class="nav__title-container">
-          <p class="nav__title">{{ title.en.toUpperCase() }}</p>
+          <p class="nav__title">
+            {{
+              $i18n.locale === "en"
+                ? title.en.toUpperCase()
+                : title.pl.toUpperCase()
+            }}
+          </p>
         </div>
       </div>
     </div>
