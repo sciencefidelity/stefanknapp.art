@@ -30,7 +30,7 @@ export default {
     color: String,
     height: Number,
     image: Object,
-    title: String,
+    title: Object,
     width: Number
   }
 }

@@ -61,6 +61,12 @@ import VideoEmbed from "@/components/videoEmbed.vue"
 
 export default {
   name: "Life",
+  nuxtI18n: {
+    paths: {
+      en: '/life',
+      pl: '/zycie'
+    }
+  },
   components: {
     Exhibitions,
     SanityImage,
