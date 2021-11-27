@@ -1,7 +1,8 @@
 import urlBuilder from "@sanity/image-url"
+import sanityClient from "../sanityClient"
 
-export default ({ $sanity }, inject) => {
-  const builder = urlBuilder($sanity.config)
+export default ({}, inject) => {
+  const builder = urlBuilder(sanityClient)
   function urlFor(source) {
     return builder.image(source)
   }

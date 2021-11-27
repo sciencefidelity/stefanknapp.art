@@ -30,6 +30,7 @@
 </template>
 
 <script lang="ts">
+import sanityClient from "../sanityClient"
 import { artQuery, metaQuery } from "../data/queries"
 import { Meta, Page } from "../generated/schema"
 import FrontNav from "@/components/frontNav.vue"
@@ -52,8 +53,8 @@ export default {
     year: new Date().getFullYear()
   }),
   async fetch() {
-    const metaData: Meta = await this.$sanity.fetch(metaQuery)
-    const pageData: Page = await this.$sanity.fetch(artQuery)
+    const metaData: Meta = await sanityClient.fetch(metaQuery)
+    const pageData: Page = await sanityClient.fetch(artQuery)
 
     this.description = metaData.description
     this.ogDescription = metaData.ogDescription

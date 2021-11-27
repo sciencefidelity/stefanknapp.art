@@ -1,4 +1,4 @@
-import { groq } from "@nuxtjs/sanity"
+import groq from "groq"
 
 export const artQuery = groq`*[_type == "page"] | order(_createdAt) [0]{
   mainImage, ogDescription, ogTitle, title, slug

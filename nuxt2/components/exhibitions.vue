@@ -17,6 +17,7 @@
 </template>
 
 <script lang="ts">
+import sanityClient from "../sanityClient"
 import { exhibitionQuery } from "../data/queries"
 import { Exhibition } from "../generated/schema"
 
@@ -26,7 +27,7 @@ export default {
     exhibitions: []
   }),
   async fetch() {
-    const exhibitionData: Exhibition = await this.$sanity.fetch(exhibitionQuery)
+    const exhibitionData: Exhibition = await sanityClient.fetch(exhibitionQuery)
     this.exhibitions = exhibitionData
   }
 }

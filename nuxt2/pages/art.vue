@@ -18,6 +18,7 @@
 </template>
 
 <script lang="ts">
+import sanityClient from "../sanityClient"
 import { artQuery, artworkQuery, metaQuery } from "../data/queries"
 import { Artwork, Meta, Page } from "../generated/schema"
 import Modal from "@/components/modal.vue"
@@ -43,9 +44,9 @@ export default {
     title: {}
   }),
   async fetch() {
-    const artworkData: Artwork = await this.$sanity.fetch(artworkQuery)
-    const metaData: Meta = await this.$sanity.fetch(metaQuery)
-    const pageData: Page = await this.$sanity.fetch(artQuery)
+    const artworkData: Artwork = await sanityClient.fetch(artworkQuery)
+    const metaData: Meta = await sanityClient.fetch(metaQuery)
+    const pageData: Page = await sanityClient.fetch(artQuery)
 
     this.mainImage = pageData.mainImage
     this.ogDescription = pageData.ogDescription

@@ -29,6 +29,7 @@
 </template>
 
 <script lang="ts">
+import sanityClient from "../sanityClient"
 import { pageQuery } from "../data/queries"
 import { Page } from "../generated/schema"
 
@@ -42,7 +43,7 @@ export default {
     title: ""
   }),
   async fetch() {
-    const pageData: Page = await this.$sanity.fetch(pageQuery)
+    const pageData: Page = await sanityClient.fetch(pageQuery)
     this.pages = pageData
   },
   methods: {

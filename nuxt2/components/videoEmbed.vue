@@ -15,6 +15,7 @@
 </template>
 
 <script lang="ts">
+import sanityClient from "../sanityClient"
 import { videoQuery } from "../data/queries"
 import { Video } from "../generated/schema"
 
@@ -31,7 +32,7 @@ export default {
     videos: []
   }),
   async fetch() {
-    const videoData: Video = await this.$sanity.fetch(videoQuery)
+    const videoData: Video = await sanityClient.fetch(videoQuery)
     this.videos = videoData
   }
 }

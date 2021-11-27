@@ -23,6 +23,7 @@
 </template>
 
 <script lang="ts">
+import sanityClient from "../sanityClient"
 import { estateQuery, metaQuery, photoQueryThree } from "../data/queries"
 import { Meta, Page, Photography } from "../generated/schema"
 import SanityImage from "@/components/sanityImage.vue"
@@ -48,9 +49,9 @@ export default {
     title: {}
   }),
   async fetch() {
-    const imageData: Photography = await this.$sanity.fetch(photoQueryThree)
-    const metaData: Meta = await this.$sanity.fetch(metaQuery)
-    const pageData: Page = await this.$sanity.fetch(estateQuery)
+    const imageData: Photography = await sanityClient.fetch(photoQueryThree)
+    const metaData: Meta = await sanityClient.fetch(metaQuery)
+    const pageData: Page = await sanityClient.fetch(estateQuery)
 
     this.contact = metaData.contact
     this.image = imageData

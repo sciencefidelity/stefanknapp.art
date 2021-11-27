@@ -47,6 +47,7 @@
 
 <script lang="ts">
 import { SanityContent } from "@nuxtjs/sanity/dist/components/sanity-content"
+import sanityClient from "../sanityClient"
 import {
   bioQuery,
   lifeQuery,
@@ -84,11 +85,11 @@ export default {
     title: {}
   }),
   async fetch() {
-    const pageData: Page = await this.$sanity.fetch(lifeQuery)
-    const bioData: Bio = await this.$sanity.fetch(bioQuery)
-    const imageOneData: Photography = await this.$sanity.fetch(photoQueryOne)
-    const imageTwoData: Photography = await this.$sanity.fetch(photoQueryTwo)
-    const metaData: Meta = await this.$sanity.fetch(metaQuery)
+    const pageData: Page = await sanityClient.fetch(lifeQuery)
+    const bioData: Bio = await sanityClient.fetch(bioQuery)
+    const imageOneData: Photography = await sanityClient.fetch(photoQueryOne)
+    const imageTwoData: Photography = await sanityClient.fetch(photoQueryTwo)
+    const metaData: Meta = await sanityClient.fetch(metaQuery)
 
     this.biography = bioData.biography
     this.exhibitions = bioData.exhibitions

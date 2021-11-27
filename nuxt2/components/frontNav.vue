@@ -45,6 +45,7 @@
 </template>
 
 <script lang="ts">
+import sanityClient from "../sanityClient"
 import { pageQuery, metaQuery } from "../data/queries"
 import { Meta, Page } from "../generated/schema"
 
@@ -56,8 +57,8 @@ export default {
     title: ""
   }),
   async fetch() {
-    const metaData: Meta = await this.$sanity.fetch(metaQuery)
-    const pageData: Page = await this.$sanity.fetch(pageQuery)
+    const metaData: Meta = await sanityClient.fetch(metaQuery)
+    const pageData: Page = await sanityClient.fetch(pageQuery)
 
     this.pages = pageData
     this.title = metaData.title
