@@ -9743,7 +9743,7 @@ node-cache@^4.1.1:
     clone "2.x"
     lodash "^4.17.15"
 
-node-fetch@^2.6.0, node-fetch@^2.6.1, node-fetch@^2.6.5, node-fetch@^2.6.6:
+node-fetch@^2.6.1, node-fetch@^2.6.5, node-fetch@^2.6.6:
   version "2.6.6"
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.6.tgz#1751a7c01834e8e1697758732e9efb6eeadfaf89"
   integrity sha512-Z8/6vRlTUChSdIgMa51jxQ4lrw/Jy5SOW10ObaA47/RElsAN2c5Pn8bTgFGWn/ibwzXTE8qwr1Yzx28vsecXEA==
@@ -10530,13 +10530,6 @@ picomatch@^2.0.4, picomatch@^2.2.1, picomatch@^2.2.2, picomatch@^2.2.3:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.3.0.tgz#f1f061de8f6a4bf022892e2d128234fb98302972"
   integrity sha512-lY1Q/PiJGC2zOv/z391WOTD+Z02bCgsFfvxoXXf6h7kv9o+WmsmzYqrAwY63sNgOxE4xEdq0WyUnXfKeBrSvYw==
-
-picosanity@^3.0.2:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/picosanity/-/picosanity-3.0.2.tgz#6488ac57dc12dff506b41216bbee049d088bdc1b"
-  integrity sha512-cF5cImvMUSTYvqpMlvB5YDEaXsW33dpe0Crzo4YxePWoo2kizMKbyTo1uoIyYRrS1h6Iac0Bw/yMxt3H9uYEwg==
-  dependencies:
-    node-fetch "^2.6.0"
 
 pify@^2.3.0:
   version "2.3.0"

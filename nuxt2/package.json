@@ -34,7 +34,6 @@
     "core-js": "^3.15.1",
     "groq": "^2.15.0",
     "nuxt-edge": "latest",
-    "picosanity": "^3.0.2",
     "sanity-blocks-vue-component": "^0.1.0",
     "v-lazy-image": "^2.0.1"
   },

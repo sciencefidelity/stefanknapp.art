@@ -7,7 +7,11 @@
       <source :srcset="videos[randomVideo].imageUrl" type="image/jpeg" />
       <img
         :src="videos[randomVideo].imageUrl"
-        :title="videos[randomVideo].title.en"
+        :title="
+          $i18n.locale === 'en'
+            ? videos[randomVideo].title.en
+            : videos[randomVideo].title.pl
+        "
       />
     </picture>
     Sorry, your browser doesn't support embedded videos.
