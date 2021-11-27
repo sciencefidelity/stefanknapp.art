@@ -13,7 +13,7 @@
         </div>
         <div class="estate__text">
           <p>
-            {{ $i18n.locale === "en" ? "contact" : "kontakt"}}:
+            {{ $i18n.locale === "en" ? "contact" : "kontakt" }}:
             <a :href="`mailto:${contact}`">{{ contact }}</a>
           </p>
         </div>
@@ -56,22 +56,32 @@ export default {
   },
   head() {
     return {
-      title: `${this.title.en} | ${this.siteTitle.en}`,
+      title:
+        this.$i18n.locale === "en"
+          ? `${this.title.en} | ${this.siteTitle.en}`
+          : `${this.title.pl} | ${this.siteTitle.pl}`,
       meta: [
         {
           hid: "description",
           name: "description",
-          content: this.ogDescription
+          content:
+            this.$i18n.locale === "en"
+              ? this.ogDescription.en
+              : this.ogDescription.pl
         },
         {
           hid: "og:title",
           name: "og:title",
-          content: this.ogTitle
+          content:
+            this.$i18n.locale === "en" ? this.ogTitle.en : this.ogTitle.pl
         },
         {
           hid: "og:description",
           name: "og:description",
-          content: this.ogDescription
+          content:
+            this.$i18n.locale === "en"
+              ? this.ogDescription.en
+              : this.ogDescription.pl
         },
         {
           hid: "og:image",
@@ -92,12 +102,16 @@ export default {
         {
           hid: "twitter:title",
           name: "twitter:title",
-          content: this.ogTitle
+          content:
+            this.$i18n.locale === "en" ? this.ogTitle.en : this.ogTitle.pl
         },
         {
           hid: "twitter:description",
           name: "twitter:description",
-          content: this.ogDescription
+          content:
+            this.$i18n.locale === "en"
+              ? this.ogDescription.en
+              : this.ogDescription.pl
         },
         {
           hid: "twitter:image",

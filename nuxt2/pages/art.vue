@@ -24,6 +24,12 @@ import Modal from "@/components/modal.vue"
 
 export default {
   name: "Art",
+  nuxtI18n: {
+    paths: {
+      en: '/art',
+      pl: '/sztuka'
+    }
+  },
   components: {
     Modal
   },
