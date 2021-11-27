@@ -1,5 +1,4 @@
 {
-  "extends": "./.nuxt/tsconfig.json",
   "compilerOptions": {
     "target": "ES2018",
     "module": "ESNext",
@@ -31,9 +30,6 @@
       "@types/node",
       "./generated/*"
     ]
-  },
-  "vueCompilerOptions": {
-    "experimentalCompatMode": 2
   },
   "exclude": [
     "node_modules",

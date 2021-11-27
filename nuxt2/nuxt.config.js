@@ -1,6 +1,4 @@
-import { defineNuxtConfig } from "@nuxt/bridge"
-
-export default defineNuxtConfig({
+export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: "static",
 
@@ -55,6 +53,8 @@ export default defineNuxtConfig({
   modules: ["@nuxtjs/i18n"],
 
   i18n: {
+    strategy: "prefix_except_default",
+    defaultLocale: "en",
     locales: [
       {
         code: "en",
@@ -73,4 +73,4 @@ export default defineNuxtConfig({
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {}
-})
+}
