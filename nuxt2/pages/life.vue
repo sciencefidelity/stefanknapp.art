@@ -12,14 +12,14 @@
           />
         </div>
         <div class="life__text">
-          <SanityContent
+          <BlockContent
             :blocks="$i18n.locale === 'en' ? biography.en : biography.pl"
           />
         </div>
       </div>
       <div class="life__container">
         <div class="life__text">
-          <SanityContent
+          <BlockContent
             :blocks="$i18n.locale === 'en' ? exhibitions.en : exhibitions.pl"
           />
         </div>
@@ -46,7 +46,7 @@
 </template>
 
 <script lang="ts">
-import { SanityContent } from "@nuxtjs/sanity/dist/components/sanity-content"
+import BlockContent from "sanity-blocks-vue-component"
 import sanityClient from "../sanityClient"
 import {
   bioQuery,
@@ -64,11 +64,12 @@ export default {
   name: "Life",
   nuxtI18n: {
     paths: {
-      en: '/life',
-      pl: '/zycie'
+      en: "/life",
+      pl: "/zycie"
     }
   },
   components: {
+    BlockContent,
     Exhibitions,
     SanityImage,
     VideoEmbed

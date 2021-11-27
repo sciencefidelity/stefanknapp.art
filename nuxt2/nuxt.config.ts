@@ -43,8 +43,6 @@ export default defineNuxtConfig({
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
-    // https://sanity.nuxtjs.org
-    "@nuxtjs/sanity/module",
     // https://pwa.nuxtjs.org
     "@nuxtjs/pwa",
     // https://go.nuxtjs.dev/stylelint
