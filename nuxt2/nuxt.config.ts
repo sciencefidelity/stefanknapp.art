@@ -1,4 +1,6 @@
-export default {
+import { defineNuxtConfig } from "@nuxt/bridge"
+
+export default defineNuxtConfig({
   // Target: https://go.nuxtjs.dev/config-target
   target: "static",
 
@@ -73,4 +75,4 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {}
-}
+})
