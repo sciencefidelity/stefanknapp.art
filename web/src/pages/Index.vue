@@ -26,8 +26,8 @@
               &copy; {{ copyright }}
               {{
                 $context.locale === "en-gb"
-                  ? "The Estate of Stefan Knapp"
-                  : "Posiadłość Stefana Knappa"
+                  ? $static.sanityMeta.title.en
+                  : $static.sanityMeta.title.pl
               }}
             </p>
           </div>
@@ -46,10 +46,22 @@ query {
     }
   }
   sanityMeta(id: "8708a608-e41b-4ac7-86ce-0c39395f9d53") {
-    title
-    description
-    ogTitle
-    ogDescription
+    title  {
+      en
+      pl
+    }
+    description {
+      en
+      pl
+    }
+    ogTitle {
+      en
+      pl
+    }
+    ogDescription {
+      en
+      pl
+    }
     ogImage {
       asset {
         url
@@ -68,19 +80,19 @@ export default {
   name: "Index",
   metaInfo() {
     return {
-      title: this.$static.sanityMeta.title,
+      title: this.$static.sanityMeta.title.en,
       meta: [
         {
           name: "description",
-          content: this.$static.sanityMeta.description
+          content: this.$static.sanityMeta.description.en
         },
         {
           property: "og:title",
-          content: this.$static.sanityMeta.ogTitle
+          content: this.$static.sanityMeta.ogTitle.en
         },
         {
           property: "og:description",
-          content: this.$static.sanityMeta.ogDescription
+          content: this.$static.sanityMeta.ogDescription.en
         },
         {
           property: "og:image",
@@ -100,11 +112,11 @@ export default {
         },
         {
           name: "twitter:title",
-          content: this.$static.sanityMeta.ogTitle
+          content: this.$static.sanityMeta.ogTitle.en
         },
         {
           name: "twitter:description",
-          content: this.$static.sanityMeta.ogDescription
+          content: this.$static.sanityMeta.ogDescription.en
         },
         {
           name: "twitter:image",

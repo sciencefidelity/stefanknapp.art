@@ -44,8 +44,14 @@
         en
         pl
       }
-      ogTitle
-      ogDescription
+      ogTitle {
+        en
+        pl
+      }
+      ogDescription {
+        en
+        pl
+      }
       mainImage {
         asset {
           _id
@@ -87,15 +93,15 @@ export default {
       meta: [
         {
           name: "description",
-          content: this.$static.sanityPage.ogDescription
+          content: this.$static.sanityPage.ogDescription.en
         },
         {
           property: "og:title",
-          content: this.$static.sanityPage.ogTitle
+          content: this.$static.sanityPage.ogTitle.en
         },
         {
           property: "og:description",
-          content: this.$static.sanityPage.ogDescription
+          content: this.$static.sanityPage.ogDescription.en
         },
         {
           property: "og:image",
@@ -115,11 +121,11 @@ export default {
         },
         {
           name: "twitter:title",
-          content: this.$static.sanityPage.ogTitle
+          content: this.$static.sanityPage.ogTitle.en
         },
         {
           name: "twitter:description",
-          content: this.$static.sanityPage.ogDescription
+          content: this.$static.sanityPage.ogDescription.en
         },
         {
           name: "twitter:image",
