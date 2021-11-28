@@ -12,14 +12,14 @@
           />
         </div>
         <div class="life__text">
-          <BlockContent
+          <PortableText
             :blocks="$i18n.locale === 'en' ? biography.en : biography.pl"
           />
         </div>
       </div>
       <div class="life__container">
         <div class="life__text">
-          <BlockContent
+          <PortableText
             :blocks="$i18n.locale === 'en' ? exhibitions.en : exhibitions.pl"
           />
         </div>
@@ -46,7 +46,7 @@
 </template>
 
 <script lang="ts">
-import BlockContent from "sanity-blocks-vue-component"
+import PortableText from "sanity-blocks-vue-component"
 import sanityClient from "../sanityClient"
 import {
   bioQuery,
@@ -69,8 +69,8 @@ export default {
     }
   },
   components: {
-    BlockContent,
     Exhibitions,
+    PortableText,
     SanityImage,
     VideoEmbed
   },
