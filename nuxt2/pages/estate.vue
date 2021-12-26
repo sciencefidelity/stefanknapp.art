@@ -32,8 +32,8 @@ export default {
   name: "Estate",
   nuxtI18n: {
     paths: {
-      en: '/estate',
-      pl: '/posiadlosc'
+      en: "/estate",
+      pl: "/posiadlosc"
     }
   },
   components: {

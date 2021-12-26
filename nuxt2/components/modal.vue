@@ -42,9 +42,6 @@ export default {
   components: {
     LightboxImage
   },
-  data: () => ({
-    isHidden: false
-  }),
   props: {
     date: Number,
     height: Number,
@@ -53,6 +50,9 @@ export default {
     title: Object,
     width: Number
   },
+  data: () => ({
+    isHidden: false
+  }),
   methods: {
     async nextIndex() {
       await setTimeout(() => {

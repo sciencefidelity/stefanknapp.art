@@ -36,11 +36,11 @@ import { Meta, Page } from "../generated/schema"
 import FrontNav from "@/components/frontNav.vue"
 
 export default {
-  layout: "frontPage",
   name: "Index",
   components: {
     FrontNav
   },
+  layout: "frontPage",
   data: () => ({
     artist: "Knapp",
     description: {},

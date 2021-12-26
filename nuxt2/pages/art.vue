@@ -3,14 +3,14 @@
     <section class="gallery-section">
       <div class="gallery">
         <Modal
-          @nextIndex="nextIndex"
-          @prevIndex="prevIndex"
           :image="artworks[currentIndex].mainImage"
           :title="artworks[currentIndex].title"
           :date="artworks[currentIndex].date"
           :width="artworks[currentIndex].meta.dimensions.width"
           :height="artworks[currentIndex].meta.dimensions.height"
           :medium="artworks[currentIndex].medium.title"
+          @nextIndex="nextIndex"
+          @prevIndex="prevIndex"
         />
       </div>
     </section>
@@ -27,8 +27,8 @@ export default {
   name: "Art",
   nuxtI18n: {
     paths: {
-      en: '/art',
-      pl: '/sztuka'
+      en: "/art",
+      pl: "/sztuka"
     }
   },
   components: {
@@ -54,67 +54,6 @@ export default {
     this.siteTitle = metaData.title
     this.title = pageData.title
     this.artworks = artworkData
-  },
-  methods: {
-    nextIndex() {
-      if (this.currentIndex + 1 >= this.artworks.length) {
-        this.currentIndex = 0
-      } else {
-        this.currentIndex += 1
-      }
-    },
-    prevIndex() {
-      if (this.currentIndex - 1 < 0) {
-        this.currentIndex = this.artworks.length - 1
-      } else {
-        this.currentIndex -= 1
-      }
-    },
-    onKeydown(e) {
-      switch (e.key) {
-        case "ArrowRight":
-          this.nextIndex()
-          break
-        case "ArrowLeft":
-          this.prevIndex()
-          break
-        case "ArrowDown":
-        case "ArrowUp":
-        case " ":
-          e.preventDefault()
-          break
-      }
-    },
-    onTouchStart(e) {
-      if (e.changedTouches.length !== 1) {
-        return
-      }
-      const posXStart = e.changedTouches[0].clientX
-      console.log("touched")
-      window.addEventListener("touchend", e => this.onTouchEnd(e, posXStart), {
-        once: true
-      })
-    },
-    onTouchEnd(e, posXStart) {
-      if (e.changedTouches.length !== 1) {
-        return
-      }
-      const posXEnd = e.changedTouches[0].clientX
-      if (posXStart < posXEnd) {
-        this.prevIndex()
-      } else if (posXStart > posXEnd) {
-        this.nextIndex()
-      }
-      window.removeEventListener("touchend", this.onTouchStart)
-    }
-  },
-  mounted() {
-    window.addEventListener("keydown", this.onKeydown),
-      window.addEventListener("touchstart", this.onTouchStart)
-  },
-  destroyed() {
-    window.removeEventListener("keydown", this.onKeydown),
-      window.removeEventListener("touchstart", this.onTouchStart)
   },
   head() {
     return {
@@ -187,6 +126,67 @@ export default {
             .url()
         }
       ]
+    }
+  },
+  mounted() {
+    window.addEventListener("keydown", this.onKeydown),
+    window.addEventListener("touchstart", this.onTouchStart)
+  },
+  destroyed() {
+    window.removeEventListener("keydown", this.onKeydown),
+    window.removeEventListener("touchstart", this.onTouchStart)
+  },
+  methods: {
+    nextIndex() {
+      if (this.currentIndex + 1 >= this.artworks.length) {
+        this.currentIndex = 0
+      } else {
+        this.currentIndex += 1
+      }
+    },
+    prevIndex() {
+      if (this.currentIndex - 1 < 0) {
+        this.currentIndex = this.artworks.length - 1
+      } else {
+        this.currentIndex -= 1
+      }
+    },
+    onKeydown(e) {
+      switch (e.key) {
+      case "ArrowRight":
+        this.nextIndex()
+        break
+      case "ArrowLeft":
+        this.prevIndex()
+        break
+      case "ArrowDown":
+      case "ArrowUp":
+      case " ":
+        e.preventDefault()
+        break
+      }
+    },
+    onTouchStart(e) {
+      if (e.changedTouches.length !== 1) {
+        return
+      }
+      const posXStart = e.changedTouches[0].clientX
+      console.log("touched")
+      window.addEventListener("touchend", e => this.onTouchEnd(e, posXStart), {
+        once: true
+      })
+    },
+    onTouchEnd(e, posXStart) {
+      if (e.changedTouches.length !== 1) {
+        return
+      }
+      const posXEnd = e.changedTouches[0].clientX
+      if (posXStart < posXEnd) {
+        this.prevIndex()
+      } else if (posXStart > posXEnd) {
+        this.nextIndex()
+      }
+      window.removeEventListener("touchend", this.onTouchStart)
     }
   }
 }
