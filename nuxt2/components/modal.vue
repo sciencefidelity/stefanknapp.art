@@ -15,6 +15,7 @@ export default class Modal extends Vue {
       this.$emit("nextIndex")
     }, 200)
   }
+
   async prevIndex() {
     await setTimeout(() => {
       this.$emit("prevIndex")

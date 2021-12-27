@@ -104,14 +104,17 @@ export default class Art extends Vue {
       ]
     }
   }
+
   mounted() {
     window.addEventListener("keydown", this.onKeydown),
     window.addEventListener("touchstart", this.onTouchStart)
   }
+
   destroyed() {
     window.removeEventListener("keydown", this.onKeydown),
     window.removeEventListener("touchstart", this.onTouchStart)
   }
+
   nextIndex() {
     if (this.currentIndex + 1 >= this.artworks.length) {
       this.currentIndex = 0
@@ -119,6 +122,7 @@ export default class Art extends Vue {
       this.currentIndex += 1
     }
   }
+
   prevIndex() {
     if (this.currentIndex - 1 < 0) {
       this.currentIndex = this.artworks.length - 1
@@ -126,6 +130,7 @@ export default class Art extends Vue {
       this.currentIndex -= 1
     }
   }
+
   onKeydown(e) {
     switch (e.key) {
     case "ArrowRight":
@@ -141,6 +146,7 @@ export default class Art extends Vue {
       break
     }
   }
+
   onTouchStart(e) {
     if (e.changedTouches.length !== 1) {
       return
@@ -151,6 +157,7 @@ export default class Art extends Vue {
       once: true
     })
   }
+
   onTouchEnd(e, posXStart) {
     if (e.changedTouches.length !== 1) {
       return
