@@ -1,57 +1,16 @@
-<template>
-  <section id="site-main">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col logo">
-          <div class="circle">
-            <NuxtLink :to="localePath(`${slug.current}`)">
-              <div class="title">
-                <h1>{{ artist.toUpperCase() }}</h1>
-              </div>
-            </NuxtLink>
-          </div>
-        </div>
-        <FrontNav />
-      </div>
-      <div class="row">
-        <div class="col">
-          <div class="spacer"></div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="front-copy">
-          <p>
-            &copy; {{ year }} {{ $i18n.locale === "en" ? title.en : title.pl }}
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-</template>
-
 <script lang="ts">
+import { Vue, Options } from "vue-property-decorator"
 import sanityClient from "../sanityClient"
 import { artQuery, metaQuery } from "../data/queries"
 import { Meta, Page } from "../generated/schema"
 import FrontNav from "@/components/frontNav.vue"
 
-export default {
+@Options({
   name: "Index",
   components: {
     FrontNav
   },
   layout: "frontPage",
-  data: () => ({
-    artist: "Knapp",
-    description: {},
-    ogDescription: {},
-    ogImage: {},
-    ogTitle: {},
-    showMenu: false,
-    slug: {},
-    title: "",
-    year: new Date().getFullYear()
-  }),
   async fetch() {
     const metaData: Meta = await sanityClient.fetch(metaQuery)
     const pageData: Page = await sanityClient.fetch(artQuery)
@@ -62,7 +21,13 @@ export default {
     this.ogTitle = metaData.ogTitle
     this.slug = pageData.slug
     this.title = metaData.title
-  },
+  }
+})
+
+export default class Index extends Vue {
+  artist = "Knapp"
+  showMenu = false
+  year = new Date().getFullYear()
   head() {
     return {
       title: this.$i18n.locale === "en" ? this.title.en : this.title.pl,
@@ -143,6 +108,37 @@ export default {
   }
 }
 </script>
+
+<template>
+  <section id="site-main">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col logo">
+          <div class="circle">
+            <NuxtLink :to="localePath(`${slug.current}`)">
+              <div class="title">
+                <h1>{{ artist.toUpperCase() }}</h1>
+              </div>
+            </NuxtLink>
+          </div>
+        </div>
+        <FrontNav />
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="spacer"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="front-copy">
+          <p>
+            &copy; {{ year }} {{ $i18n.locale === "en" ? title.en : title.pl }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>
 
 <!-- prettier-ignore -->
 <style lang="scss" scoped>

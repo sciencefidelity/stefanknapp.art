@@ -1,3 +1,26 @@
+<script lang="ts">
+import { Vue, Options } from "vue-property-decorator"
+import sanityClient from "../sanityClient"
+import { pageQuery, metaQuery } from "../data/queries"
+import { Meta, Page } from "../generated/schema"
+
+@Options({
+  name: "FrontNav",
+  async fetch() {
+    const metaData: Meta = await sanityClient.fetch(metaQuery)
+    const pageData: Page = await sanityClient.fetch(pageQuery)
+    this.pages = pageData
+    this.title = metaData.title
+  }
+})
+export default class FrontNav extends Vue {
+  showMenu = false
+  toggleMenu() {
+    return (this.showMenu = !this.showMenu) as boolean
+  }
+}
+</script>
+
 <template>
   <nav>
     <div class="nav nav--front">
@@ -43,33 +66,6 @@
     </div>
   </nav>
 </template>
-
-<script lang="ts">
-import sanityClient from "../sanityClient"
-import { pageQuery, metaQuery } from "../data/queries"
-import { Meta, Page } from "../generated/schema"
-
-export default {
-  name: "FrontNav",
-  data: () => ({
-    showMenu: false,
-    pages: [],
-    title: ""
-  }),
-  async fetch() {
-    const metaData: Meta = await sanityClient.fetch(metaQuery)
-    const pageData: Page = await sanityClient.fetch(pageQuery)
-
-    this.pages = pageData
-    this.title = metaData.title
-  },
-  methods: {
-    toggleMenu() {
-      return (this.showMenu = !this.showMenu) as boolean
-    }
-  }
-}
-</script>
 
 <!-- prettier-ignore -->
 <style lang="scss" scoped>

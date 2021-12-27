@@ -1,51 +1,5 @@
-<template>
-  <main>
-    <section class="life">
-      <div class="life__container">
-        <div class="life__image">
-          <SanityImage
-            :title="imageOne.mainImage.caption"
-            :image="imageOne.mainImage"
-            :width="imageOne.meta.dimensions.width"
-            :height="imageOne.meta.dimensions.height"
-            :color="imageOne.meta.palette.lightMuted.background"
-          />
-        </div>
-        <div class="life__text">
-          <PortableText
-            :blocks="$i18n.locale === 'en' ? biography.en : biography.pl"
-          />
-        </div>
-      </div>
-      <div class="life__container">
-        <div class="life__text">
-          <PortableText
-            :blocks="$i18n.locale === 'en' ? exhibitions.en : exhibitions.pl"
-          />
-        </div>
-        <div class="life__image hide">
-          <SanityImage
-            :title="imageTwo.mainImage.caption"
-            :image="imageTwo.mainImage"
-            :width="imageTwo.meta.dimensions.width"
-            :height="imageTwo.meta.dimensions.height"
-            :color="imageTwo.meta.palette.lightMuted.background"
-          />
-        </div>
-      </div>
-      <div class="life__container full">
-        <Exhibitions />
-      </div>
-    </section>
-    <section class="video-section">
-      <div class="video-wrapper">
-        <VideoEmbed />
-      </div>
-    </section>
-  </main>
-</template>
-
 <script lang="ts">
+import { Vue, Options } from "vue-property-decorator"
 import PortableText from "sanity-blocks-vue-component"
 import sanityClient from "../sanityClient"
 import {
@@ -60,7 +14,7 @@ import Exhibitions from "@/components/exhibitions.vue"
 import SanityImage from "@/components/sanityImage.vue"
 import VideoEmbed from "@/components/videoEmbed.vue"
 
-export default {
+@Options({
   name: "Life",
   nuxtI18n: {
     paths: {
@@ -74,17 +28,6 @@ export default {
     SanityImage,
     VideoEmbed
   },
-  data: () => ({
-    biography: {},
-    exhibitions: {},
-    imageOne: {},
-    imageTwo: {},
-    mainImage: {},
-    ogDescription: {},
-    ogTitle: {},
-    siteTitle: {},
-    title: {}
-  }),
   async fetch() {
     const pageData: Page = await sanityClient.fetch(lifeQuery)
     const bioData: Bio = await sanityClient.fetch(bioQuery)
@@ -101,7 +44,10 @@ export default {
     this.ogTitle = pageData.ogTitle
     this.siteTitle = metaData.title
     this.title = pageData.title
-  },
+  }
+})
+
+export default class Life extends Vue {
   head() {
     return {
       title:
@@ -177,6 +123,53 @@ export default {
   }
 }
 </script>
+
+<template>
+  <main>
+    <section class="life">
+      <div class="life__container">
+        <div class="life__image">
+          <SanityImage
+            :title="imageOne.mainImage.caption"
+            :image="imageOne.mainImage"
+            :width="imageOne.meta.dimensions.width"
+            :height="imageOne.meta.dimensions.height"
+            :color="imageOne.meta.palette.lightMuted.background"
+          />
+        </div>
+        <div class="life__text">
+          <PortableText
+            :blocks="$i18n.locale === 'en' ? biography.en : biography.pl"
+          />
+        </div>
+      </div>
+      <div class="life__container">
+        <div class="life__text">
+          <PortableText
+            :blocks="$i18n.locale === 'en' ? exhibitions.en : exhibitions.pl"
+          />
+        </div>
+        <div class="life__image hide">
+          <SanityImage
+            :title="imageTwo.mainImage.caption"
+            :image="imageTwo.mainImage"
+            :width="imageTwo.meta.dimensions.width"
+            :height="imageTwo.meta.dimensions.height"
+            :color="imageTwo.meta.palette.lightMuted.background"
+          />
+        </div>
+      </div>
+      <div class="life__container full">
+        <Exhibitions />
+      </div>
+    </section>
+    <section class="video-section">
+      <div class="video-wrapper">
+        <VideoEmbed />
+      </div>
+    </section>
+  </main>
+</template>
 
 <!-- prettier-ignore -->
 <style lang="scss" scoped>

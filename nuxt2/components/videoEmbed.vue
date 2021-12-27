@@ -1,3 +1,23 @@
+<script lang="ts">
+import { Vue, Options, Prop } from "vue-property-decorator"
+import sanityClient from "../sanityClient"
+import { videoQuery } from "../data/queries"
+import { Video } from "../generated/schema"
+
+@Options({
+  name: "VideoEmbed",
+  async fetch() {
+    const videoData: Video = await sanityClient.fetch(videoQuery)
+    this.videos = videoData
+  }
+})
+export default class VideoEmbed extends Vue {
+  randomVideo = Math.floor(Math.random() * 3)
+
+  @Prop({default: "VideoEmbed"}) readonly classname!: string
+}
+</script>
+
 <template>
   <video autoplay loop muted playsinline class="video-embed">
     <source :src="videos[randomVideo].mp4Url" type="video/mp4" />
@@ -17,27 +37,3 @@
     Sorry, your browser doesn't support embedded videos.
   </video>
 </template>
-
-<script lang="ts">
-import sanityClient from "../sanityClient"
-import { videoQuery } from "../data/queries"
-import { Video } from "../generated/schema"
-
-export default {
-  name: "VideoEmbed",
-  props: {
-    classname: {
-      type: String,
-      default: "video-embed"
-    }
-  },
-  data: () => ({
-    randomVideo: Math.floor(Math.random() * 3),
-    videos: []
-  }),
-  async fetch() {
-    const videoData: Video = await sanityClient.fetch(videoQuery)
-    this.videos = videoData
-  }
-}
-</script>

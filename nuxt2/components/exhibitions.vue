@@ -1,3 +1,19 @@
+<script lang="ts">
+import { Vue, Options } from "vue-property-decorator"
+import sanityClient from "../sanityClient"
+import { exhibitionQuery } from "../data/queries"
+import { Exhibition } from "../generated/schema"
+
+@Options({
+  name: "Exhibitions",
+  async fetch() {
+    const exhibitionData: Exhibition = await sanityClient.fetch(exhibitionQuery)
+    this.exhibitions = exhibitionData as Exhibition
+  }
+})
+export default class Exhibitions extends Vue {}
+</script>
+
 <template>
   <div>
     <h3>
@@ -15,23 +31,6 @@
     </ul>
   </div>
 </template>
-
-<script lang="ts">
-import sanityClient from "../sanityClient"
-import { exhibitionQuery } from "../data/queries"
-import { Exhibition } from "../generated/schema"
-
-export default {
-  name: "Exhibitions",
-  data: () => ({
-    exhibitions: []
-  }),
-  async fetch() {
-    const exhibitionData: Exhibition = await sanityClient.fetch(exhibitionQuery)
-    this.exhibitions = exhibitionData
-  }
-}
-</script>
 
 <!-- prettier-ignore -->
 <style lang="scss" scoped>

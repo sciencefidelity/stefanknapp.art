@@ -1,53 +1,21 @@
-<template>
-  <main>
-    <section class="estate">
-      <div class="estate__container">
-        <div class="estate__image">
-          <SanityImage
-            :title="image.mainImage.caption"
-            :image="image.mainImage"
-            :width="image.meta.dimensions.width"
-            :height="image.meta.dimensions.height"
-            :color="image.meta.palette.lightMuted.background"
-          />
-        </div>
-        <div class="estate__text">
-          <p>
-            {{ $i18n.locale === "en" ? "contact" : "kontakt" }}:
-            <a :href="`mailto:${contact}`">{{ contact }}</a>
-          </p>
-        </div>
-      </div>
-    </section>
-  </main>
-</template>
-
 <script lang="ts">
+import { Vue, Options } from "vue-property-decorator"
 import sanityClient from "../sanityClient"
 import { estateQuery, metaQuery, photoQueryThree } from "../data/queries"
 import { Meta, Page, Photography } from "../generated/schema"
 import SanityImage from "@/components/sanityImage.vue"
 
-export default {
+@Options({
   name: "Estate",
+  components: {
+    SanityImage
+  },
   nuxtI18n: {
     paths: {
       en: "/estate",
       pl: "/posiadlosc"
     }
   },
-  components: {
-    SanityImage
-  },
-  data: () => ({
-    contact: "",
-    image: {},
-    mainImage: {},
-    ogDescription: {},
-    ogTitle: {},
-    siteTitle: {},
-    title: {}
-  }),
   async fetch() {
     const imageData: Photography = await sanityClient.fetch(photoQueryThree)
     const metaData: Meta = await sanityClient.fetch(metaQuery)
@@ -60,7 +28,9 @@ export default {
     this.ogTitle = pageData.ogTitle
     this.siteTitle = metaData.title
     this.title = pageData.title
-  },
+  }
+})
+export default class Estate extends Vue {
   head() {
     return {
       title:
@@ -136,6 +106,30 @@ export default {
   }
 }
 </script>
+
+<template>
+  <main>
+    <section class="estate">
+      <div class="estate__container">
+        <div class="estate__image">
+          <SanityImage
+            :title="image.mainImage.caption"
+            :image="image.mainImage"
+            :width="image.meta.dimensions.width"
+            :height="image.meta.dimensions.height"
+            :color="image.meta.palette.lightMuted.background"
+          />
+        </div>
+        <div class="estate__text">
+          <p>
+            {{ $i18n.locale === "en" ? "contact" : "kontakt" }}:
+            <a :href="`mailto:${contact}`">{{ contact }}</a>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+</template>
 
 <!-- prettier-ignore -->
 <style lang="scss" scoped>

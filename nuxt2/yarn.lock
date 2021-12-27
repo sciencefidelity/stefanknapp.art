@@ -14267,6 +14267,11 @@ vue-bundle-renderer@^0.3.3:
   dependencies:
     bundle-runner "^0.0.1"
 
+vue-class-component@^8.0.0-rc.1:
+  version "8.0.0-rc.1"
+  resolved "https://registry.yarnpkg.com/vue-class-component/-/vue-class-component-8.0.0-rc.1.tgz#db692cd97656eb9a08206c03d0b7398cdb1d9420"
+  integrity sha512-w1nMzsT/UdbDAXKqhwTmSoyuJzUXKrxLE77PCFVuC6syr8acdFDAq116xgvZh9UCuV0h+rlCtxXolr3Hi3HyPQ==
+
 vue-client-only@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/vue-client-only/-/vue-client-only-2.1.0.tgz#1a67a47b8ecacfa86d75830173fffee3bf8a4ee3"
@@ -14334,6 +14339,11 @@ vue-no-ssr@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/vue-no-ssr/-/vue-no-ssr-1.1.1.tgz#875f3be6fb0ae41568a837f3ac1a80eaa137b998"
   integrity sha512-ZMjqRpWabMPqPc7gIrG0Nw6vRf1+itwf0Itft7LbMXs2g3Zs/NFmevjZGN1x7K3Q95GmIjWbQZTVerxiBxI+0g==
+
+vue-property-decorator@^10.0.0-rc.3:
+  version "10.0.0-rc.3"
+  resolved "https://registry.yarnpkg.com/vue-property-decorator/-/vue-property-decorator-10.0.0-rc.3.tgz#bb0cb2c7c31dc41149eb432f2104fb82dc3d95be"
+  integrity sha512-EGqjf8Lq+kTausZzfLB1ynWOcyay8ZLAc5p2VlKGEX2q+BjYw84oZxr6IcdwuxGIdNmriZqPUX6AlAluBdnbEg==
 
 vue-router@^3.5.3:
   version "3.5.3"

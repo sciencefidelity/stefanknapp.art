@@ -1,3 +1,18 @@
+<script lang="ts">
+import { Vue, Options } from "vue-property-decorator"
+import LocaleSwitcher from "@/components/localeSwitcher.vue"
+
+@Options({
+  name: "Exhibitions",
+  components: {
+    LocaleSwitcher
+  },
+})
+export default class Exhibitions extends Vue {
+  date = new Date().getFullYear()
+}
+</script>
+
 <template>
   <footer>
     <div class="footer__container">
@@ -23,20 +38,6 @@
     </div>
   </footer>
 </template>
-
-<script lang="ts">
-import LocaleSwitcher from "@/components/localeSwitcher.vue"
-
-export default {
-  name: "Footer",
-  components: {
-    LocaleSwitcher
-  },
-  data: () => ({
-    year: new Date().getFullYear()
-  })
-}
-</script>
 
 <!-- prettier-ignore -->
 <style lang="scss" scoped>

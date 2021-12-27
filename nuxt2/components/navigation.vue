@@ -1,3 +1,24 @@
+<script lang="ts">
+import { Vue, Options } from "vue-property-decorator"
+import sanityClient from "../sanityClient"
+import { pageQuery } from "../data/queries"
+import { Page } from "../generated/schema"
+
+@Options({
+  name: "Navigation",
+  async fetch() {
+    const pageData: Page = await sanityClient.fetch(pageQuery)
+    this.pages = pageData
+  }
+})
+export default class Navigation extends Vue {
+  showMenu = false
+  toggleMenu() {
+    this.showMenu = !this.showMenu as boolean
+  }
+}
+</script>
+
 <template>
   <nav>
     <div class="nav">
@@ -27,32 +48,6 @@
     </div>
   </nav>
 </template>
-
-<script lang="ts">
-import sanityClient from "../sanityClient"
-import { pageQuery } from "../data/queries"
-import { Page } from "../generated/schema"
-
-export default {
-  name: "Navigation",
-  data: () => ({
-    _id: "",
-    pages: [],
-    showMenu: false,
-    slug: "",
-    title: ""
-  }),
-  async fetch() {
-    const pageData: Page = await sanityClient.fetch(pageQuery)
-    this.pages = pageData
-  },
-  methods: {
-    toggleMenu() {
-      this.showMenu = !this.showMenu as boolean
-    }
-  }
-}
-</script>
 
 <!-- prettier-ignore -->
 <style lang="scss" scoped>

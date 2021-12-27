@@ -1,3 +1,21 @@
+<script lang="ts">
+import { Vue, Options, Prop } from "vue-property-decorator"
+import VLazyImage from "v-lazy-image/v2"
+
+@Options({
+  name: "LightboxImage",
+  components: {
+    VLazyImage
+  }
+})
+export default class LightboxImage extends Vue {
+  @Prop(Number) readonly height: number | undefined
+  @Prop(Object) readonly image: object | undefined
+  @Prop(Object) readonly title: object | undefined
+  @Prop(Number) readonly width: number | undefined
+}
+</script>
+
 <template>
   <div class="sanity-image" :width="width" :height="height">
     <VLazyImage
@@ -17,23 +35,6 @@
     />
   </div>
 </template>
-
-<script lang="ts">
-import VLazyImage from "v-lazy-image/v2"
-
-export default {
-  name: "LightboxImage",
-  components: {
-    VLazyImage
-  },
-  props: {
-    height: Number,
-    image: Object,
-    title: Object,
-    width: Number
-  }
-}
-</script>
 
 <!-- prettier-ignore -->
 <style lang="scss" scoped>

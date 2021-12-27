@@ -1,3 +1,17 @@
+<script lang="ts">
+import { Vue, Options } from "vue-property-decorator"
+// import ILocale from "~/types/vue/Locales"
+
+@Options({
+  name: "LocaleSwitcher",
+})
+export default class LocaleSwitcher extends Vue {
+  get availableLocales() {
+    return this.$i18n.locales.filter(l => l.code !== this.$i18n.locale)
+  }
+}
+</script>
+
 <template>
   <div>
     <nuxt-link
@@ -8,17 +22,6 @@
     </nuxt-link>
   </div>
 </template>
-
-<script lang="ts">
-export default {
-  name: "LocaleSwitcher",
-  computed: {
-    availableLocales () {
-      return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale)
-    }
-  }
-}
-</script>
 
 <!-- prettier-ignore -->
 <style lang="scss" scoped>

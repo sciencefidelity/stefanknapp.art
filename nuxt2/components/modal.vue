@@ -1,3 +1,35 @@
+<script lang="ts">
+import { Vue, Options, Prop } from "vue-property-decorator"
+import LightboxImage from "@/components/lightboxImage.vue"
+
+@Options({
+  name: "Modal",
+  components: {
+    LightboxImage
+  }
+})
+export default class Modal extends Vue {
+  isHidden = false
+  async nextIndex() {
+    await setTimeout(() => {
+      this.$emit("nextIndex")
+    }, 200)
+  }
+  async prevIndex() {
+    await setTimeout(() => {
+      this.$emit("prevIndex")
+    }, 200)
+  }
+
+  @Prop(Number) readonly date: number | undefined
+  @Prop(Number) readonly height: number | undefined
+  @Prop(Object) readonly image: object | undefined
+  @Prop(Object) readonly medium: object | undefined
+  @Prop(Object) readonly title: object | undefined
+  @Prop(Number) readonly width: number | undefined
+}
+</script>
+
 <template>
   <div class="modal">
     <div class="btn btn--prev" @click="prevIndex()">
@@ -33,40 +65,6 @@
     </div>
   </div>
 </template>
-
-<script lang="ts">
-import LightboxImage from "@/components/lightboxImage.vue"
-
-export default {
-  name: "Modal",
-  components: {
-    LightboxImage
-  },
-  props: {
-    date: Number,
-    height: Number,
-    image: Object,
-    medium: Object,
-    title: Object,
-    width: Number
-  },
-  data: () => ({
-    isHidden: false
-  }),
-  methods: {
-    async nextIndex() {
-      await setTimeout(() => {
-        this.$emit("nextIndex")
-      }, 200)
-    },
-    async prevIndex() {
-      await setTimeout(() => {
-        this.$emit("prevIndex")
-      }, 200)
-    }
-  }
-}
-</script>
 
 <!-- prettier-ignore -->
 <style lang="scss" scoped>

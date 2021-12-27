@@ -1,3 +1,22 @@
+<script lang="ts">
+import { Vue, Options, Prop } from "vue-property-decorator"
+import VLazyImage from "v-lazy-image/v2"
+
+@Options({
+  name: "SanityImage",
+  components: {
+    VLazyImage
+  }
+})
+export default class SanityImage extends Vue {
+  @Prop(String) readonly color: string | undefined
+  @Prop(Number) readonly height: number | undefined
+  @Prop(Object) readonly image: object | undefined
+  @Prop(Object) readonly title: object | undefined
+  @Prop(Number) readonly width: number | undefined
+}
+</script>
+
 <template>
   <div class="sanity-image">
     <VLazyImage
@@ -17,24 +36,6 @@
     <div class="placeholder" :style="{ 'background-color': color }" />
   </div>
 </template>
-
-<script lang="ts">
-import VLazyImage from "v-lazy-image/v2"
-
-export default {
-  name: "SanityImage",
-  components: {
-    VLazyImage
-  },
-  props: {
-    color: String,
-    height: Number,
-    image: Object,
-    title: Object,
-    width: Number
-  }
-}
-</script>
 
 <style lang="scss" scoped>
 .sanity-image {

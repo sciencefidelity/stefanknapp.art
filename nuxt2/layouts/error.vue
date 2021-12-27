@@ -1,3 +1,14 @@
+<script lang="ts">
+import { Vue, Options } from "vue-property-decorator"
+
+@Options({
+  name: "Error"
+})
+export default class Error extends Vue {
+  props: ["error"]
+}
+</script>
+
 <template>
   <main>
     <section class="fourohfour">
@@ -21,12 +32,6 @@
     </section>
   </main>
 </template>
-
-<script lang="ts">
-export default {
-  props: ["error"]
-}
-</script>
 
 <!-- prettier-ignore -->
 <style lang="scss" scoped>

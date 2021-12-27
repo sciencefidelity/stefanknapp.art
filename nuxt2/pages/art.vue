@@ -1,48 +1,21 @@
-<template>
-  <main>
-    <section class="gallery-section">
-      <div class="gallery">
-        <Modal
-          :image="artworks[currentIndex].mainImage"
-          :title="artworks[currentIndex].title"
-          :date="artworks[currentIndex].date"
-          :width="artworks[currentIndex].meta.dimensions.width"
-          :height="artworks[currentIndex].meta.dimensions.height"
-          :medium="artworks[currentIndex].medium.title"
-          @nextIndex="nextIndex"
-          @prevIndex="prevIndex"
-        />
-      </div>
-    </section>
-  </main>
-</template>
-
 <script lang="ts">
+import { Vue, Options } from "vue-property-decorator"
 import sanityClient from "../sanityClient"
 import { artQuery, artworkQuery, metaQuery } from "../data/queries"
 import { Artwork, Meta, Page } from "../generated/schema"
 import Modal from "@/components/modal.vue"
 
-export default {
+@Options({
   name: "Art",
+  components: {
+    Modal
+  },
   nuxtI18n: {
     paths: {
       en: "/art",
       pl: "/sztuka"
     }
   },
-  components: {
-    Modal
-  },
-  data: () => ({
-    artworks: [],
-    currentIndex: 0,
-    mainImage: {},
-    ogDescription: {},
-    ogTitle: {},
-    siteTitle: {},
-    title: {}
-  }),
   async fetch() {
     const artworkData: Artwork = await sanityClient.fetch(artworkQuery)
     const metaData: Meta = await sanityClient.fetch(metaQuery)
@@ -54,7 +27,10 @@ export default {
     this.siteTitle = metaData.title
     this.title = pageData.title
     this.artworks = artworkData
-  },
+  }
+})
+export default class Art extends Vue {
+  currentIndex = 0
   head() {
     return {
       title:
@@ -127,70 +103,88 @@ export default {
         }
       ]
     }
-  },
+  }
   mounted() {
     window.addEventListener("keydown", this.onKeydown),
     window.addEventListener("touchstart", this.onTouchStart)
-  },
+  }
   destroyed() {
     window.removeEventListener("keydown", this.onKeydown),
     window.removeEventListener("touchstart", this.onTouchStart)
-  },
-  methods: {
-    nextIndex() {
-      if (this.currentIndex + 1 >= this.artworks.length) {
-        this.currentIndex = 0
-      } else {
-        this.currentIndex += 1
-      }
-    },
-    prevIndex() {
-      if (this.currentIndex - 1 < 0) {
-        this.currentIndex = this.artworks.length - 1
-      } else {
-        this.currentIndex -= 1
-      }
-    },
-    onKeydown(e) {
-      switch (e.key) {
-      case "ArrowRight":
-        this.nextIndex()
-        break
-      case "ArrowLeft":
-        this.prevIndex()
-        break
-      case "ArrowDown":
-      case "ArrowUp":
-      case " ":
-        e.preventDefault()
-        break
-      }
-    },
-    onTouchStart(e) {
-      if (e.changedTouches.length !== 1) {
-        return
-      }
-      const posXStart = e.changedTouches[0].clientX
-      console.log("touched")
-      window.addEventListener("touchend", e => this.onTouchEnd(e, posXStart), {
-        once: true
-      })
-    },
-    onTouchEnd(e, posXStart) {
-      if (e.changedTouches.length !== 1) {
-        return
-      }
-      const posXEnd = e.changedTouches[0].clientX
-      if (posXStart < posXEnd) {
-        this.prevIndex()
-      } else if (posXStart > posXEnd) {
-        this.nextIndex()
-      }
-      window.removeEventListener("touchend", this.onTouchStart)
+  }
+  nextIndex() {
+    if (this.currentIndex + 1 >= this.artworks.length) {
+      this.currentIndex = 0
+    } else {
+      this.currentIndex += 1
     }
   }
+  prevIndex() {
+    if (this.currentIndex - 1 < 0) {
+      this.currentIndex = this.artworks.length - 1
+    } else {
+      this.currentIndex -= 1
+    }
+  }
+  onKeydown(e) {
+    switch (e.key) {
+    case "ArrowRight":
+      this.nextIndex()
+      break
+    case "ArrowLeft":
+      this.prevIndex()
+      break
+    case "ArrowDown":
+    case "ArrowUp":
+    case " ":
+      e.preventDefault()
+      break
+    }
+  }
+  onTouchStart(e) {
+    if (e.changedTouches.length !== 1) {
+      return
+    }
+    const posXStart = e.changedTouches[0].clientX
+    console.log("touched")
+    window.addEventListener("touchend", e => this.onTouchEnd(e, posXStart), {
+      once: true
+    })
+  }
+  onTouchEnd(e, posXStart) {
+    if (e.changedTouches.length !== 1) {
+      return
+    }
+    const posXEnd = e.changedTouches[0].clientX
+    if (posXStart < posXEnd) {
+      this.prevIndex()
+    } else if (posXStart > posXEnd) {
+      this.nextIndex()
+    }
+    window.removeEventListener("touchend", this.onTouchStart)
+  }
 }
+
 </script>
+
+<template>
+  <main>
+    <section class="gallery-section">
+      <div class="gallery">
+        <Modal
+          :image="artworks[currentIndex].mainImage"
+          :title="artworks[currentIndex].title"
+          :date="artworks[currentIndex].date"
+          :width="artworks[currentIndex].meta.dimensions.width"
+          :height="artworks[currentIndex].meta.dimensions.height"
+          :medium="artworks[currentIndex].medium.title"
+          @nextIndex="nextIndex"
+          @prevIndex="prevIndex"
+        />
+      </div>
+    </section>
+  </main>
+</template>
 
 <!-- prettier-ignore -->
 <style lang="scss" scoped>
