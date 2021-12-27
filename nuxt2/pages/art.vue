@@ -152,7 +152,6 @@ export default class Art extends Vue {
       return
     }
     const posXStart = e.changedTouches[0].clientX
-    console.log("touched")
     window.addEventListener("touchend", e => this.onTouchEnd(e, posXStart), {
       once: true
     })
