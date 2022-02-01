@@ -24,7 +24,7 @@
     "lint": "pnpm run lint"
   },
   "devDependencies": {
-    "eslint": "^8.6.0",
+    "eslint": "^8.8.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-nuxt": "^3.1.0",
     "eslint-plugin-prettier": "^4.0.0",
