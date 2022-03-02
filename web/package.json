@@ -20,13 +20,10 @@
     "build": "gridsome build"
   },
   "dependencies": {
-    "@sanity/image-url": "^1.0.1",
-    "dotenv": "^16.0.0",
-    "gridsome": "^0.7.23",
     "gridsome-plugin-i18n": "^1.6.0",
     "gridsome-source-sanity": "^1.2.0",
-    "sanity-blocks-vue-component": "^0.1.0",
-    "v-lazy-image": "^2.0.1"
+    "sanity-blocks-vue-component": "^1.0.1",
+    "v-lazy-image": "^2.1.1"
   },
   "devDependencies": {
     "sass": "^1.49.9",
