@@ -13,4 +13,10 @@ export default function (Vue, { router, head, isClient }) {
 
   // Inject global image URL builder
   Vue.prototype.$urlForImage = urlForImage
+
+  head.script.push({
+    src: 'https://plausible.io/js/plausible.js',
+    defer: true,
+    "data-domain": "stefanknapp.art"
+  })
 }
