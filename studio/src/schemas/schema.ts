@@ -8,7 +8,6 @@ import captionImage from "./object/captionImage"
 // localization
 // import { baseLanguage, supportedLanguages } from './languages'
 import localeRichText from "./object/localeRichText"
-import localeSlug from "./object/localeSlug"
 import localeString from "./object/localeString"
 
 // documents
@@ -30,7 +29,6 @@ export default createSchema({
     portableText,
     captionImage,
     localeRichText,
-    localeSlug,
     localeString,
 
     // documents

@@ -1,5 +1,3 @@
-import { i18n } from "../../languages"
-
 export default {
   name: "page",
   title: "Page",
@@ -15,7 +13,7 @@ export default {
       title: "Slug",
       type: "slug",
       options: {
-        source: `title.${i18n[0].name}`
+        source: 'title'
       }
     },
     {
