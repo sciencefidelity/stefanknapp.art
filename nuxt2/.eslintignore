@@ -4,3 +4,4 @@ dist
 .nova
 .nuxt
 .output
+*.json
