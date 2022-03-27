@@ -1,7 +1,9 @@
-# stefanknapp.art
+# Sanity Clean Content Studio
 
-Website about the artist Stefan Knapp.
+Congratulations, you have now installed the Sanity Content Studio, an open source real-time content editing environment connected to the Sanity backend.
 
-[stefanknapp.art](https://stefanknapp.art/)
+Now you can do the following things:
 
-Back end built with [Sanity](https://sanity.io/).
+- [Read “getting started” in the docs](https://www.sanity.io/docs/introduction/getting-started?utm_source=readme)
+- [Join the community Slack](https://slack.sanity.io/?utm_source=readme)
+- [Extend and build plugins](https://www.sanity.io/docs/content-studio/extending?utm_source=readme)
