@@ -2,32 +2,32 @@ import createSchema from "part:@sanity/base/schema-creator"
 import schemaTypes from "all:part:@sanity/base/schema-type"
 
 // objects
-import blockContent from "./objects/blockContent"
-import captionImage from "./objects/captionImage"
+import portableText from "./object/portableText"
+import captionImage from "./object/captionImage"
 
 // localization
 // import { baseLanguage, supportedLanguages } from './languages'
-import localeRichText from "./objects/localeRichText"
-import localeSlug from "./objects/localeSlug"
-import localeString from "./objects/localeString"
+import localeRichText from "./object/localeRichText"
+import localeSlug from "./object/localeSlug"
+import localeString from "./object/localeString"
 
 // documents
-import artwork from "./documents/artwork"
-import bio from "./documents/bio"
-import exhibition from "./documents/exhibition"
-import meta from "./documents/meta"
-import page from "./documents/page"
-import photography from "./documents/photography"
-import video from "./documents/video"
+import artwork from "./document/artwork"
+import bio from "./document/bio"
+import exhibition from "./document/exhibition"
+import meta from "./document/meta"
+import page from "./document/page"
+import photography from "./document/photography"
+import video from "./document/video"
 
 // taxonomy
-import medium from "./taxonomy/medium"
+import medium from "./document/medium"
 
 export default createSchema({
   name: "default",
   types: schemaTypes.concat([
     // objects
-    blockContent,
+    portableText,
     captionImage,
     localeRichText,
     localeSlug,
