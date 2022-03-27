@@ -1,4 +1,4 @@
-import { supportedLanguages } from "../languages"
+import { i18n } from "../../languages"
 
 export default {
   name: "localeSlug",
@@ -8,7 +8,6 @@ export default {
     {
       title: "Translations",
       name: "translations",
-      options: { collapsible: true }
     }
   ],
 
@@ -18,16 +17,15 @@ export default {
       name: "en",
       type: "slug",
       options: {
-        source: `title.${supportedLanguages[0].name}`
+        source: `title.${i18n[0].name}`
       }
     },
     {
       title: "Polish",
       name: "pl",
       type: "slug",
-      fieldset: "translations",
       options: {
-        source: `title.${supportedLanguages[1].name}`
+        source: `title.${i18n[1].name}`
       }
     }
   ]

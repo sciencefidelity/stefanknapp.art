@@ -1,4 +1,4 @@
-import { supportedLanguages } from "../languages"
+import { i18n } from "../../languages"
 
 export default {
   name: "page",
@@ -15,7 +15,7 @@ export default {
       title: "Slug",
       type: "slug",
       options: {
-        source: `title.${supportedLanguages[0].name}`
+        source: `title.${i18n[0].name}`
       }
     },
     {
