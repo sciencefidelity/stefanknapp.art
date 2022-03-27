@@ -1,35 +1,43 @@
 {
   "name": "stefanknapp",
+  "description": "The art, life and estate of Polish enamelist Stefan Knapp",
   "private": true,
-  "version": "1.0.0",
-  "description": "The Estate of Polish artist Stefan Knapp",
+  "version": "0.1.0",
   "main": "package.json",
   "author": "Matt Cook <sciencefidelity@hotmail.com>",
   "license": "UNLICENSED",
-  "scripts": {
-    "start": "sanity start",
-    "build": "sanity build"
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:sciencefidelity/stefanknapp.git"
   },
   "keywords": [
     "sanity"
   ],
+  "scripts": {
+    "dev": "sanity start --host=0.0.0.0",
+    "build": "sanity build",
+    "deploy": "sanity deploy",
+    "lint": "eslint .",
+    "test": "sanity check"
+  },
   "dependencies": {
     "@sanity/base": "^2.29.2",
     "@sanity/core": "^2.28.1",
+    "@sanity/dashboard": "^2.29.2",
     "@sanity/default-layout": "^2.29.2",
     "@sanity/default-login": "^2.29.2",
     "@sanity/desk-tool": "^2.29.2",
+    "@sanity/document-internationalization": "^0.1.4",
     "@sanity/eslint-config-studio": "^2.0.0",
     "@sanity/vision": "^2.29.2",
-    "eslint": "^8.6.0",
     "prop-types": "^15.7",
     "react": "^17.0",
     "react-dom": "^17.0",
+    "sanity-plugin-dashboard-widget-vercel": "^1.1.1",
     "styled-components": "^5.2.0"
   },
-  "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:sciencefidelity/stefanknapp.art.git"
+  "devDependencies": {
+    "eslint": "^8.12.0",
+    "prettier": "^2.6.1"
   }
 }
