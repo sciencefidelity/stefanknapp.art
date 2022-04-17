@@ -1,7 +1,10 @@
+import { Art } from '../../components/twemoji'
+
 export default {
   name: "medium",
   title: "Medium",
   type: "document",
+  icon: Art,
   fields: [
     {
       name: "title",

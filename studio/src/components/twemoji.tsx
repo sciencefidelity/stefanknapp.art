@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react"
 
 export const Art = () => (
   <svg
@@ -219,6 +219,52 @@ export const CardFileBox = () => (
   </svg>
 )
 
+export const ClassicalBuilding = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true"
+    role="img"
+    width="1em"
+    height="1em"
+    preserveAspectRatio="xMidYMid meet"
+    viewBox="0 0 36 36"
+  >
+    <path fill="#292F33" d="M7 11h22v18H7z"></path>
+    <path
+      fill="#CCD6DD"
+      d="M8 29c0 1.104-.597 2-1.333 2H5.333C4.597 31 4 30.104 4 29V11c0-1.104.597-2 1.333-2h1.333C7.403 9 8 9.896 8 11v18zm24 0c0 1.104-.597 2-1.333 2h-1.334C28.597 31 28 30.104 28 29V11c0-1.104.597-2 1.333-2h1.334C31.403 9 32 9.896 32 11v18zm-16 0c0 1.104-.597 2-1.333 2h-1.333C12.597 31 12 30.104 12 29V11c0-1.104.597-2 1.333-2h1.333C15.403 9 16 9.896 16 11v18zm8 0c0 1.104-.598 2-1.334 2h-1.332C20.598 31 20 30.104 20 29V11c0-1.104.598-2 1.334-2h1.332C23.402 9 24 9.896 24 11v18z"
+    ></path>
+    <path
+      fill="#9AAAB4"
+      d="M33 30a2 2 0 0 1-2 2H5a2 2 0 0 1 0-4h26a2 2 0 0 1 2 2z"
+    ></path>
+    <path
+      fill="#CCD6DD"
+      d="M35 32a2 2 0 0 1-2 2H3a2 2 0 0 1 0-4h30a2 2 0 0 1 2 2z"
+    ></path>
+    <path
+      fill="#E1E8ED"
+      d="M36 33.5a1.5 1.5 0 0 1-1.5 1.5h-33a1.5 1.5 0 1 1 0-3h33a1.5 1.5 0 0 1 1.5 1.5z"
+    ></path>
+    <path
+      fill="#9AAAB4"
+      d="M33 10c0-1.104-.956-2-2.133-2H5c-1.179 0-2 .896-2 2c0 .751.386 1.398 1 1.74V13h4v-1h4v1h4v-1h4v1h4v-1h4v1h4v-1.312c.599-.354 1-.975 1-1.688z"
+    ></path>
+    <path
+      fill="#CCD6DD"
+      d="M2 8.444C2 7.413 3.012 7 3.012 7l14.904-7l15.047 7S34 7.231 34 8.45V9H2v-.556z"
+    ></path>
+    <path
+      fill="#9AAAB4"
+      d="M18 2.542S7.681 7.407 6.65 7.844C5.619 8.281 5.964 9 6.651 9h22.646c1.062 0 .812-.812-.031-1.25C28.422 7.312 18 2.542 18 2.542z"
+    ></path>
+    <path
+      fill="#CCD6DD"
+      d="M34 9a1 1 0 0 1-1 1H3a1 1 0 0 1 0-2l30 .006c.553 0 1 .442 1 .994z"
+    ></path>
+  </svg>
+)
+
 export const Clipboard = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -350,6 +396,47 @@ export const FilmProjector = () => (
     <path
       fill="#8899A6"
       d="M24 27a2 2 0 0 0-2-2H11a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2v-6z"
+    ></path>
+  </svg>
+)
+
+export const FramedPicture = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true"
+    role="img"
+    width="1em"
+    height="1em"
+    preserveAspectRatio="xMidYMid meet"
+    viewBox="0 0 36 36"
+  >
+    <path
+      fill="#D79E84"
+      d="M35 30a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h30a2 2 0 0 1 2 2v24z"
+    ></path>
+    <path
+      fill="#BF6952"
+      d="M33 4H3a2 2 0 0 0-2 2v24c0 .389.116.748.307 1.055l33.33-26.198A1.993 1.993 0 0 0 33 4z"
+    ></path>
+    <path
+      fill="#8CCAF7"
+      d="M31 22V9a1 1 0 0 0-1-1H6a1 1 0 0 0-1 1v13h26z"
+    ></path>
+    <path fill="#5DADEC" d="M6 28h13v-7H5v6a1 1 0 0 0 1 1z"></path>
+    <path fill="#292F33" d="M19 21v7h11a1 1 0 0 0 1-1v-6H19z"></path>
+    <path
+      fill="#67757F"
+      d="M20 19c-.613 0-.852 1.127-1.405 2c-.349.55-.822 1-1.595 1c-2 0-2 3-3 3c-1.256 0-2.512 1.578-3.273 3H19c.879-1.758 1.761-3.514 4-3.913A5.642 5.642 0 0 1 24 24c3 0 3.106-1.553 4-2c1.358-.679 2.251-.437 3-.211V19H20z"
+    ></path>
+    <path fill="#E75A70" d="m25 11l-4 4v4h8v-4z"></path>
+    <path
+      fill="#292F33"
+      d="M29 16a.997.997 0 0 1-.707-.293L25 12.414l-3.293 3.293a.999.999 0 1 1-1.414-1.414l4-4a.999.999 0 0 1 1.414 0l4 4A.999.999 0 0 1 29 16z"
+    ></path>
+    <path fill="#BB1A34" d="M23 16h2v3h-2z"></path>
+    <path
+      fill="#FFF"
+      d="M17.219 14.125a1.874 1.874 0 0 0-1.875-1.875c-.079 0-.155.014-.232.023A1.874 1.874 0 0 0 13.281 10a1.87 1.87 0 0 0-1.583.878a1.85 1.85 0 0 0-.667-.128a1.87 1.87 0 0 0-1.851 1.632a1.85 1.85 0 0 0-.68-.132a1.874 1.874 0 1 0 0 3.75c.041 0 .08-.01.121-.012l.004.012h6.75v-.003a1.873 1.873 0 0 0 1.844-1.872z"
     ></path>
   </svg>
 )

@@ -1,7 +1,10 @@
+import { FramedPicture } from '../../components/twemoji'
+
 export default {
   name: "artwork",
   title: "Artwork",
   type: "document",
+  icon: FramedPicture,
   fields: [
     {
       name: "title",

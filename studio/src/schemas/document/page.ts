@@ -1,7 +1,10 @@
+import { Books } from '../../components/twemoji'
+
 export default {
   name: "page",
   title: "Page",
   type: "document",
+  icon: Books,
   fields: [
     {
       name: "title",
