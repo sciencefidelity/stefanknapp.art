@@ -16,7 +16,7 @@ export default {
     {
       name: "title",
       title: "Title",
-      type: "localeString"
+      type: "string"
     },
     {
       name: 'body',
@@ -52,7 +52,7 @@ export default {
 
   preview: {
     select: {
-      title: "title.en",
+      title: "title",
     },
     prepare({ title }) {
       return {
