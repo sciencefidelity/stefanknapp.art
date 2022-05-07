@@ -1,5 +1,3 @@
-import StringWithLimits from '../../components/StringWithLimits'
-import { Rule } from "@sanity/types"
 import { Gear } from "../../components/twemoji"
 
 export default {
@@ -12,9 +10,7 @@ export default {
       name: "title",
       title: "Meta title",
       description: 'Extra content for search engines',
-      type: "localeString",
-      inputComponent: StringWithLimits,
-      validation: (Rule: Rule) => Rule.max(70).warning("Some text won't be visible.")
+      type: "localeString"
     },
     {
       name: "description",
@@ -32,9 +28,7 @@ export default {
       name: "ogTitle",
       title: "Social title",
       description: 'Customize structured data for Twitter and Facebook',
-      type: "localeString",
-      inputComponent: StringWithLimits,
-      validation: (Rule: Rule) => Rule.max(70).warning("Some text won't be visible.")
+      type: "localeString"
     },
     {
       name: "ogDescription",
