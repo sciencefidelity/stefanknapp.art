@@ -2,48 +2,36 @@ import S from '@sanity/desk-tool/structure-builder'
 import * as Structure from '@sanity/document-internationalization/lib/structure'
 import {
   Art,
-  BallotBoxWithCheck,
-  BarChart,
   Books,
   CameraFlash,
-  CardFileBox,
-  Clipboard,
-  ClosedLockWithKey,
   Compass,
-  Date,
   FilmProjector,
+  FramedPicture,
   Gear,
-  Label,
-  Newspaper,
-  PostOffice,
-  SpeechBalloon,
-  WhiteCheckMark,
-  WomanTeacher,
-  WorldMap,
-  WritingHand
 } from '../components/twemoji'
 
 const items = [
   S.listItem()
-  .title('Page')
-  .icon(Books)
-  .child(
-    S.documentTypeList('page')
-      .title('Page')
-      .filter('_type == "page" && __i18n_lang != "cy"')
-  ),
+    .title('Page')
+    .icon(Books)
+    .child(
+      S.documentTypeList('page')
+        .title('Page')
+        .filter('_type == "page" && __i18n_lang != "cy"')
+    ),
   S.divider(),
   S.listItem()
     .title('Artwork')
-    .icon(BarChart)
+    .icon(FramedPicture)
     .child(
       S.document().schemaType('artwork').documentId('artwork')
     ),
   S.listItem()
     .title('Medium')
-    .icon(BarChart)
+    .icon(Art)
     .child(
-      S.document().schemaType('medium').documentId('medium')
+      S.documentTypeList('medium')
+        .title('Medium')
     ),
   S.listItem()
     .title('Photography')
@@ -53,7 +41,7 @@ const items = [
     ),
   S.listItem()
     .title('Video')
-    .icon(Clipboard)
+    .icon(FilmProjector)
     .child(S.document().schemaType('video').documentId('video')),
   S.divider(),
   S.listItem()
@@ -66,6 +54,7 @@ const items = [
     .child(
       S.document().schemaType('navigation').documentId('navigation')
     ),
+  S.divider(),
   Structure.getMaintenanceListItem().serialize(),
   ...S.documentTypeListItems().filter(
     item =>

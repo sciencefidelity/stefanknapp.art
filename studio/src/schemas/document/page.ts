@@ -22,7 +22,6 @@ export default {
       name: 'body',
       title: 'Body',
       type: 'portableText',
-      group: 'content'
     },
     {
       name: 'slug',
@@ -33,25 +32,21 @@ export default {
         maxLength: 96,
         isUnique: isUniqueLocale
       },
-      group: 'settings'
     },
     {
       name: 'meta',
       title: 'Meta data',
       type: 'metaData',
-      group: 'meta'
     },
     {
       name: 'twitter',
       title: 'Twitter Card',
       type: 'twitterCard',
-      group: 'twitter'
     },
     {
       name: 'facebook',
       title: 'Facebook Card',
       type: 'facebookCard',
-      group: 'facebook'
     }
   ],
 
