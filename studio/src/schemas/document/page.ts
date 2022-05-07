@@ -1,3 +1,5 @@
+import { i18n } from '../../languages'
+import { isUniqueLocale } from '../../lib/isUniqueLocale'
 import { Books } from '../../components/twemoji'
 
 export default {
@@ -5,6 +7,11 @@ export default {
   title: "Page",
   type: "document",
   icon: Books,
+  i18n,
+  initialValue: {
+    __i18n_lang: 'en',
+    __i18n_refs: []
+  },
   fields: [
     {
       name: "title",
@@ -12,45 +19,51 @@ export default {
       type: "localeString"
     },
     {
-      name: "slug",
-      title: "Slug",
-      type: "slug",
+      name: 'body',
+      title: 'Body',
+      type: 'portableText',
+      group: 'content'
+    },
+    {
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
       options: {
-        source: 'title'
-      }
+        source: 'title',
+        maxLength: 96,
+        isUnique: isUniqueLocale
+      },
+      group: 'settings'
     },
     {
-      name: "ogTitle",
-      title: "Social title",
-      description:
-        "Displayed on Facebook and Twitter shares (max 60 characters)",
-      type: "localeString",
-      // validation: (Rule: any) =>
-      //   Rule.max(60).warning(`Only 60 characters will be visible.`)
+      name: 'meta',
+      title: 'Meta data',
+      type: 'metaData',
+      group: 'meta'
     },
     {
-      name: "ogDescription",
-      title: "Social description",
-      description:
-        "Displayed on Facebook and Twitter shares (max 65 characters)",
-      type: "localeString",
-      // validation: (Rule: any) =>
-      //   Rule.max(65).warning(`Only 65 characters will be visible.`)
+      name: 'twitter',
+      title: 'Twitter Card',
+      type: 'twitterCard',
+      group: 'twitter'
     },
     {
-      name: "mainImage",
-      title: "Main image",
-      type: "captionImage",
-      options: {
-        hotspot: true
-      }
+      name: 'facebook',
+      title: 'Facebook Card',
+      type: 'facebookCard',
+      group: 'facebook'
     }
   ],
 
   preview: {
     select: {
       title: "title.en",
-      media: "mainImage"
+    },
+    prepare({ title }) {
+      return {
+        title: title,
+        media: Books
+      }
     }
   }
 }
