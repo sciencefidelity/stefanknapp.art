@@ -12,9 +12,9 @@ import localeString from "./object/localeString"
 
 // documents
 import artwork from "./document/artwork"
-import bio from "./document/bio"
+// import bio from "./document/bio"
 import exhibition from "./document/exhibition"
-import meta from "./document/meta"
+import settings from "./document/settings"
 import page from "./document/page"
 import photography from "./document/photography"
 import video from "./document/video"
@@ -33,11 +33,11 @@ export default createSchema({
 
     // documents
     artwork,
-    bio,
+    // bio,
     exhibition,
-    meta,
     page,
     photography,
+    settings,
     video,
 
     // taxonomy

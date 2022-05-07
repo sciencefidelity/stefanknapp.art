@@ -14,7 +14,13 @@ export default {
   ],
   preview: {
     select: {
-      title: "title.en"
+      title: 'title.en'
+    },
+    prepare({ title }) {
+      return {
+        title: title,
+        media: Art
+      }
     }
   }
 }
