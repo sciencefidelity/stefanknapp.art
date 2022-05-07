@@ -14,9 +14,9 @@ import localeString from "./object/localeString"
 import artwork from "./document/artwork"
 // import bio from "./document/bio"
 import exhibition from "./document/exhibition"
-import settings from "./document/settings"
 import page from "./document/page"
 import photography from "./document/photography"
+import settings from "./document/settings"
 import video from "./document/video"
 
 // taxonomy
