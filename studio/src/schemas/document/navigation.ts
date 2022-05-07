@@ -22,14 +22,12 @@ export default {
             {
               name: 'url',
               type: 'reference',
-              to: [
-                { type: 'page' }
-              ]
+              to: [{ type: 'page' }]
             }
           ],
           preview: {
             select: {
-              title: 'label.en',
+              title: 'label.en'
             },
             prepare({ title }) {
               return {

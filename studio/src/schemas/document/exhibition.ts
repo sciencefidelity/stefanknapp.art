@@ -1,40 +1,40 @@
 import { ClassicalBuilding } from '../../components/twemoji'
 
 export default {
-  name: "exhibition",
-  title: "Exhibition",
-  type: "document",
+  name: 'exhibition',
+  title: 'Exhibition',
+  type: 'document',
   icon: ClassicalBuilding,
   fields: [
     {
-      name: "exhibition",
-      title: "Exhibition",
-      type: "array",
+      name: 'exhibition',
+      title: 'Exhibition',
+      type: 'array',
       of: [
         {
-          name: "exhibition",
-          title: "Exhibition",
-          type: "object",
+          name: 'exhibition',
+          title: 'Exhibition',
+          type: 'object',
           fields: [
             {
-              name: "gallery",
-              title: "Gallery",
-              type: "string"
+              name: 'gallery',
+              title: 'Gallery',
+              type: 'string'
             },
             {
-              name: "year",
-              title: "Year",
-              type: "number"
+              name: 'year',
+              title: 'Year',
+              type: 'number'
             },
             {
-              name: "location",
-              title: "Location",
-              type: "localeString"
+              name: 'location',
+              title: 'Location',
+              type: 'localeString'
             },
             {
-              name: "solo",
-              title: "Solo",
-              type: "boolean"
+              name: 'solo',
+              title: 'Solo',
+              type: 'boolean'
             }
           ],
           preview: {
@@ -57,8 +57,8 @@ export default {
 
   preview: {
     select: {
-      title: "gallery",
-      subtitle: "year"
+      title: 'gallery',
+      subtitle: 'year'
     },
     prepare({ title }) {
       return {

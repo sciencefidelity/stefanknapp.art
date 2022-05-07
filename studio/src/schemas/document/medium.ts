@@ -1,15 +1,15 @@
 import { Art } from '../../components/twemoji'
 
 export default {
-  name: "medium",
-  title: "Medium",
-  type: "document",
+  name: 'medium',
+  title: 'Medium',
+  type: 'document',
   icon: Art,
   fields: [
     {
-      name: "title",
-      title: "Title",
-      type: "localeString"
+      name: 'title',
+      title: 'Title',
+      type: 'localeString'
     }
   ],
   preview: {

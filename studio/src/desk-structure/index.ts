@@ -8,7 +8,7 @@ import {
   Compass,
   FilmProjector,
   FramedPicture,
-  Gear,
+  Gear
 } from '../components/twemoji'
 
 const items = [
@@ -25,18 +25,12 @@ const items = [
     .title('Artwork')
     .icon(FramedPicture)
     .child(
-      S.document()
-        .schemaType('artwork')
-        .documentId('artwork')
-        .title('Artworks')
+      S.document().schemaType('artwork').documentId('artwork').title('Artworks')
     ),
   S.listItem()
     .title('Medium')
     .icon(Art)
-    .child(
-      S.documentTypeList('medium')
-        .title('Medium')
-    ),
+    .child(S.documentTypeList('medium').title('Medium')),
   S.listItem()
     .title('Photography')
     .icon(CameraFlash)
@@ -49,19 +43,18 @@ const items = [
   S.listItem()
     .title('Video')
     .icon(FilmProjector)
-    .child(S.document()
-      .schemaType('video')
-      .documentId('video')
-      .title('Videos')
+    .child(
+      S.document().schemaType('video').documentId('video').title('Videos')
     ),
   S.divider(),
   S.listItem()
     .title('Settings')
     .icon(Gear)
-    .child(S.document()
-      .schemaType('settings')
-      .documentId('settings')
-      .title('Settings')
+    .child(
+      S.document()
+        .schemaType('settings')
+        .documentId('settings')
+        .title('Settings')
     ),
   S.listItem()
     .title('Navigation')
@@ -75,9 +68,7 @@ const items = [
   S.listItem()
     .title('Label Group')
     .icon(CardFileBox)
-    .child(
-      S.document().schemaType('labelGroup').documentId('labelGroup')
-    ),
+    .child(S.document().schemaType('labelGroup').documentId('labelGroup')),
   S.divider(),
   Structure.getMaintenanceListItem().serialize(),
   ...S.documentTypeListItems().filter(

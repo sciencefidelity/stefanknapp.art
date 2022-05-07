@@ -14,11 +14,10 @@
     "sanity"
   ],
   "scripts": {
-    "dev": "sanity start --host=0.0.0.0",
+    "start": "sanity start",
+    "dev": "sanity start",
     "build": "sanity build",
-    "deploy": "sanity deploy",
-    "lint": "eslint .",
-    "test": "sanity check"
+    "format": "prettier --write '**/*.{ts,js,tsx,jsx,json,md,yml}'"
   },
   "dependencies": {
     "@sanity/base": "^2.29.8",

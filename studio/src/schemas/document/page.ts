@@ -3,9 +3,9 @@ import { isUniqueLocale } from '../../lib/isUniqueLocale'
 import { Books } from '../../components/twemoji'
 
 export default {
-  name: "page",
-  title: "Page",
-  type: "document",
+  name: 'page',
+  title: 'Page',
+  type: 'document',
   icon: Books,
   i18n,
   initialValue: {
@@ -14,14 +14,14 @@ export default {
   },
   fields: [
     {
-      name: "title",
-      title: "Title",
-      type: "string"
+      name: 'title',
+      title: 'Title',
+      type: 'string'
     },
     {
       name: 'body',
       title: 'Body',
-      type: 'portableText',
+      type: 'portableText'
     },
     {
       name: 'slug',
@@ -31,28 +31,28 @@ export default {
         source: 'title',
         maxLength: 96,
         isUnique: isUniqueLocale
-      },
+      }
     },
     {
       name: 'meta',
       title: 'Meta data',
-      type: 'metaData',
+      type: 'metaData'
     },
     {
       name: 'twitter',
       title: 'Twitter Card',
-      type: 'twitterCard',
+      type: 'twitterCard'
     },
     {
       name: 'facebook',
       title: 'Facebook Card',
-      type: 'facebookCard',
+      type: 'facebookCard'
     }
   ],
 
   preview: {
     select: {
-      title: "title",
+      title: 'title',
       image: 'facebook.image'
     },
     prepare({ title, image }) {

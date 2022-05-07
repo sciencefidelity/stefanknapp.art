@@ -1,35 +1,35 @@
 import { CameraFlash } from '../../components/twemoji'
 
 export default {
-  name: "photography",
-  title: "Photography",
-  type: "document",
+  name: 'photography',
+  title: 'Photography',
+  type: 'document',
   icon: CameraFlash,
   fields: [
     {
-      name: "photography",
-      title: "Photography",
-      type: "array",
+      name: 'photography',
+      title: 'Photography',
+      type: 'array',
       of: [
         {
-          name: "photography",
-          title: "Photography",
-          type: "object",
+          name: 'photography',
+          title: 'Photography',
+          type: 'object',
           fields: [
             {
-              name: "title",
-              title: "Title",
-              type: "localeString"
+              name: 'title',
+              title: 'Title',
+              type: 'localeString'
             },
             {
-              name: "date",
-              title: "Date",
-              type: "number"
+              name: 'date',
+              title: 'Date',
+              type: 'number'
             },
             {
-              name: "image",
-              title: "image",
-              type: "image",
+              name: 'image',
+              title: 'image',
+              type: 'image',
               options: {
                 hotspot: true
               }
