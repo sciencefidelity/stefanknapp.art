@@ -4,6 +4,7 @@ import {
   Art,
   Books,
   CameraFlash,
+  CardFileBox,
   Compass,
   FilmProjector,
   FramedPicture,
@@ -24,7 +25,10 @@ const items = [
     .title('Artwork')
     .icon(FramedPicture)
     .child(
-      S.document().schemaType('artwork').documentId('artwork')
+      S.document()
+        .schemaType('artwork')
+        .documentId('artwork')
+        .title('Artworks')
     ),
   S.listItem()
     .title('Medium')
@@ -37,22 +41,42 @@ const items = [
     .title('Photography')
     .icon(CameraFlash)
     .child(
-      S.document().schemaType('photography').documentId('photography')
+      S.document()
+        .schemaType('photography')
+        .documentId('photography')
+        .title('Photography')
     ),
   S.listItem()
     .title('Video')
     .icon(FilmProjector)
-    .child(S.document().schemaType('video').documentId('video')),
+    .child(S.document()
+      .schemaType('video')
+      .documentId('video')
+      .title('Videos')
+    ),
   S.divider(),
   S.listItem()
     .title('Settings')
     .icon(Gear)
-    .child(S.document().schemaType('settings').documentId('settings')),
+    .child(S.document()
+      .schemaType('settings')
+      .documentId('settings')
+      .title('Settings')
+    ),
   S.listItem()
     .title('Navigation')
     .icon(Compass)
     .child(
-      S.document().schemaType('navigation').documentId('navigation')
+      S.document()
+        .schemaType('navigation')
+        .documentId('navigation')
+        .title('Navigation')
+    ),
+  S.listItem()
+    .title('Label Group')
+    .icon(CardFileBox)
+    .child(
+      S.document().schemaType('labelGroup').documentId('labelGroup')
     ),
   S.divider(),
   Structure.getMaintenanceListItem().serialize(),
@@ -61,6 +85,7 @@ const items = [
       ![
         'artwork',
         'exhibition',
+        'labelGroup',
         'medium',
         'navigation',
         'page',

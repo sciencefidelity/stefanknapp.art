@@ -26,20 +26,31 @@ export default {
                 { type: 'page' }
               ]
             }
-          ]
+          ],
+          preview: {
+            select: {
+              title: 'label.en',
+            },
+            prepare({ title }) {
+              return {
+                title: title,
+                media: Compass
+              }
+            }
+          }
         }
       ],
-      sortable: true,
-      group: 'primary'
+      sortable: true
     }
   ],
   preview: {
     select: {
-      title: 'title'
+      title: 'Navigation'
     },
-    prepare: () => {
+    prepare({ title }) {
       return {
-        title: 'Navigation'
+        title: title,
+        media: Compass
       }
     }
   }

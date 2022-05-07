@@ -15,6 +15,7 @@ import localeText from "./object/localeText"
 // documents
 import artwork from "./document/artwork"
 import exhibition from "./document/exhibition"
+import labelGroup from "./document/labelGroup"
 import navigation from './document/navigation'
 import page from "./document/page"
 import photography from "./document/photography"
@@ -40,6 +41,7 @@ export default createSchema({
     // documents
     artwork,
     exhibition,
+    labelGroup,
     navigation,
     page,
     photography,
