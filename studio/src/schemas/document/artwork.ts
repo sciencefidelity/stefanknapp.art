@@ -7,51 +7,55 @@ export default {
   icon: FramedPicture,
   fields: [
     {
-      name: "title",
-      title: "Title",
-      type: "localeString"
-    },
-    {
-      name: "date",
-      title: "Date",
-      type: "number"
-    },
-    {
-      name: "dimensions",
-      title: "Dimensions",
-      type: "string"
-    },
-    {
-      name: "location",
-      title: "Location",
-      type: "localeString"
-    },
-    {
-      name: "display",
-      title: "Display on website",
-      type: "boolean"
-    },
-    {
-      name: "medium",
-      title: "Medium",
+      name: "artwork",
+      title: "Artwork",
       type: "array",
-      of: [{ type: "reference", to: { type: "medium" } }]
-    },
-    {
-      name: "mainImage",
-      title: "Main image",
-      type: "image",
-      options: {
-        hotspot: true
-      }
+      of: [
+        {
+          name: "artwork",
+          title: "Artwork",
+          type: "object",
+          fields: [
+            {
+              name: "title",
+              title: "Title",
+              type: "string"
+            },
+            {
+              name: "date",
+              title: "Date",
+              type: "number"
+            },
+            {
+              name: "display",
+              title: "Display on website",
+              type: "boolean"
+            },
+            {
+              name: "medium",
+              title: "Medium",
+              type: "array",
+              of: [{ type: "reference", to: { type: "medium" } }]
+            },
+            {
+              name: "image",
+              title: "Image",
+              type: "image",
+              options: {
+                hotspot: true
+              }
+            }
+          ]
+        }
+      ]
     }
   ],
 
   preview: {
     select: {
-      title: "title.en",
+      title: "title",
       subtitle: "date",
-      media: "mainImage"
+      media: "image"
     }
   }
 }
