@@ -1,3 +1,5 @@
+import StringWithLimits from '../../components/StringWithLimits'
+import { Rule } from "@sanity/types"
 import { Gear } from "../../components/twemoji"
 
 export default {
@@ -9,38 +11,36 @@ export default {
     {
       name: "title",
       title: "Meta title",
-      description: "Site title, shown on browser tabs and search engines",
-      type: "localeString"
+      description: 'Extra content for search engines',
+      type: "localeString",
+      inputComponent: StringWithLimits,
+      validation: (Rule: Rule) => Rule.max(70).warning("Some text won't be visible.")
     },
     {
       name: "description",
       title: "Meta description",
-      description: "Site description, shown in search engine results",
-      type: "localeString"
+      description: 'Extra content for search engines',
+      type: "localeText"
     },
     {
       name: "contact",
       title: "Contact email",
       description: "Displayed on the estate page",
-      type: "string"
+      type: "email"
     },
     {
       name: "ogTitle",
       title: "Social title",
-      description:
-        "Displayed on Facebook and Twitter shares (max 60 characters)",
+      description: 'Customize structured data for Twitter and Facebook',
       type: "localeString",
-      // validation: (Rule: any) =>
-      //   Rule.max(60).warning(`Only 60 characters will be visible.`)
+      inputComponent: StringWithLimits,
+      validation: (Rule: Rule) => Rule.max(70).warning("Some text won't be visible.")
     },
     {
       name: "ogDescription",
       title: "Social description",
-      description:
-        "Displayed on Facebook and Twitter shares (max 65 characters)",
-      type: "localeString",
-      // validation: (Rule: any) =>
-      //   Rule.max(65).warning(`Only 65 characters will be visible.`)
+      description: 'Customize structured data for Twitter and Facebook',
+      type: "localeText"
     },
     {
       name: "ogImage",

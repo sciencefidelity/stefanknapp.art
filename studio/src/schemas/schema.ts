@@ -10,6 +10,7 @@ import twitterCard from './object/twitterCard'
 // localization
 // import { baseLanguage, supportedLanguages } from './languages'
 import localeString from "./object/localeString"
+import localeText from "./object/localeText"
 
 // documents
 import artwork from "./document/artwork"
@@ -34,6 +35,7 @@ export default createSchema({
 
     // localization
     localeString,
+    localeText,
 
     // documents
     artwork,

@@ -17,7 +17,7 @@ const items = [
     .child(
       S.documentTypeList('page')
         .title('Page')
-        .filter('_type == "page" && __i18n_lang != "cy"')
+        .filter('_type == "page" && __i18n_lang != "pl"')
     ),
   S.divider(),
   S.listItem()

@@ -29,13 +29,14 @@ export default {
             {
               name: "display",
               title: "Display on website",
-              type: "boolean"
+              type: "boolean",
+              initialValue: true
             },
             {
               name: "medium",
               title: "Medium",
-              type: "array",
-              of: [{ type: "reference", to: { type: "medium" } }]
+              type: "reference",
+              to: [{ type: "medium" }]
             },
             {
               name: "image",

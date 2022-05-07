@@ -53,11 +53,12 @@ export default {
   preview: {
     select: {
       title: "title",
+      image: 'facebook.image'
     },
-    prepare({ title }) {
+    prepare({ title, image }) {
       return {
         title: title,
-        media: Books
+        media: image ? image : Books
       }
     }
   }
