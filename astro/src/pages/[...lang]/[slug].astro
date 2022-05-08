@@ -15,23 +15,28 @@ import {
 export async function getStaticPaths() {
   const data: {
     artworks: Artwork[]
+    labels: Label[]
     navigation: Navigation[]
     pages: Page[]
     photography: Photography[]
     settings: Settings
     videos: Video[]
   } = await sanityClient.fetch(pagesQuery).then(response => response)
-  const { artworks, navigation, photography, settings, videos } = data
+  const { artworks, labels, navigation, photography, settings, videos } = data
   return data.pages.map(page => {
     return {
-      params: { lang: page.__i18n_lang, slug: page.slug },
-      props: { artworks, navigation, page, photography, settings, videos }
+      params: {
+        lang: page.__i18n_lang === "en" ? undefined : page.__i18n_lang,
+        slug: page.slug
+      },
+      props: { artworks, labels, navigation, page, photography, settings, videos }
     }
   })
 }
 
 const {
   artworks,
+  labels,
   navigation,
   page,
   photography,
@@ -39,6 +44,7 @@ const {
   videos
 } = Astro.props as {
   artworks: Artwork[]
+  labels: Label[]
   navigation: Navigation[]
   page: Page
   photography: Photography[]
