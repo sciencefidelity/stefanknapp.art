@@ -1,4 +1,19 @@
 ---
+import { Navigation, Page } from "lib/interfaces"
+
+export interface Props {
+  navigation?: Navigation[]
+  page?: Page
+}
+
+const { navigation, page } = Astro.props as Props
+const currentLang = page.__i18n_lang
+const lang = page.__i18n_refs
+  ? page.__i18n_refs.__i18n_lang
+  : page.__i18n_base.__i18n_lang
+const slug = page.__i18n_refs
+  ? page.__i18n_refs.slug
+  : page.__i18n_base.slug
 
 ---
 
@@ -8,13 +23,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-  <title></title>
+  <title>{page.title}</title>
 </head>
+<nav>
+  <ul>
+    {navigation.map(item =>
+      <a href={`
+        /${currentLang}/${currentLang === "en" ? item.slug.en : item.slug.pl}
+      `}>
+        <li>{currentLang === "en" ? item.slug.en : item.slug.pl}</li>
+      </a>
+    )}
+    <a href={
+      `/${lang}/${slug}`
+    }>
+      <li>{lang}</li>
+    </a>
+  </ul>
+</nav>
 <body>
   <slot />
 </body>
 </html>
-
-<style>
-
-</style>

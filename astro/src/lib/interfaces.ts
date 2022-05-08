@@ -14,6 +14,8 @@ export interface Navigation {
 
 export interface Page {
   __i18n_lang: string
+  __i18n_refs?: Page
+  __i18n_base?: Page
   _id: String
   _type: "page"
   facebook: SocialCard
@@ -55,29 +57,29 @@ export interface Image {
   hotspot?: SanityImageHotspot
 }
 
-export interface LocaleString {
+interface LocaleString {
   en: string
   pl?: string
 }
 
-export interface MetaData {
+interface MetaData {
   canonicalURL: string
   description: string
   title: string
 }
 
-export interface SocialCard {
+interface SocialCard {
   description: string
   image: Image
   title: string
 }
 
-export interface VideoAsset {
+interface VideoAsset {
   mimeType: string
   url: string
 }
 
-export type PortableText = Array<
+type PortableText = Array<
   | SanityKeyed<SanityBlock>
   | SanityKeyed<{
       _type: "image"
@@ -87,12 +89,12 @@ export type PortableText = Array<
     }>
 >;
 
-export interface SanityBlock {
+interface SanityBlock {
   _type: "block"
   [key: string]: any
 }
 
-export interface SanityImageAsset extends SanityDocument {
+interface SanityImageAsset extends SanityDocument {
   _type: "sanity.imageAsset"
   assetId: string
   extension: string
@@ -106,7 +108,7 @@ export interface SanityImageAsset extends SanityDocument {
   url: string
 }
 
-export interface SanityImageCrop {
+interface SanityImageCrop {
   _type: "sanity.imageCrop"
   bottom: number
   left: number
@@ -114,14 +116,14 @@ export interface SanityImageCrop {
   top: number
 }
 
-export interface SanityImageDimensions {
+interface SanityImageDimensions {
   _type: "sanity.imageDimensions"
   aspectRatio: number
   height: number
   width: number
 }
 
-export interface SanityImageHotspot {
+interface SanityImageHotspot {
   _type: "sanity.imageHotspot"
   height: number
   width: number
@@ -129,7 +131,7 @@ export interface SanityImageHotspot {
   y: number
 }
 
-export interface SanityImageMetadata {
+interface SanityImageMetadata {
   _type: "sanity.imageMetadata"
   dimensions: SanityImageDimensions
   hasAlpha: boolean
@@ -138,7 +140,7 @@ export interface SanityImageMetadata {
   palette: SanityImagePalette
 }
 
-export interface SanityImagePalette {
+interface SanityImagePalette {
   _type: "sanity.imagePalette"
   darkMuted: SanityImagePaletteSwatch
   darkVibrant: SanityImagePaletteSwatch
@@ -149,7 +151,7 @@ export interface SanityImagePalette {
   vibrant: SanityImagePaletteSwatch
 }
 
-export interface SanityImagePaletteSwatch {
+interface SanityImagePaletteSwatch {
   _type: "sanity.imagePaletteSwatch"
   background: string
   foreground: string
@@ -157,16 +159,16 @@ export interface SanityImagePaletteSwatch {
   title: string
 }
 
-export declare type SanityKeyed<T> = T extends object ? T & {
+declare type SanityKeyed<T> = T extends object ? T & {
   _key: string
 } : T
 
-export declare type SanityReference<_T> = {
+declare type SanityReference<_T> = {
   _type: "reference"
   _ref: string
 };
 
-export interface SanityDocument {
+interface SanityDocument {
   _id: string
   _createdAt: string
   _rev: string

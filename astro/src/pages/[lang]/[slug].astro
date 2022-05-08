@@ -1,0 +1,56 @@
+---
+import sanityClient from "lib/sanityClient"
+import Layout from "components/Layout.astro"
+import { pagesQuery } from "lib/queries"
+import {
+  Artwork,
+  Navigation,
+  Page,
+  Photography,
+  Settings,
+  Video
+} from "lib/interfaces"
+
+export async function getStaticPaths() {
+  const data: {
+    artworks: Artwork[]
+    navigation: Navigation[]
+    pages: Page[]
+    photography: Photography[]
+    settings: Settings
+    videos: Video[]
+  } = await sanityClient.fetch(pagesQuery).then(response => response)
+  const { artworks, navigation, photography, settings, videos } = data
+  return data.pages.map(page => {
+    return {
+      params: { lang: page.__i18n_lang, slug: page.slug },
+      props: { artworks, navigation, page, photography, settings, videos }
+    }
+  })
+}
+
+const {
+  artworks,
+  navigation,
+  page,
+  photography,
+  settings,
+  videos
+} = Astro.props as {
+  artworks: Artwork[]
+  navigation: Navigation[]
+  page: Page
+  photography: Photography[]
+  settings: Settings
+  videos: Video[]
+}
+---
+
+<Layout
+  navigation={navigation}
+  page={page}
+>
+  <main>
+    {page.title}
+  </main>
+</Layout>

@@ -2,7 +2,7 @@ import groq from "groq"
 
 const omitDrafts = "!(_id in path('drafts.**'))"
 
-const slug = "'slug': slug.current"
+const slug = `"slug": slug.current`
 
 const body = `body[]{ ..., markDefs[]{ ..., item->{ _type, ${slug} } } }`
 
@@ -37,10 +37,11 @@ const navigation = `
 `
 
 const pages = `
-  "pages": *[_type == "page"
-    && __i18n_lang == "en"
-    && ${omitDrafts}
-  ]{ ${pageFields}, __i18n_refs[0]->{ ${pageFields} } }
+  "pages": *[_type == "page" && ${omitDrafts}]{
+    ${pageFields},
+    __i18n_refs[0]->{ ${pageFields} },
+    __i18n_base->{ ${pageFields} }
+  }
 `
 
 const photography = `
@@ -57,7 +58,9 @@ const settings = `
 
 const videos = `
   "videos": *[_type == "video"][0].video[]{
-    _key, image, mp4, title, webm
+    _key, image, title,
+    "mp4": mp4.asset->{ mimeType, url },
+    "webm": webm.asset->{ mimeType, url },
   }
 `
 
@@ -65,6 +68,6 @@ export const indexQuery = groq`
   ${navigation}, ${settings}
 `
 
-export const pagesQuery = groq`
+export const pagesQuery = groq`{
   ${artworks}, ${navigation}, ${pages}, ${photography}, ${settings}, ${videos}
-`
+}`
