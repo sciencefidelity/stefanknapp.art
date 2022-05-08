@@ -69,5 +69,6 @@ export const indexQuery = groq`
 `
 
 export const pagesQuery = groq`{
-  ${artworks}, ${navigation}, ${pages}, ${photography}, ${settings}, ${videos}
+  ${artworks}, ${labels}, ${navigation}, ${pages},
+  ${photography}, ${settings}, ${videos}
 }`

@@ -7,6 +7,10 @@ export interface Artwork {
   title: string
 }
 
+export interface Label {
+  text: LocaleString
+}
+
 export interface Navigation {
   label: LocaleString
   slug: LocaleString
