@@ -51,7 +51,7 @@ const photography = `
 `
 
 const settings = `
-  "setings": *[_type == "settings"][0]{
+  "settings": *[_type == "settings"][0]{
     contact, description, ogDescription, ogImage, ogTitle, title
   }
 `
@@ -64,9 +64,9 @@ const videos = `
   }
 `
 
-export const indexQuery = groq`
+export const indexQuery = groq`{
   ${navigation}, ${settings}
-`
+}`
 
 export const pagesQuery = groq`{
   ${artworks}, ${labels}, ${navigation}, ${pages},
