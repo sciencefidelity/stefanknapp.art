@@ -132,6 +132,11 @@ export interface Artwork {
   title: string
 }
 
+export interface Label {
+  key: string
+  text: LocaleString
+}
+
 export interface Navigation {
   _key: String
   label: LocaleString
