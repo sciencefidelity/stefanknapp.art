@@ -4,14 +4,14 @@
       <div class="hamburger" @click="toggleMenu()">
         <span class="screen-reader-text">Main Menu</span>
         <div
-          class="hamburger__icon"
+          class="hamburger__icon hamburger__icon--active"
         ></div>
       </div>
-      <div class="nav__inactive">
+      <div class="nav__active">
         <ul>
-          <li><a>Art</a></li>
-          <li><a>Life</a></li>
-          <li><a>Estate</a></li>
+          <li><a href="/art">ART</a></li>
+          <li><a href="/life">LIFE</a></li>
+          <li><a href="/estate">ESTATE</a></li>
         </ul>
         <div class="nav__title-container">
           <p class="nav__title">The Estate of Stefan Knapp</p>
@@ -94,6 +94,7 @@ nav {
     font-size: 3.25vw;
     white-space: nowrap;
     writing-mode: vertical-lr;
+    text-transform: uppercase;
     @include b.mq(lg) {
       padding: 2em 0.8em;
       font-size: 5vw;
