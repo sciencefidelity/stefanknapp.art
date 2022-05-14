@@ -4,7 +4,7 @@ import App from "./App.vue"
 import generatedRoutes from "~pages"
 
 import "modern-normalize"
-import "styles/global.scss"
+import "./styles/global.scss"
 
 const routes = setupLayouts(generatedRoutes)
 

@@ -1,3 +1,5 @@
 node_modules
 dist
 .nova
+components.d.ts
+auto-imports.d.ts

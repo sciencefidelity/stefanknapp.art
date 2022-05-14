@@ -14,7 +14,10 @@ import Inspect from "vite-plugin-inspect"
 export default defineConfig({
   resolve: {
     alias: {
-      "~/": `${resolve(__dirname, "src")}/`
+      "@": resolve(__dirname, "./src"),
+      "components": resolve(__dirname, "./src/components"),
+      "lib": resolve(__dirname, "./src/lib"),
+      "styles": resolve(__dirname, "./src/styles")
     }
   },
 

@@ -1,19 +1,30 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "target": "esnext",
     "module": "esnext",
+    "lib": ["esnext", "dom"],
     "strict": true,
-    "moduleResolution": "node",
-    "useDefineForClassFields": true,
-    "jsx": "preserve",
-    "sourceMap": true,
-    "resolveJsonModule": true,
-    "isolatedModules": false,
     "esModuleInterop": true,
-    "noEmit": true,
-    "lib": ["esnext", "dom", "dom.iterable", "scripthost"],
+    "jsx": "preserve",
     "skipLibCheck": true,
-    "types": ["node", "@intlify/vite-plugin-vue-i18n/client"]
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "noUnusedLocals": true,
+    "strictNullChecks": true,
+    "forceConsistentCasingInFileNames": true,
+    "types": [
+      "vite/client",
+      "vue/ref-macros",
+      "vite-plugin-pages/client",
+      "vite-plugin-vue-layouts/client"
+    ],
+    "paths": {
+      "@/*": ["./src/*"],
+      "components": ["./src/components"],
+      "lib": ["./src/lib"],
+      "styles": ["./src/styles"]
+    }
   },
   "include": [
     "./src/**/*.ts",
@@ -22,5 +33,6 @@
     "./tests/**/*.ts",
     "./tests/**/*.tsx"
   ],
+  "exclude": ["dist", "node_modules", "cypress"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
