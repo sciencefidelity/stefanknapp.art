@@ -3,3 +3,4 @@ dist
 .nova
 components.d.ts
 auto-imports.d.ts
+*.html

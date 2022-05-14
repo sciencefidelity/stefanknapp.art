@@ -104,8 +104,8 @@ export interface Image {
 }
 
 interface LocaleString {
-  cy: string
   en: string
+  pl: string
 }
 
 interface MetaData {
