@@ -1,5 +1,6 @@
 <template>
   <h1>{{ data?.settings.title.en }}</h1>
+  <h2>{{ year }}</h2>
 </template>
 
 <script lang="ts">
@@ -19,6 +20,7 @@ interface Data {
 }
 
 const data = ref<Data | null>(null)
+const year = new Date().getFullYear()
 
 const fetch = async () => {
   const response = await sanityClient.fetch(indexQuery)
@@ -32,7 +34,8 @@ onServerPrefetch(async () => {
 })
 
 useHead({
-  title: computed(() => data?.value?.settings.title.en),
+  // title: computed(() => data?.value?.settings.title.en),
+  title: "The Estate of Stefan Knapp",
   meta: [
     {
       hid: "description",
