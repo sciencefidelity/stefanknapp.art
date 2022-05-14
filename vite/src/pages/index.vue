@@ -1,25 +1,35 @@
-<script lang="ts">
-import { useSanityClient, useSanityFetcher } from "vue-sanity"
-// import { indexQuery } from "../lib/queries"
-// import { Navigation, Settings } from "../lib/interfaces"
+<template>
+  <h1>{{ data?.settings.title.en }}</h1>
+</template>
 
-export default {
-  setup() {
-    // useSanityClient({
-    //   projectId: "0u3fubc7",
-    //   dataset: "production",
-    //   apiVersion: "2021-12-12",
-    //   useCdn: true
-    // })
-    const { data: title } = useSanityFetcher("*[_type == 'page'][0].title")
-    return { title }
-  }
-}
+<script lang="ts">
+
 </script>
 
-<template>
-  <h1>{{ title }}</h1>
-</template>
+<script setup lang="ts">
+import { ref, onServerPrefetch } from "vue"
+import sanityClient from "@/lib/sanityClient"
+import { indexQuery } from "@/lib/queries"
+import { Navigation, Settings } from "@/lib/interfaces"
+
+interface Data {
+  navigation: Navigation
+  settings: Settings
+}
+
+const data = ref<Data | null>(null)
+
+const fetch = async () => {
+  const response = await sanityClient.fetch(indexQuery)
+  data.value = response
+}
+
+// if (!data.value) fetch()
+
+onServerPrefetch(async () => {
+  await fetch()
+})
+</script>
 
 <route lang="yaml">
 meta:
