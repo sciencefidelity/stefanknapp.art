@@ -24,7 +24,7 @@ const fetch = async () => {
   data.value = response
 }
 
-// if (!data.value) fetch()
+if (!data.value) fetch()
 
 onServerPrefetch(async () => {
   await fetch()
