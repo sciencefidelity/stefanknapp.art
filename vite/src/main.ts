@@ -1,23 +1,20 @@
-import { createApp } from "vue"
-import { createHead } from "@vueuse/head"
-import { createI18n } from "vue-i18n"
-import messages from "@intlify/vite-plugin-vue-i18n/messages"
-import router from "./router/index"
+import { ViteSSG } from "vite-ssg"
+import { setupLayouts } from "virtual:generated-layouts"
 import App from "./App.vue"
+import generatedRoutes from "~pages"
+
 import "modern-normalize"
 import "styles/global.scss"
 
-const i18n = createI18n({
-  legacy: false,
-  locale: "en",
-  fallbackLocale: "en",
-  globalInjection: true,
-  messages
-})
-const head = createHead()
-const app = createApp(App)
+const routes = setupLayouts(generatedRoutes)
 
-app.use(i18n)
-app.use(head)
-app.use(router)
-app.mount("#app")
+export const createApp = ViteSSG(
+  App,
+  { routes, base: import.meta.env.BASE_URL },
+  ctx => {
+    // install all modules under `modules/`
+    Object.values(import.meta.globEager("./modules/*.ts")).forEach(i =>
+      i.install?.(ctx)
+    )
+  }
+)

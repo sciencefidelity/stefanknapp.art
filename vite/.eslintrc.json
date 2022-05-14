@@ -21,7 +21,7 @@
     "quotes": ["error", "double"],
     "semi": ["error", "never"],
     "vue/multi-word-component-names": ["error", {
-      "ignores": ["404", "Art", "Estate", "Home", "Life"]
+      "ignores": ["404", "Art", "default", "Estate", "home", "index", "Life"]
     }]
   }
 }
