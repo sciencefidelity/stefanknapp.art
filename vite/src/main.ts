@@ -1,4 +1,5 @@
 import { createApp } from "vue"
+import { createHead } from "@vueuse/head"
 import { createI18n } from "vue-i18n"
 import messages from "@intlify/vite-plugin-vue-i18n/messages"
 import App from "./App.vue"
@@ -12,8 +13,9 @@ const i18n = createI18n({
   globalInjection: true,
   messages
 })
-
+const head = createHead()
 const app = createApp(App)
 
 app.use(i18n)
+app.use(head)
 app.mount("#app")
