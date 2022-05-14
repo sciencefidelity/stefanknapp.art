@@ -2,6 +2,8 @@ import { createApp } from "vue"
 import { createI18n } from "vue-i18n"
 import messages from "@intlify/vite-plugin-vue-i18n/messages"
 import App from "./App.vue"
+import "modern-normalize"
+import "styles/global.scss"
 
 const i18n = createI18n({
   legacy: false,
