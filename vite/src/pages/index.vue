@@ -5,12 +5,12 @@ import { useSanityClient, useSanityFetcher } from "vue-sanity"
 
 export default {
   setup() {
-    async useSanityClient({
-      projectId: "0u3fubc7",
-      dataset: "production",
-      apiVersion: "2021-12-12",
-      useCdn: true
-    })
+    // useSanityClient({
+    //   projectId: "0u3fubc7",
+    //   dataset: "production",
+    //   apiVersion: "2021-12-12",
+    //   useCdn: true
+    // })
     const { data: title } = useSanityFetcher("*[_type == 'page'][0].title")
     return { title }
   }
