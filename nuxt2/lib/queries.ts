@@ -9,7 +9,7 @@ const seo = `
   facebook{ ${seoFields} }, twitter{ ${seoFields} }
   meta{ canonicalURL, description, title }
 `
-const pageFields = `__i18n_lang, _id, ${body}, ${slug}, ${seo}`
+const pageFields = `__i18n_lang, _id, ${body}, ${slug}, ${seo} title`
 
 const artworks = `
   "artworks": *[_type == "artwork" && ${omitDrafts}].artwork[]{

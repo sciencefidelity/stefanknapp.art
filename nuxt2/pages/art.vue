@@ -1,9 +1,9 @@
 <script lang="ts">
 import { Vue, Options } from "vue-property-decorator"
 import sanityClient from "../sanityClient"
-import { artQuery, artworkQuery, metaQuery } from "../data/queries"
-import { Artwork, Meta, Page } from "../generated/schema"
-import Modal from "@/components/modal.vue"
+import { artQuery } from "lib/queries"
+import { Artwork, Navigation, Page, Settings } from "lib/interfaces"
+import Modal from "components/modal.vue"
 
 @Options({
   name: "Art",
@@ -17,16 +17,21 @@ import Modal from "@/components/modal.vue"
     }
   },
   async fetch() {
-    const artworkData: Artwork = await sanityClient.fetch(artworkQuery)
-    const metaData: Meta = await sanityClient.fetch(metaQuery)
-    const pageData: Page = await sanityClient.fetch(artQuery)
+    const data = await sanityClient.fetch(artQuery)
+    const { artworks, navigation, pages, settings } = data as {
+      artworks: Artwork[]
+      navigation: Navigation[]
+      pages: Page[]
+      settings: Settings
+    }
 
-    this.mainImage = pageData.mainImage
-    this.ogDescription = pageData.ogDescription
-    this.ogTitle = pageData.ogTitle
-    this.siteTitle = metaData.title
-    this.title = pageData.title
-    this.artworks = artworkData
+    // this.mainImage = pages[0].ogImage
+    // this.ogDescription = pageData.ogDescription
+    // this.ogTitle = pageData.ogTitle
+    // this.siteTitle = metaData.title
+    this.page = pages[0]
+    this.settings = settings
+    // this.artworks = artworkData
   }
 })
 export default class Art extends Vue {
@@ -35,8 +40,8 @@ export default class Art extends Vue {
     return {
       title:
         this.$i18n.locale === "en"
-          ? `${this.title.en} | ${this.siteTitle.en}`
-          : `${this.title.pl} | ${this.siteTitle.pl}`,
+          ? `${this.page.title} | ${this.settings.title.en}`
+          : `${this.page.__i18n_refs.title} | ${this.settings.title.pl}`,
       meta: [
         {
           hid: "description",

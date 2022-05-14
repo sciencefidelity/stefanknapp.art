@@ -149,6 +149,7 @@ export interface Page extends SanityDocument {
   facebook: SocialCard
   meta: MetaData
   slug: string
+  title: string
   twitter: SocialCard
 }
 
