@@ -19,6 +19,9 @@
     "indent": ["error", 2],
     "linebreak-style": ["error", "unix"],
     "quotes": ["error", "double"],
-    "semi": ["error", "never"]
+    "semi": ["error", "never"],
+    "vue/multi-word-component-names": ["error", {
+      "ignores": ["404", "Art", "Estate", "Home", "Life"]
+    }]
   }
 }
