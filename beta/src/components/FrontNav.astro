@@ -11,10 +11,10 @@ const { labels, locales, navItems, title } = Astro.props as {
 
 <nav class="nav">
   <div class="nav nav--front">
-    <div class="hamburger" onclick="toggleMenu()">
+    <button class="hamburger outline" onclick="toggleMenu()">
       <span class="sr-only absolute">{labels[1].text}</span>
       <div id="menu-button" class="hamburger__icon relative"></div>
-    </div>
+    </button>
     <div id="menu-container" class="nav__inactive">
       <ul class="nav__list flex">
         {navItems.map(item =>

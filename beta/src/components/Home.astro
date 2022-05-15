@@ -25,11 +25,9 @@ const year = new Date().getFullYear()
     <div class="flex">
       <div class="logo relative w-full">
         <div class="circle relative w-full">
-          <a href={navigation[0].url}>
-            <div class="title">
-              <h1 class="h1">{artist.toUpperCase()}</h1>
-            </div>
-          </a>
+          <div class="title">
+            <h1 class="h1">{artist.toUpperCase()}</h1>
+          </div>
         </div>
       </div>
       <FrontNav
@@ -43,7 +41,7 @@ const year = new Date().getFullYear()
 
   <footer class="footer flex w-full">
     <nav class="front-lang">
-      <a href={`/${locales[1]}`}>{languages[1].toUpperCase()}</a>
+      <a href={`/${locales[1]}`} class="outline">{languages[1].toUpperCase()}</a>
     </nav>
     <div class="front-copy">&copy; {year} {settings.title}</div>
   </footer>
