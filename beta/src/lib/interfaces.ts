@@ -126,6 +126,11 @@ export interface Media {
   image: Image
 }
 
+export interface LocaleArtworks {
+  en: Artwork[]
+  pl: Artwork[]
+}
+
 export interface Artwork {
   display: boolean
   medium: LocaleString
@@ -152,18 +157,28 @@ export interface NavItem {
   url: string
 }
 
+export interface LocalePage {
+  en: Page
+  pl: Page
+}
+
 export interface Page extends SanityDocument {
-  __i18n_refs: Page
   body: PortableText
   facebook: SocialCard
+  i18nSlug: string
   meta: MetaData
   slug: string
   title: string
   twitter: SocialCard
 }
 
+export interface LocalePhotography {
+  en: photography[]
+  pl: photography[]
+}
+
 export interface photography extends Media {
-  title: LocaleString
+  title: string
 }
 
 export interface Settings {
@@ -180,9 +195,14 @@ export interface LocaleSettings {
   title: string
 }
 
-export interface Videos extends Media {
+export interface LocaleVideos {
+  en: Video[]
+  pl: Video[]
+}
+
+export interface Video extends Media {
   mp4: string
-  title: LocaleString
+  title: string
   webm: string
 }
 

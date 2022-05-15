@@ -1,7 +1,0 @@
-generated
-node_modules
-dist
-.nova
-.nuxt
-.output
-*.json

@@ -11,9 +11,47 @@ const seo = `
 `
 const pageFields = `__i18n_lang, _id, ${body}, ${slug}, ${seo} title`
 
+const artPage = `
+  "page": {
+    "en": *[_type == "page" && __i18n_lang == "en" && ${omitDrafts}] | order(title)[0]{
+      ${pageFields}, "i18nSlug": __i18n_refs[0]->.slug.current
+    },
+    "pl": *[_type == "page" && __i18n_lang == "pl" && ${omitDrafts}] | order(title)[1]{
+      ${pageFields}, "i18nSlug": __i18n_base->.slug.current
+    },
+  }
+`
+
+const estatePage = `
+  "page": {
+    "en": *[_type == "page" && __i18n_lang == "en" && ${omitDrafts}] | order(title)[1]{
+      ${pageFields}, "i18nSlug": __i18n_refs[0]->.slug.current
+    },
+    "pl": *[_type == "page" && __i18n_lang == "pl" && ${omitDrafts}] | order(title)[0]{
+      ${pageFields}, "i18nSlug": __i18n_base->.slug.current
+    },
+  }
+`
+
+const lifePage = `
+  "page": {
+    "en": *[_type == "page" && __i18n_lang == "en" && ${omitDrafts}] | order(title)[2]{
+      ${pageFields}, "i18nSlug": __i18n_refs[0]->.slug.current
+    },
+    "pl": *[_type == "page" && __i18n_lang == "pl" && ${omitDrafts}] | order(title)[2]{
+      ${pageFields}, "i18nSlug": __i18n_base->.slug.current
+    },
+  }
+`
+
 const artworks = `
-  "artworks": *[_type == "artwork" && ${omitDrafts}].artwork[]{
-    _key, date, display, image, "medium": medium->.title{ ${locales} }, title
+  "artworks": {
+    "en": *[_type == "artwork" && ${omitDrafts}].artwork[]{
+      _key, date, display, image, "medium": medium->.title.en, title
+    },
+    "pl": *[_type == "artwork" && ${omitDrafts}].artwork[]{
+      _key, date, display, image, "medium": medium->.title.pl, title
+    },
   }
 `
 
@@ -39,15 +77,14 @@ const navigation = `
   }
 `
 
-const pages = `
-  "page": *[_type == "page" && __i18n_lang == "en" && ${omitDrafts}]{
-    ${pageFields}, __i18n_refs[0]->{ ${pageFields} }
-  }
-`
-
 const photography = `
-  "photography": *[_type == "photography" && ${omitDrafts}].photography[]{
-    _key, date, image, title{ ${locales} }
+  "photography": {
+    "en": *[_type == "photography" && ${omitDrafts}].photography[]{
+      _key, date, image, "title": title.en
+    },
+    "pl": *[_type == "photography" && ${omitDrafts}].photography[]{
+      _key, date, image, "title": title.pl
+    },
   }
 `
 
@@ -65,9 +102,15 @@ const settings = `
 `
 
 const videos = `
-  "videos": *[_type == "video" && ${omitDrafts}].video[]{
-    _key, image, "mp4": mp4.asset->{ url },
-    title{ ${locales} }, "webm": webm.asset->{ url }
+  "videos": {
+    "en": *[_type == "video" && ${omitDrafts}].video[]{
+      _key, image, "mp4": mp4.asset->{ url },
+      "title": title.pl, "webm": webm.asset->{ url }
+    },
+    "en": *[_type == "video" && ${omitDrafts}].video[]{
+      _key, image, "mp4": mp4.asset->{ url },
+      "title": title.pl, "webm": webm.asset->{ url }
+    }
   }
 `
 
@@ -76,13 +119,13 @@ export const indexQuery = groq`{
 }`
 
 export const artQuery = groq`{
-  ${artworks}, ${navigation}, ${pages}, ${settings}
-}`
-
-export const lifeQuery = groq`{
-  ${navigation}, ${pages}, ${photography}, ${settings}, ${videos}
+  ${artPage}, ${artworks}, ${navigation}, ${settings}
 }`
 
 export const estateQuery = groq`{
-  ${labels}, ${navigation}, ${pages}, ${photography}, ${settings}, ${videos}
+  ${estatePage}, ${labels}, ${navigation}, ${photography}, ${settings}
+}`
+
+export const lifeQuery = groq`{
+  ${lifePage}, ${navigation}, ${photography}, ${settings}, ${videos}
 }`
