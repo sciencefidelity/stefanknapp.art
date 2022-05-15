@@ -1,4 +1,5 @@
 @use 'colors' as c;
+@use 'typography' as t;
 @use 'breakpoints' as b;
 
 *,
@@ -19,7 +20,7 @@ html {
 }
 
 body {
-  font-family: var(--sans);
+  font-family: t.$sans;
   color: c.$grey-700;
   // background: c.$grey-000;
 }
