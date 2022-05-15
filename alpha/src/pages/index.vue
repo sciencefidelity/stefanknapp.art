@@ -11,7 +11,7 @@
             </a>
           </div>
         </div>
-        <FrontNav />
+        <FrontNav :navigation="data?.navigation" :settings="data?.settings"/>
       </div>
       <div class="row">
         <div class="col">

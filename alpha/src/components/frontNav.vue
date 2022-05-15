@@ -1,28 +1,45 @@
 <template>
   <nav>
+    <pre>hello</pre>
     <div class="nav nav--front">
       <div class="hamburger" @click="toggleMenu()">
         <span class="screen-reader-text">Main Menu</span>
         <div
-          class="hamburger__icon hamburger__icon--active"
+          :class="[
+            showMenu
+              ? 'hamburger__icon hamburger__icon--active'
+              : 'hamburger__icon'
+          ]"
         ></div>
       </div>
-      <div class="nav__active">
+      <div :class="[showMenu ? 'nav__active' : 'nav__inactive']">
         <ul>
-          <li><a href="/art">ART</a></li>
-          <li><a href="/life">LIFE</a></li>
-          <li><a href="/estate">ESTATE</a></li>
+          <li v-for="item in navigation" :key="item._id">
+            <a :href="item.slug">{{ item.title }}</a>
+          </li>
         </ul>
         <div class="nav__title-container">
-          <p class="nav__title">The Estate of Stefan Knapp</p>
+          <p class="nav__title">{{ settings.title.en }}</p>
         </div>
       </div>
     </div>
   </nav>
 </template>
 
-<script lang="ts">
-export default {}
+<script setup lang="ts">
+import { ref } from "vue"
+import { Navigation, Settings } from "@/lib/interfaces"
+
+defineProps<{
+  navigation?: Navigation[]
+  settings?: Settings
+}>()
+
+const showMenu = ref(false)
+
+function toggleMenu() {
+  return (showMenu.value = !showMenu.value)
+}
 </script>
 
 <!-- prettier-ignore -->
