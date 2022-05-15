@@ -27,7 +27,7 @@ const year = new Date().getFullYear()
         <div class="row">
           <div class="col logo">
             <div class="circle">
-              <a href="/art">
+              <a href={navigation[0].url}>
                 <div class="title">
                   <h1>{artist.toUpperCase()}</h1>
                 </div>
@@ -42,6 +42,11 @@ const year = new Date().getFullYear()
           </div>
         </div>
         <div class="row">
+          <div class="front-lang">
+            <p>
+              <a href="/pl">Polski</a>
+            </p>
+          </div>
           <div class="front-copy">
             <p>
               &copy; {year} {settings.title.en}
@@ -136,6 +141,58 @@ h1 {
     margin: 0;
     font-size: clamp(1.4rem, 1.8vw, 1.9rem);
     font-weight: 600;
+    @include b.mq(sm) {
+      font-size: 1.2rem;
+    }
+  }
+}
+.front-copy {
+  padding: 0 5rem 0 0;
+  margin: 0 0 0 auto;
+  @include b.mq(lg) {
+    align-self: inherit;
+    padding: 0.8rem;
+  }
+  p {
+    margin: 0;
+    font-size: clamp(1.4rem, 1.8vw, 1.9rem);
+    font-weight: 600;
+    @include b.mq(sm) {
+      font-size: 1.2rem;
+    }
+  }
+}
+.front-copy {
+  padding: 0 5rem 0 0;
+  margin: 0 0 0 auto;
+  @include b.mq(lg) {
+    align-self: inherit;
+    padding: 0.8rem;
+  }
+  p {
+    margin: 0;
+    font-size: clamp(1.4rem, 1.8vw, 1.9rem);
+    font-weight: 600;
+    @include b.mq(sm) {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.front-lang {
+  padding: 0 0 0 5rem;
+  margin: 0 auto 0 0;
+  @include b.mq(lg) {
+    align-self: inherit;
+    padding: 0.8rem;
+  }
+  p {
+    margin: 0;
+    font-size: clamp(1.4rem, 1.8vw, 1.9rem);
+    font-weight: 600;
+    a {
+      color: c.$sepia-150;
+    }
     @include b.mq(sm) {
       font-size: 1.2rem;
     }

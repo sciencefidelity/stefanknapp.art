@@ -104,8 +104,8 @@ export interface Image {
 }
 
 interface LocaleString {
-  cy: string
   en: string
+  pl: string
 }
 
 interface MetaData {
@@ -139,8 +139,8 @@ export interface Label {
 
 export interface Navigation {
   _key: String
-  label: LocaleString
-  url: LocaleString
+  label: String
+  url: String
 }
 
 export interface Page extends SanityDocument {

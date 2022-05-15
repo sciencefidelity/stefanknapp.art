@@ -11,17 +11,17 @@ const { navigation, title } = Astro.props as {
   <div class="nav nav--front">
     <div class="hamburger">
       <span class="screen-reader-text">Main Menu</span>
-      <div class="hamburger__icon hamburger__icon--active"></div>
+      <div id="menu" class="hamburger__icon hamburger__icon--active"></div>
     </div>
     <div class="nav__active">
       <ul>
         {navigation.map(item =>
           <li>
             <a
-              href={`/${item.url.en}`}
-              data-fill={item.label.en.toUpperCase()}
+              href={`/${item.url}`}
+              data-fill={item.label.toUpperCase()}
             >
-              {item.label.en.toUpperCase()}
+              {item.label.toUpperCase()}
             </a>
           </li>
         )}
@@ -33,6 +33,11 @@ const { navigation, title } = Astro.props as {
       </div>
     </div>
   </div>
+  <script is:inline>
+    /* inline: relative & npm package imports are not supported. */
+    const menu = document.querySelector("#menu")
+    menu.classList.add("my-class")
+  </script>
 </nav>
 
 <style lang="scss">

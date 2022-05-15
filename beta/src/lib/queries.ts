@@ -25,8 +25,13 @@ const labels = `
 
 const navigation = `
   "navigation": *[_type == "navigation" && ${omitDrafts}][0].primary[]{
-    _key, label{ ${locales} },
-    url->{ "en": ${slug}, "pl": __i18n_refs[0]->.${slug} }
+    "label": label.en, "url": url->.${slug}
+  }
+`
+
+const navigationPl = `
+  "navigation": *[_type == "navigation" && ${omitDrafts}][0].primary[]{
+    "label": label.pl, "url": url->.__i18n_refs[0]->.${slug}
   }
 `
 
@@ -58,6 +63,10 @@ const videos = `
 
 export const indexQuery = groq`{
   ${navigation}, ${settings}
+}`
+
+export const indexQueryPl = groq`{
+  ${navigationPl}, ${settings}
 }`
 
 export const artQuery = groq`{
