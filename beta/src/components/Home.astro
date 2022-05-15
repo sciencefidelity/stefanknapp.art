@@ -19,42 +19,34 @@ const year = new Date().getFullYear()
 <head>
   <BaseHead settings={settings} />
 </head>
-<body>
-  <main id="site-main">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col logo">
-          <div class="circle">
-            <a href={navigation[0].url}>
-              <div class="title">
-                <h1>{artist.toUpperCase()}</h1>
-              </div>
-            </a>
-          </div>
-        </div>
-        <FrontNav
-          navItems={navigation}
-          title={settings.title}
-          locales={locales}
-        />
-      </div>
-      <div class="row">
-        <div class="col">
-          <div class="spacer"></div>
+<body class="grid body relative">
+  <main class="container main relative w-full">
+    <div class="flex">
+      <div class="logo relative w-full">
+        <div class="circle relative w-full">
+          <a href={navigation[0].url}>
+            <div class="title">
+              <h1 class="h1">{artist.toUpperCase()}</h1>
+            </div>
+          </a>
         </div>
       </div>
-      <footer class="row">
-        <nav class="front-lang">
-          <p>
-            <a href={`/${locales[1]}`}>{languages[1].toUpperCase()}</a>
-          </p>
-        </nav>
-        <div class="front-copy">
-          <p>&copy; {year} {settings.title}</p>
-        </div>
-      </footer>
+      <FrontNav
+        navItems={navigation}
+        title={settings.title}
+        locales={locales}
+      />
     </div>
   </main>
+
+  <footer class="footer flex w-full">
+    <nav class="front-lang">
+      <a href={`/${locales[1]}`}>{languages[1].toUpperCase()}</a>
+    </nav>
+    <div class="front-copy">&copy; {year} {settings.title}</div>
+  </footer>
+
+
   <script is:inline>
     let showMenu = false
     const menu = document.querySelector("#menu-button")
@@ -73,4 +65,5 @@ const year = new Date().getFullYear()
       }
     }
   </script>
+
 </body>

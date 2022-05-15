@@ -1,50 +1,52 @@
 @use '../base/colors' as c;
 @use '../base/breakpoints' as b;
 
-#site-main {
+.body {
+  flex-direction: column;
   min-height: 100vh;
-  color: c.$sepia-150;
-  background: c.$grey-950;
 }
 
-h1 {
-  margin-bottom: 0;
-  font-size: 7.5vw;
-  color: c.$grey-950;
+.main {
+  margin-bottom: max(40%, (calc(100vh - (4vh + 96vw + 6rem))));
+}
+
+.container {
+  padding: 3.125rem 1.825rem;
+  color: c.$sepia-150;
+  background: c.$grey-950;
   @include b.mq(lg) {
-    font-size: 11vw;
+    padding: 0;
   }
 }
 
 .logo {
-  position: relative;
-  padding-right: 0;
-  padding-left: 0;
+  flex: 0 0 66.666667%;
+  max-width: 66.666667%;
+  padding-inline: 0;
   @include b.mq(lg) {
+    flex: 0 0 100%;
+    max-width: 100%;
     padding: 4em 2em 0;
     font-size: 1vw;
   }
 }
 
+.h1 {
+  margin-bottom: 0;
+  font-size: 7.5vw;
+  color: c.$grey-950;
+  font-weight: 700;
+  @include b.mq(lg) {
+    font-size: 11vw;
+  }
+}
+
 .circle {
-  position: relative;
-  width: 100%;
   background: c.$sepia-150;
   border-radius: 50%;
   &::after {
     display: block;
     padding-bottom: 100%;
-    content: '';
-  }
-}
-
-.spacer {
-  position: relative;
-  width: 100%;
-  &::after {
-    display: block;
-    padding-bottom: 40%;
-    padding-bottom: max(40%, (calc(100vh - (4vh + 96vw + 6rem))));
     content: '';
   }
 }
@@ -61,72 +63,38 @@ h1 {
   }
 }
 
-.front-copy {
-  padding: 0 5rem 0 0;
-  margin: 0 0 0 auto;
-  @include b.mq(lg) {
-    align-self: inherit;
-    padding: 0.8rem;
+.footer {
+  align-self: end;
+}
+
+.front-copy,
+.front-lang {
+  font-size: clamp(1.7rem, 1.8vw, 1.9rem);
+  font-weight: 600;
+  color: c.$sepia-150;
+  a {
+    color: c.$sepia-150;
   }
-  p {
-    margin: 0;
-    font-size: clamp(1.4rem, 1.8vw, 1.9rem);
-    font-weight: 600;
-    @include b.mq(sm) {
-      font-size: 1.2rem;
-    }
+  @include b.mq(lg) {
+    font-weight: 400;
   }
 }
+
 .front-copy {
   padding: 0 5rem 0 0;
-  margin: 0 0 0 auto;
+  margin: 0 0 3rem auto;
   @include b.mq(lg) {
-    align-self: inherit;
-    padding: 0.8rem;
-  }
-  p {
-    margin: 0;
-    font-size: clamp(1.4rem, 1.8vw, 1.9rem);
-    font-weight: 600;
-    @include b.mq(sm) {
-      font-size: 1.2rem;
-    }
-  }
-}
-.front-copy {
-  padding: 0 5rem 0 0;
-  margin: 0 0 0 auto;
-  @include b.mq(lg) {
-    align-self: inherit;
-    padding: 0.8rem;
-  }
-  p {
-    margin: 0;
-    font-size: clamp(1.4rem, 1.8vw, 1.9rem);
-    font-weight: 600;
-    @include b.mq(sm) {
-      font-size: 1.2rem;
-    }
+    padding: 0 2rem 0 0;
+    margin: 0 0 1.5rem auto;
   }
 }
 
 .front-lang {
   padding: 0 0 0 5rem;
-  margin: 0 auto 0 0;
+  margin: 0 auto 3rem 0;
   @include b.mq(lg) {
-    align-self: inherit;
-    padding: 0.8rem;
-  }
-  p {
-    margin: 0;
-    font-size: clamp(1.4rem, 1.8vw, 1.9rem);
-    font-weight: 600;
-    a {
-      color: c.$sepia-150;
-    }
-    @include b.mq(sm) {
-      font-size: 1.2rem;
-    }
+    padding: 0 0 0 2rem;
+    margin: 0 auto 1.5rem 0;
   }
 }
 
