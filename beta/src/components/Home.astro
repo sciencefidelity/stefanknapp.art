@@ -1,4 +1,7 @@
 ---
+import "modern-normalize"
+import "styles/global.scss"
+import "styles/index.scss"
 import BaseHead from "components/BaseHead.astro"
 import FrontNav from "components/FrontNav.astro"
 import { NavItem, LocaleSettings } from "lib/interfaces"
@@ -52,6 +55,24 @@ const year = new Date().getFullYear()
       </footer>
     </div>
   </main>
+  <script is:inline>
+    let showMenu = false
+    const menu = document.querySelector("#menu-button")
+    const nav = document.querySelector("#nav")
+    const toggleMenu = () => {
+      if (!showMenu) {
+        menu.classList.add("hamburger__icon--active")
+        nav.classList.remove("nav__inactive")
+        nav.classList.add("nav__active")
+        showMenu = true
+      } else {
+        menu.classList.remove("hamburger__icon--active")
+        nav.classList.remove("nav__active")
+        nav.classList.add("nav__inactive")
+        showMenu = false
+      }
+    }
+  </script>
 </body>
 
 <style lang="scss">
