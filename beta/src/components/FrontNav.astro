@@ -8,13 +8,13 @@ const { locales, navItems, title } = Astro.props as {
 }
 ---
 
-<nav>
+<nav class="nav">
   <div class="nav nav--front">
     <div class="hamburger" onclick="toggleMenu()">
       <span class="screen-reader-text">Main Menu</span>
       <div id="menu-button" class="hamburger__icon"></div>
     </div>
-    <div id="nav" class="nav__inactive">
+    <div id="menu-container" class="nav__inactive">
       <ul>
         {navItems.map(item =>
           <li>
