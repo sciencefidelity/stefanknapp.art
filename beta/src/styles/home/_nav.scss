@@ -8,7 +8,6 @@
   margin-left: auto;
 }
 
-
 .nav--front {
   z-index: 1;
   padding: 0 3.5rem 0 0;
@@ -94,8 +93,8 @@
     width: 0%;
     content: attr(data-fill);
     background-color: c.$sepia-150;
-    background-clip: text;
     -webkit-background-clip: text;
+    background-clip: text;
     transition-delay: initial;
     transition-timing-function: cubic-bezier(0.19, 1, 0.4, 1);
     transition-duration: 0.7s;
@@ -111,6 +110,9 @@
   &:focus::before {
     width: 100%;
   }
+  &:focus-visible {
+    outline: none;
+  }
 }
 
 .hamburger {
@@ -119,9 +121,9 @@
   height: 5.8em;
   margin: 3.7em 1em 6.5em auto;
   cursor: pointer;
+  background: transparent;
   opacity: 0.5;
   transition: opacity 0.3s;
-  background: transparent;
   @include b.mq(lg) {
     margin: 3.5em 2.5em 2em auto;
     font-size: 1.2vw;
@@ -184,4 +186,3 @@
     transform: rotate(-0.125turn);
   }
 }
-

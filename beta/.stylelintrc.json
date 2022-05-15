@@ -7,7 +7,7 @@
   ],
   "overrides": [
     {
-      "files": ["*.astro", "**/*.astro", "*.svelte", "**/*.svelte"],
+      "files": ["*.astro", "**/*.astro"],
       "customSyntax": "postcss-html"
     }
   ],
@@ -38,6 +38,7 @@
         "combined": "^\\.combined-{componentName}-[a-z]+$"
       },
       "utilitySelectors": "^\\.util-[a-z]+$"
-    }
+    },
+    "function-no-unknown": [true, { "ignoreFunctions": ["map.get"] }]
   }
 }

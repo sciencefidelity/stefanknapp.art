@@ -40,13 +40,11 @@ const year = new Date().getFullYear()
   </main>
 
   <footer class="footer flex w-full">
-    <nav class="front-lang">
+    <nav class="lang">
       <a href={`/${locales[1]}`} class="outline">{languages[1].toUpperCase()}</a>
     </nav>
-    <div class="front-copy">&copy; {year} {settings.title}</div>
+    <div class="copy">&copy; {year} {settings.title}</div>
   </footer>
-
-
   <script is:inline>
     let showMenu = false
     const menu = document.querySelector("#menu-button")
@@ -65,5 +63,4 @@ const year = new Date().getFullYear()
       }
     }
   </script>
-
 </body>
