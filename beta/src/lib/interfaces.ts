@@ -138,9 +138,13 @@ export interface Label {
 }
 
 export interface Navigation {
-  _key: String
-  label: String
-  url: String
+  en: NavItem
+  pl: NavItem
+}
+
+export interface NavItem {
+  label: string
+  url: string
 }
 
 export interface Page extends SanityDocument {
@@ -158,12 +162,17 @@ export interface photography extends Media {
 }
 
 export interface Settings {
+  en: LocaleSettings
+  pl: LocaleSettings
+}
+
+export interface LocaleSettings {
   contact: string
-  description: LocaleString
-  ogDescription: LocaleString
+  description: string
+  ogDescription: string
   ogImage: Image
-  ogTitle: LocaleString
-  title: LocaleString
+  ogTitle: string
+  title: string
 }
 
 export interface Videos extends Media {
@@ -172,4 +181,16 @@ export interface Videos extends Media {
   webm: string
 }
 
-
+export interface HeadProps {
+  description: string
+  ogDescription: string
+  ogImage: Image
+  ogSiteName?: string
+  ogTitle: string
+  ogURL: string
+  title: string
+  twitterCreator?: string
+  twitterDescription: string
+  twitterImage: Image
+  twitterTitle: string
+}

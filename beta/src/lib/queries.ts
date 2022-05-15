@@ -24,14 +24,13 @@ const labels = `
 `
 
 const navigation = `
-  "navigation": *[_type == "navigation" && ${omitDrafts}][0].primary[]{
-    "label": label.en, "url": url->.${slug}
-  }
-`
-
-const navigationPl = `
-  "navigation": *[_type == "navigation" && ${omitDrafts}][0].primary[]{
-    "label": label.pl, "url": url->.__i18n_refs[0]->.${slug}
+  "navigation": {
+    "en": *[_type == "navigation" && ${omitDrafts}][0].primary[]{
+      "label": label.en, "url": url->.${slug}
+    },
+    "pl": *[_type == "navigation" && ${omitDrafts}][0].primary[]{
+      "label": label.pl, "url": url->.__i18n_refs[0]->.${slug}
+    }
   }
 `
 
@@ -48,9 +47,15 @@ const photography = `
 `
 
 const settings = `
-  "settings": *[_type == "settings" && ${omitDrafts}][0]{
-    contact, description{ ${locales} }, ogDescription{ ${locales} }, ogImage,
-    ogTitle{ ${locales} }, title{ ${locales} }
+  "settings": {
+    "en": *[_type == "settings" && ${omitDrafts}][0]{
+      contact, "description": description.en, "ogDescription": ogDescription.en, ogImage,
+      "ogTitle": ogTitle.en, "title": title.en
+    },
+    "pl": *[_type == "settings" && ${omitDrafts}][0]{
+      contact, "description": description.pl, "ogDescription": ogDescription.pl, ogImage,
+      "ogTitle": ogTitle.pl, "title": title.pl
+    }
   }
 `
 
@@ -63,10 +68,6 @@ const videos = `
 
 export const indexQuery = groq`{
   ${navigation}, ${settings}
-}`
-
-export const indexQueryPl = groq`{
-  ${navigationPl}, ${settings}
 }`
 
 export const artQuery = groq`{

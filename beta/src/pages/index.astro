@@ -4,7 +4,7 @@ import "styles/global.scss"
 import sanityClient from "lib/sanityClient"
 import { indexQuery } from "lib/queries"
 import { Navigation, Settings } from "lib/interfaces"
-import BaseHead from "components/BaseHead.astro"
+// import BaseHead from "components/BaseHead.astro"
 import FrontNav from "components/FrontNav.astro"
 
 const response = await sanityClient.fetch(indexQuery)
@@ -15,6 +15,8 @@ const data: {
 const { navigation, settings } = data
 const artist = "Knapp"
 const year = new Date().getFullYear()
+const language = "Polski"
+const locale = "pl"
 ---
 
 <html lang="en" class="background">
@@ -27,14 +29,14 @@ const year = new Date().getFullYear()
         <div class="row">
           <div class="col logo">
             <div class="circle">
-              <a href={navigation[0].url}>
+              <a href={navigation.en[0].url}>
                 <div class="title">
                   <h1>{artist.toUpperCase()}</h1>
                 </div>
               </a>
             </div>
           </div>
-          <FrontNav navigation={navigation} title={settings.title.en} />
+          <FrontNav navItems={navigation.en} title={settings.en.title} />
         </div>
         <div class="row">
           <div class="col">
@@ -44,12 +46,12 @@ const year = new Date().getFullYear()
         <div class="row">
           <div class="front-lang">
             <p>
-              <a href="/pl">Polski</a>
+              <a href={`/${locale}`}>{language.toUpperCase()}</a>
             </p>
           </div>
           <div class="front-copy">
             <p>
-              &copy; {year} {settings.title.en}
+              &copy; {year} {settings.en.title}
             </p>
           </div>
         </div>

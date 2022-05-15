@@ -1,10 +1,11 @@
 ---
-import { Navigation } from "lib/interfaces"
+import { NavItem } from "lib/interfaces"
 
-const { navigation, title } = Astro.props as {
-  navigation: Navigation[]
+const { navItems, title } = Astro.props as {
+  navItems: NavItem[]
   title: string
 }
+console.log(title)
 ---
 
 <nav>
@@ -15,7 +16,7 @@ const { navigation, title } = Astro.props as {
     </div>
     <div class="nav__active">
       <ul>
-        {navigation.map(item =>
+        {navItems.map(item =>
           <li>
             <a
               href={`/${item.url}`}
@@ -33,11 +34,10 @@ const { navigation, title } = Astro.props as {
       </div>
     </div>
   </div>
-  <script is:inline>
-    /* inline: relative & npm package imports are not supported. */
+  <!-- <script is:inline>
     const menu = document.querySelector("#menu")
     menu.classList.add("my-class")
-  </script>
+  </script> -->
 </nav>
 
 <style lang="scss">
