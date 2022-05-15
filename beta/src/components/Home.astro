@@ -4,9 +4,10 @@ import "styles/global.scss"
 import "styles/index.scss"
 import BaseHead from "components/BaseHead.astro"
 import FrontNav from "components/FrontNav.astro"
-import { NavItem, LocaleSettings } from "lib/interfaces"
+import { Label, NavItem, LocaleSettings } from "lib/interfaces"
 
-const { languages, locales, navigation, settings } = Astro.props as {
+const { labels, languages, locales, navigation, settings } = Astro.props as {
+  labels: Label[]
   languages: string[]
   locales: string[]
   navigation: NavItem[]
@@ -32,6 +33,7 @@ const year = new Date().getFullYear()
         </div>
       </div>
       <FrontNav
+        labels={labels}
         navItems={navigation}
         title={settings.title}
         locales={locales}

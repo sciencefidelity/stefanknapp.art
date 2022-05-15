@@ -18,8 +18,13 @@ const artworks = `
 `
 
 const labels = `
-  "labels": *[_type == "labelGroup" && ${omitDrafts}].labels[]{
-    key, text{ ${locales} }
+  "labels": {
+    "en": *[_type == "labelGroup" && ${omitDrafts}].labels[]{
+      key, "text": text.en
+    },
+    "pl": *[_type == "labelGroup" && ${omitDrafts}].labels[]{
+      key, "text": text.pl
+    }
   }
 `
 
@@ -67,7 +72,7 @@ const videos = `
 `
 
 export const indexQuery = groq`{
-  ${navigation}, ${settings}
+  ${labels}, ${navigation}, ${settings}
 }`
 
 export const artQuery = groq`{

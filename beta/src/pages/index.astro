@@ -2,20 +2,22 @@
 import sanityClient from "lib/sanityClient"
 import Home from "components/Home.astro"
 import { indexQuery } from "lib/queries"
-import { Navigation, Settings } from "lib/interfaces"
+import { LabelGroup, Navigation, Settings } from "lib/interfaces"
 
 const response = await sanityClient.fetch(indexQuery)
 const data: {
+  labels: LabelGroup
   navigation: Navigation
   settings: Settings
 } = await response
-const { navigation, settings } = data
+const { labels, navigation, settings } = data
 const languages = ["English", "Polski"]
 const locales = ["", "pl"]
 ---
 
 <html lang="en" class="background">
   <Home
+    labels={labels.en}
     languages={languages}
     locales={locales}
     navigation={navigation.en}

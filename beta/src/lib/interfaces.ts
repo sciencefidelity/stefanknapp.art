@@ -132,9 +132,14 @@ export interface Artwork {
   title: string
 }
 
+export interface LabelGroup {
+  en: Label[]
+  pl: Label[]
+}
+
 export interface Label {
   key: string
-  text: LocaleString
+  text: string
 }
 
 export interface Navigation {

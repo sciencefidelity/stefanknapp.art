@@ -1,7 +1,8 @@
 ---
-import { NavItem } from "lib/interfaces"
+import { Label, NavItem } from "lib/interfaces"
 
-const { locales, navItems, title } = Astro.props as {
+const { labels, locales, navItems, title } = Astro.props as {
+  labels: Label[]
   navItems: NavItem[]
   title: string
   locales: string[]
@@ -11,23 +12,24 @@ const { locales, navItems, title } = Astro.props as {
 <nav class="nav">
   <div class="nav nav--front">
     <div class="hamburger" onclick="toggleMenu()">
-      <span class="screen-reader-text">Main Menu</span>
-      <div id="menu-button" class="hamburger__icon"></div>
+      <span class="sr-only absolute">{labels[1].text}</span>
+      <div id="menu-button" class="hamburger__icon relative"></div>
     </div>
     <div id="menu-container" class="nav__inactive">
-      <ul>
+      <ul class="nav__list flex">
         {navItems.map(item =>
-          <li>
+          <li class="relative ml-auto">
             <a
               href={`/${locales[0] && locales[0] + "/"}${item.url}`}
               data-fill={item.label.toUpperCase()}
+              class="nav__link inline m-auto transparent no-underline"
             >
               {item.label.toUpperCase()}
             </a>
           </li>
         )}
       </ul>
-      <div class="nav__title-container">
+      <div class="nav__title-container flex">
         <p class="nav__title">
           {title.toUpperCase()}
         </p>
