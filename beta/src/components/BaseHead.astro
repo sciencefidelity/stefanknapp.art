@@ -1,4 +1,5 @@
 ---
+import { urlFor } from "lib/utils"
 import { LocaleSettings } from "lib/interfaces"
 const { settings } = Astro.props as { settings: LocaleSettings }
 ---
@@ -11,12 +12,18 @@ const { settings } = Astro.props as { settings: LocaleSettings }
   name="description"
   content={settings.description && settings.description}
 >
-<!-- <meta name="keywords" content={keywords}> -->
 
 <meta property="og:title" content={settings.ogTitle}>
 <meta property="og:description" content={settings.ogDescription}>
-<!-- <meta property="og:url" content={settings.cannonicalURL}> -->
-<!-- <meta property="og:image" content={seoImage}> -->
+<meta property="og:url" content="https://stefanknapp.art">
+<meta property="og:image" content={
+  urlFor(settings.ogImage)
+    .auto("format")
+    .width(1200)
+    .height(630)
+    .quality(100)
+    .url()
+}>
 <meta property="og:site_name" content={settings.title}>
 <meta property="og:locale" content="en_GB">
 <meta property="og:type" content="article">
@@ -24,10 +31,16 @@ const { settings } = Astro.props as { settings: LocaleSettings }
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content={settings.ogTitle}>
 <meta name="twitter:description" content={settings.ogDescription}>
-<!-- <meta name="twitter:site" content={twitterHandle}> -->
-<!-- <meta name="twitter:image" content={seoImage}> -->
+<meta name="twitter:site" content="@sciencefidelity">
+<meta name="twitter:image" content={
+  urlFor(settings.ogImage)
+    .auto("format")
+    .width(1200)
+    .height(630)
+    .quality(100)
+    .url()
+}>
 <meta name="twitter:creator" content="@sciencefidelity">
 
-<!-- <link rel="icon" type="image/x-icon" href={design.icon.url} /> -->
-<!-- <link rel="mask-icon" href={design.icon.url} color="#FFDC5D" /> -->
-<!-- <meta name="theme-color" content={design.accentColor}> -->
+<link rel="icon" type="image/svg" href="/favicon.svg" />
+<link rel="mask-icon" href="/mask-icon.svg" color="#E1DDD0" />
