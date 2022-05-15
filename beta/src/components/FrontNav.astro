@@ -1,11 +1,11 @@
 ---
 import { NavItem } from "lib/interfaces"
 
-const { navItems, title } = Astro.props as {
+const { locales, navItems, title } = Astro.props as {
   navItems: NavItem[]
   title: string
+  locales: string[]
 }
-console.log(title)
 ---
 
 <nav>
@@ -19,7 +19,7 @@ console.log(title)
         {navItems.map(item =>
           <li>
             <a
-              href={`/${item.url}`}
+              href={`/${locales[0] && locales[0] + "/"}${item.url}`}
               data-fill={item.label.toUpperCase()}
             >
               {item.label.toUpperCase()}
@@ -140,7 +140,8 @@ ul {
       margin: auto;
       color: transparent;
       text-decoration: none;
-      &:hover {
+      &:hover,
+      &:focus {
         text-decoration: none;
       }
       &::before {
@@ -163,7 +164,8 @@ ul {
           width: 100%;
         }
       }
-      &:hover::before {
+      &:hover::before,
+      &:focus::before {
         width: 100%;
       }
     }
@@ -184,7 +186,8 @@ ul {
     margin: 3.5em 2.5em 2em auto;
     font-size: 1.2vw;
   }
-  &:hover {
+  &:hover,
+  &:focus {
     opacity: 1;
     transition: opacity 0.3s;
   }
