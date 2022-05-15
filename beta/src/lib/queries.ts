@@ -1,66 +1,58 @@
 import groq from "groq"
 
 const omitDrafts = "!(_id in path('drafts.**'))"
-
-const slug = `"slug": slug.current`
-
+const locales = "en, pl"
+const slug = "slug.current"
 const body = `body[]{ ..., markDefs[]{ ..., item->{ _type, ${slug} } } }`
-
-const socialFields = "description, image, title"
-
-const labels = `"labels": *[_type == "labelGroup" && ${omitDrafts}][0].labels`
-
-const metaFields = "canonicalURL, description, title"
-
+const seoFields = "description, image, title"
 const seo = `
-  facebook{ ${socialFields} },
-  meta{ ${metaFields} },
-  twitter{ ${socialFields} }
+  facebook{ ${seoFields} }, twitter{ ${seoFields} }
+  meta{ canonicalURL, description, title }
 `
-
-const pageFields = `
-  __i18n_lang, _id, _type, title, ${body}, ${seo}, ${slug}
-`
+const pageFields = `__i18n_lang, _id, ${body}, ${slug}, ${seo} title`
 
 const artworks = `
-  "artwork": *[_type == "artwork"][0].artwork | order(date){
-    _key, date, display, image, title,
-    medium->{ "en": title.en, "pl": title.pl }
+  "artworks": *[_type == "artwork" && ${omitDrafts}].artwork[]{
+    _key, date, display, image, "medium": medium->.title{ ${locales} }, title
+  }
+`
+
+const labels = `
+  "labels": *[_type == "labelGroup" && ${omitDrafts}].labels[]{
+    key, text{ ${locales} }
   }
 `
 
 const navigation = `
-  "navigation": *[_type == "navigation"][0].primary[]{
-    label{ en, pl },
-    "slug": { "en": url->.slug.current, "pl": url->__i18n_refs[0]->.slug.current }
+  "navigation": *[_type == "navigation" && ${omitDrafts}][0].primary[]{
+    _key, label{ ${locales} },
+    url->{ "en": ${slug}, "pl": __i18n_refs[0]->.${slug} }
   }
 `
 
 const pages = `
-  "pages": *[_type == "page" && ${omitDrafts}]{
-    ${pageFields},
-    __i18n_refs[0]->{ ${pageFields} },
-    __i18n_base->{ ${pageFields} }
+  "page": *[_type == "page" && __i18n_lang == "en" && ${omitDrafts}]{
+    ${pageFields}, __i18n_refs[0]->{ ${pageFields} }
   }
 `
 
 const photography = `
-  "photography": *[_type == "photography"][0].photography[]{
-    _key, date, image, title
+  "photography": *[_type == "photography" && ${omitDrafts}].photography[]{
+    _key, date, image, title{ ${locales} }
   }
 `
 
 const settings = `
-  "settings": *[_type == "settings"][0]{
-    contact, description, ogDescription, ogImage, ogTitle, title
+  "settings": *[_type == "settings" && ${omitDrafts}][0]{
+    contact, description{ ${locales} }, ogDescription{ ${locales} }, ogImage,
+    ogTitle{ ${locales} }, title{ ${locales} }
   }
 `
 
 const videos = `
-  "videos": *[_type == "video"][0].video[]{
-    _key, image, title,
-    "mp4": mp4.asset->{ mimeType, url },
-    "webm": webm.asset->{ mimeType, url },
+  "videos": *[_type == "video" && ${omitDrafts}].video[]{
+    _key, image, "mp4": mp4.asset->{ url },
+    title{ ${locales} }, "webm": webm.asset->{ url }
   }
 `
 
@@ -68,7 +60,14 @@ export const indexQuery = groq`{
   ${navigation}, ${settings}
 }`
 
-export const pagesQuery = groq`{
-  ${artworks}, ${labels}, ${navigation}, ${pages},
-  ${photography}, ${settings}, ${videos}
+export const artQuery = groq`{
+  ${artworks}, ${navigation}, ${pages}, ${settings}
+}`
+
+export const lifeQuery = groq`{
+  ${navigation}, ${pages}, ${photography}, ${settings}, ${videos}
+}`
+
+export const estateQuery = groq`{
+  ${labels}, ${navigation}, ${pages}, ${photography}, ${settings}, ${videos}
 }`

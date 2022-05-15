@@ -1,115 +1,14 @@
-export interface Artwork {
-  _key: string
-  date: string
-  display: string
-  image: Image
-  medium: LocaleString
-  title: string
-}
-
-export interface Label {
-  text: LocaleString
-}
-
-export interface Navigation {
-  label: LocaleString
-  slug: LocaleString
-}
-
-export interface Page {
-  __i18n_lang: string
-  __i18n_refs?: Page
-  __i18n_base?: Page
-  _id: String
-  _type: "page"
-  facebook: SocialCard
-  body: PortableText
-  meta: MetaData
-  slug: string
-  title: string
-  twitter: SocialCard
-}
-
-export interface Photography {
-  _key: String
-  date: string
-  image: Image
-  title: LocaleString
-}
-
-export interface Settings {
-  contact: string
-  description: LocaleString
-  ogDescription: LocaleString
-  ogImage: LocaleString
-  ogTitle: LocaleString
-  title: LocaleString
-}
-
-export interface Video {
-  _key: string
-  image: Image
-  mp4: VideoAsset
-  title: LocaleString
-  webm: VideoAsset
-}
-
-export interface Image {
-  _type: "image"
-  asset: SanityReference<SanityImageAsset>
-  crop?: SanityImageCrop
-  hotspot?: SanityImageHotspot
-}
-
-interface LocaleString {
-  en: string
-  pl?: string
-}
-
-interface MetaData {
-  canonicalURL: string
-  description: string
-  title: string
-}
-
-interface SocialCard {
-  description: string
-  image: Image
-  title: string
-}
-
-interface VideoAsset {
-  mimeType: string
-  url: string
-}
-
-type PortableText = Array<
-  | SanityKeyed<SanityBlock>
-  | SanityKeyed<{
-      _type: "image"
-      asset: SanityReference<SanityImageAsset>;
-      crop?: SanityImageCrop;
-      hotspot?: SanityImageHotspot;
-    }>
->;
-
 interface SanityBlock {
   _type: "block"
   [key: string]: any
 }
 
-interface SanityImageAsset extends SanityDocument {
-  _type: "sanity.imageAsset"
-  assetId: string
-  extension: string
-  metadata: SanityImageMetadata
-  mimeType: string
-  originalFilename: string
-  path: string
-  sha1hash: string
-  size: number
-  uploadId: string
-  url: string
+interface SanityDocument {
+  __i18n_lang: string
+  _id: string
+  _createdAt: string
+  _rev: string
+  _updatedAt: string
 }
 
 interface SanityImageCrop {
@@ -135,13 +34,12 @@ interface SanityImageHotspot {
   y: number
 }
 
-interface SanityImageMetadata {
-  _type: "sanity.imageMetadata"
-  dimensions: SanityImageDimensions
-  hasAlpha: boolean
-  isOpaque: boolean
-  lqip: string
-  palette: SanityImagePalette
+interface SanityImagePaletteSwatch {
+  _type: "sanity.imagePaletteSwatch"
+  background: string
+  foreground: string
+  population: number
+  title: string
 }
 
 interface SanityImagePalette {
@@ -155,12 +53,27 @@ interface SanityImagePalette {
   vibrant: SanityImagePaletteSwatch
 }
 
-interface SanityImagePaletteSwatch {
-  _type: "sanity.imagePaletteSwatch"
-  background: string
-  foreground: string
-  population: number
-  title: string
+interface SanityImageMetadata {
+  _type: "sanity.imageMetadata"
+  dimensions: SanityImageDimensions
+  hasAlpha: boolean
+  isOpaque: boolean
+  lqip: string
+  palette: SanityImagePalette
+}
+
+interface SanityImageAsset extends SanityDocument {
+  _type: "sanity.imageAsset"
+  assetId: string
+  extension: string
+  metadata: SanityImageMetadata
+  mimeType: string
+  originalFilename: string
+  path: string
+  sha1hash: string
+  size: number
+  uploadId: string
+  url: string
 }
 
 declare type SanityKeyed<T> = T extends object ? T & {
@@ -170,12 +83,93 @@ declare type SanityKeyed<T> = T extends object ? T & {
 declare type SanityReference<_T> = {
   _type: "reference"
   _ref: string
-};
-
-interface SanityDocument {
-  _id: string
-  _createdAt: string
-  _rev: string
-  _updatedAt: string
 }
+
+type PortableText = Array<
+  | SanityKeyed<SanityBlock>
+  | SanityKeyed<{
+      _type: "image"
+      asset: SanityReference<SanityImageAsset>;
+      crop?: SanityImageCrop;
+      hotspot?: SanityImageHotspot;
+    }>
+>;
+
+export interface Image {
+  _key?: string
+  _type: "image"
+  asset: SanityReference<SanityImageAsset>
+  crop?: SanityImageCrop
+  hotspot?: SanityImageHotspot
+}
+
+interface LocaleString {
+  cy: string
+  en: string
+}
+
+interface MetaData {
+  canonicalURL: string
+  description: string
+  title: string
+}
+
+export interface SocialCard {
+  description: string
+  image: Image
+  title: string
+}
+
+export interface Media {
+  _key: string
+  date?: number
+  image: Image
+}
+
+export interface Artwork {
+  display: boolean
+  medium: LocaleString
+  title: string
+}
+
+export interface Label {
+  key: string
+  text: LocaleString
+}
+
+export interface Navigation {
+  _key: String
+  label: LocaleString
+  url: LocaleString
+}
+
+export interface Page extends SanityDocument {
+  __i18n_refs: Page
+  body: PortableText
+  facebook: SocialCard
+  meta: MetaData
+  slug: string
+  title: string
+  twitter: SocialCard
+}
+
+export interface photography extends Media {
+  title: LocaleString
+}
+
+export interface Settings {
+  contact: string
+  description: LocaleString
+  ogDescription: LocaleString
+  ogImage: Image
+  ogTitle: LocaleString
+  title: LocaleString
+}
+
+export interface Videos extends Media {
+  mp4: string
+  title: LocaleString
+  webm: string
+}
+
 
