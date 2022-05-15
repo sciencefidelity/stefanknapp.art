@@ -13,6 +13,25 @@ const { settings } = Astro.props as { settings: LocaleSettings }
   content={settings.description && settings.description}
 >
 
+<link
+  rel="preload"
+  href="/fonts/futurapt-bold.woff2"
+  as="font"
+  crossorigin
+/>
+<link
+  rel="preload"
+  href="/fonts/futurapt-book.woff2"
+  as="font"
+  crossorigin
+/>
+<link
+  rel="preload"
+  href="/fonts/futurapt-demi.woff2"
+  as="font"
+  crossorigin
+/>
+
 <meta property="og:title" content={settings.ogTitle}>
 <meta property="og:description" content={settings.ogDescription}>
 <meta property="og:url" content="https://stefanknapp.art">
