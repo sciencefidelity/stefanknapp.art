@@ -5,6 +5,7 @@ import {
   Books,
   CameraFlash,
   CardFileBox,
+  ClassicalBuilding,
   Compass,
   FilmProjector,
   FramedPicture,
@@ -25,7 +26,19 @@ const items = [
     .title('Artwork')
     .icon(FramedPicture)
     .child(
-      S.document().schemaType('artwork').documentId('artwork').title('Artworks')
+      S.document()
+        .schemaType('artwork')
+        .documentId('artwork')
+        .title('Artworks')
+    ),
+  S.listItem()
+    .title('Exhibition')
+    .icon(ClassicalBuilding)
+    .child(
+      S.document()
+        .schemaType('exhibition')
+        .documentId('exhibition')
+        .title('Exhibitions')
     ),
   S.listItem()
     .title('Medium')
