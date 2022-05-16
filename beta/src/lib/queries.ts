@@ -90,10 +90,12 @@ const navigation = `
 const photography = `
   "photography": {
     "en": *[_type == "photography" && ${omitDrafts}].photography[]{
-      _key, date, image, "title": title.en
+      _key, date, image, "title": title.en,
+      "dimensions": image.asset->.metadata.dimensions{ height, width }
     },
     "pl": *[_type == "photography" && ${omitDrafts}].photography[]{
-      _key, date, image, "title": title.pl
+      _key, date, image, "title": title.pl,
+      "dimensions": image.asset->.metadata.dimensions{ height, width }
     }
   }
 `

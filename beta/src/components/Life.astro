@@ -17,7 +17,7 @@ const { exhibitions, labels, page, photography, videos } = Astro.props as {
 <section class="life relative flex">
   <div class="life__container">
     <div class="life__image">
-      <SanityImage image={photography[0].image} alt={photography[0].title} />
+      <SanityImage image={photography[0]} />
     </div>
     <div class="life__text">
       <div
@@ -34,9 +34,7 @@ const { exhibitions, labels, page, photography, videos } = Astro.props as {
       ></div>
     </div>
     <div class="life__image hide">
-      <div class="sanity-image">
-        <SanityImage image={photography[1].image} alt={photography[1].title} />
-      </div>
+      <SanityImage image={photography[1]} />
     </div>
   </div>
   <div class="life__container full">

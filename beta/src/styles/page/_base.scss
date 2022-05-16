@@ -2,9 +2,9 @@
 @use '../base/typography' as t;
 @use '../base/breakpoints' as b;
 
-// ::selection {
-//   background: rgba(c.$grey-100, 1);
-// }
+::selection {
+  background: rgba(c.$grey-100, 1);
+}
 
 html {
   font-size: 62.5%;
@@ -14,8 +14,7 @@ html {
 
 body {
   font-family: t.$sans;
-  color: c.$grey-700;
-  // background: c.$grey-000;
+  color: c.$grey-600;
 }
 
 .body {

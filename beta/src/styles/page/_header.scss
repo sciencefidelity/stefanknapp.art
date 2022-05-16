@@ -82,7 +82,7 @@
 }
 
 .icon__lines--active {
-  position: fixed;
+  position: sticky;
   background-color: rgba(c.$sepia-150, 0);
   transition: background-color 0s;
   transition-delay: 0.5s;

@@ -103,11 +103,6 @@ export interface Image {
   hotspot?: SanityImageHotspot
 }
 
-interface LocaleString {
-  en: string
-  pl: string
-}
-
 interface MetaData {
   canonicalURL: string
   description: string
@@ -192,6 +187,12 @@ export interface LocalePhotography {
 
 export interface Photography extends Media {
   title: string
+  dimensions: Dimensions
+}
+
+export interface Dimensions {
+  height: number
+  width: number
 }
 
 export interface LocaleSettings {
