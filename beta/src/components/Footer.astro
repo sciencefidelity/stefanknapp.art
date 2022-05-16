@@ -1,12 +1,12 @@
 ---
-import { Label, LocaleSettings } from "lib/interfaces"
+import { Label, Settings } from "lib/interfaces"
 
 const { i18nSlug, labels, languages, locales, settings } = Astro.props as {
   i18nSlug: string
   labels: Label[]
   languages: string[]
   locales: string[]
-  settings: LocaleSettings
+  settings: Settings
 }
 const year = new Date().getFullYear()
 ---
@@ -14,13 +14,15 @@ const year = new Date().getFullYear()
 <footer>
   <div class="footer__container">
     <div class="footer__links">
-      <div v-if="$context.locale === 'en-gb'" class="footer__btn">
-        <a href={`/${locales[0]}`}>{labels[2].text.toUpperCase()}</a>
+      <div class="footer__btn">
+        <a href={`/${locales[0]}`}>{labels[2].text.toLowerCase()}</a>
       </div>
-      <a href={`/${locales[1] && locales[1] + "/"}${i18nSlug}`}>
-        {languages[1].toUpperCase()}
-      </a>
+      <div class="footer__btn">
+        <a href={`/${locales[1] && locales[1] + "/"}${i18nSlug}`}>
+          {languages[1].toLowerCase()}
+        </a>
+      </div>
     </div>
-    <div>&copy; {year} {settings.title}</div>
+    <div class="footer__btn">&copy; {year} {settings.title.toLowerCase()}</div>
   </div>
 </footer>
