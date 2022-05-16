@@ -6,6 +6,7 @@ import { lifeQuery } from "lib/queries"
 import {
   LabelGroup,
   Navigation,
+  LocaleExhibitions,
   LocalePage,
   LocalePhotography,
   LocaleSettings,
@@ -14,6 +15,7 @@ import {
 
 const response = await sanityClient.fetch(lifeQuery)
 const data: {
+  exhibitions: LocaleExhibitions
   labels: LabelGroup
   navigation: Navigation
   settings: LocaleSettings
@@ -21,7 +23,15 @@ const data: {
   photography: LocalePhotography
   videos: LocaleVideos
 } = await response
-const { labels, navigation, settings, page, photography, videos } = data
+const {
+  exhibitions,
+  labels,
+  navigation,
+  settings,
+  page,
+  photography,
+  videos
+} = data
 const languages = ["English", "Polski"]
 const locales = ["", "pl"]
 ---
@@ -35,6 +45,7 @@ const locales = ["", "pl"]
   settings={settings.en}
 >
   <Life
+    exhibitions={exhibitions.en}
     labels={labels.en}
     page={page.en}
     photography={photography.en}

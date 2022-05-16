@@ -2,10 +2,19 @@
 // import { Maybe } from "astro-control"
 import { toHTML } from "@portabletext/to-html"
 // import { portableTextComponents } from "lib/components"
+import Exhibitions from "components/Exhibitions.astro"
 import { urlFor } from "lib/utils"
-import { Label, Page, Photography, Settings, Video } from "lib/interfaces"
+import { Exhibition, Label, Page, Photography, Settings, Video } from "lib/interfaces"
 
-const { labels, page, photography, settings, videos } = Astro.props as {
+const {
+  exhibitions,
+  labels,
+  page,
+  photography,
+  settings,
+  videos
+} = Astro.props as {
+  exhibitions: Exhibition[]
   labels: Label[]
   page: Page
   photography: Photography[]
@@ -48,7 +57,7 @@ const { labels, page, photography, settings, videos } = Astro.props as {
     </div>
   </div>
   <div class="life__container full">
-    <!-- <exhibitions /> -->
+    <Exhibitions exhibitions={exhibitions} labels={labels} />
   </div>
 </section>
 <section class="video-section">
