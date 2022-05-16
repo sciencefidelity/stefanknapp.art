@@ -1,0 +1,38 @@
+---
+import { urlFor } from "lib/utils"
+import { Image } from "lib/interfaces"
+
+const { image, alt} = Astro.props as {
+  image: Image
+  alt: string
+}
+---
+
+<div class="image-container relative w-full">
+  <img
+    src={urlFor(image)
+      .auto("format")
+      .width(800)
+      .quality(85)
+      .url()}
+    alt=""
+    class="image"
+    style="object-position:50% 50%; object-fit: cover;"
+    decoding="async"
+    loading="lazy"
+    height="100%"
+    width="100%"
+  />
+</div>
+
+<style lang="scss">
+  .image-container {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .image {
+    object-position:50% 50%;
+    object-fit: cover;
+  }
+</style>

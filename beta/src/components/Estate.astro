@@ -1,6 +1,6 @@
 ---
-import { urlFor } from "lib/utils"
-import { Label, Page, Photography, Settings } from "lib/interfaces"
+import SanityImage from "components/SanityImage.astro"
+import { Label, Photography, Settings } from "lib/interfaces"
 
 const { labels, photography, settings } = Astro.props as {
   labels: Label[]
@@ -9,25 +9,12 @@ const { labels, photography, settings } = Astro.props as {
 }
 ---
 
-<section class="estate">
-  <div class="estate__container">
+<section class="estate relative flex">
+  <div class="estate__container grid">
     <div class="estate__image">
-      <div class="sanity-image">
-        <img
-          src={urlFor(photography[2].image)
-            .auto("format")
-            .width(800)
-            .quality(85)
-            .url()}
-          style="object-position:50% 50%; object-fit: cover;"
-          decoding="async"
-          loading="lazy"
-          height="100%"
-          width="100%"
-        />
-      </div>
+      <SanityImage image={photography[2].image} alt={photography[2].title} />
     </div>
-    <div class="estate__text">
+    <div class="estate__text flex">
       <p>
         {labels[0].text.toLowerCase() + ": "}
         <a href={`mailto:${settings.contact}`}>{settings.contact}</a>
@@ -40,20 +27,9 @@ const { labels, photography, settings } = Astro.props as {
   @use '../styles/base/colors' as c;
   @use '../styles/base/breakpoints' as b;
 
-  .sanity-image {
-    position: relative;
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-  }
-
   .estate {
-    position: relative;
-    display: flex;
-    place-items: center;
-    padding: 12rem 0 12rem 0;
-    background: c.$grey-000;
-    z-index: 0;
+    height: calc(100vh - 12rem);
+    padding: 12rem 0 0 0;
     @include b.mq(md) {
       padding: 8rem 0 2rem;
       height: auto;
@@ -67,7 +43,6 @@ const { labels, photography, settings } = Astro.props as {
   .estate__container {
     width: min(100rem, 88%);
     margin: auto;
-    display: grid;
     grid-template-columns: 2fr 3fr;
     @include b.mq(md) {
       grid-template-columns: 1fr;
@@ -97,7 +72,6 @@ const { labels, photography, settings } = Astro.props as {
   }
 
   .estate__text {
-    display: flex;
     place-items: center;
     p {
       font-size: 2.2rem;

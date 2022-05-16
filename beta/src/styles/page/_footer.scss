@@ -1,14 +1,13 @@
 @use '../base/colors' as c;
 @use '../base/breakpoints' as b;
 
-footer {
-  position: relative;
+.footer {
   background: c.$grey-000;
-  display: flex;
   z-index: 2;
+  align-self: end;
 }
 
-.footer__container {
+.container {
   width: min(100rem, 88%);
   margin: auto;
   text-align: right;
@@ -25,15 +24,21 @@ footer {
   }
 }
 
-.footer__links {
+.links {
   display: flex;
   gap: 2rem;
 }
 
-.footer__btn {
+.link,
+.copy {
   padding: 1rem 0.7rem 1rem 0;
   @include b.mq(sm) {
-    width: 2.7rem;
     padding: 0.7rem 0.7rem 1.3rem 0;
+  }
+}
+
+.link:last-child {
+  @include b.mq(sm) {
+    display: none;
   }
 }

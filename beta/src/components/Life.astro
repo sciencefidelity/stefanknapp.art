@@ -1,25 +1,15 @@
 ---
-// import { Maybe } from "astro-control"
 import { toHTML } from "@portabletext/to-html"
-// import { portableTextComponents } from "lib/components"
 import Exhibitions from "components/Exhibitions.astro"
+import SanityImage from "components/SanityImage.astro"
 import VideoEmbed from "components/VideoEmbed.astro"
-import { urlFor } from "lib/utils"
-import { Exhibition, Label, Page, Photography, Settings, Video } from "lib/interfaces"
+import { Exhibition, Label, Page, Photography, Video } from "lib/interfaces"
 
-const {
-  exhibitions,
-  labels,
-  page,
-  photography,
-  settings,
-  videos
-} = Astro.props as {
+const { exhibitions, labels, page, photography, videos } = Astro.props as {
   exhibitions: Exhibition[]
   labels: Label[]
   page: Page
   photography: Photography[]
-  settings: Settings
   videos: Video[]
 }
 ---
@@ -27,22 +17,7 @@ const {
 <section class="life">
   <div class="life__container">
     <div class="life__image">
-      <div class="sanity-image">
-        <img
-          src={urlFor(photography[0].image)
-            .auto("format")
-            .width(800)
-            .quality(85)
-            .fit("crop")
-            .crop("center")
-            .url()}
-          style="object-position:50% 50%; object-fit: cover;"
-          decoding="async"
-          loading="lazy"
-          height="100%"
-          width="100%"
-        />
-      </div>
+      <SanityImage image={photography[0].image} alt={photography[0].title} />
     </div>
     <div class="life__text">
       <div
@@ -60,20 +35,7 @@ const {
     </div>
     <div class="life__image hide">
       <div class="sanity-image">
-        <img
-          src={urlFor(photography[1].image)
-            .auto("format")
-            .width(800)
-            .quality(85)
-            .fit("crop")
-            .crop("center")
-            .url()}
-          style="object-position:50% 50%; object-fit: cover;"
-          decoding="async"
-          loading="lazy"
-          height="100%"
-          width="100%"
-        />
+        <SanityImage image={photography[1].image} alt={photography[1].title} />
       </div>
     </div>
   </div>
