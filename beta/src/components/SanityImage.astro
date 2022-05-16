@@ -8,7 +8,7 @@ const { image, alt} = Astro.props as {
 }
 ---
 
-<div class="image-container relative w-full">
+<div class="image-container relative">
   <img
     src={urlFor(image)
       .auto("format")
@@ -27,6 +27,7 @@ const { image, alt} = Astro.props as {
 <style lang="scss">
   .image-container {
     height: 100%;
+    width: 100%;
     overflow: hidden;
   }
 
