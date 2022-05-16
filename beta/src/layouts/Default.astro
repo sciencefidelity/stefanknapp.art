@@ -29,7 +29,13 @@ const {
     <BaseHead locales={locales} page={page} settings={settings} />
   </head>
   <body>
-    <Header labels={labels} locales={locales} navItems={navigation} />
+    <Header
+      labels={labels}
+      languages={languages}
+      locales={locales}
+      navItems={navigation}
+      page={page}
+    />
     <main>
       <slot />
     </main>

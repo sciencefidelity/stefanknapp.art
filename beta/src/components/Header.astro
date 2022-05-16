@@ -1,10 +1,12 @@
 ---
-import { Label, NavItem } from "lib/interfaces"
+import { Label, NavItem, Page } from "lib/interfaces"
 
-const { labels, locales, navItems } = Astro.props as {
+const { labels, languages, locales, navItems, page } = Astro.props as {
   labels: Label[]
+  languages: string[]
   locales: string[]
   navItems: NavItem[]
+  page: Page
 }
 ---
 
@@ -28,6 +30,22 @@ const { labels, locales, navItems } = Astro.props as {
             </a>
           </li>
         )}
+        <li class="nav__item">
+          <a
+            href={`/${locales[0]}`}
+            class="nav__link"
+          >
+            {labels[2].text.toUpperCase()}
+          </a>
+        </li>
+        <li class="nav__item">
+          <a
+            href={`/${locales[1] && locales[1] + "/"}${page.i18nSlug}`}
+            class="nav__link"
+          >
+            {languages[1].toUpperCase()}
+          </a>
+        </li>
       </ul>
     </div>
   </nav>

@@ -2,10 +2,12 @@
 import { urlFor } from "lib/utils"
 import { Page, Settings } from "lib/interfaces"
 const { locales, page, settings } = Astro.props as {
-  locales: string[]
-  page: Page
+  locales?: string[]
+  page?: Page
   settings: Settings
 }
+
+const slug = `${locales[0] ? "/" + locales[0] : ""}${page ? "/" + page.slug : ""}`
 ---
 
 <meta charset="UTF-8">
@@ -41,9 +43,7 @@ const { locales, page, settings } = Astro.props as {
 <meta property="og:description" content={
   page?.facebook?.description ? page.facebook.description : settings.ogDescription
 }>
-<meta property="og:url" content={`
-  https://stefanknapp.art${locales[0] && "/" + locales[0]}${page?.slug && "/" + page.slug}
-`}>
+<meta property="og:url" content={`https://stefanknapp.art${slug}`}>
 <meta property="og:image" content={
   urlFor(page?.facebook?.image ? page.facebook.image : settings.ogImage)
     .auto("format")
