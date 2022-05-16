@@ -26,14 +26,10 @@ const {
 
 <html lang={locales[0] ? locales[0] : "en"}>
   <head>
-    <BaseHead settings={settings} />
+    <BaseHead locales={locales} page={page} settings={settings} />
   </head>
   <body>
-    <Header
-      labels={labels}
-      locales={locales}
-      navItems={navigation}
-    />
+    <Header labels={labels} locales={locales} navItems={navigation} />
     <main>
       <slot />
     </main>
