@@ -10,15 +10,15 @@ const { labels, languages, locales, navItems, page } = Astro.props as {
 }
 ---
 
-<header class="header">
+<header class="header w-full absolute">
   <nav>
-    <div class="nav">
-      <button class="hamburger" onclick="toggleMenu()">
+    <div class="icon relative">
+      <button class="icon__btn" onclick="toggleMenu()">
         <span class="sr-only absolute">{labels[1].text}</span>
-        <div id="menu-button" class="hamburger__icon"></div>
+        <div id="menu-button" class="icon__lines relative"></div>
       </button>
     </div>
-    <div id="menu-container" class="nav__inactive">
+    <div id="menu-container" class="nav nav__inactive">
       <ul class="nav__list">
         {navItems.map(item =>
           <li class="nav__item">
@@ -30,18 +30,15 @@ const { labels, languages, locales, navItems, page } = Astro.props as {
             </a>
           </li>
         )}
-        <li class="nav__item">
-          <a
-            href={`/${locales[0]}`}
-            class="nav__link"
-          >
+        <!-- <li class="nav__item nav__item--padded">
+          <a href={`/${locales[0]}`} class="nav__link nav__link--small">
             {labels[2].text.toUpperCase()}
           </a>
-        </li>
-        <li class="nav__item">
+        </li> -->
+        <li class="nav__item nav__item--padded">
           <a
             href={`/${locales[1] && locales[1] + "/"}${page.i18nSlug}`}
-            class="nav__link"
+            class="nav__link nav__link--small"
           >
             {languages[1].toUpperCase()}
           </a>

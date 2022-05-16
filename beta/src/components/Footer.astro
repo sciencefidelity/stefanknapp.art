@@ -12,17 +12,17 @@ const year = new Date().getFullYear()
 ---
 
 <footer class="footer flex relative">
-  <div class="container">
-    <div class="links">
-      <div class="link">
+  <div class="footer__container">
+    <div class="footer__links">
+      <div class="footer__link">
         <a href={`/${locales[1] && locales[1] + "/"}${i18nSlug}`}>
           {languages[1].toLowerCase()}
         </a>
       </div>
-      <div class="link">
+      <div class="footer__link">
         <a href={`/${locales[0]}`}>{labels[2].text.toLowerCase()}</a>
       </div>
     </div>
-    <div class="copy">&copy; {year} {settings.title.toLowerCase()}</div>
+    <div class="footer__copy">&copy; {year} {settings.title.toLowerCase()}</div>
   </div>
 </footer>

@@ -6,125 +6,48 @@
 }
 
 .header {
-  position: absolute;
   z-index: 10;
-  width: 100%;
 }
 
-.nav {
+.icon {
+  font-size: 5px;
   z-index: 3;
-  position: relative;
+  width: 85%;
+  max-width: 1350px;
+  margin-top: 9em;
+  margin-inline: auto;
   @include b.mq(lg) {
-    font-size: 10px;
-    top: 0;
-    right: 0;
-    padding: 0;
-  }
-}
-
-.nav__active,
-.nav__inactive {
-  padding: 5em 3.3em 0 0;
-  z-index: -2;
-  background: rgba(c.$grey-000, 0.9);
-  position: absolute;
-  inset: 0;
-  width: 100vw;
-  height: 100vh;
-  @include b.mq(lg) {
-    padding: 5em 3em 0 0;
+    font-size: 5.5px;
+    margin-top: 7em;
   }
   @include b.mq(sm) {
-    padding: 5.4em 1.8em 0 0;
+    font-size: 5px;
+    margin-top: 5.5em;
   }
 }
 
-.nav__inactive {
-  visibility: hidden;
-  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-  transition: clip-path 1s, visibility 0s;
-  transition-delay: 0s, 1s;
-  transition-property: clip-path, visibility;
-  transition-timing-function: ease-out;
-}
-
-.nav__active {
-  visibility: visible;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-  transition: clip-path 1s ease-in;
-}
-
-.nav__link {
-  color: c.$grey-850;
-  margin: auto;
-  opacity: 0.6;
-  transition: opacity 0.3s;
-  &:hover {
-    opacity: 1;
-    transition: opacity 0.3s;
-    text-decoration: none;
-  }
-}
-
-.active--exact {
-  color: c.$grey-850;
-  opacity: 1;
-  &:hover {
-    opacity: 1;
-    cursor: default;
-  }
-}
-
-.nav__list {
-  list-style: none;
-  font-size: 6rem;
-  font-weight: 300;
-  line-height: 1.2;
-  justify-content: right;
-  text-align: right;
-  padding: 0;
-  @include b.mq(lg) {
-    font-size: 5.5rem;
-  }
-  @include b.mq(sm) {
-    font-size: 5rem;
-  }
-}
-
-.nav__item {
-  // display: block;
-  margin-left: auto;
-  position: relative;
-}
-
-.hamburger {
+.icon__btn {
   z-index: 3;
   font-size: 5px;
   display: grid;
   cursor: pointer;
   height: 5.8em;
   width: 8em;
-  margin: 9em 15em 3.5em auto;
-  opacity: 0.6;
+  margin-left: auto;
+  opacity: 0.5;
   transition: opacity 0.3s;
   background: transparent;
-  &:hover {
+  &:hover,
+  &:focus {
     opacity: 1;
     transition: opacity 0.3s;
-  }
-  @include b.mq(lg) {
-    font-size: 5.5px;
-    margin: 7em 8.5em 2em auto;
-  }
-  @include b.mq(sm) {
-    font-size: 5px;
-    margin: 5.5em 5em 2em auto;
+    outline: none;
   }
 }
 
-.hamburger__icon {
-  font-size: 6px;
+.icon__lines {
   position: relative;
+  font-size: 6px;
   width: 8em;
   height: 0.4em;
   margin: 2.6em 0 3em;
@@ -158,7 +81,8 @@
   }
 }
 
-.hamburger__icon--active {
+.icon__lines--active {
+  position: fixed;
   background-color: rgba(c.$sepia-150, 0);
   transition: background-color 0s;
   transition-delay: 0.5s;
@@ -174,5 +98,84 @@
   }
   &::after {
     transform: rotate(-0.125turn);
+  }
+}
+
+.nav {
+  margin-right: 5em;
+  z-index: -2;
+  background: rgba(c.$grey-000, 0.9);
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  @include b.mq(lg) {
+    margin-right: 5em;
+  }
+  @include b.mq(sm) {
+    margin-right: 5.4em;
+  }
+}
+
+.nav__inactive {
+  visibility: hidden;
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  transition: clip-path 1s, visibility 0s;
+  transition-delay: 0s, 1s;
+  transition-property: clip-path, visibility;
+  transition-timing-function: ease-out;
+}
+
+.nav__active {
+  visibility: visible;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  transition: clip-path 1s ease-in;
+}
+
+.nav__list {
+  width: 85%;
+  max-width: 1368px;
+  margin-inline: auto;
+  margin-top: 2.4em;
+  font-size: 6rem;
+  font-weight: 500;
+  text-align: right;
+  @include b.mq(lg) {
+    font-size: 5.5rem;
+  }
+  @include b.mq(sm) {
+    font-size: 5rem;
+    margin-top: 1.9em;
+  }
+}
+
+.nav__item--padded {
+  margin-top: 3rem;
+}
+
+.nav__link {
+  color: c.$grey-850;
+  margin: auto;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+  &:hover,
+  &:focus {
+    opacity: 1;
+    transition: opacity 0.3s;
+    text-decoration: none;
+    outline: none;
+  }
+}
+
+.nav__link--small {
+  font-size: 3.5rem;
+}
+
+.active--exact {
+  color: c.$grey-850;
+  opacity: 1;
+  &:hover {
+    opacity: 1;
+    cursor: default;
   }
 }

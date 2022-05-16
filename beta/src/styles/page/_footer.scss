@@ -7,7 +7,7 @@
   align-self: end;
 }
 
-.container {
+.footer__container {
   width: min(100rem, 88%);
   margin: auto;
   text-align: right;
@@ -24,20 +24,20 @@
   }
 }
 
-.links {
+.footer__links {
   display: flex;
   gap: 2rem;
 }
 
-.link,
-.copy {
+.footer__link,
+.footer__copy {
   padding: 1rem 0.7rem 1rem 0;
   @include b.mq(sm) {
     padding: 0.7rem 0.7rem 1.3rem 0;
   }
 }
 
-.link:last-child {
+.footer__link:last-child {
   @include b.mq(sm) {
     display: none;
   }

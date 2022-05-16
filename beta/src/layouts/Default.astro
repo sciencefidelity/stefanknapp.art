@@ -52,12 +52,12 @@ const {
       const nav = document.querySelector("#menu-container")
       const toggleMenu = () => {
         if (!showMenu) {
-          menu.classList.add("hamburger__icon--active")
+          menu.classList.add("icon__lines--active")
           nav.classList.remove("nav__inactive")
           nav.classList.add("nav__active")
           showMenu = true
         } else {
-          menu.classList.remove("hamburger__icon--active")
+          menu.classList.remove("icon__lines--active")
           nav.classList.remove("nav__active")
           nav.classList.add("nav__inactive")
           showMenu = false
