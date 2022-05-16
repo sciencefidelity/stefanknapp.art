@@ -5,6 +5,12 @@
   background: rgba(c.$grey-100, 0.3);
 }
 
+.header {
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+}
+
 .nav {
   z-index: 3;
   position: relative;
@@ -19,10 +25,12 @@
 .nav__active,
 .nav__inactive {
   padding: 5em 3.3em 0 0;
-  z-index: 1;
+  z-index: -2;
   background: rgba(c.$grey-000, 0.9);
   position: absolute;
   inset: 0;
+  width: 100vw;
+  height: 100vh;
   @include b.mq(lg) {
     padding: 5em 3em 0 0;
   }
