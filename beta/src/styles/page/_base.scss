@@ -1,6 +1,6 @@
-@use 'colors' as c;
-@use 'typography' as t;
-@use 'breakpoints' as b;
+@use '../base/colors' as c;
+@use '../base/typography' as t;
+@use '../base/breakpoints' as b;
 
 // ::selection {
 //   background: rgba(c.$grey-100, 1);

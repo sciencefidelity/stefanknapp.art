@@ -1,0 +1,98 @@
+---
+import { urlFor } from "lib/utils"
+import { Label, Page, Photography, Settings } from "lib/interfaces"
+
+const { labels, page, photography, settings } = Astro.props as {
+  labels: Label[]
+  page: Page
+  photography: Photography[]
+  settings: Settings
+}
+---
+
+<section class="estate">
+  <div class="estate__container">
+    <div class="estate__image">
+      <img src={urlFor(photography[2].image)
+        .auto("format")
+        .width(400)
+        .quality(100)
+        .url()}
+      />
+    </div>
+    <div class="estate__text">
+      <p>
+        {labels[0].text.toLowerCase() + ": "}
+        <a href={`mailto:${settings.contact}`}>{settings.contact}</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @use '../styles/base/colors' as c;
+  @use '../styles/base/breakpoints' as b;
+
+  .estate {
+    position: relative;
+    display: flex;
+    place-items: center;
+    padding: 12rem 0 12rem 0;
+    background: c.$grey-000;
+    z-index: 0;
+    @include b.mq(md) {
+      padding: 8rem 0 2rem;
+      height: auto;
+      min-height: calc(100vh - 4.4rem);
+    }
+    @include b.mq(sm) {
+      padding: 8rem 0 2rem;
+    }
+  }
+
+  .estate__container {
+    width: min(100rem, 88%);
+    margin: auto;
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    @include b.mq(md) {
+      grid-template-columns: 1fr;
+    }
+    div {
+      padding-left: 6.5rem;
+      &:first-child {
+        padding-left: 0rem;
+      }
+      @include b.mq(md) {
+        padding-left: 0;
+      }
+    }
+    @include b.mq(md) {
+      flex-direction: column;
+    }
+  }
+
+  .estate__image {
+    @include b.mq(md) {
+      width: 75%;
+      margin: 0 auto 6rem;
+    }
+    @include b.mq(sm) {
+      width: 100%;
+    }
+  }
+
+  .estate__text {
+    display: flex;
+    place-items: center;
+    p {
+      font-size: 2.2rem;
+      width: 100%;
+      text-align: center;
+    }
+    a {
+      font-weight: 400;
+      text-align: right;
+    }
+  }
+</style>

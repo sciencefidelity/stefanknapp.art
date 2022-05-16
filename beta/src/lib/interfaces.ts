@@ -173,20 +173,20 @@ export interface Page extends SanityDocument {
 }
 
 export interface LocalePhotography {
-  en: photography[]
-  pl: photography[]
+  en: Photography[]
+  pl: Photography[]
 }
 
-export interface photography extends Media {
+export interface Photography extends Media {
   title: string
 }
 
-export interface Settings {
-  en: LocaleSettings
-  pl: LocaleSettings
+export interface LocaleSettings {
+  en: Settings
+  pl: Settings
 }
 
-export interface LocaleSettings {
+export interface Settings {
   contact: string
   description: string
   ogDescription: string

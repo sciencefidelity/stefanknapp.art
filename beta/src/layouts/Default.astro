@@ -1,5 +1,46 @@
-<html lang="en">
-<body>
-  <slot />
-</body>
+---
+import "modern-normalize"
+import "styles/global.scss"
+import "styles/pages.scss"
+import BaseHead from "components/BaseHead.astro"
+import Header from "components/Header.astro"
+import Footer from "components/Footer.astro"
+import { Label, NavItem, LocaleSettings, Page } from "lib/interfaces"
+
+const {
+  labels,
+  languages,
+  locales,
+  navigation,
+  page,
+  settings
+} = Astro.props as {
+  labels: Label[]
+  languages: string[]
+  locales: string[]
+  navigation: NavItem[]
+  page: Page
+  settings: LocaleSettings
+}
+---
+
+<html lang={locales[0] ? locales[0] : "en"}>
+  <head>
+    <BaseHead settings={settings} />
+  </head>
+  <Header
+    labels={labels}
+    locales={locales}
+    navItems={navigation}
+  />
+  <main>
+    <slot />
+  </main>
+  <Footer
+    i18nSlug={page.i18nSlug}
+    labels={labels}
+    languages={languages}
+    locales={locales}
+    settings={settings}
+  />
 </html>

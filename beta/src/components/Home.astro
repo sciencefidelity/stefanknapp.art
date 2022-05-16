@@ -4,14 +4,14 @@ import "styles/global.scss"
 import "styles/index.scss"
 import BaseHead from "components/BaseHead.astro"
 import FrontNav from "components/FrontNav.astro"
-import { Label, NavItem, LocaleSettings } from "lib/interfaces"
+import { Label, NavItem, Settings } from "lib/interfaces"
 
 const { labels, languages, locales, navigation, settings } = Astro.props as {
   labels: Label[]
   languages: string[]
   locales: string[]
   navigation: NavItem[]
-  settings: LocaleSettings
+  settings: Settings
 }
 const artist = "Knapp"
 const year = new Date().getFullYear()
