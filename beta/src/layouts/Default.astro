@@ -28,19 +28,39 @@ const {
   <head>
     <BaseHead settings={settings} />
   </head>
-  <Header
-    labels={labels}
-    locales={locales}
-    navItems={navigation}
-  />
-  <main>
-    <slot />
-  </main>
-  <Footer
-    i18nSlug={page.i18nSlug}
-    labels={labels}
-    languages={languages}
-    locales={locales}
-    settings={settings}
-  />
+  <body>
+    <Header
+      labels={labels}
+      locales={locales}
+      navItems={navigation}
+    />
+    <main>
+      <slot />
+    </main>
+    <Footer
+      i18nSlug={page.i18nSlug}
+      labels={labels}
+      languages={languages}
+      locales={locales}
+      settings={settings}
+    />
+    <script is:inline>
+      let showMenu = false
+      const menu = document.querySelector("#menu-button")
+      const nav = document.querySelector("#menu-container")
+      const toggleMenu = () => {
+        if (!showMenu) {
+          menu.classList.add("hamburger__icon--active")
+          nav.classList.remove("nav__inactive")
+          nav.classList.add("nav__active")
+          showMenu = true
+        } else {
+          menu.classList.remove("hamburger__icon--active")
+          nav.classList.remove("nav__active")
+          nav.classList.add("nav__inactive")
+          showMenu = false
+        }
+      }
+    </script>
+  </body>
 </html>

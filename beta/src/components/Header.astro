@@ -13,16 +13,15 @@ const { labels, locales, navItems } = Astro.props as {
     <div class="nav">
       <button class="hamburger" onclick="toggleMenu()">
         <span class="sr-only absolute">{labels[1].text}</span>
-        <div id="menu-button" class="hamburger__icon relative"></div>
+        <div id="menu-button" class="hamburger__icon hamburger__icon--active"></div>
       </button>
     </div>
     <div id="menu-container" class="nav__active">
       <ul class="nav__list">
         {navItems.map(item =>
-          <li class="">
+          <li class="nav__item">
             <a
               href={`/${locales[0] && locales[0] + "/"}${item.url}`}
-              data-fill={item.label.toUpperCase()}
               class="nav__link"
             >
               {item.label.toUpperCase()}

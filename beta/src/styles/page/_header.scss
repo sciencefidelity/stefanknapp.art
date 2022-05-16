@@ -7,46 +7,46 @@
 
 .nav {
   z-index: 3;
+  position: relative;
   @include b.mq(lg) {
     font-size: 10px;
     top: 0;
     right: 0;
     padding: 0;
   }
-  &__active,
-  &__inactive {
-    padding: 5em 3.3em 0 0;
-    z-index: -2;
-    background: rgba(c.$grey-000, 0.9);
-    width: 100vw;
-    height: 100vh;
-    position: absolute;
-    top: 0;
-    right: 0;
-    @include b.mq(lg) {
-      padding: 5em 3em 0 0;
-    }
-    @include b.mq(sm) {
-      padding: 5.4em 1.8em 0 0;
-    }
+}
+
+.nav__active,
+.nav__inactive {
+  padding: 5em 3.3em 0 0;
+  z-index: 1;
+  background: rgba(c.$grey-000, 0.9);
+  position: absolute;
+  inset: 0;
+  @include b.mq(lg) {
+    padding: 5em 3em 0 0;
   }
-  &__inactive {
-    visibility: hidden;
-    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-    transition: clip-path 1s, visibility 0s;
-    transition-delay: 0s, 1s;
-    transition-property: clip-path, visibility;
-    transition-timing-function: ease-out;
-  }
-  &__active {
-    visibility: visible;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    transition: clip-path 1s ease-in;
+  @include b.mq(sm) {
+    padding: 5.4em 1.8em 0 0;
   }
 }
 
-a {
-  display: inline;
+.nav__inactive {
+  visibility: hidden;
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  transition: clip-path 1s, visibility 0s;
+  transition-delay: 0s, 1s;
+  transition-property: clip-path, visibility;
+  transition-timing-function: ease-out;
+}
+
+.nav__active {
+  visibility: visible;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  transition: clip-path 1s ease-in;
+}
+
+.nav__link {
   color: c.$grey-850;
   margin: auto;
   opacity: 0.6;
@@ -67,15 +67,13 @@ a {
   }
 }
 
-ul {
-  display: inline;
+.nav__list {
   list-style: none;
   font-size: 6rem;
   font-weight: 300;
   line-height: 1.2;
-  text-transform: uppercase;
-  display: flex;
   justify-content: right;
+  text-align: right;
   padding: 0;
   @include b.mq(lg) {
     font-size: 5.5rem;
@@ -83,13 +81,16 @@ ul {
   @include b.mq(sm) {
     font-size: 5rem;
   }
-  li {
-    margin-left: auto;
-    position: relative;
-  }
+}
+
+.nav__item {
+  // display: block;
+  margin-left: auto;
+  position: relative;
 }
 
 .hamburger {
+  z-index: 3;
   font-size: 5px;
   display: grid;
   cursor: pointer;
@@ -98,6 +99,7 @@ ul {
   margin: 9em 15em 3.5em auto;
   opacity: 0.6;
   transition: opacity 0.3s;
+  background: transparent;
   &:hover {
     opacity: 1;
     transition: opacity 0.3s;
@@ -110,57 +112,59 @@ ul {
     font-size: 5px;
     margin: 5.5em 5em 2em auto;
   }
-  &__icon {
-    font-size: 6px;
-    position: relative;
+}
+
+.hamburger__icon {
+  font-size: 6px;
+  position: relative;
+  width: 8em;
+  height: 0.4em;
+  margin: 2.6em 0 3em;
+  background-color: rgba(c.$grey-850, 1);
+  transition: background-color 0s;
+  transition-delay: 0.5s;
+  &::before,
+  &::after {
+    position: absolute;
+    content: "";
+    display: block;
+    background: c.$grey-850;
     width: 8em;
     height: 0.4em;
-    margin: 2.6em 0 3em;
-    background-color: rgba(c.$grey-850, 1);
-    transition: background-color 0s;
-    transition-delay: 0.5s;
-    &::before,
-    &::after {
-      position: absolute;
-      content: "";
-      display: block;
-      background: c.$grey-850;
-      width: 8em;
-      height: 0.4em;
-      transform: rotate(0);
-      transition: transform 0.5s, top 0.5s;
-      transition-delay: 0s, 0.5s;
-      transition-property: transform, top;
-    }
-    &::before {
-      top: -2.3em;
-    }
-    &::after {
-      top: 2.3em;
-    }
-    &--active {
-      background-color: rgba(c.$sepia-150, 0);
-      transition: background-color 0s;
-      transition-delay: 0.5s;
-      &::before,
-      &::after {
-        top: 0;
-        transition: top 0.5s, transform 0.5s;
-        transition-delay: 0s, 0.5s;
-        transition-property: top, transform;
-      }
-      &::before {
-        transform: rotate(0.125turn);
-      }
-      &::after {
-        transform: rotate(-0.125turn);
-      }
-    }
-    @include b.mq(lg) {
-      font-size: 5.5px;
-    }
-    @include b.mq(sm) {
-      font-size: 5px;
-    }
+    transform: rotate(0);
+    transition: transform 0.5s, top 0.5s;
+    transition-delay: 0s, 0.5s;
+    transition-property: transform, top;
+  }
+  &::before {
+    top: -2.3em;
+  }
+  &::after {
+    top: 2.3em;
+  }
+  @include b.mq(lg) {
+    font-size: 5.5px;
+  }
+  @include b.mq(sm) {
+    font-size: 5px;
+  }
+}
+
+.hamburger__icon--active {
+  background-color: rgba(c.$sepia-150, 0);
+  transition: background-color 0s;
+  transition-delay: 0.5s;
+  &::before,
+  &::after {
+    top: 0;
+    transition: top 0.5s, transform 0.5s;
+    transition-delay: 0s, 0.5s;
+    transition-property: top, transform;
+  }
+  &::before {
+    transform: rotate(0.125turn);
+  }
+  &::after {
+    transform: rotate(-0.125turn);
   }
 }

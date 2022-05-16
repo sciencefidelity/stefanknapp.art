@@ -2,7 +2,7 @@
 import sanityClient from "lib/sanityClient"
 import Default from "layouts/Default.astro"
 import Life from "components/Life.astro"
-import { estateQuery } from "lib/queries"
+import { lifeQuery } from "lib/queries"
 import {
   LabelGroup,
   Navigation,
@@ -12,16 +12,16 @@ import {
   LocaleVideos
 } from "lib/interfaces"
 
-const response = await sanityClient.fetch(estateQuery)
+const response = await sanityClient.fetch(lifeQuery)
 const data: {
   labels: LabelGroup
   navigation: Navigation
   settings: LocaleSettings
   page: LocalePage
   photography: LocalePhotography
-  vidoes: LocaleVideos
+  videos: LocaleVideos
 } = await response
-const { labels, navigation, settings, page, photography, vidoes } = data
+const { labels, navigation, settings, page, photography, videos } = data
 const languages = ["English", "Polski"]
 const locales = ["", "pl"]
 ---

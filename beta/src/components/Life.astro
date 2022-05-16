@@ -1,7 +1,7 @@
 ---
-import { Maybe } from "astro-control"
+// import { Maybe } from "astro-control"
 import { toHTML } from "@portabletext/to-html"
-import { portableTextComponents } from "lib/components"
+// import { portableTextComponents } from "lib/components"
 import { urlFor } from "lib/utils"
 import { Label, Page, Photography, Settings, Video } from "lib/interfaces"
 
@@ -25,24 +25,21 @@ const { labels, page, photography, settings, videos } = Astro.props as {
       />
     </div>
     <div class="life__text">
-      <Maybe
+      <div
         as="div"
-        set:html={toHTML(page.body,
-          {components: portableTextComponents}
-        )}
-      ></Maybe>
+        set:html={toHTML(page.body.slice(0, 3))}
+      ></div>
     </div>
   </div>
   <div class="life__container">
     <div class="life__text">
-      <!-- <block-content
-        v-if="$context.locale === 'en-gb'"
-        class="post__content"
-        :blocks="$static.sanityBio.exhibitions._rawEn"
-      /> -->
+      <div
+        as="div"
+        set:html={toHTML(page.body.slice(3))}
+      ></div>
     </div>
     <div class="life__image hide">
-      <img src={urlFor(photography[2].image)
+      <img src={urlFor(photography[1].image)
         .auto("format")
         .width(400)
         .quality(100)
@@ -59,3 +56,85 @@ const { labels, page, photography, settings, videos } = Astro.props as {
     <!-- <video-embed /> -->
   </div>
 </section>
+
+<style lang="scss">
+  @use '../styles/base/colors' as c;
+  @use '../styles/base/breakpoints' as b;
+
+  .life {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    place-items: center;
+    padding: 12rem 0 12rem 0;
+    background: c.$grey-000;
+    z-index: 0;
+    @include b.mq(md) {
+      flex-direction: column;
+      height: unset;
+      padding: 10rem 0;
+      gap: 0;
+    }
+    @include b.mq(sm) {
+      padding: 10rem 0 15rem;
+    }
+    &__container {
+      width: min(100rem, 88%);
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      div {
+        padding-left: 6.5rem;
+        &:first-child {
+          padding-left: 0rem;
+        }
+        @include b.mq(md) {
+          padding-left: 0;
+        }
+      }
+      @include b.mq(md) {
+        flex-direction: column;
+        grid-template-columns: 1fr;
+      }
+    }
+    &__image {
+      @include b.mq(md) {
+        width: 75%;
+        margin: 0 auto 6rem;
+      }
+      @include b.mq(sm) {
+        width: 100%;
+      }
+    }
+  }
+
+  .hide {
+    @include b.mq(md) {
+      display: none;
+    }
+  }
+
+  .full {
+    grid-template-columns: 1fr;
+  }
+
+  .video-section {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+  }
+
+  .video-wrapper {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .video-embed {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+  }
+</style>
