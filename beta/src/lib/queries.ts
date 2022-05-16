@@ -54,6 +54,17 @@ const artworks = `
   }
 `
 
+const exhibitions = `
+  "exhibitions": {
+    "en": *[_type == "exhibition"].exhibition[]{
+      _key, gallery, "location": location.en, solo, year
+    },
+    "pl": *[_type == "exhibition"].exhibition[]{
+      _key, gallery, "location": location.pl, solo, year
+    }
+  }
+`
+
 const labels = `
   "labels": {
     "en": *[_type == "labelGroup" && ${omitDrafts}].labels[]{
@@ -126,5 +137,6 @@ export const estateQuery = groq`{
 }`
 
 export const lifeQuery = groq`{
-  ${labels}, ${lifePage}, ${navigation}, ${photography}, ${settings}, ${videos}
+  ${exhibitions}, ${labels}, ${lifePage}, ${navigation}, ${photography},
+  ${settings}, ${videos}
 }`

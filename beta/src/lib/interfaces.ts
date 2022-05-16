@@ -133,8 +133,21 @@ export interface LocaleArtworks {
 
 export interface Artwork {
   display: boolean
-  medium: LocaleString
+  medium: string
   title: string
+}
+
+export interface LocaleExhibitions {
+  en: Exhibition[]
+  pl: Exhibition[]
+}
+
+export interface Exhibition {
+  _key: string
+  gallery: string
+  location: string
+  solo: boolean
+  year: number
 }
 
 export interface LabelGroup {
