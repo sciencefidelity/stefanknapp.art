@@ -1,0 +1,26 @@
+---
+import { urlFor } from "lib/utils"
+import { Video } from "lib/interfaces"
+
+const { videos } = Astro.props as { videos: Video[] }
+---
+
+<video autoplay loop muted playsinline class="video-embed">
+  <source
+    src={videos[0].mp4}
+    type="video/mp4"
+  />
+  <source
+    src={videos[0].webm}
+    type="video/webm"
+  />
+  <img
+    src={urlFor(videos[0].image)
+      .auto("format")
+      .width(640)
+      .quality(85)
+      .url()}
+    title={videos[0].title}
+  />
+  Sorry, your browser doesn't support embedded videos.
+</video>
