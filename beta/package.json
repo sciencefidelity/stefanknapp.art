@@ -13,11 +13,14 @@
     "fix:styles": "stylelint --fix '**/*.{astro,scss}' --ignore-path .eslintignore"
   },
   "devDependencies": {
+    "@portabletext/to-html": "^1.0.3",
     "@sanity/client": "^3.3.0",
     "@sanity/image-url": "^1.0.1",
+    "@types/vhtml": "^2.2.4",
     "astro": "^1.0.0-beta.20",
     "astro-control": "^0.0.1",
     "groq": "^2.29.3",
+    "htm": "^3.1.1",
     "postcss": "^8.4.13",
     "postcss-html": "^1.4.1",
     "postcss-scss": "^4.0.4",
@@ -32,7 +35,8 @@
     "stylelint-config-standard": "^25.0.0",
     "stylelint-order": "^5.0.0",
     "stylelint-scss": "^4.2.0",
-    "stylelint-selector-bem-pattern": "^2.1.1"
+    "stylelint-selector-bem-pattern": "^2.1.1",
+    "vhtml": "^2.2.0"
   },
   "dependencies": {
     "modern-normalize": "^1.1.0"

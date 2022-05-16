@@ -118,7 +118,7 @@ export const indexQuery = groq`{
 }`
 
 export const artQuery = groq`{
-  ${artPage}, ${artworks}, ${navigation}, ${settings}
+  ${artPage}, ${artworks}, ${labels}, ${navigation}, ${settings}
 }`
 
 export const estateQuery = groq`{
@@ -126,5 +126,5 @@ export const estateQuery = groq`{
 }`
 
 export const lifeQuery = groq`{
-  ${lifePage}, ${navigation}, ${photography}, ${settings}, ${videos}
+  ${labels}, ${lifePage}, ${navigation}, ${photography}, ${settings}, ${videos}
 }`

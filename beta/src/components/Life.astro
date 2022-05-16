@@ -1,0 +1,61 @@
+---
+import { Maybe } from "astro-control"
+import { toHTML } from "@portabletext/to-html"
+import { portableTextComponents } from "lib/components"
+import { urlFor } from "lib/utils"
+import { Label, Page, Photography, Settings, Video } from "lib/interfaces"
+
+const { labels, page, photography, settings, videos } = Astro.props as {
+  labels: Label[]
+  page: Page
+  photography: Photography[]
+  settings: Settings
+  videos: Video[]
+}
+---
+
+<section class="life">
+  <div class="life__container">
+    <div class="life__image">
+      <img src={urlFor(photography[0].image)
+        .auto("format")
+        .width(400)
+        .quality(100)
+        .url()}
+      />
+    </div>
+    <div class="life__text">
+      <Maybe
+        as="div"
+        set:html={toHTML(page.body,
+          {components: portableTextComponents}
+        )}
+      ></Maybe>
+    </div>
+  </div>
+  <div class="life__container">
+    <div class="life__text">
+      <!-- <block-content
+        v-if="$context.locale === 'en-gb'"
+        class="post__content"
+        :blocks="$static.sanityBio.exhibitions._rawEn"
+      /> -->
+    </div>
+    <div class="life__image hide">
+      <img src={urlFor(photography[2].image)
+        .auto("format")
+        .width(400)
+        .quality(100)
+        .url()}
+      />
+    </div>
+  </div>
+  <div class="life__container full">
+    <!-- <exhibitions /> -->
+  </div>
+</section>
+<section class="video-section">
+  <div class="video-wrapper">
+    <!-- <video-embed /> -->
+  </div>
+</section>

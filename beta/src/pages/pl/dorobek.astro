@@ -1,0 +1,41 @@
+---
+import sanityClient from "lib/sanityClient"
+import Default from "layouts/Default.astro"
+import Estate from "components/Estate.astro"
+import { estateQuery } from "lib/queries"
+import {
+  LabelGroup,
+  Navigation,
+  LocalePage,
+  LocalePhotography,
+  LocaleSettings
+} from "lib/interfaces"
+
+const response = await sanityClient.fetch(estateQuery)
+const data: {
+  labels: LabelGroup
+  navigation: Navigation
+  settings: LocaleSettings
+  page: LocalePage
+  photography: LocalePhotography
+} = await response
+const { labels, navigation, settings, page, photography } = data
+const languages = ["Polski", "English"]
+const locales = ["pl", ""]
+---
+
+<Default
+  labels={labels.pl}
+  languages={languages}
+  locales={locales}
+  navigation={navigation.pl}
+  page={page.pl}
+  settings={settings.pl}
+>
+  <Estate
+    labels={labels.pl}
+    page={page.pl}
+    photography={photography.pl}
+    settings={settings.pl}
+  />
+</Default>
