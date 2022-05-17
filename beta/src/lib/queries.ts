@@ -45,11 +45,13 @@ const lifePage = `
 
 const artworks = `
   "artworks": {
-    "en": *[_type == "artwork" && ${omitDrafts}].artwork[]{
-      _key, date, display, image, "medium": medium->.title.en, title
+    "en": *[_type == "artwork" && ${omitDrafts}].artwork[] | order(date, title){
+      _key, date, display, image, "medium": medium->.title.en, title,
+      "dimensions": image.asset->.metadata.dimensions{ height, width }
     },
-    "pl": *[_type == "artwork" && ${omitDrafts}].artwork[]{
-      _key, date, display, image, "medium": medium->.title.pl, title
+    "pl": *[_type == "artwork" && ${omitDrafts}].artwork[] | order(date, title){
+      _key, date, display, image, "medium": medium->.title.pl, title,
+      "dimensions": image.asset->.metadata.dimensions{ height, width }
     }
   }
 `

@@ -127,6 +127,7 @@ export interface LocaleArtworks {
 }
 
 export interface Artwork extends Media {
+  dimensions: Dimensions
   display: boolean
   medium: string
   title: string

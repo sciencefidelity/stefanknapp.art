@@ -1,30 +1,27 @@
 ---
 import { urlFor } from "lib/utils"
-import { Artwork, Label, Page, Settings } from "lib/interfaces"
+import { Artwork } from "lib/interfaces"
 
-const { artworks, labels, page, settings } = Astro.props as {
-  artworks: Artwork[]
-  labels: Label[]
-  page: Page
-  settings: Settings
-}
+const { artworks } = Astro.props as { artworks: Artwork[] }
 ---
 
 <section class="art relative grid">
   <div class="gallery">
     <div class="modal">
-      <div class="btn btn--prev absolute" onclick="prevArtwork()">
-        <img
-          alt="Previous image"
-          src="data:image/svg+xml,%3Csvg viewBox='0 0 54 104' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.15 52.05l48.1 48.1c.8.8.8 2.1 0 2.9-.8.8-2.1.8-2.9 0L.75 53.45c-.8-.8-.8-2.1 0-2.9L50.35.95c.8-.8 2.1-.8 2.9 0 .8.8.8 2.1 0 2.9l-48.1 48.1v.1z' fill='%23262626'/%3E%3C/svg%3E"
-          loading="lazy"
-        />
-      </div>
-      <div class="btn btn--next absolute" onclick="nextArtwork()">
-        <img
-          alt="Next image"
-          src="data:image/svg+xml,%3Csvg viewBox='0 0 54 104' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M48.85 52.05l-48.1 48.1c-.8.8-.8 2.1 0 2.9.8.8 2.1.8 2.9 0l49.6-49.6c.8-.8.8-2.1 0-2.9L3.65.95c-.8-.8-2.1-.8-2.9 0-.8.8-.8 2.1 0 2.9l48.1 48.1v.1z' fill='%23262626'/%3E%3C/svg%3E"
-        />
+      <div class="buttons">
+        <div class="btn btn--prev absolute" onclick="prevArtwork()">
+          <img
+            alt="Previous image"
+            src="data:image/svg+xml,%3Csvg viewBox='0 0 54 104' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.15 52.05l48.1 48.1c.8.8.8 2.1 0 2.9-.8.8-2.1.8-2.9 0L.75 53.45c-.8-.8-.8-2.1 0-2.9L50.35.95c.8-.8 2.1-.8 2.9 0 .8.8.8 2.1 0 2.9l-48.1 48.1v.1z' fill='%23262626'/%3E%3C/svg%3E"
+            loading="lazy"
+          />
+        </div>
+        <div class="btn btn--next absolute" onclick="nextArtwork()">
+          <img
+            alt="Next image"
+            src="data:image/svg+xml,%3Csvg viewBox='0 0 54 104' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M48.85 52.05l-48.1 48.1c-.8.8-.8 2.1 0 2.9.8.8 2.1.8 2.9 0l49.6-49.6c.8-.8.8-2.1 0-2.9L3.65.95c-.8-.8-2.1-.8-2.9 0-.8.8-.8 2.1 0 2.9l48.1 48.1v.1z' fill='%23262626'/%3E%3C/svg%3E"
+          />
+        </div>
       </div>
       {artworks.map(artwork =>
         <div id="artwork" class="artwork">
@@ -33,14 +30,14 @@ const { artworks, labels, page, settings } = Astro.props as {
               alt={`${artwork.title} (${artwork.date})`}
               src={
                 urlFor(artwork.image)
-                  .quality(70)
-                  .width(600)
+                  .quality(85)
+                  .width(1200)
                   .url()}
               class="artwork__img"
               decoding="async"
               loading="lazy"
-              width={}
-              height={}
+              width={artwork.dimensions.width}
+              height={artwork.dimensions.height}
             />
           </div>
           <p class="artwork__caption absolute">
@@ -52,30 +49,27 @@ const { artworks, labels, page, settings } = Astro.props as {
   </div>
 </section>
 <script is:inline>
-  let currentArtwork = 0
   const artworks = document.getElementsByClassName("artwork")
+  // const randomNumber = Math.floor(Math.random() * artworks.length)
+  const randomNumber = 2
+  let currentArtwork = randomNumber
   showArtwork(currentArtwork)
-
   function showArtwork(currentArtwork) {
     for (i = 0; i < artworks.length; i++) {
       artworks[i].style.display = "none"
     }
     artworks[currentArtwork].style.display = "block"
   }
-
   function prevArtwork() {
     currentArtwork -= 1
     if (currentArtwork < 0) currentArtwork = artworks.length - 1
-    console.log(currentArtwork)
     showArtwork(currentArtwork)
   }
   function nextArtwork() {
     currentArtwork += 1
     if (currentArtwork >= artworks.length) currentArtwork = 0
-    console.log(currentArtwork)
     showArtwork(currentArtwork)
   }
-  // console.log(currentArtwork)
 </script>
 
 <style lang="scss" scoped>
