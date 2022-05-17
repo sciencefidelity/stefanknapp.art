@@ -126,7 +126,7 @@ export interface LocaleArtworks {
   pl: Artwork[]
 }
 
-export interface Artwork {
+export interface Artwork extends Media {
   display: boolean
   medium: string
   title: string

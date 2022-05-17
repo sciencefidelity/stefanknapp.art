@@ -1,0 +1,41 @@
+---
+import sanityClient from "lib/sanityClient"
+import Default from "layouts/Default.astro"
+import Art from "components/Art.astro"
+import { artQuery } from "lib/queries"
+import {
+  LocaleArtworks,
+  LabelGroup,
+  Navigation,
+  LocalePage,
+  LocaleSettings
+} from "lib/interfaces"
+
+const response = await sanityClient.fetch(artQuery)
+const data: {
+  artworks: LocaleArtworks
+  labels: LabelGroup
+  navigation: Navigation
+  settings: LocaleSettings
+  page: LocalePage
+} = await response
+const { artworks, labels, navigation, settings, page } = data
+const languages = ["English", "Polski"]
+const locales = ["", "pl"]
+---
+
+<Default
+  labels={labels.en}
+  languages={languages}
+  locales={locales}
+  navigation={navigation.en}
+  page={page.en}
+  settings={settings.en}
+>
+  <Art
+    labels={labels.en}
+    page={page.en}
+    artworks={artworks.en}
+    settings={settings.en}
+  />
+</Default>
