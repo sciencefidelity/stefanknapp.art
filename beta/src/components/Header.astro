@@ -9,7 +9,6 @@ const { labels, languages, locales, navItems, page } = Astro.props as {
   page: Page
 }
 const pathname = Astro.canonicalURL.pathname.match(/\/([^\/]+)[\/]?$/)[0]
-console.log(pathname)
 ---
 
 <header class="header w-full absolute">

@@ -17,14 +17,14 @@ const { exhibitions, labels, page, photography, videos } = Astro.props as {
 <section class="life relative flex">
   <div class="life__container grid">
     <div class="life__image">
-      <SanityImage image={photography[0]} />
+      <SanityImage image={photography[0]} lazy={false} />
     </div>
     <div class="life__text" set:html={toHTML(page.body.slice(0, 3))} />
   </div>
   <div class="life__container grid">
     <div class="life__text" set:html={toHTML(page.body.slice(3))} />
     <div class="life__image hide">
-      <SanityImage image={photography[1]} />
+      <SanityImage image={photography[1]} lazy={true} />
     </div>
   </div>
   <div class="life__container full grid">
