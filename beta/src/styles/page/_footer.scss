@@ -14,14 +14,6 @@
   display: flex;
   justify-content: space-between;
   align-content: center;
-  p {
-    font-size: 1.9rem;
-    margin: 0;
-    padding: 0.51em 0;
-    @include b.mq(sm) {
-      font-size: 1.5rem;
-    }
-  }
 }
 
 .footer__links {
@@ -31,6 +23,7 @@
 
 .footer__link,
 .footer__copy {
+  font-size: 1.8rem;
   padding: 1rem 0.7rem 1rem 0;
   @include b.mq(sm) {
     padding: 0.7rem 0.7rem 1.3rem 0;
