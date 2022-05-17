@@ -16,13 +16,13 @@ const year = new Date().getFullYear()
     <div class="footer__links">
       <div class="footer__link">
         <a href={`/${locales[1] && locales[1] + "/"}${i18nSlug}`}>
-          {languages[1].toLowerCase()}
+          {languages[1]}
         </a>
       </div>
       <div class="footer__link">
-        <a href={`/${locales[0]}`}>{labels[2].text.toLowerCase()}</a>
+        <a href={`/${locales[0]}`}>{labels[2].text}</a>
       </div>
     </div>
-    <div class="footer__copy">&copy; {year} {settings.title.toLowerCase()}</div>
+    <div class="footer__copy">&copy; {year} {settings.title}</div>
   </div>
 </footer>

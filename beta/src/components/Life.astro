@@ -15,33 +15,23 @@ const { exhibitions, labels, page, photography, videos } = Astro.props as {
 ---
 
 <section class="life relative flex">
-  <div class="life__container">
+  <div class="life__container grid">
     <div class="life__image">
       <SanityImage image={photography[0]} />
     </div>
-    <div class="life__text">
-      <div
-        as="div"
-        set:html={toHTML(page.body.slice(0, 3))}
-      ></div>
-    </div>
+    <div class="life__text" set:html={toHTML(page.body.slice(0, 3))} />
   </div>
-  <div class="life__container">
-    <div class="life__text">
-      <div
-        as="div"
-        set:html={toHTML(page.body.slice(3))}
-      ></div>
-    </div>
+  <div class="life__container grid">
+    <div class="life__text" set:html={toHTML(page.body.slice(3))} />
     <div class="life__image hide">
       <SanityImage image={photography[1]} />
     </div>
   </div>
-  <div class="life__container full">
+  <div class="life__container full grid">
     <Exhibitions exhibitions={exhibitions} labels={labels} />
   </div>
 </section>
-<section class="video-section">
+<section class="video-section relative">
   <div class="video-wrapper">
     <VideoEmbed videos={videos} />
   </div>
@@ -53,38 +43,32 @@ const { exhibitions, labels, page, photography, videos } = Astro.props as {
 
   .life {
     flex-direction: column;
-    gap: 5rem;
+    gap: clamp(3rem, 3.5vw, 5rem);
     place-items: center;
-    padding: 12rem 0 12rem 0;
+    padding-block: clamp(10rem, 14vw, 16rem) 9rem;
     background: c.$grey-000;
     z-index: 0;
     @include b.mq(md) {
-      flex-direction: column;
       height: unset;
-      padding: 10rem 0;
+      padding-block: 12rem 7rem;
       gap: 0;
     }
     @include b.mq(sm) {
-      padding: 10rem 0 15rem;
+      padding-block: 10rem 15rem;
     }
   }
 
   .life__container {
     width: min(100rem, 88%);
     margin: auto;
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    div {
-      padding-left: 6.5rem;
-      &:first-child {
-        padding-left: 0rem;
-      }
+    grid-template-columns: 1.5fr 1fr;
+    &:first-child {
+      grid-template-columns: 1fr 1.5fr;
       @include b.mq(md) {
-        padding-left: 0;
+        grid-template-columns: 1fr;
       }
     }
     @include b.mq(md) {
-      flex-direction: column;
       grid-template-columns: 1fr;
     }
   }
@@ -92,10 +76,26 @@ const { exhibitions, labels, page, photography, videos } = Astro.props as {
   .life__image {
     @include b.mq(md) {
       width: 75%;
-      margin: 0 auto 6rem;
+      margin: auto;
     }
     @include b.mq(sm) {
       width: 100%;
+    }
+  }
+
+  .life__text {
+    &:first-child {
+      padding-right: clamp(2rem, 5vw, 6.5rem);
+      @include b.mq(md) {
+        padding-right: 0;
+      }
+    }
+    &:last-child {
+      padding-left: clamp(2rem, 5vw, 6.5rem);
+      @include b.mq(md) {
+        padding-left: 0;
+        margin-top: 6rem;
+      }
     }
   }
 
@@ -110,7 +110,6 @@ const { exhibitions, labels, page, photography, videos } = Astro.props as {
   }
 
   .video-section {
-    position: relative;
     height: 100vh;
     width: 100vw;
     overflow: hidden;
@@ -119,12 +118,6 @@ const { exhibitions, labels, page, photography, videos } = Astro.props as {
   .video-wrapper {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-  }
-
-  .video-embed {
-    width: 100%;
-    height: 100vh;
     object-fit: cover;
   }
 </style>

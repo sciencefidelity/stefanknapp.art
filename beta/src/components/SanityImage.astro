@@ -3,8 +3,8 @@ import { urlFor } from "lib/utils"
 import { Photography } from "lib/interfaces"
 
 const { image } = Astro.props as { image: Photography }
-const x = (image.image.hotspot.x * 100).toFixed(2)
-const y = (image.image.hotspot.y * 100).toFixed(2)
+const x = `${(image.image.hotspot.x * 100).toFixed(2)}%`
+const y = `${(image.image.hotspot.y * 100).toFixed(2)}%`
 ---
 
 <div class="image-container relative">
@@ -16,7 +16,7 @@ const y = (image.image.hotspot.y * 100).toFixed(2)
       .url()}
     alt={image.title}
     class="image relative"
-    style={`object-position: ${x}% ${y}%;`}
+    style={`object-position: ${x} ${y};`}
     decoding="async"
     loading="lazy"
     width={image.dimensions.width}
@@ -32,7 +32,7 @@ const y = (image.image.hotspot.y * 100).toFixed(2)
   }
 
   .image {
-    // object-position: 50% 50%;
+    object-position: 50% 50%;
     object-fit: cover;
     height: 100%;
     width: 100%;
