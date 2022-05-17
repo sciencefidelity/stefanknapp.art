@@ -1,0 +1,48 @@
+---
+import { Label, NavItem, Page } from "lib/interfaces"
+
+const { labels, languages, locales, navItems, page } = Astro.props as {
+  labels: Label[]
+  languages: string[]
+  locales: string[]
+  navItems: NavItem[]
+  page: Page
+}
+const pathname = Astro.canonicalURL.pathname.match(/\/([^\/]+)[\/]?$/)[0]
+---
+
+<header class="header w-full absolute">
+  <nav>
+    <div class="icon relative">
+      <button class="icon__btn" onclick="toggleMenu()">
+        <span class="sr-only absolute">{labels[1].text}</span>
+        <div id="menu-button" class="icon__lines relative"></div>
+      </button>
+    </div>
+    <div id="menu-container" class="nav nav__inactive" onclick="toggleMenu()">
+      <ul class="nav__list">
+        {navItems.map(item =>
+          <li class="nav__item">
+            <a
+              href={`/${locales[0] && locales[0] + "/"}${item.url}`}
+              class={`nav__link
+                ${pathname === '/' + item.url + '/' ? 'active--exact' : null}
+              `}
+              aria-current={pathname === '/' + item.url + '/' ? 'page' : false}
+            >
+              {item.label.toUpperCase()}
+            </a>
+          </li>
+        )}
+        <li class="nav__item nav__item--padded">
+          <a
+            href={`/${locales[1] && locales[1] + "/"}${page.i18nSlug}`}
+            class="nav__link nav__link--small"
+          >
+            {languages[1].toUpperCase()}
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>

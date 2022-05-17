@@ -1,0 +1,191 @@
+---
+import { urlFor } from "lib/utils"
+import { Artwork } from "lib/interfaces"
+
+const { artworks } = Astro.props as { artworks: Artwork[] }
+---
+
+<section class="art relative grid">
+  <div class="gallery">
+    <nav class="buttons absolute">
+      <div class="buttons__container flex">
+        <button class="btn btn--prev" onclick="prevArtwork()">
+          <svg width="100%" height="100%" viewBox="0 0 29 52"><path d="M0.008,25.996l26.004,26.004l2.599,-2.6l-23.405,-23.404l23.405,-23.405l-2.599,-2.599l-26.004,26.004Z"/></svg>
+        </button>
+        <button class="btn btn--next" onclick="nextArtwork()">
+          <svg width="100%" height="100%" viewBox="0 0 29 52"><path d="M28.611,25.996l-26.004,26.004l-2.599,-2.6l23.404,-23.404l-23.404,-23.405l2.599,-2.599l26.004,26.004Z"/></svg>
+        </button>
+      </div>
+    </nav>
+    {artworks.map(artwork =>
+      <div id="artwork" class="artwork">
+        <div class="artwork__container relative grid">
+          <img
+            alt={`${artwork.title} (${artwork.date})`}
+            src={
+              urlFor(artwork.image)
+                .quality(85)
+                .width(1200)
+                .url()}
+            class="artwork__img"
+            decoding="async"
+            loading="lazy"
+            width={artwork.dimensions.width}
+            height={artwork.dimensions.height}
+          />
+        </div>
+        <p class="artwork__caption absolute">
+          {artwork.title} {artwork.date}<br />{artwork.medium.toLowerCase()}
+        </p>
+      </div>
+    )}
+  </div>
+</section>
+<script is:inline>
+  const artworks = document.getElementsByClassName("artwork")
+  const images = document.getElementsByClassName("artwork__img")
+  const randomNumber = Math.floor(Math.random() * artworks.length)
+  let currentArtwork = randomNumber
+  images[currentArtwork].setAttribute("loading", "eager")
+  showArtwork(currentArtwork)
+  function showArtwork(currentArtwork) {
+    for (i = 0; i < artworks.length; i++) {
+      artworks[i].style.display = "none"
+    }
+    artworks[currentArtwork].style.display = "block"
+  }
+  function prevArtwork() {
+    currentArtwork -= 1
+    if (currentArtwork < 0) currentArtwork = artworks.length - 1
+    showArtwork(currentArtwork)
+  }
+  function nextArtwork() {
+    currentArtwork += 1
+    if (currentArtwork >= artworks.length) currentArtwork = 0
+    showArtwork(currentArtwork)
+  }
+  document.onkeydown = e => {
+    switch(e.key){
+      case 'ArrowLeft': prevArtwork()
+      break
+      case 'ArrowRight': nextArtwork()
+      break
+    }
+  }
+</script>
+
+<style lang="scss" scoped>
+  @use '../styles/base/breakpoints' as b;
+  @use '../styles/base/colors' as c;
+
+  .art {
+    place-content: center;
+    background: c.$grey-000;
+    height: calc(100vh - 45.2px);
+  }
+
+  .gallery {
+    font-size: 1rem;
+  }
+
+  .buttons {
+    inset: 0;
+  }
+
+  .buttons__container {
+    width: 85%;
+    max-width: 1350px;
+    margin-inline: auto;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+    @include b.mq(sm) {
+      width: 95%;
+    }
+  }
+
+  .btn {
+    background: transparent;
+    z-index: 5;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+    height: 52px;
+    width: 29px;
+    svg {
+      fill: c.$grey-850;
+      @include b.mq(sm) {
+        width: 75%;
+      }
+    }
+    @include b.mq(sm) {
+      opacity: 1;
+      background: rgba(c.$grey-000, 0.9);
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+      padding-block: 11px;
+    }
+    &:hover,
+    &:focus {
+      opacity: 1;
+      transition: opacity 0.3s ease;
+      @include b.mq(sm) {
+        opacity: 1;
+      }
+    }
+  }
+
+  .btn--next {
+    right: 0;
+    padding-left: 9px;
+  }
+
+  .btn--prev {
+    left: 0;
+    padding-left: 6px;
+  }
+
+  .artwork {
+    font-size: 0.8vw;
+    background: white;
+    margin: auto;
+    z-index: 7;
+    height: calc(100vh - 11.9rem);
+    width: 100%;
+    object-fit: contain;
+    @include b.mq(sm) {
+      height: 100%;
+    }
+  }
+
+  .artwork__container {
+    justify-content: center;
+    object-fit: contain;
+  }
+
+  .artwork__img {
+    height: calc(100vh - 19.9rem);
+    object-fit: contain;
+    max-width: 70%;
+    margin: auto;
+    @include b.mq(sm) {
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+
+  .artwork__caption {
+    margin: 1rem 0 0 0;
+    font-size: 1.7rem;
+    text-align: right;
+    right: max(calc((100vw - 100rem) / 2), 6%);
+    z-index: 7;
+    @include b.mq(sm) {
+      width: 100%;
+      font-size: 1.5rem;
+      right: 6%;
+      bottom: 1rem;
+    }
+  }
+</style>

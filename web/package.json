@@ -1,32 +1,44 @@
 {
-  "name": "stefanknapp-web",
-  "description": "The art, life and estate of Polish enamelist Stefan Knapp",
+  "name": "@example/basics",
+  "version": "0.0.1",
   "private": true,
-  "version": "0.1.0",
-  "author": "Matt Cook <matt@sciencefidelity.co.uk>",
-  "license": "UNLICENSED",
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:sciencefidelity/stefanknapp.git"
-  },
-  "homepage": "https://stefanknapp.art",
-  "keywords": [
-    "gridsome",
-    "vue"
-  ],
   "scripts": {
-    "dev": "gridsome develop",
-    "explore": "gridsome explore",
-    "build": "gridsome build"
-  },
-  "dependencies": {
-    "gridsome-plugin-i18n": "^1.6.0",
-    "gridsome-source-sanity": "^1.2.0",
-    "sanity-blocks-vue-component": "^1.0.1",
-    "v-lazy-image": "^2.1.1"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "lint": "concurrently 'yarn:lint:*'",
+    "lint:styles": "stylelint '**/*.{astro,scss}' --ignore-path .eslintignore",
+    "fix": "concurrently 'yarn:fix:*'",
+    "fix:styles": "stylelint --fix '**/*.{astro,scss}' --ignore-path .eslintignore"
   },
   "devDependencies": {
-    "sass": "^1.49.9",
-    "sass-loader": "^12.6.0"
+    "@portabletext/to-html": "^1.0.3",
+    "@sanity/client": "^3.3.0",
+    "@sanity/image-url": "^1.0.1",
+    "@types/vhtml": "^2.2.4",
+    "astro": "^1.0.0-beta.20",
+    "astro-control": "^0.0.1",
+    "groq": "^2.29.3",
+    "htm": "^3.1.1",
+    "postcss": "^8.4.13",
+    "postcss-html": "^1.4.1",
+    "postcss-scss": "^4.0.4",
+    "prettier": "^2.6.2",
+    "sass": "^1.51.0",
+    "stylelint": "^14.8.2",
+    "stylelint-config-html": "^1.0.0",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-recess-order": "^3.0.0",
+    "stylelint-config-recommended-scss": "^6.0.0",
+    "stylelint-config-sass-guidelines": "^9.0.1",
+    "stylelint-config-standard": "^25.0.0",
+    "stylelint-order": "^5.0.0",
+    "stylelint-scss": "^4.2.0",
+    "stylelint-selector-bem-pattern": "^2.1.1",
+    "vhtml": "^2.2.0"
+  },
+  "dependencies": {
+    "modern-normalize": "^1.1.0"
   }
 }

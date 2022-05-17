@@ -1,0 +1,28 @@
+---
+import { Label, Settings } from "lib/interfaces"
+
+const { i18nSlug, labels, languages, locales, settings } = Astro.props as {
+  i18nSlug: string
+  labels: Label[]
+  languages: string[]
+  locales: string[]
+  settings: Settings
+}
+const year = new Date().getFullYear()
+---
+
+<footer class="footer flex relative">
+  <div class="footer__container">
+    <div class="footer__links">
+      <div class="footer__link">
+        <a href={`/${locales[1] && locales[1] + "/"}${i18nSlug}`}>
+          {languages[1]}
+        </a>
+      </div>
+      <div class="footer__link">
+        <a href={`/${locales[0]}`}>{labels[2].text}</a>
+      </div>
+    </div>
+    <div class="footer__copy">&copy; {year} {settings.title}</div>
+  </div>
+</footer>

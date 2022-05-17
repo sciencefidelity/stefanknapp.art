@@ -1,0 +1,12 @@
+@use 'colors' as c;
+@use 'typography' as t;
+
+html {
+  font-size: 62.5%;
+  // -webkit-font-smoothing: antialiased;
+  // -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: t.$sans;
+}

@@ -1,0 +1,78 @@
+---
+import { urlFor } from "lib/utils"
+import { Page, Settings } from "lib/interfaces"
+const { locales, page, settings } = Astro.props as {
+  locales?: string[]
+  page?: Page
+  settings: Settings
+}
+
+const slug = `${locales[0] ? "/" + locales[0] : ""}${page ? "/" + page.slug : ""}`
+---
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+
+<title>{page?.title && page.title + " | "}{settings.title}</title>
+<meta name="description" content={
+  page?.meta?.description ? page.meta.description : settings.description
+}>
+
+<link
+  rel="preload"
+  href="/fonts/futurapt-bold.woff2"
+  as="font"
+  crossorigin
+/>
+<link
+  rel="preload"
+  href="/fonts/futurapt-book.woff2"
+  as="font"
+  crossorigin
+/>
+<link
+  rel="preload"
+  href="/fonts/futurapt-demi.woff2"
+  as="font"
+  crossorigin
+/>
+
+<meta property="og:title" content={
+  page?.facebook?.title ? page.facebook.title : settings.ogTitle
+}>
+<meta property="og:description" content={
+  page?.facebook?.description ? page.facebook.description : settings.ogDescription
+}>
+<meta property="og:url" content={`https://stefanknapp.art${slug}`}>
+<meta property="og:image" content={
+  urlFor(page?.facebook?.image ? page.facebook.image : settings.ogImage)
+    .auto("format")
+    .width(1200)
+    .height(630)
+    .quality(100)
+    .url()
+}>
+<meta property="og:site_name" content={settings.title}>
+<meta property="og:locale" content="en_GB">
+<meta property="og:type" content="article">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content={
+  page?.twitter?.title ? page.twitter.title : settings.ogTitle
+}>
+<meta name="twitter:description" content={
+  page?.twitter?.description ? page.twitter.description : settings.ogDescription
+}>
+<meta name="twitter:site" content="@sciencefidelity">
+<meta name="twitter:image" content={
+  urlFor(page?.twitter?.image ? page.twitter.image : settings.ogImage)
+    .auto("format")
+    .width(1200)
+    .height(630)
+    .quality(100)
+    .url()
+}>
+<meta name="twitter:creator" content="@sciencefidelity">
+
+<link rel="icon" type="image/svg" href="/favicon.svg" />
+<link rel="mask-icon" href="/mask-icon.svg" color="#E1DDD0" />

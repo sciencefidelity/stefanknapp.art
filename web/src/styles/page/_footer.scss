@@ -1,0 +1,37 @@
+@use '../base/colors' as c;
+@use '../base/breakpoints' as b;
+
+.footer {
+  background: c.$grey-000;
+  z-index: 2;
+  align-self: end;
+}
+
+.footer__container {
+  width: min(100rem, 88%);
+  margin: auto;
+  text-align: right;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.footer__links {
+  display: flex;
+  gap: 2rem;
+}
+
+.footer__link,
+.footer__copy {
+  font-size: 1.8rem;
+  padding: 1rem 0.7rem 1rem 0;
+  @include b.mq(sm) {
+    padding: 0.7rem 0.7rem 1.3rem 0;
+  }
+}
+
+.footer__link:last-child {
+  @include b.mq(sm) {
+    display: none;
+  }
+}

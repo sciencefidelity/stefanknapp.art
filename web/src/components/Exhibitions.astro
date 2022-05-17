@@ -1,0 +1,34 @@
+---
+import { Exhibition, Label } from "lib/interfaces"
+
+const { exhibitions, labels } = Astro.props as {
+  exhibitions: Exhibition[]
+  labels: Label[]
+}
+---
+
+<div>
+  <h3>{labels[3].text}</h3>
+  <ul>
+    {exhibitions.map(exhibition =>
+      <li class="exhibitions--list">
+        <div>{exhibition.year}</div>
+        <div>{exhibition.gallery}, {exhibition.location} (solo)</div>
+      </li>
+    )}
+  </ul>
+</div>
+
+<style lang="scss">
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.exhibitions--list {
+  display: flex;
+  div:first-child {
+    padding-right: 2rem;
+  }
+}
+</style>

@@ -1,0 +1,135 @@
+---
+import { toHTML } from "@portabletext/to-html"
+import Exhibitions from "components/Exhibitions.astro"
+import SanityImage from "components/SanityImage.astro"
+import VideoEmbed from "components/VideoEmbed.astro"
+import { Exhibition, Label, Page, Photography, Video } from "lib/interfaces"
+
+const { exhibitions, labels, page, photography, videos } = Astro.props as {
+  exhibitions: Exhibition[]
+  labels: Label[]
+  page: Page
+  photography: Photography[]
+  videos: Video[]
+}
+---
+
+<section class="life relative flex">
+  <div class="life__container grid">
+    <div class="life__image">
+      <SanityImage image={photography[0]} lazy={false} />
+    </div>
+    <div class="life__text" set:html={toHTML(page.body.slice(0, 3))} />
+  </div>
+  <div class="life__container grid">
+    <div class="life__text" set:html={toHTML(page.body.slice(3))} />
+    <div class="life__image hide">
+      <SanityImage image={photography[1]} lazy={true} />
+    </div>
+  </div>
+  <div class="life__container full grid">
+    <Exhibitions exhibitions={exhibitions} labels={labels} />
+  </div>
+</section>
+<section class="video-section relative">
+  <div class="video-wrapper">
+    <VideoEmbed videos={videos} />
+  </div>
+</section>
+<script is:inline define:vars={{ videos }}>
+  const video = document.querySelector("#video")
+  const randomNumber = Math.floor(Math.random() * videos.length)
+  const sourceMp4 = document.createElement("source")
+  const sourceWebm = document.createElement("source")
+  sourceMp4.setAttribute("src", videos[randomNumber].mp4)
+  sourceMp4.setAttribute("type", "video/mp4")
+  video.appendChild(sourceMp4)
+  sourceWebm.setAttribute("src", videos[randomNumber].webm)
+  sourceWebm.setAttribute("type", "video/webm")
+  video.appendChild(sourceWebm)
+</script>
+
+<style lang="scss">
+  @use '../styles/base/colors' as c;
+  @use '../styles/base/breakpoints' as b;
+
+  .life {
+    flex-direction: column;
+    gap: clamp(3rem, 3.5vw, 5rem);
+    place-items: center;
+    padding-block: clamp(10rem, 14vw, 16rem) 9rem;
+    background: c.$grey-000;
+    z-index: 0;
+    @include b.mq(md) {
+      height: unset;
+      padding-block: 12rem 7rem;
+      gap: 0;
+    }
+    @include b.mq(sm) {
+      padding-block: 10rem 15rem;
+    }
+  }
+
+  .life__container {
+    width: min(100rem, 88%);
+    margin: auto;
+    grid-template-columns: 1.5fr 1fr;
+    &:first-child {
+      grid-template-columns: 1fr 1.5fr;
+      @include b.mq(md) {
+        grid-template-columns: 1fr;
+      }
+    }
+    @include b.mq(md) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .life__image {
+    @include b.mq(md) {
+      width: 75%;
+      margin: auto;
+    }
+    @include b.mq(sm) {
+      width: 100%;
+    }
+  }
+
+  .life__text {
+    &:first-child {
+      padding-right: clamp(2rem, 5vw, 6.5rem);
+      @include b.mq(md) {
+        padding-right: 0;
+      }
+    }
+    &:last-child {
+      padding-left: clamp(2rem, 5vw, 6.5rem);
+      @include b.mq(md) {
+        padding-left: 0;
+        margin-top: 6rem;
+      }
+    }
+  }
+
+  .hide {
+    @include b.mq(md) {
+      display: none;
+    }
+  }
+
+  .full {
+    grid-template-columns: 1fr;
+  }
+
+  .video-section {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+  }
+
+  .video-wrapper {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+</style>

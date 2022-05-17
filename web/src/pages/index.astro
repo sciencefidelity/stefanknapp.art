@@ -1,0 +1,38 @@
+---
+import sanityClient from "lib/sanityClient"
+import Home from "components/Home.astro"
+import { indexQuery } from "lib/queries"
+import { LabelGroup, Navigation, LocaleSettings } from "lib/interfaces"
+
+const response = await sanityClient.fetch(indexQuery)
+const data: {
+  labels: LabelGroup
+  navigation: Navigation
+  settings: LocaleSettings
+} = await response
+const { labels, navigation, settings } = data
+const languages = ["English", "Polski"]
+const locales = ["", "pl"]
+---
+
+<html lang="en" class="background">
+  <Home
+    labels={labels.en}
+    languages={languages}
+    locales={locales}
+    navigation={navigation.en}
+    settings={settings.en}
+  />
+</html>
+
+<style lang="scss">
+@use '../styles/base/colors' as c;
+
+::selection {
+  background: rgba(c.$sepia-150, 0.3);
+}
+
+.background {
+  background: c.$grey-950;
+}
+</style>

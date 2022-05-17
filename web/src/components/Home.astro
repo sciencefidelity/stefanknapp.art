@@ -1,0 +1,66 @@
+---
+import "modern-normalize"
+import "styles/global.scss"
+import "styles/index.scss"
+import BaseHead from "components/BaseHead.astro"
+import FrontNav from "components/FrontNav.astro"
+import { Label, NavItem, Settings } from "lib/interfaces"
+
+const { labels, languages, locales, navigation, settings } = Astro.props as {
+  labels: Label[]
+  languages: string[]
+  locales: string[]
+  navigation: NavItem[]
+  settings: Settings
+}
+const artist = "Knapp"
+const year = new Date().getFullYear()
+---
+
+<head>
+  <BaseHead locales={locales} settings={settings} />
+</head>
+<body class="grid body relative">
+  <main class="container main relative w-full">
+    <div class="flex">
+      <div class="logo relative w-full">
+        <div class="circle relative w-full">
+          <div class="title">
+            <h1 class="h1">{artist.toUpperCase()}</h1>
+          </div>
+        </div>
+      </div>
+      <FrontNav
+        labels={labels}
+        navItems={navigation}
+        title={settings.title}
+        locales={locales}
+      />
+    </div>
+  </main>
+
+  <footer class="footer flex w-full">
+    <nav class="lang">
+      <a href={`/${locales[1]}`} class="outline">{languages[1].toUpperCase()}</a>
+    </nav>
+    <div class="copy">&copy; {year} {settings.title}</div>
+  </footer>
+  <script is:inline>
+    let showMenu = false
+    const menu = document.querySelector("#menu-button")
+    const nav = document.querySelector("#menu-container")
+    const toggleMenu = () => {
+      if (!showMenu) {
+        menu.classList.add("hamburger__icon--active")
+        nav.classList.remove("nav__inactive")
+        nav.classList.add("nav__active")
+        showMenu = true
+      } else {
+        menu.classList.remove("hamburger__icon--active")
+        nav.classList.remove("nav__active")
+        nav.classList.add("nav__inactive")
+        showMenu = false
+      }
+    }
+  </script>
+</body>

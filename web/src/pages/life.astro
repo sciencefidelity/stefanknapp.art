@@ -1,0 +1,55 @@
+---
+import sanityClient from "lib/sanityClient"
+import Default from "layouts/Default.astro"
+import Life from "components/Life.astro"
+import { lifeQuery } from "lib/queries"
+import {
+  LabelGroup,
+  Navigation,
+  LocaleExhibitions,
+  LocalePage,
+  LocalePhotography,
+  LocaleSettings,
+  LocaleVideos
+} from "lib/interfaces"
+
+const response = await sanityClient.fetch(lifeQuery)
+const data: {
+  exhibitions: LocaleExhibitions
+  labels: LabelGroup
+  navigation: Navigation
+  settings: LocaleSettings
+  page: LocalePage
+  photography: LocalePhotography
+  videos: LocaleVideos
+} = await response
+const {
+  exhibitions,
+  labels,
+  navigation,
+  settings,
+  page,
+  photography,
+  videos
+} = data
+const languages = ["English", "Polski"]
+const locales = ["", "pl"]
+---
+
+<Default
+  labels={labels.en}
+  languages={languages}
+  locales={locales}
+  navigation={navigation.en}
+  page={page.en}
+  settings={settings.en}
+>
+  <Life
+    exhibitions={exhibitions.en}
+    labels={labels.en}
+    page={page.en}
+    photography={photography.en}
+    settings={settings.en}
+    videos={videos.en}
+  />
+</Default>

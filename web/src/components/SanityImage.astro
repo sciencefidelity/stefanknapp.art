@@ -1,0 +1,41 @@
+---
+import { urlFor } from "lib/utils"
+import { Photography } from "lib/interfaces"
+
+const { image, lazy } = Astro.props as { image: Photography }
+const x = `${(image.image.hotspot.x * 100).toFixed(2)}%`
+const y = `${(image.image.hotspot.y * 100).toFixed(2)}%`
+const loading = lazy ? "lazy" : "eager"
+---
+
+<div class="image-container relative">
+  <img
+    src={urlFor(image.image)
+      .auto("format")
+      .quality(85)
+      .width(800)
+      .url()}
+    alt={image.title}
+    class="image relative"
+    style={`object-position: ${x} ${y};`}
+    decoding="async"
+    loading={loading}
+    width={image.dimensions.width}
+    height={image.dimensions.height}
+  />
+</div>
+
+<style lang="scss">
+  .image-container {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .image {
+    object-position: 50% 50%;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
+</style>
