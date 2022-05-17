@@ -50,8 +50,7 @@ const { artworks } = Astro.props as { artworks: Artwork[] }
 </section>
 <script is:inline>
   const artworks = document.getElementsByClassName("artwork")
-  // const randomNumber = Math.floor(Math.random() * artworks.length)
-  const randomNumber = 2
+  const randomNumber = Math.floor(Math.random() * artworks.length)
   let currentArtwork = randomNumber
   showArtwork(currentArtwork)
   function showArtwork(currentArtwork) {
