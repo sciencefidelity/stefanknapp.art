@@ -1678,18 +1678,18 @@
   dependencies:
     diff-match-patch "^1.0.4"
 
-"@sanity/document-internationalization@^0.1.7":
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/@sanity/document-internationalization/-/document-internationalization-0.1.7.tgz#26520eb44134e9c730dd3b6b020040655ec8369f"
-  integrity sha512-jmeM1KiArujl6hK8ySgRyfTEi/bxZZ8EtcFybYt4r+Z7184UXmo1G3F5V1dzMTPFPx1sVgJva0X6Phf8U2rJIw==
+"@sanity/document-internationalization@^0.3.1":
+  version "0.3.1"
+  resolved "https://registry.npmjs.org/@sanity/document-internationalization/-/document-internationalization-0.3.1.tgz#2cf832cf33cc4d5b6d34d1da59baccf9eee56b68"
+  integrity sha512-7+NJ3QL/1RXAdvmfDGPTuHJl7R9mR8wxrw3oriWR+mmTkdhoHL5a8fPNKcmjXCrJVJPtkYMeZTOD8wE7KKTzGA==
   dependencies:
     "@babel/runtime" "^7.12.5"
     "@cprecioso/country-flag-emoji" "^1.0.0"
+    country-flag-emoji-polyfill "^0.1.1"
     just-omit "^2.0.1"
     just-safe-get "^4.0.1"
     just-split "^3.0.1"
     pinst "^2.1.6"
-    react-easy-emoji "^1.6.1"
     regenerator-runtime "^0.13.7"
 
 "@sanity/eslint-config-studio@^2.0.0":
@@ -1861,6 +1861,17 @@
     "@types/lodash" "^4.14.149"
     lodash "^4.17.15"
     oneline "^1.0.3"
+
+"@sanity/language-filter@^2.29.8":
+  version "2.29.8"
+  resolved "https://registry.npmjs.org/@sanity/language-filter/-/language-filter-2.29.8.tgz#0b1267d1916336f4a2f38104d29e408462751f03"
+  integrity sha512-dKWVxNA4GA33YsA7zl56xSXycfxYQeBbRl8sXJEN0sX80U0uMRafEZSRCaAq8N1ZsJ3IGintMRyaoRn66TDmvQ==
+  dependencies:
+    "@sanity/icons" "^1.2.6"
+    "@sanity/types" "2.29.5"
+    "@sanity/ui" "^0.37.9"
+    lodash "^4.17.15"
+    rxjs "^6.5.3"
 
 "@sanity/logos@^1.1.9":
   version "1.1.10"
@@ -3707,6 +3718,13 @@ cosmiconfig@^5.0.0:
     is-directory "^0.3.1"
     js-yaml "^3.13.1"
     parse-json "^4.0.0"
+
+country-flag-emoji-polyfill@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.npmjs.org/country-flag-emoji-polyfill/-/country-flag-emoji-polyfill-0.1.1.tgz#1fab7b364c2631f7e7949fbd98659552f401596e"
+  integrity sha512-H4iB8BAnlcLxE9mxVXm9vY28zKtqjEYRCO+vz1x4u6IsmomHQd/EQfR/Py0YmxeVYkBAOUPJBcY3KJPd+BQe6Q==
+  dependencies:
+    is-emoji-supported "^0.0.5"
 
 crc-32@^1.2.0:
   version "1.2.1"
@@ -6156,6 +6174,11 @@ is-directory@^0.3.1:
   version "0.3.1"
   resolved "https://registry.npmjs.org/is-directory/-/is-directory-0.3.1.tgz#61339b6f2475fc772fd9c9d83f5c8575dc154ae1"
   integrity sha1-YTObbyR1/Hcv2cnYP1yFddwVSuE=
+
+is-emoji-supported@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.npmjs.org/is-emoji-supported/-/is-emoji-supported-0.0.5.tgz#f22301b22c63d6322935e829f39dfa59d03a7fe2"
+  integrity sha512-WOlXUhDDHxYqcSmFZis+xWhhqXiK2SU0iYiqmth5Ip0FHLZQAt9rKL5ahnilE8/86WH8tZ3bmNNNC+bTzamqlw==
 
 is-extendable@^0.1.0, is-extendable@^0.1.1:
   version "0.1.1"
@@ -8949,13 +8972,6 @@ react-dom@^17.0.2:
     object-assign "^4.1.1"
     scheduler "^0.20.2"
 
-react-easy-emoji@^1.6.1:
-  version "1.6.1"
-  resolved "https://registry.yarnpkg.com/react-easy-emoji/-/react-easy-emoji-1.6.1.tgz#72a3b6ef1e327d937a865c3795d400d0a178b706"
-  integrity sha512-VCGm1tAAdOCNVh6j+M1KoWZn4FIXcqdnf0rXINo0Sgo7eF2sat/JhITKFl8PmbpfIYqYLOobpFDVpst4ddJUlw==
-  dependencies:
-    string-replace-to-array "^2.1.0"
-
 react-fast-compare@^3.0.1, react-fast-compare@^3.2.0:
   version "3.2.0"
   resolved "https://registry.npmjs.org/react-fast-compare/-/react-fast-compare-3.2.0.tgz#641a9da81b6a6320f270e89724fb45a0b39e43bb"
@@ -10100,11 +10116,6 @@ strict-uri-encode@^1.0.0:
   version "1.1.0"
   resolved "https://registry.npmjs.org/strict-uri-encode/-/strict-uri-encode-1.1.0.tgz#279b225df1d582b1f54e65addd4352e18faa0713"
   integrity sha1-J5siXfHVgrH1TmWt3UNS4Y+qBxM=
-
-string-replace-to-array@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/string-replace-to-array/-/string-replace-to-array-2.1.0.tgz#44571dbd33a3e23de31db948b5b84f1b7913fb39"
-  integrity sha512-xG2w4fE5FsTXS4AFxoF3uctByqTIFBX8lFRNcPcIznTVCMXbYvbatkPVLpAo13tfuWtzbWEV6u5bjoE9bOv87w==
 
 string-width@^1.0.1:
   version "1.0.2"
