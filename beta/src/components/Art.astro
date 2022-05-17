@@ -25,7 +25,7 @@ const { artworks } = Astro.props as { artworks: Artwork[] }
       </div>
       {artworks.map(artwork =>
         <div id="artwork" class="artwork">
-          <div class="artwork__container relative grid" width="" height="" data-src>
+          <div class="artwork__container relative grid">
             <img
               alt={`${artwork.title} (${artwork.date})`}
               src={
@@ -50,8 +50,10 @@ const { artworks } = Astro.props as { artworks: Artwork[] }
 </section>
 <script is:inline>
   const artworks = document.getElementsByClassName("artwork")
+  const images = document.getElementsByClassName("artwork__img")
   const randomNumber = Math.floor(Math.random() * artworks.length)
   let currentArtwork = randomNumber
+  images[currentArtwork].setAttribute("loading", "eager")
   showArtwork(currentArtwork)
   function showArtwork(currentArtwork) {
     for (i = 0; i < artworks.length; i++) {
