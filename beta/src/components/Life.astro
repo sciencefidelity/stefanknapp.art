@@ -36,6 +36,18 @@ const { exhibitions, labels, page, photography, videos } = Astro.props as {
     <VideoEmbed videos={videos} />
   </div>
 </section>
+<script is:inline define:vars={{ videos }}>
+  const video = document.querySelector("#video")
+  const randomNumber = Math.floor(Math.random() * videos.length)
+  const sourceMp4 = document.createElement("source")
+  const sourceWebm = document.createElement("source")
+  sourceMp4.setAttribute("src", videos[randomNumber].mp4)
+  sourceMp4.setAttribute("type", "video/mp4")
+  video.appendChild(sourceMp4)
+  sourceWebm.setAttribute("src", videos[randomNumber].webm)
+  sourceWebm.setAttribute("type", "video/webm")
+  video.appendChild(sourceWebm)
+</script>
 
 <style lang="scss">
   @use '../styles/base/colors' as c;

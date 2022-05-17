@@ -45,7 +45,7 @@ const year = new Date().getFullYear()
     </nav>
     <div class="copy">&copy; {year} {settings.title}</div>
   </footer>
-  <script>
+  <script is:inline>
     let showMenu = false
     const menu = document.querySelector("#menu-button")
     const nav = document.querySelector("#menu-container")
