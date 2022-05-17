@@ -54,16 +54,16 @@ const { exhibitions, labels, page, photography, videos } = Astro.props as {
   @use '../styles/base/breakpoints' as b;
 
   .life {
+    z-index: 0;
     flex-direction: column;
     gap: clamp(3rem, 3.5vw, 5rem);
     place-items: center;
     padding-block: clamp(10rem, 14vw, 16rem) 9rem;
     background: c.$grey-000;
-    z-index: 0;
     @include b.mq(md) {
+      gap: 0;
       height: unset;
       padding-block: 12rem 7rem;
-      gap: 0;
     }
     @include b.mq(sm) {
       padding-block: 10rem 15rem;
@@ -71,17 +71,17 @@ const { exhibitions, labels, page, photography, videos } = Astro.props as {
   }
 
   .life__container {
+    grid-template-columns: 1.5fr 1fr;
     width: min(100rem, 88%);
     margin: auto;
-    grid-template-columns: 1.5fr 1fr;
+    @include b.mq(md) {
+      grid-template-columns: 1fr;
+    }
     &:first-child {
       grid-template-columns: 1fr 1.5fr;
       @include b.mq(md) {
         grid-template-columns: 1fr;
       }
-    }
-    @include b.mq(md) {
-      grid-template-columns: 1fr;
     }
   }
 
@@ -122,8 +122,8 @@ const { exhibitions, labels, page, photography, videos } = Astro.props as {
   }
 
   .video-section {
-    height: 100vh;
     width: 100vw;
+    height: 100vh;
     overflow: hidden;
   }
 

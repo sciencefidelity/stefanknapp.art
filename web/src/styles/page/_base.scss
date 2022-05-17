@@ -6,13 +6,9 @@
   background: rgba(c.$grey-100, 1);
 }
 
-body {
-  font-family: t.$sans;
-  color: c.$grey-600;
-}
-
 .body {
   min-height: 100vh;
+  color: c.$grey-600;
 }
 
 p,
@@ -46,10 +42,10 @@ h2 {
 }
 
 h3 {
-  color: c.$grey-600;
   margin: 3rem 0 2rem;
   font-size: 3rem;
   font-weight: 600;
+  color: c.$grey-600;
 }
 
 h4 {
@@ -63,7 +59,7 @@ a {
   text-decoration-thickness: 0.07em;
   text-decoration-color: rgba(c.$grey-850, 0);
   text-underline-offset: 0.08em;
-  transition: text-decoration-color 0.3s, color 0.3s;;
+  transition: text-decoration-color 0.3s, color 0.3s;
   &:hover {
     color: c.$grey-850;
     text-decoration-color: rgba(c.$grey-850, 1);

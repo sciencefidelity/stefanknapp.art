@@ -80,8 +80,8 @@ const { artworks } = Astro.props as { artworks: Artwork[] }
 
   .art {
     place-content: center;
-    background: c.$grey-000;
     height: calc(100vh - 45.2px);
+    background: c.$grey-000;
   }
 
   .gallery {
@@ -93,38 +93,38 @@ const { artworks } = Astro.props as { artworks: Artwork[] }
   }
 
   .buttons__container {
+    align-items: center;
+    justify-content: space-between;
     width: 85%;
     max-width: 1350px;
-    margin-inline: auto;
     height: 100%;
-    justify-content: space-between;
-    align-items: center;
+    margin-inline: auto;
     @include b.mq(sm) {
       width: 95%;
     }
   }
 
   .btn {
-    background: transparent;
     z-index: 5;
+    width: 29px;
+    height: 52px;
     cursor: pointer;
+    background: transparent;
     opacity: 0.5;
     transition: opacity 0.3s ease;
-    height: 52px;
-    width: 29px;
+    @include b.mq(sm) {
+      width: 40px;
+      height: 40px;
+      padding-block: 11px;
+      background: rgba(c.$grey-000, 0.9);
+      border-radius: 50%;
+      opacity: 1;
+    }
     svg {
       fill: c.$grey-850;
       @include b.mq(sm) {
         width: 75%;
       }
-    }
-    @include b.mq(sm) {
-      opacity: 1;
-      background: rgba(c.$grey-000, 0.9);
-      height: 40px;
-      width: 40px;
-      border-radius: 50%;
-      padding-block: 11px;
     }
     &:hover,
     &:focus {
@@ -147,12 +147,12 @@ const { artworks } = Astro.props as { artworks: Artwork[] }
   }
 
   .artwork {
-    font-size: 0.8vw;
-    background: white;
-    margin: auto;
     z-index: 7;
-    height: calc(100vh - 11.9rem);
     width: 100%;
+    height: calc(100vh - 11.9rem);
+    margin: auto;
+    font-size: 0.8vw;
+    background: c.$grey-000;
     object-fit: contain;
     @include b.mq(sm) {
       height: 100%;
@@ -165,27 +165,27 @@ const { artworks } = Astro.props as { artworks: Artwork[] }
   }
 
   .artwork__img {
-    height: calc(100vh - 19.9rem);
-    object-fit: contain;
     max-width: 70%;
+    height: calc(100vh - 19.9rem);
     margin: auto;
+    object-fit: contain;
     @include b.mq(sm) {
-      max-width: 100%;
       width: 100%;
+      max-width: 100%;
     }
   }
 
   .artwork__caption {
-    margin: 1rem 0 0 0;
-    font-size: 1.7rem;
-    text-align: right;
     right: max(calc((100vw - 100rem) / 2), 6%);
     z-index: 7;
+    margin: 1rem 0 0;
+    font-size: 1.7rem;
+    text-align: right;
     @include b.mq(sm) {
-      width: 100%;
-      font-size: 1.5rem;
       right: 6%;
       bottom: 1rem;
+      width: 100%;
+      font-size: 1.5rem;
     }
   }
 </style>
