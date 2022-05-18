@@ -34,12 +34,17 @@ const pathname = Astro.canonicalURL.pathname.match(/\/([^\/]+)[\/]?$/)[0]
             </a>
           </li>
         )}
-        <li class="nav__item nav__item--padded">
+        <li class="nav__item nav__item--padded nav__item--small">
           <a
             href={`/${locales[1] && locales[1] + "/"}${page.i18nSlug}`}
             class="nav__link nav__link--small"
           >
             {languages[1].toUpperCase()}
+          </a>
+        </li>
+        <li class="nav__item nav__item--small">
+          <a href={`/${locales[0]}`} class="nav__link nav__link--small">
+            {labels[2].text.toUpperCase()}
           </a>
         </li>
       </ul>
