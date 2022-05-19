@@ -3,9 +3,9 @@ import { Label, NavItem } from "lib/interfaces"
 
 const { labels, locales, navItems, title } = Astro.props as {
   labels: Label[]
+  locales: string[]
   navItems: NavItem[]
   title: string
-  locales: string[]
 }
 ---
 
@@ -30,9 +30,7 @@ const { labels, locales, navItems, title } = Astro.props as {
         )}
       </ul>
       <div class="nav__title-container flex">
-        <p class="nav__title">
-          {title.toUpperCase()}
-        </p>
+        <p class="nav__title">{title.toUpperCase()}</p>
       </div>
     </div>
   </div>

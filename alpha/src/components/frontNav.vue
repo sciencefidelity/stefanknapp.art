@@ -1,9 +1,8 @@
 <template>
-  <nav>
-    <pre>hello</pre>
+  <nav class="nav">
     <div class="nav nav--front">
-      <div class="hamburger" @click="toggleMenu()">
-        <span class="screen-reader-text">Main Menu</span>
+      <button class="hamburger outline" @click="toggleMenu()">
+        <span class="sr-only absolute">{{ labels[1].text }}</span>
         <div
           :class="[
             showMenu
@@ -11,15 +10,25 @@
               : 'hamburger__icon'
           ]"
         ></div>
-      </div>
+      </button>
       <div :class="[showMenu ? 'nav__active' : 'nav__inactive']">
-        <ul>
-          <li v-for="item in navigation" :key="item._id">
-            <a :href="item.slug">{{ item.title }}</a>
+        <ul class="nav__list flex">
+          <li
+            v-for="item in navigation"
+            :key="item._key"
+            class="relative ml-auto"
+          >
+            <a
+              :href="`/${locales[0] && locales[0] + '/'}${item.url}`"
+              :data-fill="item.label.toUpperCase()"
+              class="nav__link inline m-auto transparent no-underline"
+            >
+              {{ item.label.toUpperCase() }}
+            </a>
           </li>
         </ul>
-        <div class="nav__title-container">
-          <p class="nav__title">{{ settings.title.en }}</p>
+        <div class="nav__title-container flex">
+          <p class="nav__title">{{ settings?.title.toUpperCase() }}</p>
         </div>
       </div>
     </div>
@@ -28,10 +37,12 @@
 
 <script setup lang="ts">
 import { ref } from "vue"
-import { Navigation, Settings } from "@/lib/interfaces"
+import { Label, NavItem, Settings } from "@/lib/interfaces"
 
 defineProps<{
-  navigation?: Navigation[]
+  labels: Label[]
+  locales: string[]
+  navigation?: NavItem[]
   settings?: Settings
 }>()
 

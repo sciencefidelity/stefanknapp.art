@@ -103,11 +103,6 @@ export interface Image {
   hotspot?: SanityImageHotspot
 }
 
-interface LocaleString {
-  en: string
-  pl: string
-}
-
 interface MetaData {
   canonicalURL: string
   description: string
@@ -126,50 +121,117 @@ export interface Media {
   image: Image
 }
 
-export interface Artwork {
+export interface LocaleArtworks {
+  en: Artwork[]
+  pl: Artwork[]
+}
+
+export interface Artwork extends Media {
+  dimensions: Dimensions
   display: boolean
-  medium: LocaleString
+  medium: string
   title: string
+}
+
+export interface LocaleExhibitions {
+  en: Exhibition[]
+  pl: Exhibition[]
+}
+
+export interface Exhibition {
+  _key: string
+  gallery: string
+  location: string
+  solo: boolean
+  year: number
+}
+
+export interface LabelGroup {
+  en: Label[]
+  pl: Label[]
 }
 
 export interface Label {
   key: string
-  text: LocaleString
+  text: string
 }
 
 export interface Navigation {
+  en: NavItem
+  pl: NavItem
+}
+
+export interface NavItem {
   _key: string
-  label: LocaleString
-  url: LocaleString
+  label: string
+  url: string
+}
+
+export interface LocalePage {
+  en: Page
+  pl: Page
 }
 
 export interface Page extends SanityDocument {
-  __i18n_refs: Page
   body: PortableText
   facebook: SocialCard
+  i18nSlug: string
   meta: MetaData
   slug: string
   title: string
   twitter: SocialCard
 }
 
-export interface photography extends Media {
-  title: LocaleString
+export interface LocalePhotography {
+  en: Photography[]
+  pl: Photography[]
+}
+
+export interface Photography extends Media {
+  title: string
+  dimensions: Dimensions
+}
+
+export interface Dimensions {
+  height: number
+  width: number
+}
+
+export interface LocaleSettings {
+  en: Settings
+  pl: Settings
 }
 
 export interface Settings {
   contact: string
-  description: LocaleString
-  ogDescription: LocaleString
+  description: string
+  ogDescription: string
   ogImage: Image
-  ogTitle: LocaleString
-  title: LocaleString
+  ogTitle: string
+  title: string
 }
 
-export interface Videos extends Media {
+export interface LocaleVideos {
+  en: Video[]
+  pl: Video[]
+}
+
+export interface Video extends Media {
   mp4: string
-  title: LocaleString
+  title: string
   webm: string
 }
 
-
+export interface HeadProps {
+  description: string
+  ogDescription: string
+  ogImage: Image
+  ogSiteName?: string
+  ogTitle: string
+  ogURL: string
+  title: string
+  twitterCreator?: string
+  twitterDescription: string
+  twitterImage: Image
+  twitterTitle: string
+}

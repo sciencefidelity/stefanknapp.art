@@ -1,32 +1,19 @@
 <template>
-  <section id="site-main">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col logo">
-          <div class="circle">
-            <a href="/art">
-              <div class="title">
-                <h1>KNAPP</h1>
-              </div>
-            </a>
-          </div>
-        </div>
-        <FrontNav :navigation="data?.navigation" :settings="data?.settings"/>
-      </div>
-      <div class="row">
-        <div class="col">
-          <div class="spacer"></div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="front-copy">
-          <p>
-            &copy; {{ year }} {{ data?.settings?.title.en }}
-          </p>
+  <div class="flex">
+    <div class="logo relative w-full">
+      <div class="circle relative w-full">
+        <div class="title">
+          <h1 class="h1">{{ artist.toUpperCase() }}</h1>
         </div>
       </div>
     </div>
-  </section>
+    <FrontNav
+      :labels="data?.labels.en"
+      :nav-items="data?.navigation.en"
+      :title="data?.settings.en.title"
+      :locales="locales"
+    />
+  </div>
 </template>
 
 <script lang="ts">
@@ -39,15 +26,19 @@ import { useHead } from "@vueuse/head"
 import sanityClient from "@/lib/sanityClient"
 import { indexQuery } from "@/lib/queries"
 import FrontNav from "@/components/frontNav.vue"
-import { Navigation, Settings } from "@/lib/interfaces"
+import { LabelGroup, LocaleSettings, Navigation } from "@/lib/interfaces"
 
 interface Data {
+  labels: LabelGroup
   navigation: Navigation
-  settings: Settings
+  settings: LocaleSettings
 }
 
 const data = ref<Data | null>(null)
+const languages = ["English", "Polski"]
+const locales = ["", "pl"]
 const year = new Date().getFullYear()
+const artist = "Knapp"
 
 const fetch = async () => {
   const response = await sanityClient.fetch(indexQuery)
@@ -60,24 +51,28 @@ onServerPrefetch(async () => {
   await fetch()
 })
 
+const emit = defineEmits<{
+  (e: 'change', id: number): void
+  (e: 'update', value: string): void
+}>()
+
 useHead({
-  // title: computed(() => data?.value?.settings.title.en),
-  title: "The Estate of Stefan Knapp",
+  title: data?.value?.settings.en.title,
   meta: [
     {
       hid: "description",
       name: "description",
-      content: computed(() => data?.value?.settings.description.en)
+      content: computed(() => data?.value?.settings.en.description)
     },
     {
       hid: "og:title",
       name: "og:title",
-      content: computed(() => data?.value?.settings.ogTitle.en)
+      content: computed(() => data?.value?.settings.en.ogTitle)
     },
     {
       hid: "og:description",
       name: "og:description",
-      content: computed(() => data?.value?.settings.ogDescription.en)
+      content: computed(() => data?.value?.settings.en.ogDescription)
     },
     // {
     //   hid: "og:image",
@@ -98,12 +93,12 @@ useHead({
     {
       hid: "twitter:title",
       name: "twitter:title",
-      content: computed(() => data?.value?.settings.ogTitle.en)
+      content: computed(() => data?.value?.settings.en.ogTitle)
     },
     {
       hid: "twitter:description",
       name: "twitter:description",
-      content: computed(() => data?.value?.settings.ogDescription.en)
+      content: computed(() => data?.value?.settings.en.ogDescription)
     },
     // {
     //   hid: "twitter:image",
