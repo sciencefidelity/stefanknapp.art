@@ -157,8 +157,8 @@ export interface Label {
 }
 
 export interface Navigation {
-  en: NavItem
-  pl: NavItem
+  en: NavItem[]
+  pl: NavItem[]
 }
 
 export interface NavItem {

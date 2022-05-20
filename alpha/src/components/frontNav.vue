@@ -1,5 +1,5 @@
 <template>
-  <nav class="nav">{{ navigation && navigation[1] }}
+  <nav class="nav">
     <div class="nav nav--front">
       <button class="hamburger outline" @click="toggleMenu()">
         <span class="sr-only absolute">{{ labels && labels[1].text }}</span>
@@ -14,7 +14,7 @@
       <div :class="[showMenu ? 'nav__active' : 'nav__inactive']">
         <ul class="nav__list flex">
           <li
-            v-for="item in navigation"
+            v-for="item in nav"
             :key="item._key"
             class="relative ml-auto"
           >
@@ -28,7 +28,9 @@
           </li>
         </ul>
         <div class="nav__title-container flex">
-          <p class="nav__title">{{ settings?.title.toUpperCase() }}</p>
+          <p class="nav__title">
+            {{ site && site.toUpperCase() }}
+          </p>
         </div>
       </div>
     </div>
@@ -37,13 +39,13 @@
 
 <script setup lang="ts">
 import { ref } from "vue"
-import { NavItem, Settings } from "@/lib/interfaces"
+import { Label, NavItem } from "@/lib/interfaces"
 
 defineProps<{
-  labels: { key: string; text: string; } | undefined
+  labels: Label[] | undefined
   locales: string[]
-  navigation?: NavItem[]
-  settings?: Settings
+  nav: NavItem[] | undefined
+  site: string | undefined
 }>()
 
 const showMenu = ref(false)

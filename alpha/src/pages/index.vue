@@ -10,8 +10,8 @@
       </div>
       <FrontNav
         :labels="data?.labels.en"
-        :navigation="data?.navigation.en"
-        :title="data?.settings.en.title"
+        :nav="data?.navigation.en"
+        :site="data?.settings.en.title"
         :locales="locales"
       />
     </div>
