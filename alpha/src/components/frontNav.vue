@@ -1,8 +1,8 @@
 <template>
-  <nav class="nav">
+  <nav class="nav">{{ navigation && navigation[1] }}
     <div class="nav nav--front">
       <button class="hamburger outline" @click="toggleMenu()">
-        <span class="sr-only absolute">{{ labels[1].text }}</span>
+        <span class="sr-only absolute">{{ labels && labels[1].text }}</span>
         <div
           :class="[
             showMenu
@@ -19,7 +19,7 @@
             class="relative ml-auto"
           >
             <a
-              :href="`/${locales[0] && locales[0] + '/'}${item.url}`"
+              :href="item.url"
               :data-fill="item.label.toUpperCase()"
               class="nav__link inline m-auto transparent no-underline"
             >
@@ -37,10 +37,10 @@
 
 <script setup lang="ts">
 import { ref } from "vue"
-import { Label, NavItem, Settings } from "@/lib/interfaces"
+import { NavItem, Settings } from "@/lib/interfaces"
 
 defineProps<{
-  labels: Label[]
+  labels: { key: string; text: string; } | undefined
   locales: string[]
   navigation?: NavItem[]
   settings?: Settings
@@ -195,6 +195,7 @@ ul {
   cursor: pointer;
   opacity: 0.5;
   transition: opacity 0.3s;
+  background-color: transparent;
   @include b.mq(lg) {
     margin: 3.5em 2.5em 2em auto;
     font-size: 1.2vw;

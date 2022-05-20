@@ -1,24 +1,33 @@
 <template>
-  <div class="flex">
-    <div class="logo relative w-full">
-      <div class="circle relative w-full">
-        <div class="title">
-          <h1 class="h1">{{ artist.toUpperCase() }}</h1>
+  <main class="container main relative w-full">
+    <div class="flex">
+      <div class="logo relative w-full">
+        <div class="circle relative w-full">
+          <div class="title">
+            <h1 class="h1">{{ artist.toUpperCase() }}</h1>
+          </div>
         </div>
       </div>
+      <FrontNav
+        :labels="data?.labels.en"
+        :navigation="data?.navigation.en"
+        :title="data?.settings.en.title"
+        :locales="locales"
+      />
     </div>
-    <FrontNav
-      :labels="data?.labels.en"
-      :nav-items="data?.navigation.en"
-      :title="data?.settings.en.title"
-      :locales="locales"
-    />
-  </div>
+  </main>
+
+  <footer class="footer flex w-full">
+    <nav class="lang">
+      <a :href="`/${locales[1]}`" class="outline">
+        {{ languages[1].toUpperCase() }}
+      </a>
+    </nav>
+    <div class="copy">
+      &copy; {{ year }} {{ data?.settings.en.title }}
+    </div>
+  </footer>
 </template>
-
-<script lang="ts">
-
-</script>
 
 <script setup lang="ts">
 import { computed, onServerPrefetch, ref } from "vue"
@@ -51,10 +60,10 @@ onServerPrefetch(async () => {
   await fetch()
 })
 
-const emit = defineEmits<{
-  (e: 'change', id: number): void
-  (e: 'update', value: string): void
-}>()
+// const emit = defineEmits<{
+//   (e: 'change', id: number): void
+//   (e: 'update', value: string): void
+// }>()
 
 useHead({
   title: data?.value?.settings.en.title,
@@ -129,57 +138,50 @@ meta:
 </route>
 
 <style lang="scss" scoped>
-@use '../styles/base/breakpoints' as b;
 @use '../styles/base/colors' as c;
+@use '../styles/base/breakpoints' as b;
 
-::selection {
-  background: rgba(c.$sepia-150, 0.3);
+.main {
+  margin-bottom: max(40%, (calc(100vh - (4vh + 96vw + 6rem))));
 }
 
-#site-main {
-  min-height: 100vh;
+.container {
+  padding: 3.125rem 1.825rem;
   color: c.$sepia-150;
   background: c.$grey-950;
+  @include b.mq(lg) {
+    padding: 0;
+  }
 }
 
-h1 {
+.logo {
+  flex: 0 0 66.6667%;
+  max-width: 66.6667%;
+  padding-inline: 0;
+  @include b.mq(lg) {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 4em 2em 0;
+    font-size: 1vw;
+  }
+}
+
+.h1 {
   margin-bottom: 0;
   font-size: 7.5vw;
+  font-weight: 700;
   color: c.$grey-950;
   @include b.mq(lg) {
     font-size: 11vw;
   }
 }
 
-.logo {
-  position: relative;
-  padding-right: 0;
-  padding-left: 0;
-  @include b.mq(lg) {
-    padding: 4em 2em 0;
-    font-size: 1vw;
-  }
-}
-
 .circle {
-  position: relative;
-  width: 100%;
   background: c.$sepia-150;
   border-radius: 50%;
   &::after {
     display: block;
     padding-bottom: 100%;
-    content: '';
-  }
-}
-
-.spacer {
-  position: relative;
-  width: 100%;
-  &::after {
-    display: block;
-    padding-bottom: 40%;
-    padding-bottom: max(40%, (calc(100vh - (4vh + 96vw + 6rem))));
     content: '';
   }
 }
@@ -196,26 +198,41 @@ h1 {
   }
 }
 
-.front-copy {
-  padding: 0 5rem 0 0;
-  margin: 0 0 0 auto;
+.footer {
+  align-self: end;
   @include b.mq(lg) {
-    align-self: inherit;
-    padding: 0.8rem;
-  }
-  p {
-    margin: 0;
-    font-size: clamp(1.4rem, 1.8vw, 1.9rem);
-    font-weight: 600;
-    @include b.mq(sm) {
-      font-size: 1.2rem;
-    }
+    padding-bottom: 1%;
   }
 }
 
-.footer {
+.copy,
+.lang {
+  font-size: clamp(1.7rem, 1.8vw, 1.9rem);
+  font-weight: 600;
+  color: c.$sepia-150;
   @include b.mq(lg) {
-    padding-bottom: 1%;
+    font-weight: 400;
+  }
+  a {
+    color: c.$sepia-150;
+  }
+}
+
+.copy {
+  padding: 0 5rem 0 0;
+  margin: 0 0 3rem auto;
+  @include b.mq(lg) {
+    padding: 0 2rem 0 0;
+    margin: 0 0 1.5rem auto;
+  }
+}
+
+.lang {
+  padding: 0 0 0 5rem;
+  margin: 0 auto 3rem 0;
+  @include b.mq(lg) {
+    padding: 0 0 0 2rem;
+    margin: 0 auto 1.5rem 0;
   }
 }
 </style>
