@@ -1,0 +1,75 @@
+<section class="estate relative flex">
+  <div class="estate__container grid">
+    <div class="estate__image">
+      <SanityImage image={photography[2]} lazy={false} />
+    </div>
+    <div class="estate__text flex">
+      <p>
+        {{labels[0].text.toLowerCase() + ": "}}
+        <a href={`mailto:${settings.contact}`}>{{settings.contact}}</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @use '../styles/base/colors' as c;
+  @use '../styles/base/breakpoints' as b;
+
+  .estate {
+    height: calc(100vh - 12rem);
+    padding: 12rem 0 0;
+    @include b.mq(md) {
+      height: auto;
+      min-height: calc(100vh - 4.4rem);
+      padding: 8rem 0 2rem;
+    }
+    @include b.mq(sm) {
+      padding: 8rem 0 2rem;
+    }
+  }
+
+  .estate__container {
+    grid-template-columns: 2fr 3fr;
+    width: min(100rem, 88%);
+    margin: auto;
+    @include b.mq(md) {
+      grid-template-columns: 1fr;
+    }
+    @include b.mq(md) {
+      flex-direction: column;
+    }
+    div {
+      padding-left: 6.5rem;
+      @include b.mq(md) {
+        padding-left: 0;
+      }
+      &:first-child {
+        padding-left: 0;
+      }
+    }
+  }
+
+  .estate__image {
+    @include b.mq(md) {
+      width: 75%;
+      margin: 0 auto 6rem;
+    }
+    @include b.mq(sm) {
+      width: 100%;
+    }
+  }
+
+  .estate__text {
+    place-items: center;
+    p {
+      width: 100%;
+      font-size: 2.2rem;
+      text-align: center;
+    }
+    a {
+      font-weight: 400;
+      text-align: right;
+    }
+  }
+</style>
