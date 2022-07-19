@@ -4,6 +4,7 @@ import Exhibitions from "components/Exhibitions.astro"
 import SanityImage from "components/SanityImage.astro"
 import VideoEmbed from "components/VideoEmbed.astro"
 import { Exhibition, Label, Page, Photography, Video } from "lib/interfaces"
+import { urlFor } from "lib/utils"
 
 const { exhibitions, labels, page, photography, videos } = Astro.props as {
   exhibitions: Exhibition[]
@@ -16,15 +17,26 @@ const { exhibitions, labels, page, photography, videos } = Astro.props as {
 
 <section class="life relative flex">
   <div class="life__container grid">
-    <div class="life__image">
-      <SanityImage image={photography[0]} lazy={false} />
+    <div class="life__image" style={`background-image: url(${urlFor(photography[0].image)
+      .auto("format")
+      .quality(85)
+      .width(800)
+      .url()})`}>
+      <!-- <SanityImage image={photography[0]} lazy={false} /> -->
     </div>
     <div class="life__text" set:html={toHTML(page.body.slice(0, 3))} />
   </div>
   <div class="life__container grid">
     <div class="life__text" set:html={toHTML(page.body.slice(3))} />
-    <div class="life__image hide">
-      <SanityImage image={photography[1]} lazy={true} />
+    <div
+      class="life__image hide"
+      style={`background-image: url(${urlFor(photography[1].image)
+        .auto("format")
+        .quality(85)
+        .width(800)
+        .url()})`}
+    >
+      <!-- <SanityImage image={photography[1]} lazy={true} /> -->
     </div>
   </div>
   <div class="life__container full grid">
@@ -86,6 +98,8 @@ const { exhibitions, labels, page, photography, videos } = Astro.props as {
   }
 
   .life__image {
+    background-size: cover;
+    background-position: 50% 50%;
     @include b.mq(md) {
       width: 75%;
       margin: auto;
