@@ -100,7 +100,7 @@
     transition-duration: 0.7s;
     transition-property: width;
     -webkit-text-fill-color: transparent;
-    -webkit-text-stroke-color: transparent;
+    -webkit-text-stroke-color: c.$sepia-150;
     -webkit-text-stroke-width: 0.015em;
     @include b.mq(sm) {
       width: 100%;
