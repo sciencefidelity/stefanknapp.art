@@ -5,7 +5,6 @@
   "version": "0.1.0",
   "main": "package.json",
   "author": "Matt Cook <sciencefidelity@hotmail.com>",
-  "license": "UNLICENSED",
   "repository": {
     "type": "git",
     "url": "git@github.com:sciencefidelity/stefanknapp.git"
